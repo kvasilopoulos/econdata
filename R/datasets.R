@@ -30,3 +30,37 @@
 #' @source value
 #'
 "u2005"
+
+
+#' Testing for Multiple Bubbles: Historical Episodes of Exuberance and Collapse in the S&P 500
+#'
+#'\itemize{
+#'}
+#'
+#' @format US quarterly data from 1960-Q1 to 2000-Q4
+#' @source value
+#'
+"psy2015"
+
+
+
+# Stock market data
+#'
+#'\itemize{
+#'}
+#'
+#' @format US quarterly data from 1960-Q1 to 2000-Q4
+#' @source value
+#'
+"sp500"
+
+# Historical housing market
+#'
+#'\itemize{
+#'}
+#'
+#' @format US quarterly data from 1960-Q1 to 2000-Q4
+#' @source value
+#'
+"hprice"
+

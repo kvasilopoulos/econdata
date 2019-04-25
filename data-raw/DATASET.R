@@ -1,7 +1,5 @@
 library(tidyverse)
 
-conflicted::conflict_prefer("select", "dplyr")
-
 sw2001 <-
   readxl::read_excel("data-raw/sw2001.xlsx") %>%
   mutate(date = lubridate::yq(obs),
@@ -34,3 +32,4 @@ u2005 <-
   mutate(date = as.Date(date))
 
 usethis::use_data(u2005, overwrite = TRUE)
+

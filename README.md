@@ -38,13 +38,21 @@ sw2001
 #> # ... with 154 more rows
 ```
 
-# List of datasets
+# List of papers’ datasets
 
 | Dataset Name | Description                                                                               |
 | ------------ | ----------------------------------------------------------------------------------------- |
 | sw2001       | Stock & Watson (2001). “Vector Autoregressions,”                                          |
 | bq1989       | Blanchard & Quah (1989) “The Dynamic Effects of Aggregate Demand and Supply Disturbances” |
 | u2005        | Uhlig (2005) “What are the effects of monetary policy on output?”                         |
+| psy2015      | Phillips, Shi & Yu (2015)                                                                 |
+
+# List of miscellanious dataset
+
+| Dataset Name | Description            |
+| ------------ | ---------------------- |
+| hprice       | Historical home prices |
+| sp500        | Stock market data      |
 
 -----
 
