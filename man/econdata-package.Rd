@@ -6,7 +6,7 @@
 \alias{econdata-package}
 \title{Robust Econometric Inference}
 \description{
-Conducting inference on the regression coefficient with a highly persistent regressor.
+Provide data from past economic papers
 }
 \author{
 \strong{Maintainer}: Kostas Vasilopoulos \email{k.vasilopoulo@gmail.com}
