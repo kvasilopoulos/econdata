@@ -1,0 +1,60 @@
+---
+title: "Replication Series: Stock and Watson (2001)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{replication-sw2001}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(econdata)
+library(tidyverse)
+```
+
+```{r fig.width = 10}
+
+fc_labels <-
+  c(
+    "infl" = "Inflation (Annualized QoQ, %)",
+    "un" = "Unemployment (%)",
+    "ff" = "Policy rate (%)"
+  )
+
+gather(sw2001, variable, value, -date, factor_key = TRUE) %>% 
+  ggplot(aes(date, value)) + 
+  geom_line() + 
+  facet_wrap( ~ variable, labeller = labeller(variable = as_labeller(fc_labels))) + 
+  theme_bw() + 
+  labs(x = "", y = "", 
+       # title = "Stock & Watson (2001). 'Vector Autoregressions'",
+       # subtitle = " Journal of Economic Perspectives",
+       title = "US quarterly data from 1960:Q1 to 2000:Q4")
+
+```
+
+```{r var, fig.width=7, fig.height=4}
+library(vars)
+
+sw2001[,-1] %>% 
+  # map_df(~ .x %>%  log() %>% diff()) %>% 
+  VAR() %>% 
+  irf(impulse = "ff", boot = FALSE, n.ahead = 24) %>% 
+  plot()
+
+```
+  
+
+
+
+  
+
+
