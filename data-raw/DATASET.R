@@ -1,5 +1,8 @@
 library(tidyverse)
 
+
+# Stock and Watson 2001 ---------------------------------------------------
+
 sw2001 <-
   readxl::read_excel("data-raw/sw2001.xlsx") %>%
   mutate(date = lubridate::yq(obs),
@@ -32,4 +35,22 @@ u2005 <-
   mutate(date = as.Date(date))
 
 usethis::use_data(u2005, overwrite = TRUE)
+
+
+# PSY 2015 ----------------------------------------------------------------
+
+psy2015 <- readxl::read_excel("data-raw/psy2015.xlsx") %>%
+  set_names("date", "price", "dividend", "ratio", "iratio") %>%
+  mutate(date = as.Date(date))
+
+usethis::use_data(psy2015, overwrite = TRUE)
+
+
+# Gertler and Karadi 2015 -------------------------------------------------
+
+gk2015 <- readxl::read_excel("data-raw/gk2015.xlsx") %>%
+  unite(date, year, month, sep = " ") %>%
+  mutate(date = lubridate::ymd(date, truncated = 1))
+
+usethis::use_data(gk2015, overwrite = TRUE)
 

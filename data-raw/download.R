@@ -1,5 +1,5 @@
 
-# Real Hous price ---------------------------------------------------------
+# Real Home prices --------------------------------------------------------
 
 download.file("http://www.econ.yale.edu/~shiller/data/Fig3-1.xls",
               destfile = "data-raw/shiller.xls", mode = "wb")

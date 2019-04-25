@@ -20,6 +20,7 @@ devtools::install_github("kvasilopoulos/econdata")
 
 ``` r
 library(econdata)
+
 # Stock and Watson (2001) dataset
 sw2001
 #> # A tibble: 164 x 4
@@ -38,21 +39,226 @@ sw2001
 #> # ... with 154 more rows
 ```
 
-# List of papers’ datasets
+# Papers
 
-| Dataset Name | Description                                                                               |
-| ------------ | ----------------------------------------------------------------------------------------- |
-| sw2001       | Stock & Watson (2001). “Vector Autoregressions,”                                          |
-| bq1989       | Blanchard & Quah (1989) “The Dynamic Effects of Aggregate Demand and Supply Disturbances” |
-| u2005        | Uhlig (2005) “What are the effects of monetary policy on output?”                         |
-| psy2015      | Phillips, Shi & Yu (2015)                                                                 |
+``` r
+papers %>% 
+  kable() %>% 
+  column_spec(1, width = "5em") %>% 
+  column_spec(2, width = "14em")
+```
 
-# List of miscellanious dataset
+<table>
 
-| Dataset Name | Description            |
-| ------------ | ---------------------- |
-| hprice       | Historical home prices |
-| sp500        | Stock market data      |
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Key
+
+</th>
+
+<th style="text-align:left;">
+
+Authoryear
+
+</th>
+
+<th style="text-align:left;">
+
+Title
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;width: 5em; ">
+
+bq1989
+
+</td>
+
+<td style="text-align:left;width: 14em; ">
+
+Blanchard & Quah (1989)
+
+</td>
+
+<td style="text-align:left;">
+
+The Dynamic Effects of Aggregate Demand and Supply Disturbances
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;width: 5em; ">
+
+gk2015
+
+</td>
+
+<td style="text-align:left;width: 14em; ">
+
+Gertler & Karadi (2015)
+
+</td>
+
+<td style="text-align:left;">
+
+Monetary Policy Surprises, Credit Costs, and Economic Activity
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;width: 5em; ">
+
+psy2015
+
+</td>
+
+<td style="text-align:left;width: 14em; ">
+
+Phillips, Shi & Yu (2015)
+
+</td>
+
+<td style="text-align:left;">
+
+Testing For Multiple Bubbles: \&nbsp; Historical Episodes Of Exuberance
+And Collapse In The S\&P 500
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;width: 5em; ">
+
+sw2001
+
+</td>
+
+<td style="text-align:left;width: 14em; ">
+
+Stock & Watson (2001)
+
+</td>
+
+<td style="text-align:left;">
+
+Vector Autoregressions
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;width: 5em; ">
+
+u2005
+
+</td>
+
+<td style="text-align:left;width: 14em; ">
+
+Uhlig (2005)
+
+</td>
+
+<td style="text-align:left;">
+
+What are the effects of monetary policy on output
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+# Miscellaneous (updated)
+
+``` r
+misc %>% 
+  kable()
+```
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Key
+
+</th>
+
+<th style="text-align:left;">
+
+Description
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+hprice
+
+</td>
+
+<td style="text-align:left;">
+
+Historicla Home prices
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+sp500
+
+</td>
+
+<td style="text-align:left;">
+
+SP500 stocke market data
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 -----
 
