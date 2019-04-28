@@ -1,9 +1,11 @@
 Package: econdata
 Type: Package
-Title: Economic data
+Title: Curated list of economic datasets
 Version: 0.1.0
 Authors@R: person("Kostas", "Vasilopoulos", , email = "k.vasilopoulo@gmail.com", c("cre", "aut"))
-Description: Provide data from past economic papers
+Description: In Economics authors have collected their own research data or used external datasets. 
+The goal of {econodata} is to provide a curated list of datasets that are used in the most influential 
+economic papers. 
 Depends: 
     R (>= 3.1)
 Imports: 

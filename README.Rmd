@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of econdata is to provide data from economics papers.
+In Economics authors have collected their own research data or used external datasets. The goal of {econodata} is to provide a curated list of datasets that are used in the most influential economic papers. 
 
 ## Installation
 
@@ -28,6 +28,8 @@ devtools::install_github("kvasilopoulos/econdata")
 ```
 
 # Usage
+
+All data are stored as objects in unquoted name format.
 
 ```{r}
 library(econdata)
@@ -43,16 +45,17 @@ library(knitr)
 library(kableExtra)
 ```
 
-```{r}
+```{r echo=FALSE}
 papers %>% 
   kable() %>% 
   column_spec(1, width = "5em") %>% 
   column_spec(2, width = "14em")
 ```
 
+
 # Miscellaneous (updated)
 
-```{r}
+```{r echo=FALSE}
 misc %>% 
   kable()
 ```

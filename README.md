@@ -7,7 +7,9 @@
 
 <!-- badges: end -->
 
-The goal of econdata is to provide data from economics papers.
+In Economics authors have collected their own research data or used
+external datasets. The goal of {econodata} is to provide a curated list
+of datasets that are used in the most influential economic papers.
 
 ## Installation
 
@@ -17,6 +19,8 @@ devtools::install_github("kvasilopoulos/econdata")
 ```
 
 # Usage
+
+All data are stored as objects in unquoted name format.
 
 ``` r
 library(econdata)
@@ -40,13 +44,6 @@ sw2001
 ```
 
 # Papers
-
-``` r
-papers %>% 
-  kable() %>% 
-  column_spec(1, width = "5em") %>% 
-  column_spec(2, width = "14em")
-```
 
 <table>
 
@@ -195,11 +192,6 @@ What are the effects of monetary policy on output
 
 # Miscellaneous (updated)
 
-``` r
-misc %>% 
-  kable()
-```
-
 <table>
 
 <thead>
@@ -234,7 +226,7 @@ hprice
 
 <td style="text-align:left;">
 
-Historicla Home prices
+Historical Home prices
 
 </td>
 
