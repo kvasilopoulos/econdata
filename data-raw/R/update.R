@@ -54,3 +54,55 @@ sp500 <-
   as_tibble()
 
 use_data(sp500, overwrite = TRUE)
+
+
+# Dallas Fed --------------------------------------------------------------
+
+library(rvest)
+
+relative_url <-
+  read_html("https://www.dallasfed.org/institute/houseprice#tab2") %>%
+  html_nodes("a") %>%
+  html_attr("href") %>%
+  grep(".xlsx$", ., value = TRUE) %>%
+  `[`(1)
+
+absolute_url <- paste0("https://www.dallasfed.org", relative_url)
+
+temp <- "data-raw/hp_iho.xlsx"
+
+download.file(absolute_url, destfile = temp, mode = 'wb')
+
+rhpi <- readxl::read_excel(temp, sheet = 3)
+
+rpdi <- readxl::read_excel(temp, sheet = 5)
+
+
+# Real House Price Index
+price_iho <-
+  rhpi %>%
+  slice(-1) %>%
+  rename(Date = 1) %>%
+  mutate(Date = Date %>% lubridate::yq()) %>%
+  select( -25) %>%
+  na.omit()
+
+# Real Personal Disposable Index
+income_iho <-
+  rpdi %>%
+  slice(-1) %>%
+  rename(Date = 1) %>%
+  mutate(Date = Date %>% lubridate::yq()) %>%
+  select( -25) %>%
+  na.omit()
+
+hprice_iho <- full_join(
+    gather(price_iho, name, price, -Date),
+    gather(income_iho, name, income, -Date),
+    by = c("Date", "name")
+) %>%
+  group_by(Date, name) %>%
+  mutate(ratio = price/income) %>%
+  ungroup()
+
+use_data(hprice_iho, overwrite = TRUE)
