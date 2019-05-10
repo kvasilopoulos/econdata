@@ -67,3 +67,14 @@
 #'
 "hprice"
 
+
+# International House Price Database
+#'
+#'\itemize{
+#'}
+#'
+#' @format  quarterly data from 1960-Q1 to 2000-Q4
+#' @source value
+#'
+"hprice_iho"
+
