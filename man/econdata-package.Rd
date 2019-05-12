@@ -4,9 +4,16 @@
 \name{econdata-package}
 \alias{econdata}
 \alias{econdata-package}
-\title{Robust Econometric Inference}
+\title{Curated list of economic datasets
+In Economics authors have collected their own
+research data or used external datasets. The goal of {econodata} is to
+provide a curated list of datasets that are used in the most
+influential economic papers.}
 \description{
-Provide data from past economic papers
+In Economics authors have collected their own
+    research data or used external datasets. The goal of {econodata} is to
+    provide a curated list of datasets that are used in the most
+    influential economic papers.
 }
 \author{
 \strong{Maintainer}: Kostas Vasilopoulos \email{k.vasilopoulo@gmail.com}

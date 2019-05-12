@@ -47,7 +47,7 @@
 # Misc --------------------------------------------------------------------
 
 
-# Stock market data
+#' Stock market data
 #'
 #'\itemize{
 #'}
@@ -57,7 +57,7 @@
 #'
 "sp500"
 
-# Historical housing market
+#' Historical housing market
 #'
 #'\itemize{
 #'}
@@ -68,13 +68,25 @@
 "hprice"
 
 
-# International House Price Database
+#' International House Price Database
 #'
 #'\itemize{
 #'}
 #'
-#' @format  quarterly data from 1960-Q1 to 2000-Q4
-#' @source value
+#' @format  quarterly data from 1975-Q1 to 2018-Q4
+#' @source https://www.dallasfed.org/institute/houseprice#tab2
 #'
 "hprice_iho"
+
+#' NBER recession peak, trhough and duration
+#'
+#'\itemize{
+#'}
+#'
+#' @format  monthly data from 1854
+#' @source https://www.nber.org/cycles/NBER%20chronology.xlsx
+#'
+"nber_rec"
+
+
 

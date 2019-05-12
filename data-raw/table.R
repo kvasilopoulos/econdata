@@ -19,10 +19,7 @@ misc <-
   tibble::tribble(
     ~  Key, ~ Description,
     "hprice", "Historical Home prices",
-    "sp500", "SP500 stocke market data",
-    "hprice_iho", "International House Price Database",
-    "nber_rec", "NBER Recession Periods",
-
+    "sp500", "SP500 stocke market data"
   )
 
 usethis::use_data(misc, overwrite = TRUE)

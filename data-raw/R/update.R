@@ -1,4 +1,7 @@
 
+library(tidyverse)
+library(lubridate)
+
 # Real Home prices --------------------------------------------------------
 
 download.file("http://www.econ.yale.edu/~shiller/data/Fig3-1.xls",
@@ -106,3 +109,22 @@ hprice_iho <- full_join(
   ungroup()
 
 use_data(hprice_iho, overwrite = TRUE)
+
+
+# NBER Recession  ---------------------------------------------------------
+
+nber_url <- "https://www.nber.org/cycles/NBER%20chronology.xlsx"
+
+nber_temp <- "data-raw/nber-rec.xlsx"
+
+download.file(nber_url, destfile = nber_temp, mode = 'wb')
+
+nber_rec <- readxl::read_excel("data-raw/nber-rec.xlsx") %>%
+  select(1, 2, 5) %>%
+  set_names("Peak", "Trough", "Duration") %>%
+  slice(-c((nrow(.) - 6):nrow(.))) %>%
+  mutate(Peak = parse_date(Peak, format = "%B %Y"),
+         Trough = parse_date(Trough, format = "%B %Y"))
+
+use_data(nber_rec, overwrite = TRUE)
+
