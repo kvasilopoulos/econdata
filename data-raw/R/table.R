@@ -22,7 +22,7 @@ misc <-
     ~  Key, ~ Description,
     "kl2017", "Killian Lutkepohl 2017 Book",
     "hprice", "Historical Home prices",
-    "sp500", "SP500 stocke market data",
+    "sp500", "SP500 stock market data",
     "hprice_iho", "International House Price Database",
     "nber_rec", "NBER Recession Periods",
 

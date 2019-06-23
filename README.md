@@ -53,19 +53,19 @@ sw2001
 
 <th style="text-align:left;">
 
-Key
+key
 
 </th>
 
 <th style="text-align:left;">
 
-Authoryear
+authoryear
 
 </th>
 
 <th style="text-align:left;">
 
-Title
+title
 
 </th>
 
@@ -77,13 +77,13 @@ Title
 
 <tr>
 
-<td style="text-align:left;width: 6em; ">
+<td style="text-align:left;width: 5em; ">
 
 bq1989
 
 </td>
 
-<td style="text-align:left;width: 14em; ">
+<td style="text-align:left;width: 16em; ">
 
 Blanchard & Quah (1989)
 
@@ -99,13 +99,13 @@ The Dynamic Effects of Aggregate Demand and Supply Disturbances
 
 <tr>
 
-<td style="text-align:left;width: 6em; ">
+<td style="text-align:left;width: 5em; ">
 
 gk2015
 
 </td>
 
-<td style="text-align:left;width: 14em; ">
+<td style="text-align:left;width: 16em; ">
 
 Gertler & Karadi (2015)
 
@@ -121,13 +121,13 @@ Monetary Policy Surprises, Credit Costs, and Economic Activity
 
 <tr>
 
-<td style="text-align:left;width: 6em; ">
+<td style="text-align:left;width: 5em; ">
 
 psy2015
 
 </td>
 
-<td style="text-align:left;width: 14em; ">
+<td style="text-align:left;width: 16em; ">
 
 Phillips, Shi & Yu (2015)
 
@@ -144,13 +144,13 @@ And Collapse In The S\&P 500
 
 <tr>
 
-<td style="text-align:left;width: 6em; ">
+<td style="text-align:left;width: 5em; ">
 
 sw2001
 
 </td>
 
-<td style="text-align:left;width: 14em; ">
+<td style="text-align:left;width: 16em; ">
 
 Stock & Watson (2001)
 
@@ -166,13 +166,13 @@ Vector Autoregressions
 
 <tr>
 
-<td style="text-align:left;width: 6em; ">
+<td style="text-align:left;width: 5em; ">
 
 u2005
 
 </td>
 
-<td style="text-align:left;width: 14em; ">
+<td style="text-align:left;width: 16em; ">
 
 Uhlig (2005)
 
