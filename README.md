@@ -77,7 +77,7 @@ Title
 
 <tr>
 
-<td style="text-align:left;width: 5em; ">
+<td style="text-align:left;width: 6em; ">
 
 bq1989
 
@@ -99,7 +99,7 @@ The Dynamic Effects of Aggregate Demand and Supply Disturbances
 
 <tr>
 
-<td style="text-align:left;width: 5em; ">
+<td style="text-align:left;width: 6em; ">
 
 gk2015
 
@@ -121,7 +121,7 @@ Monetary Policy Surprises, Credit Costs, and Economic Activity
 
 <tr>
 
-<td style="text-align:left;width: 5em; ">
+<td style="text-align:left;width: 6em; ">
 
 psy2015
 
@@ -144,7 +144,7 @@ And Collapse In The S\&P 500
 
 <tr>
 
-<td style="text-align:left;width: 5em; ">
+<td style="text-align:left;width: 6em; ">
 
 sw2001
 
@@ -166,7 +166,7 @@ Vector Autoregressions
 
 <tr>
 
-<td style="text-align:left;width: 5em; ">
+<td style="text-align:left;width: 6em; ">
 
 u2005
 

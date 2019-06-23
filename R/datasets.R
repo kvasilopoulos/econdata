@@ -1,10 +1,16 @@
 #' Stock & Watson (2001). “Vector Autoregressions,” Journal of Economic Perspectives
 #'
 #'\itemize{
+#'  \item date:
+#'  \item infl:
+#'  \item un:
+#'  \item ff:
 #'}
 #'
 #' @format US quarterly data from 1960-Q1 to 2000-Q4
-#' @source value
+#'
+#' @reference Stock, J. H., & Watson, M. W. (2001). Vector autoregressions.
+#' Journal of Economic perspectives, 15(4), 101-115.
 #'
 "sw2001"
 
@@ -42,9 +48,16 @@
 #'
 "psy2015"
 
-
+#' Killian Lutkepohl 2017 Book
+#'
+#' @format US quarterly data from 1954-Q4 to 2007-Q4
+#' @source value
+#'
+"kl2017"
 
 # Misc --------------------------------------------------------------------
+
+
 
 
 #' Stock market data
@@ -89,4 +102,14 @@
 "nber_rec"
 
 
+
+#' Killian Lutkepohl 2017 Book - Oil VAR data
+#'
+#'\itemize{
+#'}
+#'
+#' @format US quarterly data from 1960-Q1 to 2000-Q4
+#' @source value
+#'
+"oil"
 

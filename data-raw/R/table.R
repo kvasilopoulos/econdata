@@ -1,16 +1,18 @@
 papers <-
   tibble::tribble(
-    ~ Key,  ~ Authoryear, ~ Title,
+    ~ key,  ~ authoryear, ~ title,
     "sw2001",  "Stock & Watson (2001)", "Vector Autoregressions",
     "bq1989",  "Blanchard & Quah (1989)", "The Dynamic Effects of Aggregate Demand and Supply Disturbances",
     "u2005",   "Uhlig (2005)",    "What are the effects of monetary policy on output",
-    "psy2015", "Phillips, Shi & Yu (2015)", "Testing For Multiple Bubbles: &nbsp; Historical Episodes Of Exuberance And Collapse In The S&P 500",
+    "psy2015", "Phillips, Shi & Yu (2015)", "Testing For Multiple Bubbles: Historical Episodes Of Exuberance And Collapse In The S&P 500",
     "gk2015",  "Gertler & Karadi (2015)", "Monetary Policy Surprises, Credit Costs, and Economic Activity"
   ) %>%
-    dplyr::arrange(Key)
+  dplyr::arrange(key) %>%
+  mutate(author = stringr::str_extract(authoryear, "([^,]+)") %>%
+           stringr::word(., start = 1)) %>%
+  mutate(year = stringr::str_extract(authoryear, "(?<=\\().*?(?=\\))"))
 
 usethis::use_data(papers, overwrite = TRUE)
-
 
 
 # Rest --------------------------------------------------------------------
@@ -18,6 +20,7 @@ usethis::use_data(papers, overwrite = TRUE)
 misc <-
   tibble::tribble(
     ~  Key, ~ Description,
+    "kl2017", "Killian Lutkepohl 2017 Book",
     "hprice", "Historical Home prices",
     "sp500", "SP500 stocke market data",
     "hprice_iho", "International House Price Database",
