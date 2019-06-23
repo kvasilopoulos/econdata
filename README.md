@@ -83,7 +83,7 @@ bq1989
 
 </td>
 
-<td style="text-align:left;width: 16em; ">
+<td style="text-align:left;width: 20em; ">
 
 Blanchard & Quah (1989)
 
@@ -105,7 +105,7 @@ gk2015
 
 </td>
 
-<td style="text-align:left;width: 16em; ">
+<td style="text-align:left;width: 20em; ">
 
 Gertler & Karadi (2015)
 
@@ -127,7 +127,7 @@ psy2015
 
 </td>
 
-<td style="text-align:left;width: 16em; ">
+<td style="text-align:left;width: 20em; ">
 
 Phillips, Shi & Yu (2015)
 
@@ -150,7 +150,7 @@ sw2001
 
 </td>
 
-<td style="text-align:left;width: 16em; ">
+<td style="text-align:left;width: 20em; ">
 
 Stock & Watson (2001)
 
@@ -172,7 +172,7 @@ u2005
 
 </td>
 
-<td style="text-align:left;width: 16em; ">
+<td style="text-align:left;width: 20em; ">
 
 Uhlig (2005)
 

@@ -49,7 +49,7 @@ library(kableExtra)
 papers[,1:3] %>% 
   kable() %>% 
   column_spec(1, width = "5em") %>% 
-  column_spec(2, width = "16em")
+  column_spec(2, width = "20em")
 ```
 
 
