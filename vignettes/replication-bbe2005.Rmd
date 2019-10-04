@@ -1,0 +1,192 @@
+---
+title: "replication-bbe2005"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{replication-bbe2005}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 12
+)
+```
+
+```{r setup}
+library(econdata)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 2:22) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Real output and income") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 24:49) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Employment and hours") +
+  theme_bw() +
+    theme(
+      axis.title = element_blank()
+    )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 50:54) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Consumption") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 55:61) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Housing starts ") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 62:66) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Real inventories, orders, and unfilled orders") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 67:73) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Stock prices") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 74:77) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Exchange rates") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 78:92) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Interest rates") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 93:102) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Money and credit quantity aggregates") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 103:118) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Price indexes") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 119:120) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Average hourly earnings ") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+
+```{r}
+bbe2005 %>%
+  select(Date, 121) %>% 
+  gather(type, value, -Date) %>% 
+  ggplot(aes(Date, value)) +
+  geom_line() +
+  facet_wrap(~type, ncol = 3, scales = "free_y") + 
+  ggtitle("Miscellaneous ") +
+  theme_bw() +
+  theme(
+    axis.title = element_blank()
+  )
+```
+

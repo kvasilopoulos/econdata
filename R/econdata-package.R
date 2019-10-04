@@ -1,13 +1,17 @@
-#' Curated list of economic datasets
-#' In Economics authors have collected their own
-#' research data or used external datasets. The goal of {econodata} is to
-#' provide a curated list of datasets that are used in the most
-#' influential economic papers.
-#'
-#'
+#' @name econdata
 #' @docType package
 #' @import tibble
 #' @keywords internal
 "_PACKAGE"
 
-
+#' Pipe operator
+#'
+#' See \code{magrittr::\link[magrittr]{\%>\%}} for details.
+#'
+#' @name %>%
+#' @rdname pipe
+#' @keywords internal
+#' @export
+#' @importFrom magrittr %>%
+#' @usage lhs \%>\% rhs
+NULL
