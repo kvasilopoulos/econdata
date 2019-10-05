@@ -29,10 +29,7 @@ sw2001 <-
          ff = 3) %>%
   select(date, everything())
 
-
 usethis::use_data(sw2001, overwrite = TRUE)
-
-
 
 # Uhlig 2005 --------------------------------------------------------------
 
@@ -60,7 +57,4 @@ gk2015 <- readxl::read_excel("data-raw/gk2015.xlsx") %>%
   mutate(date = lubridate::ymd(date, truncated = 1))
 
 usethis::use_data(gk2015, overwrite = TRUE)
-
-
-
 

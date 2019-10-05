@@ -15,12 +15,10 @@ License: MIT + file LICENSE
 Depends: 
     R (>= 3.1)
 Imports: 
-    magrittr,
-    tibble,
-    dplyr,
-    rcrossref,
-    purrr
-Suggests: 
+    tibble
+Suggests:
+    ggplo2,
+    tidyr,
     knitr,
     rmarkdown
 VignetteBuilder: 

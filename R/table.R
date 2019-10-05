@@ -1,18 +1,18 @@
-#' @export
-#' @importFrom dplyr select_if rename_all rename select mutate
-#' @importFrom purrr map_chr
-papers <- function(raw = FALSE) {
-  out <- bibfile() %>%
-    select_if(~ !all(is.na(.))) %>%
-    rename_all(list(~tolower(.x))) %>%
-    rename(key = bibtexkey)
-  if (isFALSE(raw)) {
-    out <- out %>%
-      mutate(authors = map_chr(author, paste, collapse = ", ")) %>%
-      select(key, authors, title)
-  }
-  out
-}
+#' #' @export
+#' #' @importFrom dplyr select_if rename_all rename select mutate
+#' #' @importFrom purrr map_chr
+#' papers <- function(raw = FALSE) {
+#'   out <- bibfile() %>%
+#'     select_if(~ !all(is.na(.))) %>%
+#'     rename_all(list(~tolower(.x))) %>%
+#'     rename(key = bibtexkey)
+#'   if (isFALSE(raw)) {
+#'     out <- out %>%
+#'       mutate(authors = map_chr(author, paste, collapse = ", ")) %>%
+#'       select(key, authors, title)
+#'   }
+#'   out
+#' }
 
 
 # papers <- function() {

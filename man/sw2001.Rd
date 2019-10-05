@@ -3,23 +3,34 @@
 \docType{data}
 \name{sw2001}
 \alias{sw2001}
-\title{Stock & Watson (2001). "Vector Autoregressions," Journal of Economic Perspectives}
-\format{US quarterly data from 1960-Q1 to 2000-Q4}
+\title{\Sexpr[stage=render,results=rd]{econdata:::bib_title("sw2001")}}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 164 rows and 4 columns.}
+\source{
+\Sexpr[stage=render,results=rd]{econdata:::bib_url("sw2001")}
+}
 \usage{
 sw2001
 }
 \description{
-Stock & Watson (2001). "Vector Autoregressions," Journal of Economic Perspectives
+\Sexpr[stage=render,results=rd]{econdata:::bib_title("sw2001")}
 }
-\section{BLa}{
-
-
-\itemize{
-\item date:
-\item infl:
-\item un:
-\item ff:
-}
+\section{Author(s)}{
+ \Sexpr[stage=render,results=rd]{econdata:::bib_author("sw2001")}
 }
 
+\section{Year}{
+ \Sexpr[stage=render,results=rd]{econdata:::bib_year("sw2001")}
+}
+
+\section{Journal}{
+ \Sexpr[stage=render,results=rd]{econdata:::bib_journal("sw2001")}
+}
+
+\section{Doi}{
+ \Sexpr[stage=render,results=rd]{econdata:::bib_doi("sw2001")}
+}
+
+\references{
+\Sexpr[stage=render,results=rd]{econdata:::bib_ref_apa("sw2001")}
+}
 \keyword{datasets}
