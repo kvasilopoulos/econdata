@@ -9,7 +9,10 @@ valid_key <- function(key) {
 bib_pull <- function(key, tag) {
   valid_key(key)
   key_set <- subset(bibdf, BIBTEXKEY == key)
-  key_set[, tag, drop = TRUE]
+  tryCatch(
+    key_set[, tag, drop = TRUE],
+    error = function(e) NULL
+  )
 }
 
 
@@ -28,8 +31,7 @@ bib_journal <- function(key) {
 }
 
 bib_author <- function(key) {
-  bib_pull(key, "AUTHOR") %>%
-    unlist()
+  unlist(bib_pull(key, "AUTHOR"))
 }
 
 bib_year <- function(key) {
@@ -44,5 +46,15 @@ bib_url <- function(key) {
 }
 
 bib_ref_apa <- function(key) {
-  # rcrossref::cr_cn(dois = bib_doi(key), format = "text", style = "apa")
+  bib_pull(key, "REF")
 }
+
+style_apa <- function(key) {
+  author <- paste(bib_author(key), collapse = " ")
+  year <- bib_year(key)
+  title <- bib_title(key)
+  journal <- bib_journal(key)
+  paste(author, year, title, journal)
+
+}
+

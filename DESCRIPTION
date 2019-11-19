@@ -1,29 +1,30 @@
 Type: Package
 Package: econdata
-Title: Curated list of economic datasets
+Title: Curated List of Economic Datasets
 Version: 0.1.0
 Authors@R: 
     person(given = "Kostas",
            family = "Vasilopoulos",
            role = c("cre", "aut"),
            email = "k.vasilopoulo@gmail.com")
-Description: In Economics authors have collected their own
-    research data or used external datasets. The goal of {econodata} is to
-    provide a curated list of datasets that are used in the most
-    influential economic papers.
+Description: The goal of {econodata} is to provide a curated list of datasets 
+    that are used in the most influential economic papers.
 License: MIT + file LICENSE
 Depends: 
     R (>= 3.1)
 Imports: 
     tibble
 Suggests:
-    ggplo2,
+    ggplot2,
     tidyr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    dplyr,
+    vars,
+    testthat (>= 2.1.0)
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.0

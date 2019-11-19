@@ -30,7 +30,4 @@ bbe2005
  \Sexpr[stage=render,results=rd]{econdata:::bib_doi("bbe2005")}
 }
 
-\references{
-\Sexpr[stage=render,results=rd]{econdata:::bib_ref_apa("bbe2005")}
-}
 \keyword{datasets}

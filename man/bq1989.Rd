@@ -3,7 +3,7 @@
 \docType{data}
 \name{bq1989}
 \alias{bq1989}
-\title{Supply Disturbances}
+\title{\Sexpr[stage=render,results=rd]{econdata:::bib_title("bq1989")}}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 159 rows and 3 columns.}
 \source{
 \Sexpr[stage=render,results=rd]{econdata:::bib_url("bq1989")}
@@ -12,8 +12,6 @@
 bq1989
 }
 \description{
-Supply Disturbances
-
 \Sexpr[stage=render,results=rd]{econdata:::bib_title("bq1989")}
 }
 \section{Author(s)}{
@@ -32,7 +30,4 @@ Supply Disturbances
  \Sexpr[stage=render,results=rd]{econdata:::bib_doi("bq1989")}
 }
 
-\references{
-\Sexpr[stage=render,results=rd]{econdata:::bib_ref_apa("bq1989")}
-}
 \keyword{datasets}

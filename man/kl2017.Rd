@@ -4,14 +4,11 @@
 \name{kl2017}
 \alias{kl2017}
 \title{Killian Lutkepohl 2017 Book}
-\format{US quarterly data from 1954-Q4 to 2007-Q4}
-\source{
-value
-}
+\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 213 rows and 4 columns.}
 \usage{
 kl2017
 }
 \description{
-Killian Lutkepohl 2017 Book
+adsfsadf
 }
 \keyword{datasets}

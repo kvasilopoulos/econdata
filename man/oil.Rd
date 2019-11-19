@@ -4,15 +4,11 @@
 \name{oil}
 \alias{oil}
 \title{Killian Lutkepohl 2017 Book - Oil VAR data}
-\format{US quarterly data from 1960-Q1 to 2000-Q4}
-\source{
-value
-}
+\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 162 rows and 4 columns.}
 \usage{
 oil
 }
 \description{
-\itemize{
-}
+fasdasd
 }
 \keyword{datasets}

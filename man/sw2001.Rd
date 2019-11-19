@@ -30,7 +30,4 @@ sw2001
  \Sexpr[stage=render,results=rd]{econdata:::bib_doi("sw2001")}
 }
 
-\references{
-\Sexpr[stage=render,results=rd]{econdata:::bib_ref_apa("sw2001")}
-}
 \keyword{datasets}

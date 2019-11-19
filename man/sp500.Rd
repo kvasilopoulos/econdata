@@ -4,15 +4,11 @@
 \name{sp500}
 \alias{sp500}
 \title{Stock market data}
-\format{US quarterly data from 1960-Q1 to 2000-Q4}
-\source{
-value
-}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1780 rows and 4 columns.}
 \usage{
 sp500
 }
 \description{
-\itemize{
-}
+adsfasdf
 }
 \keyword{datasets}

@@ -3,7 +3,7 @@
 \docType{data}
 \name{gk2015}
 \alias{gk2015}
-\title{economic activity}
+\title{\Sexpr[stage=render,results=rd]{econdata:::bib_title("gk2015")}}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 396 rows and 13 columns.}
 \source{
 \Sexpr[stage=render,results=rd]{econdata:::bib_url("gk2015")}
@@ -12,8 +12,6 @@
 gk2015
 }
 \description{
-economic activity
-
 \Sexpr[stage=render,results=rd]{econdata:::bib_title("gk2015")}
 }
 \section{Author(s)}{
@@ -32,7 +30,4 @@ economic activity
  \Sexpr[stage=render,results=rd]{econdata:::bib_doi("gk2015")}
 }
 
-\references{
-\Sexpr[stage=render,results=rd]{econdata:::bib_ref_apa("gk2015")}
-}
 \keyword{datasets}

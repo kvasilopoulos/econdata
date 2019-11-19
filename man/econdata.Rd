@@ -4,12 +4,10 @@
 \name{econdata}
 \alias{econdata}
 \alias{econdata-package}
-\title{econdata: Curated list of economic datasets}
+\title{econdata: Curated List of Economic Datasets}
 \description{
-In Economics authors have collected their own
-    research data or used external datasets. The goal of {econodata} is to
-    provide a curated list of datasets that are used in the most
-    influential economic papers.
+The goal of {econodata} is to provide a curated list of datasets 
+    that are used in the most influential economic papers.
 }
 \author{
 \strong{Maintainer}: Kostas Vasilopoulos \email{k.vasilopoulo@gmail.com}

@@ -4,15 +4,11 @@
 \name{hprice}
 \alias{hprice}
 \title{Historical housing market}
-\format{US quarterly data from 1960-Q1 to 2000-Q4}
-\source{
-value
-}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 130 rows and 5 columns.}
 \usage{
 hprice
 }
 \description{
-\itemize{
-}
+asdfasdf
 }
 \keyword{datasets}

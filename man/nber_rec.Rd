@@ -4,15 +4,11 @@
 \name{nber_rec}
 \alias{nber_rec}
 \title{NBER recession peak, trhough and duration}
-\format{monthly data from 1854}
-\source{
-https://www.nber.org/cycles/NBER%20chronology.xlsx
-}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 34 rows and 3 columns.}
 \usage{
 nber_rec
 }
 \description{
-\itemize{
-}
+asdfasdf
 }
 \keyword{datasets}

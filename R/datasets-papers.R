@@ -8,7 +8,6 @@
 
 #' @template rox_papers
 #' @templateVar key "u2005"
-#'
 "u2005"
 
 #' @template rox_papers

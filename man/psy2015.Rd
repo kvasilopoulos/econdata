@@ -30,7 +30,4 @@ psy2015
  \Sexpr[stage=render,results=rd]{econdata:::bib_doi("psy2015")}
 }
 
-\references{
-\Sexpr[stage=render,results=rd]{econdata:::bib_ref_apa("psy2015")}
-}
 \keyword{datasets}
