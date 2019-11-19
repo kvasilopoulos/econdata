@@ -58,3 +58,45 @@ gk2015 <- readxl::read_excel("data-raw/gk2015.xlsx") %>%
 
 usethis::use_data(gk2015, overwrite = TRUE)
 
+
+
+# Books ###################################################################
+
+
+# Killian Lutkepohl 2017 --------------------------------------------------
+
+kl2017 <- read_csv("data-raw/kl2017.csv", col_names = FALSE) %>%
+  set_names("drgdp", "ff", "infl") %>%
+  mutate(date = seq(as.Date("1954-10-01"), as.Date("2007-10-01"), "quarters")) %>%
+  select(date, everything())
+
+usethis::use_data(kl2017, overwrite = TRUE)
+
+
+# Killian Lutkepohl 2017 oil var ------------------------------------------
+
+oil <- read_csv("data-raw/oil.csv", col_names = FALSE) %>%
+  set_names("drpoil", "infl", "drgdp") %>%
+  mutate(date = seq(as.Date("1973-01-01"), as.Date("2013-04-01"), "quarters")) %>%
+  select(date, everything())
+
+usethis::use_data(oil, overwrite = TRUE)
+
+# NBER Recession ###########################################################
+
+nber_url <- "https://www.nber.org/cycles/NBER%20chronology.xlsx"
+
+nber_temp <- "data-raw/nber-rec.xlsx"
+
+download.file(nber_url, destfile = nber_temp, mode = 'wb')
+
+nber_rec <- readxl::read_excel("data-raw/nber-rec.xlsx") %>%
+  select(1, 2, 5) %>%
+  set_names("Peak", "Trough", "Duration") %>%
+  slice(-c((nrow(.) - 6):nrow(.))) %>%
+  mutate(Peak = parse_date(Peak, format = "%B %Y"),
+         Trough = parse_date(Trough, format = "%B %Y"))
+
+use_data(nber_rec, overwrite = TRUE)
+
+

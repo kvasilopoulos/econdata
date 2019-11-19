@@ -1,5 +1,5 @@
 ---
-title: "Replication Series: Stock and Watson (2001)"
+title: "Stock and Watson (2001)"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{replication-sw2001}
@@ -42,17 +42,7 @@ gather(sw2001, variable, value, -date, factor_key = TRUE) %>%
 
 ```
 
-```{r var, fig.width=7, fig.height=4}
-library(vars)
 
-sw2001[,-1] %>% 
-  # map_df(~ .x %>%  log() %>% diff()) %>% 
-  VAR() %>% 
-  irf(impulse = "ff", boot = FALSE, n.ahead = 24) %>% 
-  plot()
-
-```
-  
 
 
 

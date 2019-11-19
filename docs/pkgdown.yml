@@ -4,4 +4,7 @@ pkgdown_sha: ~
 articles:
   replication-bbe2005: replication-bbe2005.html
   replication-sw2001: replication-sw2001.html
+urls:
+  reference: https://kvasilopoulos.github.io/econdata//reference
+  article: https://kvasilopoulos.github.io/econdata//articles
 

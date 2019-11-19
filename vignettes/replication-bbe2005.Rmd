@@ -1,5 +1,5 @@
 ---
-title: "replication-bbe2005"
+title: "Bernanke, Boivin, and Eliasz (2005)"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{replication-bbe2005}

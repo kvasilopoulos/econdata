@@ -6,8 +6,16 @@
 \alias{econdata-package}
 \title{econdata: Curated List of Economic Datasets}
 \description{
-The goal of {econodata} is to provide a curated list of datasets 
-    that are used in the most influential economic papers.
+The goal of {econodata} is to provide a curated
+    list of datasets that are used in the most influential economic papers.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/kvasilopoulos/econdata}
+  \item Report bugs at \url{https://github.com/kvasilopoulos/econdata/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Kostas Vasilopoulos \email{k.vasilopoulo@gmail.com}

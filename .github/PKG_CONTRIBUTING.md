@@ -1,4 +1,6 @@
-Follow these 4 simple steps:
+# Instructions
+
+In order to contribute please follow these 4 simple steps:
 
 1) Store the initial file 
 
@@ -8,7 +10,7 @@ Follow these 4 simple steps:
 
 2) Store it as data in the package
 
-* Go back to `data-raw/papers.R`.
+* Go back to `data-raw/DATASETS.R`.
 * Read, manipulate and store the dataset with the `usethis::use_data()` function.
 
 3) Create a bib entry
@@ -19,7 +21,7 @@ Follow these 4 simple steps:
 
 4) Document the dataset
 
-* Navigate into `R/datasets-papers.R`
+* Navigate into `R/datasets.R`
 * Add the below command chunk above the the name of the dataset
 
 ```

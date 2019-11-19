@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/econdata)](https://CRAN.R-project.org/package=econdata)
 <!-- badges: end -->
 
 In Economics authors have collected their own research data or used
