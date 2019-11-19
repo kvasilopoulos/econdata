@@ -1,56 +1,55 @@
-filepath <- "data-raw/bib/papers.bib"
-file.create(filepath)
+# filepath <- "data-raw/bib/papers.bib"
+# file.create(filepath)
 
 library(rcrossref)
 library(purrr)
 library(dplyr)
+require(RefManageR)
 
-cr_cn(
-  c(
-    "10.1162/0033553053327452", # bbe2005
-    # "10.3386/w2737", #bq1989
-    "10.1257/mac.20130329", #gk2015
-    "10.1257/jep.15.4.101", #sw2001
-    # "10.1111/iere.12132", #psy2015
-    "10.1016/j.jmoneco.2004.05.007" #u2005
-  )
-  ) %>% map_chr(~ paste0(.x, "\n\n")) %>%
-  cat(file = filepath)
-
-readLines("data-raw/bib/papers-default.bib") %>%
-  cat(file = filepath, append = TRUE, sep = "\n")
+# cr_cn(
+#   c(
+#     "10.1162/0033553053327452", # bbe2005
+#     # "10.3386/w2737", #bq1989
+#     "10.1257/mac.20130329", #gk2015
+#     "10.1257/jep.15.4.101", #sw2001
+#     # "10.1111/iere.12132", #psy2015
+#     "10.1016/j.jmoneco.2004.05.007" #u2005
+#   )
+#   ) %>% map_chr(~ paste0(.x, "\n\n")) %>%
+#   cat(file = filepath)
+#
+# readLines("data-raw/bib/papers-default.bib") %>%
+#   cat(file = filepath, append = TRUE, sep = "\n")
 
 
 # change the name of the key ----------------------------------------------
 
-readLines(filepath) %>%
-  gsub("Stock_2001"     , "sw2001", .) %>%
-  gsub("Bernanke_2005"  , "bbe2005", .) %>%
-  gsub("Gertler_2015"   , "gk2015", .) %>%
-  # gsub("Phillips_2015"  , "psy2015", .) %>%
-  # gsub("Blanchard_1988" , "bq1989", .) %>% #doi only available for wp
-  gsub("Uhlig_2005"     , "u2005", .) %>%
-  writeLines(filepath)
+# readLines(filepath) %>%
+#   gsub("Stock_2001"     , "sw2001", .) %>%
+#   gsub("Bernanke_2005"  , "bbe2005", .) %>%
+#   gsub("Gertler_2015"   , "gk2015", .) %>%
+#   # gsub("Phillips_2015"  , "psy2015", .) %>%
+#   # gsub("Blanchard_1988" , "bq1989", .) %>% #doi only available for wp
+#   gsub("Uhlig_2005"     , "u2005", .) %>%
+#   writeLines(filepath)
 
 
 # store as data -----------------------------------------------------------
 
+bibfile <- file.path("data-raw/...bib/papers.bib")
 
-bibdf_raw <- bib2df::bib2df("data-raw/bib/papers.bib")
+bibdf_raw <- bib2df::bib2df(bibfile)
 bibdf <- bibdf_raw %>%
   select_if(~ !all(is.na(.)))
 
-require(RefManageR)
-
-bibfile <- system.file("data-raw/bib/papers.bib", package = "econdata")
 bib <- ReadBib(bibfile, check = "error")
 
-
 to_ref <- function(x, .opts = list(bib.style = "authoryear"), ...) {
-  if (length(.opts)) {
-    oldopts <- RefManageR:::BibOptions(.opts)
-    on.exit(RefManageR:::BibOptions(oldopts))
-  }
+
+  # if (length(.opts)) {
+  #   oldopts <- RefManageR:::BibOptions(.opts)
+  #   on.exit(RefManageR:::BibOptions(oldopts))
+  # }
   style <- RefManageR:::.BibOptions$style
   sorting <- if (!length(RefManageR:::.BibOptions$sorting))
     sorting <- switch(RefManageR:::.BibOptions$bib.style, authoryear = "nyt",
@@ -88,6 +87,8 @@ to_ref <- function(x, .opts = list(bib.style = "authoryear"), ...) {
 
 ref <- to_ref(bib)
 ref <- gsub("\n", " ", ref)
+ref <- gsub("“", "'", ref)
+ref <- gsub("”", "'", ref)
 
 bibdf$AUTHORYEAR <- Citet(bib) %>%
   strsplit(";") %>%
@@ -97,5 +98,5 @@ bibdf$REFERENCE <- ref
 
 bibdf <- bibdf %>%
   select(BIBTEXKEY, AUTHORYEAR, TITLE, JOURNAL, DOI, everything())
-
-usethis::use_data(bibdf, overwrite = TRUE)
+papers <- bibdf
+usethis::use_data(papers, overwrite = TRUE)

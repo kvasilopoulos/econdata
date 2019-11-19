@@ -3,31 +3,15 @@
 \docType{data}
 \name{u2005}
 \alias{u2005}
-\title{\Sexpr[stage=render,results=rd]{econdata:::bib_title("u2005")}}
+\title{\Sexpr[stage=render,results=rd]{econdata:::bib_authoryear("u2005")}}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 468 rows and 7 columns.}
-\source{
-\Sexpr[stage=render,results=rd]{econdata:::bib_url("u2005")}
-}
 \usage{
 u2005
 }
 \description{
 \Sexpr[stage=render,results=rd]{econdata:::bib_title("u2005")}
 }
-\section{Author(s)}{
- \Sexpr[stage=render,results=rd]{econdata:::bib_author("u2005")}
+\references{
+\Sexpr[stage=render,results=rd]{econdata:::bib_ref("u2005")}
 }
-
-\section{Year}{
- \Sexpr[stage=render,results=rd]{econdata:::bib_year("u2005")}
-}
-
-\section{Journal}{
- \Sexpr[stage=render,results=rd]{econdata:::bib_journal("u2005")}
-}
-
-\section{Doi}{
- \Sexpr[stage=render,results=rd]{econdata:::bib_doi("u2005")}
-}
-
 \keyword{datasets}

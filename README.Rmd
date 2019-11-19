@@ -41,23 +41,24 @@ sw2001
 # Papers
 
 ```{r include=FALSE}
-# library(knitr)
-# library(kableExtra)
-library(DT)
+library(knitr)
+library(kableExtra)
+# library(DT)
 ```
 
 ```{r echo=FALSE}
 bibdf[,1:3] %>% 
-  DT::datatable()
-  # kable() %>% 
-  # column_spec(1, width = "5em") %>% 
-  # column_spec(2, width = "20em")
+  # DT::datatable()
+  kable() %>%
+  column_spec(1, width = "5em") %>%
+  column_spec(2, width = "20em")
 ```
 
 ### Contributing to the Package
 
 If you want to contribute to the package:
-* We followe [tidyverse principles](.github/CONTRIBUTING.md)
+
+* We follow the [tidyverse principles](.github/CONTRIBUTING.md)
 * Specific instructions to contribute to the package can be found [here](.github/PKG_CONTRIBUTING.md).
 
 ---
