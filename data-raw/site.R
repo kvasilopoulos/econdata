@@ -139,7 +139,8 @@ hero_chart <- function() {
 # index.html --------------------------------------------------------------
 
 cat_order <- c("Monetary policy", "Fiscal policy", "Business cycles", "Financial conditions",
-               "Uncertainty", "Productivity", "Asset prices", "Oil and energy")
+               "Uncertainty", "Productivity", "Asset prices", "Oil and energy", "Crises", "Trade",
+               "Labour", "Education", "Health", "Development and growth", "Inequality")
 stopifnot(all(catalog$category %in% cat_order))
 
 tag_html <- function(tags) vapply(strsplit(tags, "|", fixed = TRUE),

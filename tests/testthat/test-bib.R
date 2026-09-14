@@ -20,4 +20,9 @@ test_that("catalog matches the shipped data", {
   expect_true(all(na.omit(catalog$paper) %in% papers$BIBTEXKEY))
   expect_false(anyNA(catalog[c("category", "tags", "frequency", "start", "end")]))
   expect_false(anyNA(sources[c("name", "category", "tags", "url")]))
+  expect_true(all(catalog$category %in% c(
+    "Monetary policy", "Fiscal policy", "Business cycles", "Financial conditions", "Uncertainty",
+    "Productivity", "Asset prices", "Oil and energy", "Crises", "Trade", "Labour", "Education",
+    "Health", "Development and growth", "Inequality")))
+  expect_true(all(vapply(catalog$key, function(k) inherits(get(k, envir = asNamespace("econdata")), "tbl_df"), NA)))
 })
