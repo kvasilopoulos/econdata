@@ -1,6 +1,5 @@
 ---
 output: github_document
-always_allow_html: yes
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -16,56 +15,81 @@ knitr::opts_chunk$set(
 # econdata
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/econdata)](https://CRAN.R-project.org/package=econdata)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-In Economics authors have collected their own research data or used external datasets. The goal of {econodata} is to provide a curated list of datasets that are used in the most influential economic papers. 
+Curated datasets used in influential empirical macroeconomics papers, with a
+catalog of categories and tags, pointers to external replication data, and CSV
+copies served from the package website so you can use them from any language.
 
 ## Installation
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("kvasilopoulos/econdata")
+# install.packages("pak")
+pak::pak("kvasilopoulos/econdata")
 ```
 
-# Usage
+## Usage
 
-All data are stored as objects in unquoted name format.
+Each dataset is an object named after the paper it comes from:
 
 ```{r}
 library(econdata)
 
-# Stock and Watson (2001) dataset
-sw2001
+sw2001 # Stock and Watson (2001)
 ```
 
-# Papers
+The `catalog` lists everything with categories, tags and sample ranges:
 
-```{r include=FALSE}
-library(knitr)
-library(kableExtra)
-# library(DT)
+```{r}
+catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
+
+# Datasets tagged "var"
+catalog$key[sapply(strsplit(catalog$tags, "|", fixed = TRUE), function(t) "var" %in% t)]
 ```
 
-```{r echo=FALSE}
-papers[,1:3] %>% 
-  # DT::datatable()
-  kable() %>%
-  column_spec(1, width = "5em") %>%
-  column_spec(2, width = "20em")
+## Static CSV API
+
+Every dataset is also published as CSV at
+`https://kvasilopoulos.github.io/econdata/data/<key>.csv`, with a JSON index at
+[`data/index.json`](https://kvasilopoulos.github.io/econdata/data/index.json).
+No R required:
+
+``` r
+read.csv("https://kvasilopoulos.github.io/econdata/data/sw2001.csv")
 ```
 
-### Contributing to the Package
+``` python
+pd.read_csv("https://kvasilopoulos.github.io/econdata/data/gk2015.csv", parse_dates=["date"])
+```
 
-If you want to contribute to the package:
+## Finding other replication data
 
-* We follow the [tidyverse principles](.github/CONTRIBUTING.md)
-* Specific instructions to contribute to the package can be found [here](.github/PKG_CONTRIBUTING.md).
+`sources` (and the [Find data](https://kvasilopoulos.github.io/econdata/articles/sources.html)
+page) lists freely available datasets behind commonly replicated papers:
+Ramey's shock series, FRED-MD, Kilian's oil data, Shiller's stock data, the
+Macrohistory database and more.
 
----
+```{r}
+sources[grepl("monetary-policy", sources$tags), c("name", "coverage")]
+```
+
+## Datasets
+
+```{r echo = FALSE}
+knitr::kable(catalog[, c("key", "title", "category", "frequency")])
+```
+
+## Contributing
+
+* Add a dataset: put the raw file under `data-raw/<key>/`, add a block to
+  `data-raw/DATASETS.R`, a bib entry to `data-raw/bib/papers.bib`, and a row
+  to `data-raw/catalog.csv`. Then run `data-raw/bib/create_papers.R`,
+  `data-raw/catalog.R` and `data-raw/export.R`.
+* Add an external source: a row in `data-raw/sources.csv`.
+* We follow the [tidyverse principles](.github/CONTRIBUTING.md); see also
+  [PKG_CONTRIBUTING.md](.github/PKG_CONTRIBUTING.md).
 
 Please note that the 'econdata' project is released with a
 [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
-
