@@ -9,3 +9,4 @@
 ^_pkgdown\.yml$
 ^pkgdown$
 ^vignettes/articles$
+^CLAUDE\.md$
