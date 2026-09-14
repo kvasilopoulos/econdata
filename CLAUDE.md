@@ -1,7 +1,11 @@
 # econdata
 
 R data package: curated datasets from influential macro papers, served both as
-R objects and as static CSVs from the pkgdown site (`docs/`, GitHub Pages).
+R objects and as static CSVs from `docs/` (GitHub Pages, branch master /docs).
+No pkgdown: `data-raw/site.R` writes `docs/index.md` + `docs/variables.md`
+(rendered by GitHub's built-in Jekyll, theme in `docs/_config.yml`), the CSV
+API under `docs/data/`, and the vignettes as self-contained HTML in
+`docs/articles/`.
 
 ## Layout
 
@@ -11,25 +15,30 @@ R objects and as static CSVs from the pkgdown site (`docs/`, GitHub Pages).
 - `data-raw/catalog.csv` (hand-curated category/tags/source per dataset) +
   `data-raw/sources.csv` (external replication data) -> `catalog.R` ->
   `data/catalog.rda`, `data/sources.rda`; nrow/ncol/start/end are computed
-- `data-raw/export.R` -> `pkgdown/assets/data/*.csv`, `index.json`,
-  `papers.bib`, `bbe2005-variables.csv`; pkgdown copies these to `docs/data/`
+- `data-raw/catalog.R` also builds `variables` (column dictionary) from the
+  readme sheets of the wide panels (bbe2005 catalog.CSV is windows-1252)
+- `data-raw/site.R` -> everything under `docs/` (deletes and recreates it)
 - `R/datasets.R` roxygen for every object; `man-roxygen/rox_papers.R`
   template pulls title/reference from `papers` via `\Sexpr` at render time,
-  so the package must be installed before `document()`/pkgdown
-- `vignettes/articles/` are site-only (Rbuildignored): `catalog.Rmd`
-  (DT table, csv links), `sources.Rmd`
+  so the package must be installed before `document()`. Datasets sharing a
+  paper (kl2017/oil, ramey2016_*) get explicit titles + `@references \Sexpr`
+  instead of the template so reference titles stay distinct
 
 ## Adding a dataset
 
 1. Raw file under `data-raw/<key>/`, block in `DATASETS.R`, run it
 2. Bib entry in `data-raw/bib/papers.bib` (brace the year), run `create_papers.R`
-3. Row in `data-raw/catalog.csv`, run `catalog.R`, then `export.R`
+3. Row in `data-raw/catalog.csv` (category must be in `cat_order` in
+   `site.R`), run `catalog.R`
 4. `#' @template rox_papers` + `@templateVar key "<key>"` in `R/datasets.R`
-5. Add to a `reference:` group in `_pkgdown.yml`
-6. `devtools::document(); devtools::install(); devtools::test()`;
-   `pkgdown::build_site()`; commit `docs/`
+5. `devtools::document(); devtools::install(); devtools::test()`
+6. `Rscript data-raw/site.R`; commit `docs/`
 
-External source only: row in `data-raw/sources.csv`, run `catalog.R` + `export.R`.
+External source only: row in `data-raw/sources.csv`, run `catalog.R` + `site.R`.
+
+Raw sources bundled so far: Ramey's Handbook zips (`Ramey_HOM_*.zip`) and
+Ramey-Zubairy replication zip from econweb.ucsd.edu/~vramey, Fed EBP csv.
+Kilian (2009) AEA data needs a login; not fetchable.
 
 ## Conventions
 

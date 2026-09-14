@@ -65,13 +65,19 @@ pd.read_csv("https://kvasilopoulos.github.io/econdata/data/gk2015.csv", parse_da
 
 ## Finding other replication data
 
-`sources` (and the [Find data](https://kvasilopoulos.github.io/econdata/articles/sources.html)
-page) lists freely available datasets behind commonly replicated papers:
-Ramey's shock series, FRED-MD, Kilian's oil data, Shiller's stock data, the
-Macrohistory database and more.
+`sources` (and the [site](https://kvasilopoulos.github.io/econdata/#finding-other-replication-data))
+lists freely available datasets behind commonly replicated papers:
+FRED-MD, Kilian's oil data, Shiller's stock data, the Macrohistory database,
+uncertainty and shadow-rate series and more.
 
 ```{r}
 sources[grepl("monetary-policy", sources$tags), c("name", "coverage")]
+```
+
+Column definitions for the wide panels (`bbe2005`, `ramey2016_*`, `rz2018`):
+
+```{r}
+subset(variables, dataset == "rz2018")[1:5, ]
 ```
 
 ## Datasets
@@ -80,12 +86,15 @@ sources[grepl("monetary-policy", sources$tags), c("name", "coverage")]
 knitr::kable(catalog[, c("key", "title", "category", "frequency")])
 ```
 
+Replication notebooks: [Stock and Watson (2001)](https://kvasilopoulos.github.io/econdata/articles/replication-sw2001.html),
+[Bernanke, Boivin and Eliasz (2005)](https://kvasilopoulos.github.io/econdata/articles/replication-bbe2005.html).
+
 ## Contributing
 
 * Add a dataset: put the raw file under `data-raw/<key>/`, add a block to
   `data-raw/DATASETS.R`, a bib entry to `data-raw/bib/papers.bib`, and a row
   to `data-raw/catalog.csv`. Then run `data-raw/bib/create_papers.R`,
-  `data-raw/catalog.R` and `data-raw/export.R`.
+  `data-raw/catalog.R` and `data-raw/site.R` (rebuilds `docs/`).
 * Add an external source: a row in `data-raw/sources.csv`.
 * We follow the [tidyverse principles](.github/CONTRIBUTING.md); see also
   [PKG_CONTRIBUTING.md](.github/PKG_CONTRIBUTING.md).

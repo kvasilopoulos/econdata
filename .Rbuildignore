@@ -7,6 +7,4 @@
 ^docs$
 ^man-roxygen$
 ^_pkgdown\.yml$
-^pkgdown$
-^vignettes/articles$
 ^CLAUDE\.md$
