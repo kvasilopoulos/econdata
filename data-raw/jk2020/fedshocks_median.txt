@@ -1,0 +1,30 @@
+Variable names:
+
+MP_pm,CBI_pm - Monetary Policy and Central Bank Information shocks obtained
+               with simple ("Poor Man's") sign restrictions.
+
+MP_median,CBI_median - Monetary Policy and Central Bank Information shocks obtained
+               with the median rotation that implements the sign restrictions.
+
+The variables explained:
+
+For the definition of Monetary Policy and Central Bank Information shocks and the motivation of the sign restrictions see:
+Jarocinski, M. and Karadi, P. (2020) Deconstructing  Monetary Policy Surprises - The Role of Information Shocks, AEJ:Macro, DOI: 10.1257/mac.20180090
+
+The source data for the construction of these variables:
+
+The source data are the financial market "surprises" measured around the times of the FOMC announcements. 
+This is the dataset of Gurkaynak, Sack and Swanson (2005) updated until June 2019 by Gurkaynak, Karasoy-Can and Lee (2021) and available in their replication files at \url{http://www.bilkent.edu.tr/~refet/GKL_replication.zip}.
+
+Based on this dataset we first construct
+pc1ff1 - surprise in the "policy indicator", ie the 1st principal component of
+         the surprises in interest rate derivatives with maturities
+         from 1 month to 1 year (MP1, FF4, ED2, ED3, ED4)
+sp500 - surprise in the S&P500
+and based on them we construct the shocks.
+
+The content of the different .csv files:
+
+..._d.csv - daily shocks
+..._m.csv - monthly shocks, sum of the daily shocks in each month (or zero if no shocks in this month)
+..._q.csv - quarterly shocks, sum of the daily shocks in each quarter
