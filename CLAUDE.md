@@ -37,9 +37,10 @@ CDN, ~20 lines of vanilla JS for the catalog filter), writes the CSV API under
 
 External source only: row in `data-raw/sources.csv`, run `catalog.R` + `site.R`.
 
-Raw sources bundled so far: Ramey's Handbook zips (`Ramey_HOM_*.zip`) and
-Ramey-Zubairy replication zip from econweb.ucsd.edu/~vramey, Fed EBP csv.
-Kilian (2009) AEA data needs a login; not fetchable.
+`data-raw/TODO.md` is the dataset backlog (bundled / todo / blocked with
+URLs). Update it every time a lead is checked or a dataset lands; the user
+wants the search to keep going. `DATASETS.R` has `frac_to_date()` for
+fractional-year dates and `month_date()` for year+month columns.
 
 ## Conventions
 
