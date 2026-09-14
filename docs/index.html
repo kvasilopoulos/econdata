@@ -64,7 +64,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <section class="row align-items-end gy-4 mt-4">
 <div class="col-lg-6">
 <h1>The data behind the papers, ready to load.</h1>
-<p class="lead mt-3">15 datasets from influential empirical macro papers, curated as an R package and published as plain CSV so they work from any language. Each one keeps the sample and variables the authors used.</p>
+<p class="lead mt-3">25 datasets from influential empirical macro papers, curated as an R package and published as plain CSV so they work from any language. Each one keeps the sample and variables the authors used.</p>
 </div>
 <div class="col-lg-6">
 <ul class="nav nav-tabs" role="tablist">
@@ -149,6 +149,7 @@ sw2001       # Stock and Watson (2001)</code></pre></div>
 <button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Fiscal policy">Fiscal policy</button>
 <button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Business cycles">Business cycles</button>
 <button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Financial conditions">Financial conditions</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Uncertainty">Uncertainty</button>
 <button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Productivity">Productivity</button>
 <button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Asset prices">Asset prices</button>
 <button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Oil and energy">Oil and energy</button>
@@ -263,6 +264,76 @@ sw2001       # Stock and Watson (2001)</code></pre></div>
 <td><span class="tag">credit-spread</span><span class="tag">excess-bond-premium</span><span class="tag">financial</span><span class="tag">recession-probability</span><span class="tag">us</span></td>
 <td><a class="btn btn-outline-secondary btn-csv" href="data/gz2012.csv" download>csv</a></td>
 </tr>
+<tr data-cat="Monetary policy" data-text="wx2016 wu and xia (2016) shadow federal funds rate monetary policy monetary-policy zlb shadow-rate fed-funds us date, ff, shadow">
+<td><span class="key">wx2016</span></td>
+<td class="title">Wu and Xia (2016) shadow federal funds rate<div class="paper"><a href="https://www.atlantafed.org/cqer/research/wu-xia-shadow-federal-funds-rate" class="link-secondary">Wu and Xia (2016)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">monthly<br><span class="paper">1960 to 2022</span></td><td class="text-nowrap">746 &times; 3</td>
+<td><span class="tag">monetary-policy</span><span class="tag">zlb</span><span class="tag">shadow-rate</span><span class="tag">fed-funds</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/wx2016.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Productivity" data-text="f2014 fernald (2014) utilization-adjusted tfp productivity tfp productivity technology-shocks utilization us date, dy_prod, dy_inc, dy, dhours, dlp, dk, dlq_bls_interpolated, dlq_aaronson_sullivan, dlq, alpha, dtfp, dutil, dtfp_util, relativeprice, invshare, dtfp_i, dtfp_c, du_invest, du_consumption, dtfp_i_util, dtfp_c_util">
+<td><span class="key">f2014</span></td>
+<td class="title">Fernald (2014) utilization-adjusted TFP<div class="paper"><a href="https://www.frbsf.org/research-and-insights/data-and-indicators/total-factor-productivity-tfp/" class="link-secondary">Fernald (2014)</a></div></td>
+<td>Productivity</td><td class="text-nowrap">quarterly<br><span class="paper">1947 to 2026</span></td><td class="text-nowrap">318 &times; 22</td>
+<td><span class="tag">tfp</span><span class="tag">productivity</span><span class="tag">technology-shocks</span><span class="tag">utilization</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/f2014.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Uncertainty" data-text="bbd2016 baker, bloom and davis (2016) us economic policy uncertainty uncertainty uncertainty policy news epu us date, epu_news, epu_3comp, epu_news_legacy, epu_govt_disagreement, epu_cpi_disagreement, epu_tax_expiration">
+<td><span class="key">bbd2016</span></td>
+<td class="title">Baker, Bloom and Davis (2016) US economic policy uncertainty<div class="paper"><a href="https://www.policyuncertainty.com/" class="link-secondary">Baker, Bloom, and Davis (2016)</a></div></td>
+<td>Uncertainty</td><td class="text-nowrap">monthly<br><span class="paper">1900 to 2026</span></td><td class="text-nowrap">1520 &times; 7</td>
+<td><span class="tag">uncertainty</span><span class="tag">policy</span><span class="tag">news</span><span class="tag">epu</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/bbd2016.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Oil and energy" data-text="k2009 kilian (2009) global real economic activity index oil and energy oil global-activity shipping index world date, igrea">
+<td><span class="key">k2009</span></td>
+<td class="title">Kilian (2009) global real economic activity index<div class="paper"><a href="https://www.dallasfed.org/research/igrea" class="link-secondary">Kilian (2009)</a></div></td>
+<td>Oil and energy</td><td class="text-nowrap">monthly<br><span class="paper">1968 to 2026</span></td><td class="text-nowrap">703 &times; 2</td>
+<td><span class="tag">oil</span><span class="tag">global-activity</span><span class="tag">shipping</span><span class="tag">index</span><span class="tag">world</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/k2009.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Uncertainty" data-text="jln2015 jurado, ludvigson and ng (2015) macro, financial and real uncertainty uncertainty uncertainty macro financial factor-model us date, macro_h1, macro_h3, macro_h12, financial_h1, financial_h3, financial_h12, real_h1, real_h3, real_h12">
+<td><span class="key">jln2015</span></td>
+<td class="title">Jurado, Ludvigson and Ng (2015) macro, financial and real uncertainty<div class="paper"><a href="https://www.sydneyludvigson.com/macro-and-financial-uncertainty-indexes" class="link-secondary">Jurado, Ludvigson, and Ng (2015)</a></div></td>
+<td>Uncertainty</td><td class="text-nowrap">monthly<br><span class="paper">1960 to 2026</span></td><td class="text-nowrap">792 &times; 10</td>
+<td><span class="tag">uncertainty</span><span class="tag">macro</span><span class="tag">financial</span><span class="tag">factor-model</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/jln2015.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="jk2020 jarocinski and karadi (2020) monetary policy and information shocks monetary policy monetary-policy high-frequency information-effect sign-restrictions us date, pc1ff1_hf, sp500_hf, mp_pm, cbi_pm, mp_median, cbi_median">
+<td><span class="key">jk2020</span></td>
+<td class="title">Jarocinski and Karadi (2020) monetary policy and information shocks<div class="paper"><a href="https://marekjarocinski.github.io/jkshocks/jkshocks.html" class="link-secondary">Jarociński and Karadi (2020)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">monthly<br><span class="paper">1990 to 2019</span></td><td class="text-nowrap">353 &times; 7</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">information-effect</span><span class="tag">sign-restrictions</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/jk2020.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Fiscal policy" data-text="mr2013 mertens and ravn (2013) narrative tax shocks fiscal policy fiscal-policy tax narrative proxy-svar us date, t_pi, t_ci, m_pi, m_ci, apitr, acitr, pitb, citb, gov, rgdp, debt, ff, plevel, nbr, emp, hperw, lf, cndsv, cd, inr, ir">
+<td><span class="key">mr2013</span></td>
+<td class="title">Mertens and Ravn (2013) narrative tax shocks<div class="paper"><a href="https://karelmertens.com/research/" class="link-secondary">Mertens and Ravn (2013)</a></div></td>
+<td>Fiscal policy</td><td class="text-nowrap">quarterly<br><span class="paper">1950 to 2006</span></td><td class="text-nowrap">228 &times; 22</td>
+<td><span class="tag">fiscal-policy</span><span class="tag">tax</span><span class="tag">narrative</span><span class="tag">proxy-svar</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/mr2013.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Uncertainty" data-text="ci2022 caldara and iacoviello (2022) geopolitical risk index uncertainty geopolitical-risk uncertainty news global country-panel date, gpr, gprt, gpra, gprh, gprht, gprha, share_gpr, n10, share_gprh, n3h, shareh_cat_1, shareh_cat_2, shareh_cat_3, shareh_cat_4, shareh_cat_5, shareh_cat_6, shareh_cat_7, shareh_cat_8, gprc_arg, gprc_aus, gprc_bel, gprc_bra, gprc_can, gprc_che, gprc_chl, gprc_chn, gprc_col, gprc_deu, gprc_dnk, gprc_egy, gprc_esp, gprc_fin, gprc_fra, gprc_gbr, gprc_hkg, gprc_hun, gprc_idn, gprc_ind, gprc_isr, gprc_ita, gprc_jpn, gprc_kor, gprc_mex, gprc_mys, gprc_nld, gprc_nor, gprc_per, gprc_phl, gprc_pol, gprc_prt, gprc_rus, gprc_sau, gprc_swe, gprc_tha, gprc_tun, gprc_tur, gprc_twn, gprc_ukr, gprc_usa, gprc_ven, gprc_vnm, gprc_zaf">
+<td><span class="key">ci2022</span></td>
+<td class="title">Caldara and Iacoviello (2022) geopolitical risk index<div class="paper"><a href="https://www.matteoiacoviello.com/gpr.htm" class="link-secondary">Caldara and Iacoviello (2022)</a></div></td>
+<td>Uncertainty</td><td class="text-nowrap">monthly<br><span class="paper">1900 to 2026</span></td><td class="text-nowrap">1520 &times; 63</td>
+<td><span class="tag">geopolitical-risk</span><span class="tag">uncertainty</span><span class="tag">news</span><span class="tag">global</span><span class="tag">country-panel</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/ci2022.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Asset prices" data-text="s2015 shiller (2015) irrational exuberance online data asset prices stock-market dividends earnings cape interest-rates bubbles us date, price, dividend, earnings, cpi, gs10, real_price, real_dividend, real_tr_price, real_earnings, real_tr_earnings, cape, tr_cape, ecy, bond_return, real_bond_return, stock_real_return_10y, bond_real_return_10y, excess_return_10y">
+<td><span class="key">s2015</span></td>
+<td class="title">Shiller (2015) Irrational Exuberance online data<div class="paper"><a href="http://www.econ.yale.edu/~shiller/data.htm" class="link-secondary">Shiller (2015)</a></div></td>
+<td>Asset prices</td><td class="text-nowrap">monthly<br><span class="paper">1871 to 2023</span></td><td class="text-nowrap">1833 &times; 19</td>
+<td><span class="tag">stock-market</span><span class="tag">dividends</span><span class="tag">earnings</span><span class="tag">cape</span><span class="tag">interest-rates</span><span class="tag">bubbles</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/s2015.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Fiscal policy" data-text="r2011 ramey (2011) government spending shocks fiscal policy fiscal-policy government-spending military-news defense us date, pdvmil, pdvmily, rgdp, rcons, rcdur, rcnd, rcsv, rinvfx, rnri, rres, rgov, rfed, rdef, kcdur, tothours, milithours, totpop, rwmfg, cpi, baa, tb3, amtbr">
+<td><span class="key">r2011</span></td>
+<td class="title">Ramey (2011) government spending shocks<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Ramey (2011)</a></div></td>
+<td>Fiscal policy</td><td class="text-nowrap">quarterly<br><span class="paper">1939 to 2008</span></td><td class="text-nowrap">280 &times; 23</td>
+<td><span class="tag">fiscal-policy</span><span class="tag">government-spending</span><span class="tag">military-news</span><span class="tag">defense</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/r2011.csv" download>csv</a></td>
+</tr>
 </tbody></table></div>
 <p class="count">Column definitions for the wide panels are on the <a href="variables.html">variables</a> page. Dates are ISO <code>YYYY-MM-DD</code>; missing values are empty cells.</p>
 <h2 id="api">Static API</h2>
@@ -292,6 +363,16 @@ sw2001       # Stock and Watson (2001)</code></pre></div>
 <li id="p-r2016">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>.<br><span class="count">key <span class="key">r2016</span></span></li>
 <li id="p-rz2018">V. A. Ramey and S. Zubairy. "Government Spending Multipliers in Good Times and in Bad: Evidence from US Historical Data". In: <em>Journal of Political Economy</em> 126.2 (2018), pp. 850-901. DOI: 10.1086/696277. <a href="https://doi.org/10.1086/696277">https://doi.org/10.1086/696277</a>.<br><span class="count">key <span class="key">rz2018</span></span></li>
 <li id="p-gz2012">S. Gilchrist and E. Zakrajšek. "Credit Spreads and Business Cycle Fluctuations". In: <em>American Economic Review</em> 102.4 (2012), pp. 1692-1720. DOI: 10.1257/aer.102.4.1692. <a href="https://doi.org/10.1257/aer.102.4.1692">https://doi.org/10.1257/aer.102.4.1692</a>.<br><span class="count">key <span class="key">gz2012</span></span></li>
+<li id="p-wx2016">J. C. Wu and F. D. Xia. "Measuring the Macroeconomic Impact of Monetary Policy at the Zero Lower Bound". In: <em>Journal of Money, Credit and Banking</em> 48.2-3 (2016), pp. 253-291. DOI: 10.1111/jmcb.12300. <a href="https://doi.org/10.1111/jmcb.12300">https://doi.org/10.1111/jmcb.12300</a>.<br><span class="count">key <span class="key">wx2016</span></span></li>
+<li id="p-f2014">J. G. Fernald. <em>A Quarterly, Utilization-Adjusted Series on Total Factor Productivity</em>. Working Paper 2012-19. Federal Reserve Bank of San Francisco, 2014. DOI: 10.24148/wp2012-19. <a href="https://doi.org/10.24148/wp2012-19">https://doi.org/10.24148/wp2012-19</a>.<br><span class="count">key <span class="key">f2014</span></span></li>
+<li id="p-bbd2016">S. R. Baker, N. Bloom, and S. J. Davis. "Measuring Economic Policy Uncertainty". In: <em>The Quarterly Journal of Economics</em> 131.4 (2016), pp. 1593-1636. DOI: 10.1093/qje/qjw024. <a href="https://doi.org/10.1093/qje/qjw024">https://doi.org/10.1093/qje/qjw024</a>.<br><span class="count">key <span class="key">bbd2016</span></span></li>
+<li id="p-k2009">L. Kilian. "Not All Oil Price Shocks Are Alike: Disentangling Demand and Supply Shocks in the Crude Oil Market". In: <em>American Economic Review</em> 99.3 (2009), pp. 1053-1069. DOI: 10.1257/aer.99.3.1053. <a href="https://doi.org/10.1257/aer.99.3.1053">https://doi.org/10.1257/aer.99.3.1053</a>.<br><span class="count">key <span class="key">k2009</span></span></li>
+<li id="p-jln2015">K. Jurado, S. C. Ludvigson, and S. Ng. "Measuring Uncertainty". In: <em>American Economic Review</em> 105.3 (2015), pp. 1177-1216. DOI: 10.1257/aer.20131193. <a href="https://doi.org/10.1257/aer.20131193">https://doi.org/10.1257/aer.20131193</a>.<br><span class="count">key <span class="key">jln2015</span></span></li>
+<li id="p-jk2020">M. Jarociński and P. Karadi. "Deconstructing Monetary Policy Surprises: The Role of Information Shocks". In: <em>American Economic Journal: Macroeconomics</em> 12.2 (2020), pp. 1-43. DOI: 10.1257/mac.20180090. <a href="https://doi.org/10.1257/mac.20180090">https://doi.org/10.1257/mac.20180090</a>.<br><span class="count">key <span class="key">jk2020</span></span></li>
+<li id="p-mr2013">K. Mertens and M. O. Ravn. "The Dynamic Effects of Personal and Corporate Income Tax Changes in the United States". In: <em>American Economic Review</em> 103.4 (2013), pp. 1212-1247. DOI: 10.1257/aer.103.4.1212. <a href="https://doi.org/10.1257/aer.103.4.1212">https://doi.org/10.1257/aer.103.4.1212</a>.<br><span class="count">key <span class="key">mr2013</span></span></li>
+<li id="p-ci2022">D. Caldara and M. Iacoviello. "Measuring Geopolitical Risk". In: <em>American Economic Review</em> 112.4 (2022), pp. 1194-1225. DOI: 10.1257/aer.20191823. <a href="https://doi.org/10.1257/aer.20191823">https://doi.org/10.1257/aer.20191823</a>.<br><span class="count">key <span class="key">ci2022</span></span></li>
+<li id="p-s2015">R. J. Shiller. <em>Irrational Exuberance</em>. 3rd ed. Princeton: Princeton University Press, 2015. <a href="http://www.econ.yale.edu/~shiller/data.htm">http://www.econ.yale.edu/~shiller/data.htm</a>.<br><span class="count">key <span class="key">s2015</span></span></li>
+<li id="p-r2011">V. A. Ramey. "Identifying Government Spending Shocks: It's All in the Timing". In: <em>The Quarterly Journal of Economics</em> 126.1 (2011), pp. 1-50. DOI: 10.1093/qje/qjq008. <a href="https://doi.org/10.1093/qje/qjq008">https://doi.org/10.1093/qje/qjq008</a>.<br><span class="count">key <span class="key">r2011</span></span></li>
 </ol>
 <h2 id="sources">Find other replication data</h2>
 <p class="lead">Freely available datasets behind commonly replicated papers that are not bundled here: too large, updated regularly, or restrictively licensed. Author websites are the best source for shock series because authors keep extending them.</p>

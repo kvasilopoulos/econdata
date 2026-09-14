@@ -49,24 +49,20 @@ The `catalog` lists everything with categories, tags and sample ranges:
 
 ``` r
 catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
-#> # A tibble: 15 × 7
-#>    key            category           frequency start      end         nrow  ncol
-#>    <chr>          <chr>              <chr>     <date>     <date>     <int> <int>
-#>  1 bbe2005        Monetary policy    monthly   1959-01-01 2001-07-01   511   121
-#>  2 bq1989         Business cycles    quarterly 1948-04-01 1987-10-01   159     3
-#>  3 gk2015         Monetary policy    monthly   1979-07-01 2012-06-01   396    13
-#>  4 sw2001         Monetary policy    quarterly 1960-01-01 2000-10-01   164     4
-#>  5 u2005          Monetary policy    monthly   1965-01-01 2003-12-01   468     7
-#>  6 psy2015        Asset prices       monthly   1973-01-31 2018-07-31   547     5
-#>  7 kl2017         Monetary policy    quarterly 1954-10-01 2007-10-01   213     4
-#>  8 oil            Oil and energy     quarterly 1973-01-01 2013-04-01   162     4
-#>  9 nber_rec       Business cycles    irregular 1854-12-01 2020-04-01    35     3
-#> 10 r2016_monetary Monetary policy    monthly   1959-01-01 2015-12-01   684    42
-#> 11 r2016_govt     Fiscal policy      quarterly 1947-01-01 2015-07-01   275    36
-#> 12 r2016_tech     Productivity       quarterly 1947-01-01 2015-07-01   275    46
-#> 13 r2016_tax      Fiscal policy      quarterly 1945-01-01 2015-07-01   283    32
-#> 14 rz2018         Fiscal policy      quarterly 1875-01-01 2015-10-01   564    28
-#> 15 gz2012         Financial conditi… monthly   1973-01-01 2026-07-01   643     4
+#> # A tibble: 25 × 7
+#>    key            category        frequency start      end         nrow  ncol
+#>    <chr>          <chr>           <chr>     <date>     <date>     <int> <int>
+#>  1 bbe2005        Monetary policy monthly   1959-01-01 2001-07-01   511   121
+#>  2 bq1989         Business cycles quarterly 1948-04-01 1987-10-01   159     3
+#>  3 gk2015         Monetary policy monthly   1979-07-01 2012-06-01   396    13
+#>  4 sw2001         Monetary policy quarterly 1960-01-01 2000-10-01   164     4
+#>  5 u2005          Monetary policy monthly   1965-01-01 2003-12-01   468     7
+#>  6 psy2015        Asset prices    monthly   1973-01-31 2018-07-31   547     5
+#>  7 kl2017         Monetary policy quarterly 1954-10-01 2007-10-01   213     4
+#>  8 oil            Oil and energy  quarterly 1973-01-01 2013-04-01   162     4
+#>  9 nber_rec       Business cycles irregular 1854-12-01 2020-04-01    35     3
+#> 10 r2016_monetary Monetary policy monthly   1959-01-01 2015-12-01   684    42
+#> # ℹ 15 more rows
 
 # Datasets tagged "var"
 catalog$key[sapply(strsplit(catalog$tags, "|", fixed = TRUE), function(t) "var" %in% t)]
@@ -145,6 +141,16 @@ subset(variables, dataset == "rz2018")[1:5, ]
 | r2016_tax | Ramey (2016) tax shocks panel | Fiscal policy | quarterly |
 | rz2018 | Ramey and Zubairy (2018) US historical fiscal data | Fiscal policy | quarterly |
 | gz2012 | Gilchrist and Zakrajsek (2012) credit spread and excess bond premium | Financial conditions | monthly |
+| wx2016 | Wu and Xia (2016) shadow federal funds rate | Monetary policy | monthly |
+| f2014 | Fernald (2014) utilization-adjusted TFP | Productivity | quarterly |
+| bbd2016 | Baker, Bloom and Davis (2016) US economic policy uncertainty | Uncertainty | monthly |
+| k2009 | Kilian (2009) global real economic activity index | Oil and energy | monthly |
+| jln2015 | Jurado, Ludvigson and Ng (2015) macro, financial and real uncertainty | Uncertainty | monthly |
+| jk2020 | Jarocinski and Karadi (2020) monetary policy and information shocks | Monetary policy | monthly |
+| mr2013 | Mertens and Ravn (2013) narrative tax shocks | Fiscal policy | quarterly |
+| ci2022 | Caldara and Iacoviello (2022) geopolitical risk index | Uncertainty | monthly |
+| s2015 | Shiller (2015) Irrational Exuberance online data | Asset prices | monthly |
+| r2011 | Ramey (2011) government spending shocks | Fiscal policy | quarterly |
 
 Replication notebooks: [Stock and Watson
 (2001)](https://kvasilopoulos.github.io/econdata/articles/replication-sw2001.html),
