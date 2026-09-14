@@ -97,3 +97,47 @@ nber_rec <- jsonlite::fromJSON("https://data.nber.org/data/cycles/business_cycle
            lubridate::month(Trough) - lubridate::month(Peak)))
 
 use_data(nber_rec, overwrite = TRUE)
+
+
+# Ramey (2016) Handbook of Macroeconomics ##################################
+# https://econweb.ucsd.edu/~vramey/research.html -> Ramey_HOM_*.zip
+
+# Sheets use fractional-year dates: 1959, 1959.083, ... (monthly) or
+# 1947, 1947.25, ... (quarterly)
+frac_to_date <- function(x, per) {
+  yr <- floor(x + 1e-6)
+  sub <- round((x - yr) * per)
+  as.Date(sprintf("%d-%02d-01", yr, sub * (12 / per) + 1))
+}
+
+ramey_sheet <- function(file, sheet, per) {
+  readxl::read_excel(file.path("data-raw/ramey2016", file), sheet = sheet) %>%
+    rename_with(tolower) %>%
+    rename(date = 1) %>%
+    mutate(date = frac_to_date(date, per))
+}
+
+ramey2016_monetary <- ramey_sheet("Monetarydat.xlsx", "Monthly", 12)
+ramey2016_govt <- ramey_sheet("homgovdat.xlsx", "govdat", 4)
+ramey2016_tech <- ramey_sheet("Technology_data.xlsx", "techdat", 4)
+ramey2016_tax <- ramey_sheet("homtaxdat.xlsx", "homtaxdat", 4)
+
+usethis::use_data(ramey2016_monetary, ramey2016_govt, ramey2016_tech,
+                  ramey2016_tax, overwrite = TRUE)
+
+# Ramey and Zubairy (2018) ------------------------------------------------
+
+rz2018 <- readxl::read_excel("data-raw/rz2018/RZDAT.xlsx", sheet = "rzdat") %>%
+  rename(date = quarter) %>%
+  mutate(date = frac_to_date(date, 4))
+
+usethis::use_data(rz2018, overwrite = TRUE)
+
+# Gilchrist and Zakrajsek (2012) excess bond premium ----------------------
+# https://www.federalreserve.gov/econres/notes/feds-notes/ebp_csv.csv
+
+gz2012 <- read_csv("data-raw/gz2012/ebp.csv", show_col_types = FALSE) %>%
+  as_tibble() %>%
+  mutate(date = as.Date(date, "%m/%d/%Y"))
+
+usethis::use_data(gz2012, overwrite = TRUE)
