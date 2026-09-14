@@ -10,14 +10,25 @@ CDN, ~20 lines of vanilla JS for the catalog filter), writes the CSV API under
 
 ## Layout
 
-- `data-raw/<key>/` raw files; `data-raw/DATASETS.R` builds `data/<key>.rda`
-- `data-raw/bib/papers.bib` -> `bib/create_papers.R` -> `data/papers.rda`
-  (`REFERENCE`/`AUTHORYEAR` must stay in bib-file order: `.sort = FALSE`)
-- `data-raw/catalog.csv` (hand-curated category/tags/source per dataset) +
-  `data-raw/sources.csv` (external replication data) -> `catalog.R` ->
-  `data/catalog.rda`, `data/sources.rda`; nrow/ncol/start/end are computed
-- `data-raw/catalog.R` also builds `variables` (column dictionary) from the
-  readme sheets of the wide panels (bbe2005 catalog.CSV is windows-1252)
+- `data-raw/<key>/` raw files; `data-raw/datasets/<batch>.R` builds
+  `data/<key>.rda` (each script starts with `source("data-raw/helpers.R")`,
+  which loads dplyr/tidyr/readr/purrr/usethis and `frac_to_date()`,
+  `month_date()`). `core.R` is the original set; one file per later batch
+- `data-raw/bib/*.bib` (papers.bib + one per batch) -> `bib/create_papers.R`
+  -> `data/papers.rda` (`REFERENCE`/`AUTHORYEAR` stay in bib order:
+  `.sort = FALSE`)
+- `data-raw/catalog/*.csv` (core.csv + one per batch; hand-curated
+  category/tags/source per dataset) + `data-raw/sources.csv` -> `catalog.R`
+  -> `data/catalog.rda`, `data/sources.rda`; nrow/ncol/start/end computed
+- `catalog.R` also builds `variables` (column dictionary) from readme sheets
+  plus any `data-raw/variables/*.csv` (dataset,variable,description)
+- `R/datasets*.R` roxygen; one file per batch is fine
+- Parallel batches (subagents): each batch touches only its own
+  `datasets/<b>.R`, `bib/<b>.bib`, `catalog/<b>.csv`, `variables/<b>.csv`,
+  `R/datasets-<b>.R`, `data-raw/<key>/`, `data/<key>.rda`; never edits the
+  shared scripts, TODO.md, NAMESPACE or man/, and never runs document(),
+  install(), test() or git. Integration (document/test/site/commit) is done
+  once at the end by the main session
 - `data-raw/site.R` -> everything under `docs/` (deletes and recreates it)
 - `R/datasets.R` roxygen for every object; `man-roxygen/rox_papers.R`
   template pulls title/reference from `papers` via `\Sexpr` at render time,
@@ -27,20 +38,22 @@ CDN, ~20 lines of vanilla JS for the catalog filter), writes the CSV API under
 
 ## Adding a dataset
 
-1. Raw file under `data-raw/<key>/`, block in `DATASETS.R`, run it
-2. Bib entry in `data-raw/bib/papers.bib` (brace the year), run `create_papers.R`
-3. Row in `data-raw/catalog.csv` (category must be in `cat_order` in
+1. Raw file under `data-raw/<key>/`, block in `data-raw/datasets/<batch>.R`, run it
+2. Bib entry in `data-raw/bib/<batch>.bib` (brace the year), run `create_papers.R`
+3. Row in `data-raw/catalog/<batch>.csv` (category must be in `cat_order` in
    `site.R`), run `catalog.R`
-4. `#' @template rox_papers` + `@templateVar key "<key>"` in `R/datasets.R`
+4. `#' @template rox_papers` + `@templateVar key "<key>"` in `R/datasets-<batch>.R`;
+   datasets sharing a bib key get an explicit title + `@references \Sexpr`
 5. `devtools::document(); devtools::install(); devtools::test()`
 6. `Rscript data-raw/site.R`; commit `docs/`
 
 External source only: row in `data-raw/sources.csv`, run `catalog.R` + `site.R`.
 
 `data-raw/TODO.md` is the dataset backlog (bundled / todo / blocked with
-URLs). Update it every time a lead is checked or a dataset lands; the user
-wants the search to keep going. `DATASETS.R` has `frac_to_date()` for
-fractional-year dates and `month_date()` for year+month columns.
+URLs); the user also adds leads to it by hand. Update it every time a lead
+is checked or a dataset lands; the user wants the search to keep going.
+Subagents report into `data-raw/todo-reports/<batch>.md`, the main session
+folds those into TODO.md.
 
 ## Conventions
 

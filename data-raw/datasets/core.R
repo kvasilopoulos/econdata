@@ -1,8 +1,4 @@
-library(dplyr)
-library(tidyr)
-library(readr)
-library(purrr)
-library(usethis)
+source("data-raw/helpers.R")
 
 # Blanchard and Quad 1989 -------------------------------------------------
 
@@ -102,14 +98,6 @@ use_data(nber_rec, overwrite = TRUE)
 # Ramey (2016) Handbook of Macroeconomics ##################################
 # https://econweb.ucsd.edu/~vramey/research.html -> Ramey_HOM_*.zip
 
-# Sheets use fractional-year dates: 1959, 1959.083, ... (monthly) or
-# 1947, 1947.25, ... (quarterly)
-frac_to_date <- function(x, per) {
-  yr <- floor(x + 1e-6)
-  sub <- round((x - yr) * per)
-  as.Date(sprintf("%d-%02d-01", yr, sub * (12 / per) + 1))
-}
-
 ramey_sheet <- function(file, sheet, per) {
   readxl::read_excel(file.path("data-raw/r2016", file), sheet = sheet) %>%
     rename_with(tolower) %>%
@@ -145,8 +133,7 @@ usethis::use_data(gz2012, overwrite = TRUE)
 
 # Batch 2: maintained series from author / Fed websites ###################
 # Raw files and download URLs are listed in data-raw/TODO.md.
-
-month_date <- function(year, month) as.Date(sprintf("%d-%02d-01", as.integer(year), as.integer(month)))
+# New batches go in their own file under data-raw/datasets/.
 
 # Wu and Xia (2016) shadow rate (Atlanta Fed, stopped 2022-02) -----------
 wx2016 <- readxl::read_excel("data-raw/wx2016/WuXiaShadowRate.xlsx", sheet = "Data",
@@ -223,3 +210,67 @@ r2011 <- readxl::read_excel("data-raw/r2011/Ramey_Govt_Public_Data.xls", sheet =
   rename(date = quarter) %>%
   mutate(date = frac_to_date(date, 4))
 usethis::use_data(r2011, overwrite = TRUE)
+
+
+# Batch 3 ##################################################################
+
+# Jarocinski and Karadi (2020), ECB shocks ---------------------------------
+jk2020_ecb <- read_csv("data-raw/jk2020/shocks_ecb_mpd_me_m.csv", show_col_types = FALSE) %>%
+  mutate(date = month_date(year, month), year = NULL, month = NULL) %>%
+  rename_with(~ tolower(sub("_mpd$", "", .x))) %>%
+  select(date, everything())
+usethis::use_data(jk2020_ecb, overwrite = TRUE)
+
+# Mertens and Ravn (2014) SVAR vs narrative tax multipliers ---------------
+mr2014 <- readxl::read_excel("data-raw/mr2014/jme2014_data.xls", skip = 2, col_names = FALSE, col_types = "numeric") %>%
+  select(-6) %>%
+  set_names("date", "ltax", "lgov", "lgdp", "tax_narrative", "tax_longrun", "tax_retroactive",
+            "tax_scaled_y4", "tax_all_romer") %>%
+  filter(!is.na(date)) %>%
+  mutate(date = frac_to_date(date, 4))
+usethis::use_data(mr2014, overwrite = TRUE)
+
+# Mertens and Montiel Olea (2018) marginal tax rates and income -----------
+mmo_sheet <- function(sheet, prefix) {
+  x <- readxl::read_excel("data-raw/mmo2018/data_mmo.xlsx", sheet = sheet)
+  nm <- tolower(gsub("[^a-z0-9]+", "_", tolower(names(x)[-1])))
+  nm <- sub("_$", "", nm)
+  set_names(x, c("year", paste0(prefix, "_", nm)))
+}
+mmo2018 <- mmo_sheet("AMTR (Figure I)", "amtr") %>%
+  full_join(mmo_sheet("AMIITR (Figure II)", "amiitr"), by = "year") %>%
+  full_join(mmo_sheet("AMPTR (Figure III)", "amptr"), by = "year") %>%
+  full_join(mmo_sheet("Narrative Shocks (Table IV)", "shock"), by = "year") %>%
+  full_join(mmo_sheet("LOG AVG INCOME", "linc"), by = "year") %>%
+  full_join(mmo_sheet("CONTROLS", "ctrl"), by = "year") %>%
+  mutate(year = as.integer(year)) %>%
+  arrange(year)
+usethis::use_data(mmo2018, overwrite = TRUE)
+
+# Gurkaynak, Sack and Swanson (2005) FOMC surprises, GKL (2021) update -----
+gss2005 <- readxl::read_excel("data-raw/gss2005/GSSfactors.xlsx") %>%
+  rename(date = datedaily) %>%
+  mutate(date = as.Date(date))
+gss2005_surprises <- readxl::read_excel("data-raw/gss2005/GSSrawdata.xlsx", na = ".") %>%
+  rename(date = Date, intermeeting = intermeetdummy) %>%
+  select(-month, -day, -year) %>%
+  mutate(date = as.Date(date), across(-date, as.numeric))
+usethis::use_data(gss2005, gss2005_surprises, overwrite = TRUE)
+
+# Blinder and Watson (2016) presidents and the economy ---------------------
+bw_names <- names(readxl::read_excel("data-raw/bw2016/DemRep.xlsx", sheet = "Quarterly", n_max = 1))
+bw2016 <- readxl::read_excel("data-raw/bw2016/DemRep.xlsx", sheet = "Quarterly", skip = 3, col_names = bw_names) %>%
+  rename(date = DATE) %>%
+  filter(!is.na(date)) %>%
+  mutate(date = as.Date(date), across(-date, as.numeric))
+usethis::use_data(bw2016, overwrite = TRUE)
+
+# Giannone, Lenza and Primiceri (2015) Stock-Watson VAR data ---------------
+glp_q <- readxl::read_excel("data-raw/glp2015/DataSW.xls", sheet = "Quarterly", skip = 3, col_names = FALSE) %>%
+  set_names("date", "rgdp", "pgdp", "cons", "inv", "hours", "rcomp") %>%
+  mutate(date = lubridate::floor_date(as.Date(date, "%m\\%d\\%Y"), "quarter"))
+glp_m <- readxl::read_excel("data-raw/glp2015/DataSW.xls", sheet = "Monthly", skip = 3, col_names = c("date", "ff")) %>%
+  mutate(date = lubridate::floor_date(as.Date(date, "%m\\%d\\%Y"), "quarter")) %>%
+  group_by(date) %>% summarise(ff = mean(ff), .groups = "drop")
+glp2015 <- left_join(glp_q, glp_m, by = "date")
+usethis::use_data(glp2015, overwrite = TRUE)

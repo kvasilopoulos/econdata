@@ -227,8 +227,9 @@
 #' @source <https://www.sydneyludvigson.com/macro-and-financial-uncertainty-indexes>
 "jln2015"
 
-#' @template rox_papers
-#' @templateVar key "jk2020"
+#' Jarocinski and Karadi (2020) Fed monetary policy and information shocks
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("jk2020")}
 #' @details Monthly sums of FOMC-announcement surprises 1990-2019: the
 #'   policy-indicator principal component (`pc1ff1_hf`) and the S&P 500
 #'   (`sp500_hf`), decomposed into monetary policy (`mp_`) and central bank
@@ -273,3 +274,69 @@
 #'   tax rate.
 #' @source <https://econweb.ucsd.edu/~vramey/research.html>
 "r2011"
+
+#' Jarocinski and Karadi (2020) ECB monetary policy and information shocks
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("jk2020")}
+#' @details ECB counterpart of [jk2020]: monthly sums of surprises around
+#'   ECB announcements 1999-2023 from the Altavilla et al. (2019) Euro Area
+#'   Monetary Policy event-study Database, split into monetary policy
+#'   (`mp_`) and central bank information (`cbi_`) shocks.
+#' @source <https://marekjarocinski.github.io/jkshocks/jkshocks.html>
+"jk2020_ecb"
+
+#' @template rox_papers
+#' @templateVar key "mr2014"
+#' @details Quarterly 1950-2006 log real tax revenues (`ltax`), government
+#'   spending (`lgov`) and output (`lgdp`), the Romer-Romer narrative tax
+#'   measure (`tax_narrative`) and its alternatives.
+#' @source <https://karelmertens.com/research/>
+"mr2014"
+
+#' @template rox_papers
+#' @templateVar key "mmo2018"
+#' @details Annual 1946-2012 average marginal tax rates by income group
+#'   (`amtr_*` total, `amiitr_*` income tax, `amptr_*` payroll), narrative
+#'   marginal-rate shocks (`shock_*`), log average income (`linc_*`) and the
+#'   macro controls of the paper (`ctrl_*`).
+#' @source <https://karelmertens.com/research/>
+"mmo2018"
+
+#' Gurkaynak, Sack and Swanson (2005) target and path factors
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("gss2005")}
+#' @details One row per FOMC announcement 1994-2018 with the target and
+#'   path factors, as updated by Gurkaynak, Karasoy-Can and Lee (2021,
+#'   Journal of Finance). The raw asset-price surprises they are built from
+#'   are in [gss2005_surprises].
+#' @source <http://www.bilkent.edu.tr/~refet/>
+"gss2005"
+
+#' Gurkaynak, Sack and Swanson (2005) raw FOMC-day surprises
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("gss2005")}
+#' @details Intraday surprises around 342 FOMC announcements 1984-2019 in
+#'   fed funds and eurodollar futures (`MP1`-`MP6`, `FF1`-`FF6`,
+#'   `ED1`-`ED8`), OIS, on-the-run Treasuries, TIPS, stock indexes, FX and
+#'   swap spreads, plus the Kuttner surprise and an intermeeting dummy.
+#'   Column names as in `GSSrawdata.xlsx`; the factors are in [gss2005].
+#' @source <http://www.bilkent.edu.tr/~refet/>
+"gss2005_surprises"
+
+#' @template rox_papers
+#' @templateVar key "bw2016"
+#' @details Quarterly 1947-2013 panel used to compare economic performance
+#'   under Democratic and Republican presidents. FRED mnemonics are kept as
+#'   column names; `subset(variables, dataset == "bw2016")` has the
+#'   descriptions.
+#' @source <https://www.princeton.edu/~mwatson/ddisk/>
+"bw2016"
+
+#' @template rox_papers
+#' @templateVar key "glp2015"
+#' @details The Stock-Watson quarterly dataset 1959Q1-2008Q4 used for the
+#'   small VAR: real GDP, GDP deflator, consumption, investment, hours and
+#'   real compensation (indexes, 2000 = 100) and the federal funds rate
+#'   averaged from the monthly sheet.
+#' @source <https://faculty.wcas.northwestern.edu/gep575/research.html>
+"glp2015"

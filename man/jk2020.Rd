@@ -3,7 +3,7 @@
 \docType{data}
 \name{jk2020}
 \alias{jk2020}
-\title{\Sexpr[stage=render,results=rd]{econdata:::bib_authoryear("jk2020")}}
+\title{Jarocinski and Karadi (2020) Fed monetary policy and information shocks}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 353 rows and 7 columns.
 }
@@ -14,7 +14,7 @@ An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) w
 jk2020
 }
 \description{
-\Sexpr[stage=render,results=rd]{econdata:::bib_title("jk2020")}
+Jarocinski and Karadi (2020) Fed monetary policy and information shocks
 }
 \details{
 Monthly sums of FOMC-announcement surprises 1990-2019: the

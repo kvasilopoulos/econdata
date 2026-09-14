@@ -2,7 +2,11 @@
 library(RefManageR)
 library(dplyr)
 
-bibfile <- "data-raw/bib/papers.bib"
+# All data-raw/bib/*.bib are concatenated (papers.bib first); one file per batch
+bibfile <- tempfile(fileext = ".bib")
+bibs <- list.files("data-raw/bib", pattern = "\\.bib$", full.names = TRUE)
+bibs <- c("data-raw/bib/papers.bib", setdiff(bibs, "data-raw/bib/papers.bib"))
+writeLines(unlist(lapply(bibs, readLines)), bibfile)
 
 bibdf <- bib2df::bib2df(bibfile) %>%
   select_if(~ !all(is.na(.))) %>%

@@ -49,7 +49,7 @@ The `catalog` lists everything with categories, tags and sample ranges:
 
 ``` r
 catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
-#> # A tibble: 25 × 7
+#> # A tibble: 32 × 7
 #>    key            category        frequency start      end         nrow  ncol
 #>    <chr>          <chr>           <chr>     <date>     <date>     <int> <int>
 #>  1 bbe2005        Monetary policy monthly   1959-01-01 2001-07-01   511   121
@@ -62,11 +62,11 @@ catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
 #>  8 oil            Oil and energy  quarterly 1973-01-01 2013-04-01   162     4
 #>  9 nber_rec       Business cycles irregular 1854-12-01 2020-04-01    35     3
 #> 10 r2016_monetary Monetary policy monthly   1959-01-01 2015-12-01   684    42
-#> # ℹ 15 more rows
+#> # ℹ 22 more rows
 
 # Datasets tagged "var"
 catalog$key[sapply(strsplit(catalog$tags, "|", fixed = TRUE), function(t) "var" %in% t)]
-#> [1] "bbe2005" "sw2001"  "kl2017"  "oil"
+#> [1] "bbe2005" "sw2001"  "kl2017"  "oil"     "glp2015"
 ```
 
 ## Static CSV API
@@ -151,6 +151,13 @@ subset(variables, dataset == "rz2018")[1:5, ]
 | ci2022 | Caldara and Iacoviello (2022) geopolitical risk index | Uncertainty | monthly |
 | s2015 | Shiller (2015) Irrational Exuberance online data | Asset prices | monthly |
 | r2011 | Ramey (2011) government spending shocks | Fiscal policy | quarterly |
+| jk2020_ecb | Jarocinski and Karadi (2020) ECB monetary policy and information shocks | Monetary policy | monthly |
+| mr2014 | Mertens and Ravn (2014) SVAR vs narrative tax multipliers | Fiscal policy | quarterly |
+| mmo2018 | Mertens and Montiel Olea (2018) marginal tax rates and income | Fiscal policy | annual |
+| gss2005 | Gurkaynak, Sack and Swanson (2005) target and path factors | Monetary policy | irregular |
+| gss2005_surprises | Gurkaynak, Sack and Swanson (2005) raw FOMC-day asset price surprises | Monetary policy | irregular |
+| bw2016 | Blinder and Watson (2016) presidents and the US economy | Business cycles | quarterly |
+| glp2015 | Giannone, Lenza and Primiceri (2015) seven-variable US VAR data | Monetary policy | quarterly |
 
 Replication notebooks: [Stock and Watson
 (2001)](https://kvasilopoulos.github.io/econdata/articles/replication-sw2001.html),

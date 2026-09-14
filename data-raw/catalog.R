@@ -3,7 +3,12 @@
 # data-raw/sources.csv). Run after DATASETS.R and bib/create_papers.R.
 library(dplyr)
 
-catalog <- readr::read_csv("data-raw/catalog.csv", col_types = "c", na = "")
+# One CSV per batch under data-raw/catalog/; core.csv first
+catalog <- list.files("data-raw/catalog", pattern = "\\.csv$", full.names = TRUE) %>%
+  (function(f) c("data-raw/catalog/core.csv", setdiff(f, "data-raw/catalog/core.csv"))) %>%
+  lapply(readr::read_csv, col_types = "c", na = "") %>%
+  bind_rows()
+stopifnot(!anyDuplicated(catalog$key))
 
 # Computed fields straight from the .rda files so they never go stale
 describe <- function(key) {
@@ -54,7 +59,13 @@ variables <- bind_rows(
   readme_vars("rz2018", "data-raw/rz2018/RZDAT.xlsx", "readme"),
   readxl::read_excel("data-raw/ci2022/data_gpr_export.xls", range = "DJ1:DK200") %>%
     transmute(dataset = "ci2022", variable = var_name, description = var_label) %>%
-    filter(!is.na(variable))
+    filter(!is.na(variable)),
+  readxl::read_excel("data-raw/bw2016/DemRep.xlsx", sheet = "Quarterly", n_max = 1, col_types = "text") %>%
+    tidyr::pivot_longer(everything(), names_to = "variable", values_to = "description") %>%
+    mutate(dataset = "bw2016", .before = 1),
+  # extra dictionaries dropped in by batch scripts: dataset,variable,description
+  lapply(list.files("data-raw/variables", pattern = "\\.csv$", full.names = TRUE),
+         readr::read_csv, col_types = "ccc") %>% bind_rows()
 )
 # keep only columns that actually ship (ci2022 drops the *_NOEW/_AND/_BASIC and GPRHC_ variants)
 cols <- unlist(lapply(unique(variables$dataset), function(k) {
