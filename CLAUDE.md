@@ -2,10 +2,11 @@
 
 R data package: curated datasets from influential macro papers, served both as
 R objects and as static CSVs from `docs/` (GitHub Pages, branch master /docs).
-No pkgdown: `data-raw/site.R` writes `docs/index.md` + `docs/variables.md`
-(rendered by GitHub's built-in Jekyll, theme in `docs/_config.yml`), the CSV
-API under `docs/data/`, and the vignettes as self-contained HTML in
-`docs/articles/`.
+No pkgdown, no Jekyll (`docs/.nojekyll`): `data-raw/site.R` string-templates
+`docs/index.html` + `docs/variables.html` (Bootstrap 5.3 + Newsreader from
+CDN, ~20 lines of vanilla JS for the catalog filter), writes the CSV API under
+`docs/data/`, and renders the vignettes as self-contained HTML in
+`docs/articles/`. Hero chart is an inline SVG built from rz2018 + nber_rec.
 
 ## Layout
 
@@ -47,6 +48,9 @@ Kilian (2009) AEA data needs a login; not fetchable.
 - Sentinel missing values from sources (e.g. `123456789`) become `NA`
 - Site URL base for the CSV API: `https://kvasilopoulos.github.io/econdata/data/`
 - Commits: semantic, one concern each, no co-author/AI trailers
+- Site look: white paper, navy ink (#1b2a49), cranberry accent (#c0334d),
+  serif headings, monospace only for R object names. Preview with
+  `python -m http.server` in docs/ (Playwright blocks file://)
 - Shell: Git Bash heredocs mangle `\` in R/Rmd; use the Edit/Write tools for
   regexes and `\Sexpr`/`\Vignette` lines
 - Rscript segfaults on multi-line `-e` here; write a script to `$TMP` and run it

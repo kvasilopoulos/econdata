@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>econdata: macro datasets from the papers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+:root { --ink: #1b2a49; --accent: #c0334d; --rule: #dfe3ea; --muted: #5d6b7e; --paper: #fbfbfa; }
+body { background: var(--paper); color: #1f2937; font-feature-settings: "kern", "liga"; }
+h1, h2, h3 { font-family: "Newsreader", Georgia, "Times New Roman", serif; color: var(--ink); font-weight: 500; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.05; }
+h2 { font-size: 1.75rem; margin-top: 3.5rem; margin-bottom: 1rem; }
+h3 { font-size: 1.2rem; margin-top: 2rem; }
+.navbar { background: var(--ink); }
+.navbar .navbar-brand { font-family: "Newsreader", Georgia, serif; font-size: 1.4rem; }
+.navbar .nav-link { color: rgba(255,255,255,.78); }
+.navbar .nav-link:hover, .navbar .nav-link:focus { color: #fff; }
+.lead { color: var(--muted); max-width: 40rem; }
+a { color: var(--accent); }
+code, .key { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .92em; }
+.key { color: var(--ink); font-weight: 600; }
+pre { background: #fff; border: 1px solid var(--rule); border-top: 0; border-radius: 0 0 .375rem .375rem; padding: 1rem; font-size: .85rem; margin: 0; white-space: pre-wrap; word-break: break-all; }
+.nav-tabs .nav-link { color: var(--muted); }
+.nav-tabs .nav-link.active { color: var(--ink); font-weight: 600; }
+.chart { display: block; width: 100%; height: auto; }
+.chart-caption { color: var(--muted); font-size: .85rem; }
+.filters .btn-outline-secondary { --bs-btn-color: var(--ink); --bs-btn-border-color: var(--rule); --bs-btn-hover-bg: var(--ink); --bs-btn-hover-border-color: var(--ink); --bs-btn-active-bg: var(--ink); --bs-btn-active-border-color: var(--ink); }
+.table { --bs-table-bg: transparent; border-color: var(--rule); }
+.table th { color: var(--muted); font-weight: 500; font-size: .85rem; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+.table td { vertical-align: top; }
+.table .title { max-width: 22rem; }
+.table .paper { font-size: .85rem; color: var(--muted); }
+.tag { display: inline-block; font-size: .72rem; padding: .1rem .45rem; margin: 0 .2rem .2rem 0; border: 1px solid var(--rule); border-radius: 1rem; color: var(--muted); background: #fff; white-space: nowrap; }
+.btn-csv { --bs-btn-color: var(--accent); --bs-btn-border-color: var(--accent); --bs-btn-hover-bg: var(--accent); --bs-btn-hover-border-color: var(--accent); --bs-btn-hover-color: #fff; --bs-btn-padding-y: .15rem; --bs-btn-padding-x: .6rem; --bs-btn-font-size: .8rem; }
+.count { color: var(--muted); font-size: .9rem; }
+.papers li { margin-bottom: .6rem; max-width: 60rem; }
+.accordion { --bs-accordion-border-color: var(--rule); --bs-accordion-active-bg: #fff; --bs-accordion-active-color: var(--ink); --bs-accordion-btn-focus-box-shadow: 0 0 0 .2rem rgba(27,42,73,.2); }
+.source { padding: .75rem 0; border-top: 1px solid var(--rule); }
+.source:first-child { border-top: 0; }
+.source small { color: var(--muted); }
+footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; margin-top: 4rem; padding: 2rem 0; }
+.side-nav { position: sticky; top: 1.5rem; font-size: .9rem; }
+.side-nav a { display: block; color: var(--muted); padding: .15rem 0; text-decoration: none; }
+.side-nav a:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark"><div class="container">
+<a class="navbar-brand" href="index.html">econdata</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link active" href="index.html#datasets">Datasets</a></li>
+<li class="nav-item"><a class="nav-link" href="variables.html">Variables</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#papers">Papers</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#sources">Find data</a></li>
+<li class="nav-item"><a class="nav-link" href="https://github.com/kvasilopoulos/econdata">GitHub</a></li>
+</ul></div></div></nav>
+<main class="container">
+<section class="row align-items-end gy-4 mt-4">
+<div class="col-lg-6">
+<h1>The data behind the papers, ready to load.</h1>
+<p class="lead mt-3">15 datasets from influential empirical macro papers, curated as an R package and published as plain CSV so they work from any language. Each one keeps the sample and variables the authors used.</p>
+</div>
+<div class="col-lg-6">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#r" type="button" role="tab">R</button></li>
+<li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#py" type="button" role="tab">Python</button></li>
+<li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#stata" type="button" role="tab">Stata</button></li>
+<li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#pkg" type="button" role="tab">R package</button></li>
+</ul><div class="tab-content">
+<div class="tab-pane show active" id="r" role="tabpanel"><pre><code class="language-r">sw2001 &lt;- read.csv("https://kvasilopoulos.github.io/econdata/data/sw2001.csv")
+sw2001$date &lt;- as.Date(sw2001$date)</code></pre></div>
+<div class="tab-pane" id="py" role="tabpanel"><pre><code class="language-python">import pandas as pd
+gk2015 = pd.read_csv("https://kvasilopoulos.github.io/econdata/data/gk2015.csv", parse_dates=["date"])</code></pre></div>
+<div class="tab-pane" id="stata" role="tabpanel"><pre><code class="language-stata">import delimited "https://kvasilopoulos.github.io/econdata/data/rz2018.csv", clear</code></pre></div>
+<div class="tab-pane" id="pkg" role="tabpanel"><pre><code class="language-r">pak::pak("kvasilopoulos/econdata")
+library(econdata)
+catalog      # what is in the package
+sw2001       # Stock and Watson (2001)</code></pre></div>
+</div>
+</div>
+</section>
+<section class="mt-5">
+<svg class="chart" viewBox="0 0 1000 220" role="img" aria-label="US unemployment rate 1890 to 2015 with NBER recessions shaded">
+<g fill="#e4e7ee">
+<rect x="37.8" y="8.0" width="6.3" height="188.0"/>
+<rect x="56.9" y="8.0" width="10.8" height="188.0"/>
+<rect x="79.1" y="8.0" width="11.4" height="188.0"/>
+<rect x="105.7" y="8.0" width="11.4" height="188.0"/>
+<rect x="130.5" y="8.0" width="14.6" height="188.0"/>
+<rect x="166.0" y="8.0" width="8.3" height="188.0"/>
+<rect x="186.4" y="8.0" width="15.2" height="188.0"/>
+<rect x="209.2" y="8.0" width="14.6" height="188.0"/>
+<rect x="251.7" y="8.0" width="4.4" height="188.0"/>
+<rect x="262.5" y="8.0" width="11.4" height="188.0"/>
+<rect x="287.9" y="8.0" width="8.9" height="188.0"/>
+<rect x="313.9" y="8.0" width="8.3" height="188.0"/>
+<rect x="335.5" y="8.0" width="27.3" height="188.0"/>
+<rect x="394.6" y="8.0" width="8.3" height="188.0"/>
+<rect x="453.7" y="8.0" width="5.0" height="188.0"/>
+<rect x="482.2" y="8.0" width="7.0" height="188.0"/>
+<rect x="517.7" y="8.0" width="6.3" height="188.0"/>
+<rect x="548.9" y="8.0" width="5.1" height="188.0"/>
+<rect x="569.2" y="8.0" width="6.4" height="188.0"/>
+<rect x="642.8" y="8.0" width="7.0" height="188.0"/>
+<rect x="672.7" y="8.0" width="10.1" height="188.0"/>
+<rect x="719.6" y="8.0" width="3.8" height="188.0"/>
+<rect x="731.1" y="8.0" width="10.2" height="188.0"/>
+<rect x="799.6" y="8.0" width="5.1" height="188.0"/>
+<rect x="880.9" y="8.0" width="5.1" height="188.0"/>
+<rect x="932.3" y="8.0" width="11.4" height="188.0"/>
+</g>
+<g stroke="#dfe3ea" stroke-width="1">
+<line x1="34" x2="992" y1="158.4" y2="158.4"/>
+<line x1="34" x2="992" y1="120.8" y2="120.8"/>
+<line x1="34" x2="992" y1="83.2" y2="83.2"/>
+<line x1="34" x2="992" y1="45.6" y2="45.6"/>
+<line x1="34" x2="992" y1="8.0" y2="8.0"/>
+</g>
+<path d="M34.0 170.2 L35.9 169.9 L37.8 164.1 L39.7 160.4 L41.6 159.0 L43.5 160.4 L45.4 164.8 L47.3 164.7 L49.2 164.8 L51.1 164.4 L53.0 163.4 L54.9 161.7 L56.9 154.3 L58.7 147.9 L60.6 142.5 L62.6 135.7 L64.5 127.9 L66.4 122.4 L68.3 127.2 L70.2 127.4 L72.1 129.9 L74.0 132.0 L75.9 133.3 L77.8 133.7 L79.7 126.0 L81.6 125.9 L83.5 126.3 L85.4 127.0 L87.3 128.0 L89.2 128.6 L91.1 136.0 L93.0 135.4 L94.9 134.5 L96.8 135.1 L98.7 137.8 L100.6 142.3 L102.6 148.4 L104.4 154.0 L106.3 151.0 L108.3 154.6 L110.2 157.2 L112.1 158.7 L114.0 159.2 L115.9 158.6 L117.8 164.8 L119.7 164.2 L121.6 164.6 L123.5 165.9 L125.4 168.1 L127.3 170.6 L129.2 173.2 L131.1 168.3 L133.0 170.8 L134.9 171.3 L136.8 169.7 L138.7 166.0 L140.6 160.6 L142.5 156.6 L144.4 157.0 L146.3 161.8 L148.3 163.4 L150.1 165.4 L152.0 167.8 L154.0 170.4 L155.9 173.2 L157.8 176.1 L159.7 179.0 L161.6 181.9 L163.5 184.2 L165.4 180.1 L167.3 169.0 L169.2 158.4 L171.1 144.9 L173.0 135.3 L174.9 138.9 L176.8 140.5 L178.7 146.6 L180.6 152.2 L182.5 156.3 L184.4 158.9 L186.4 155.0 L188.2 152.4 L190.1 151.3 L192.0 149.0 L194.0 145.9 L195.8 143.5 L197.7 142.0 L199.7 141.5 L201.6 146.9 L203.5 150.9 L205.4 153.3 L207.3 156.7 L209.2 155.5 L211.1 154.4 L213.0 152.9 L214.9 148.5 L216.8 141.6 L218.7 134.9 L220.6 128.8 L222.5 123.4 L224.4 126.6 L226.3 125.3 L228.2 127.4 L230.1 132.8 L232.1 140.8 L234.0 146.9 L235.8 150.3 L237.8 151.0 L239.7 149.9 L241.6 152.0 L243.5 158.1 L245.4 168.2 L247.3 181.1 L249.2 190.0 L251.1 191.1 L253.0 184.4 L254.9 178.5 L256.8 180.9 L258.7 177.7 L260.6 176.5 L262.5 171.2 L264.4 164.1 L266.3 154.3 L268.2 139.2 L270.2 120.6 L272.0 107.2 L273.9 106.0 L275.9 109.4 L277.8 116.5 L279.7 125.7 L281.6 136.2 L283.5 148.0 L285.4 160.2 L287.3 166.0 L289.2 164.5 L291.1 163.3 L293.0 158.2 L294.9 153.8 L296.8 155.9 L298.7 157.0 L300.6 157.2 L302.5 158.7 L304.4 161.6 L306.3 165.7 L308.3 170.7 L310.1 174.8 L312.0 177.5 L313.9 173.7 L315.9 171.1 L317.7 169.0 L319.6 165.0 L321.6 161.6 L323.5 159.8 L325.4 156.9 L327.3 158.9 L329.2 165.9 L331.1 176.1 L333.0 181.1 L334.9 176.8 L336.8 163.1 L338.7 148.0 L340.6 144.6 L342.5 124.9 L344.4 97.5 L346.3 94.1 L348.2 90.8 L350.1 74.7 L352.0 53.5 L354.0 47.9 L355.9 23.7 L357.7 9.4 L359.7 14.4 L361.6 24.8 L363.5 19.8 L365.4 38.2 L367.3 41.1 L369.2 55.5 L371.1 52.9 L373.0 25.8 L374.9 19.2 L376.8 49.2 L378.7 50.5 L380.6 49.8 L382.5 56.2 L384.4 67.4 L386.3 64.5 L388.2 73.5 L390.1 76.7 L392.1 88.2 L393.9 93.6 L395.8 98.7 L397.8 82.3 L399.7 57.7 L401.6 47.0 L403.4 51.6 L405.4 65.3 L407.3 62.5 L409.2 66.0 L411.1 75.2 L413.0 79.9 L414.9 82.8 L416.8 88.9 L418.7 95.8 L420.6 95.6 L422.5 111.3 L424.4 117.0 L426.3 129.2 L428.2 142.5 L430.1 146.9 L432.0 158.3 L433.9 167.7 L435.8 172.7 L437.8 178.6 L439.6 180.9 L441.5 181.3 L443.5 184.6 L445.4 186.1 L447.3 185.6 L449.2 186.5 L451.1 188.9 L453.0 188.3 L454.9 187.7 L456.8 180.4 L458.7 169.5 L460.6 165.9 L462.5 165.7 L464.4 168.0 L466.3 165.7 L468.2 167.6 L470.1 165.4 L472.0 165.5 L473.9 168.1 L475.9 168.2 L477.7 168.2 L479.6 167.4 L481.6 167.4 L483.5 160.7 L485.4 151.6 L487.3 145.6 L489.2 143.4 L491.1 147.9 L493.0 153.9 L494.9 161.4 L496.8 164.4 L498.7 169.7 L500.6 172.7 L502.5 171.9 L504.4 170.4 L506.3 172.7 L508.2 173.4 L510.1 171.9 L512.0 174.9 L514.0 175.7 L515.8 176.4 L517.7 175.7 L519.7 168.2 L521.6 156.1 L523.5 152.4 L525.3 150.9 L527.3 156.1 L529.2 160.7 L531.1 162.9 L533.0 165.2 L534.9 164.4 L536.8 165.9 L538.7 164.4 L540.6 165.2 L542.5 165.2 L544.4 166.7 L546.3 165.2 L548.2 164.4 L550.1 159.2 L552.0 148.6 L553.9 140.4 L555.8 141.1 L557.7 147.9 L559.7 152.4 L561.5 157.6 L563.4 156.1 L565.4 153.9 L567.3 157.6 L569.2 156.9 L571.1 154.6 L573.0 148.6 L574.9 144.9 L576.8 143.4 L578.7 144.9 L580.6 149.4 L582.5 153.9 L584.4 154.6 L586.3 153.9 L588.2 154.6 L590.1 152.4 L592.0 153.1 L593.9 154.6 L595.8 153.9 L597.7 154.6 L599.6 156.9 L601.5 158.4 L603.5 158.4 L605.4 159.2 L607.3 160.7 L609.2 162.9 L611.1 165.2 L613.0 166.7 L614.9 167.4 L616.8 167.4 L618.7 168.2 L620.6 167.4 L622.5 167.4 L624.4 167.4 L626.3 166.7 L628.2 168.2 L630.1 168.9 L632.0 169.7 L633.9 170.4 L635.9 170.4 L637.7 170.4 L639.6 168.9 L641.6 168.9 L643.5 164.4 L645.3 159.9 L647.2 156.9 L649.2 152.4 L651.1 151.6 L653.0 151.6 L654.9 150.9 L656.8 151.6 L658.7 152.4 L660.6 153.1 L662.5 153.9 L664.4 155.4 L666.3 159.2 L668.2 159.2 L670.1 159.9 L672.0 159.9 L673.9 157.6 L675.8 156.9 L677.7 153.9 L679.6 146.4 L681.6 133.6 L683.4 129.1 L685.3 132.1 L687.3 133.6 L689.2 138.1 L691.1 138.8 L693.0 138.1 L694.9 137.3 L696.8 139.6 L698.7 142.6 L700.6 144.1 L702.5 145.6 L704.4 148.6 L706.3 150.9 L708.2 150.9 L710.1 151.6 L712.0 151.6 L713.9 153.1 L715.8 151.6 L717.7 150.9 L719.6 148.6 L721.5 141.1 L723.4 138.1 L725.4 140.4 L727.3 140.4 L729.2 140.4 L731.1 140.4 L733.0 134.3 L734.9 129.8 L736.8 125.3 L738.7 121.6 L740.6 115.5 L742.5 117.8 L744.4 120.0 L746.3 125.3 L748.2 132.1 L750.1 136.6 L752.0 140.4 L753.9 140.4 L755.8 141.1 L757.8 141.9 L759.6 141.1 L761.5 141.9 L763.5 143.4 L765.4 143.4 L767.2 141.9 L769.1 143.4 L771.1 144.9 L773.0 146.4 L774.9 148.6 L776.8 150.9 L778.7 152.4 L780.6 153.1 L782.5 154.6 L784.4 154.6 L786.3 156.1 L788.2 156.9 L790.1 156.9 L792.0 156.9 L793.9 155.4 L795.8 156.1 L797.7 156.1 L799.6 153.1 L801.5 150.1 L803.5 146.4 L805.3 144.9 L807.2 144.1 L809.2 142.6 L811.1 140.4 L813.0 138.8 L814.9 138.8 L816.8 140.4 L818.7 142.6 L820.6 142.6 L822.5 144.9 L824.4 146.4 L826.3 146.4 L828.2 149.4 L830.1 150.9 L832.0 153.9 L833.9 154.6 L835.8 153.1 L837.7 153.1 L839.6 153.9 L841.5 154.6 L843.4 154.6 L845.3 156.1 L847.3 156.1 L849.2 156.9 L851.1 158.4 L853.0 159.2 L854.9 160.7 L856.8 161.4 L858.7 162.9 L860.6 162.2 L862.5 162.9 L864.4 163.7 L866.3 163.7 L868.2 164.4 L870.1 165.2 L872.0 165.9 L873.9 166.7 L875.8 165.9 L877.7 166.7 L879.7 164.4 L881.5 162.9 L883.4 159.9 L885.3 154.6 L887.3 153.1 L889.1 152.4 L891.0 153.1 L893.0 151.6 L894.9 151.6 L896.8 150.1 L898.7 150.1 L900.6 152.4 L902.5 153.1 L904.4 153.9 L906.3 155.4 L908.2 155.4 L910.1 156.1 L912.0 157.6 L913.9 158.4 L915.8 158.4 L917.7 160.7 L919.6 161.4 L921.5 161.4 L923.4 162.9 L925.4 162.2 L927.2 162.2 L929.1 160.7 L931.1 159.9 L933.0 158.4 L934.9 156.1 L936.8 150.9 L938.7 144.1 L940.6 133.6 L942.5 126.1 L944.4 123.8 L946.3 121.6 L948.2 122.3 L950.1 123.8 L952.0 124.6 L953.9 124.6 L955.8 128.3 L957.7 127.6 L959.6 128.3 L961.5 131.3 L963.4 133.6 L965.3 134.3 L967.2 135.8 L969.2 137.3 L971.1 138.1 L973.0 139.6 L974.9 141.1 L976.8 144.1 L978.7 145.6 L980.6 149.4 L982.5 150.1 L984.4 153.1 L986.3 153.9 L988.2 155.4 L990.1 156.9 L992.0 158.4" fill="none" stroke="#1b2a49" stroke-width="1.6" stroke-linejoin="round"/>
+<g font-size="11" fill="#5d6b7e" font-family="system-ui, sans-serif">
+<text x="110.2" y="214" text-anchor="middle">1900</text>
+<text x="262.5" y="214" text-anchor="middle">1920</text>
+<text x="414.9" y="214" text-anchor="middle">1940</text>
+<text x="567.3" y="214" text-anchor="middle">1960</text>
+<text x="719.6" y="214" text-anchor="middle">1980</text>
+<text x="872.0" y="214" text-anchor="middle">2000</text>
+<text x="2" y="200.0">0</text>
+<text x="2" y="162.4">5</text>
+<text x="2" y="124.8">10</text>
+<text x="2" y="87.2">15</text>
+<text x="2" y="49.6">20</text>
+<text x="2" y="12.0">25</text>
+</g>
+</svg>
+<p class="chart-caption">US civilian unemployment rate, 1890&ndash;2015, from <span class="key">rz2018</span> (Ramey and Zubairy 2018), with NBER recessions from <span class="key">nber_rec</span>. Drawn from the CSVs on this page.</p>
+</section>
+<h2 id="datasets">Datasets</h2>
+<div class="filters d-flex flex-wrap gap-2 align-items-center mb-3">
+<input id="q" type="search" class="form-control form-control-sm" style="max-width:18rem" placeholder="Search key, title, tag or variable" aria-label="Search datasets">
+<div class="btn-group flex-wrap" role="group" aria-label="Filter by category">
+<button type="button" class="btn btn-outline-secondary btn-sm active" data-cat="">All</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Monetary policy">Monetary policy</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Fiscal policy">Fiscal policy</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Business cycles">Business cycles</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Financial conditions">Financial conditions</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Productivity">Productivity</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Asset prices">Asset prices</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="Oil and energy">Oil and energy</button>
+</div>
+<span id="n" class="count ms-auto"></span>
+</div>
+<div class="table-responsive"><table class="table table-sm" id="catalog">
+<thead><tr><th>Key</th><th>Dataset</th><th>Category</th><th>Frequency</th><th>Rows &times; cols</th><th>Tags</th><th></th></tr></thead>
+<tbody>
+<tr data-cat="Monetary policy" data-text="bbe2005 bernanke, boivin and eliasz (2005) favar panel monetary policy monetary-policy favar factor-model var large-panel us date, ipp, ipf, ipc, ipcd, ipcn, ipe, ipi, ipm, ipmd, ipmnd, ipmfg, ipd, ipn, ipmin, iput, ip, ipxmca, pmi, pmp, gmpyq, gmyxpq, lhel, lhelx, lhem, lhnag, lhur, lhu680, lhu5, lhu14, lhu15, lhu26, lpnag, lp, lpgd, lpmi, lpcc, lpem, lped, lpen, lpsp, lptu, lpt, lpfr, lps, lpgov, lphrm, lpmosa, pmemp, gmcq, gmcdq, gmcnq, gmcsq, gmcanq, hsfr, hsne, hsmw, hssou, hswst, hsbr, hmob, pmnv, pmno, pmdel, mocmq, msondq, fsncom, fspcom, fspin, fspcap, fsput, fsdxp, fspxe, exrsw, exrjan, exruk, exrcan, fyff, fygm3, fygm6, fygt1, fygt5, fygt10, fyaaac, fybaac, sfygm3, sfygm6, sfygt1, sfygt5, sfygt10, sfyaaac, sfybaac, fm1, fm2, fm3, fm2dq, fmfba, fmrra, fmrnba, fclnq, fclbmc, ccinrv, pmcp, pwfsa, pwfcsa, pwimsa, pwcmsa, psm99q, punew, pu83, pu84, pu85, puc, pucd, pus, puxf, puxhs, puxm, lehcc, lehm, hhsntn">
+<td><span class="key">bbe2005</span></td>
+<td class="title">Bernanke, Boivin and Eliasz (2005) FAVAR panel<div class="paper"><a href="https://academic.oup.com/qje/article/120/1/387/1931468" class="link-secondary">Bernanke, Boivin, and Eliasz (2005)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">monthly<br><span class="paper">1959 to 2001</span></td><td class="text-nowrap">511 &times; 121</td>
+<td><span class="tag">monetary-policy</span><span class="tag">favar</span><span class="tag">factor-model</span><span class="tag">var</span><span class="tag">large-panel</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/bbe2005.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Business cycles" data-text="bq1989 blanchard and quah (1989) output growth and unemployment business cycles svar long-run-restrictions demand-supply-shocks us date, gdp_growth, un">
+<td><span class="key">bq1989</span></td>
+<td class="title">Blanchard and Quah (1989) output growth and unemployment<div class="paper"><a href="https://www.jstor.org/stable/1827924" class="link-secondary">Blanchard and Quah (1989)</a></div></td>
+<td>Business cycles</td><td class="text-nowrap">quarterly<br><span class="paper">1948 to 1987</span></td><td class="text-nowrap">159 &times; 3</td>
+<td><span class="tag">svar</span><span class="tag">long-run-restrictions</span><span class="tag">demand-supply-shocks</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/bq1989.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="gk2015 gertler and karadi (2015) monetary var with high-frequency instruments monetary policy monetary-policy proxy-svar high-frequency credit-spread us date, logcpi, logip, ff, gs1, gs2, cm5yr, cm10yr, cm5f5, ebp, mortg_spread_m, cp3m_spread_m, ff_exp1yr">
+<td><span class="key">gk2015</span></td>
+<td class="title">Gertler and Karadi (2015) monetary VAR with high-frequency instruments<div class="paper"><a href="https://www.aeaweb.org/articles?id=10.1257/mac.20130329" class="link-secondary">Gertler and Karadi (2015)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">monthly<br><span class="paper">1979 to 2012</span></td><td class="text-nowrap">396 &times; 13</td>
+<td><span class="tag">monetary-policy</span><span class="tag">proxy-svar</span><span class="tag">high-frequency</span><span class="tag">credit-spread</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/gk2015.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="sw2001 stock and watson (2001) three-variable var monetary policy var textbook inflation unemployment fed-funds us date, infl, un, ff">
+<td><span class="key">sw2001</span></td>
+<td class="title">Stock and Watson (2001) three-variable VAR<div class="paper"><a href="https://www.aeaweb.org/articles?id=10.1257/jep.15.4.101" class="link-secondary">Stock and Watson (2001)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">quarterly<br><span class="paper">1960 to 2000</span></td><td class="text-nowrap">164 &times; 4</td>
+<td><span class="tag">var</span><span class="tag">textbook</span><span class="tag">inflation</span><span class="tag">unemployment</span><span class="tag">fed-funds</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/sw2001.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="u2005 uhlig (2005) sign-restriction monetary var monetary policy monetary-policy sign-restrictions svar reserves us date, rgdp, cpi, cprice, ff, nbres, tres">
+<td><span class="key">u2005</span></td>
+<td class="title">Uhlig (2005) sign-restriction monetary VAR<div class="paper"><a href="https://doi.org/10.1016/j.jmoneco.2004.05.007" class="link-secondary">Uhlig (2005)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">monthly<br><span class="paper">1965 to 2003</span></td><td class="text-nowrap">468 &times; 7</td>
+<td><span class="tag">monetary-policy</span><span class="tag">sign-restrictions</span><span class="tag">svar</span><span class="tag">reserves</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/u2005.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Asset prices" data-text="psy2015 phillips, shi and yu (2015) s&amp;p 500 price-dividend ratio asset prices bubbles explosive-roots gsadf stock-market dividends us date, price, dividend, ratio, iratio">
+<td><span class="key">psy2015</span></td>
+<td class="title">Phillips, Shi and Yu (2015) S&amp;P 500 price-dividend ratio<div class="paper"><a href="http://www.econ.yale.edu/~shiller/data.htm" class="link-secondary">Phillips, Shi, and Yu (2015)</a></div></td>
+<td>Asset prices</td><td class="text-nowrap">monthly<br><span class="paper">1973 to 2018</span></td><td class="text-nowrap">547 &times; 5</td>
+<td><span class="tag">bubbles</span><span class="tag">explosive-roots</span><span class="tag">gsadf</span><span class="tag">stock-market</span><span class="tag">dividends</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/psy2015.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="kl2017 kilian and lutkepohl (2017) textbook monetary var monetary policy var textbook inflation fed-funds gdp-growth us date, drgdp, ff, infl">
+<td><span class="key">kl2017</span></td>
+<td class="title">Kilian and Lutkepohl (2017) textbook monetary VAR<div class="paper"><a href="https://sites.google.com/site/lkilian2019/textbook" class="link-secondary">Kilian and Lütkepohl (2017)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">quarterly<br><span class="paper">1954 to 2007</span></td><td class="text-nowrap">213 &times; 4</td>
+<td><span class="tag">var</span><span class="tag">textbook</span><span class="tag">inflation</span><span class="tag">fed-funds</span><span class="tag">gdp-growth</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/kl2017.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Oil and energy" data-text="oil kilian and lutkepohl (2017) textbook oil var oil and energy var textbook oil inflation gdp-growth us date, drpoil, infl, drgdp">
+<td><span class="key">oil</span></td>
+<td class="title">Kilian and Lutkepohl (2017) textbook oil VAR<div class="paper"><a href="https://sites.google.com/site/lkilian2019/textbook" class="link-secondary">Kilian and Lütkepohl (2017)</a></div></td>
+<td>Oil and energy</td><td class="text-nowrap">quarterly<br><span class="paper">1973 to 2013</span></td><td class="text-nowrap">162 &times; 4</td>
+<td><span class="tag">var</span><span class="tag">textbook</span><span class="tag">oil</span><span class="tag">inflation</span><span class="tag">gdp-growth</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/oil.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Business cycles" data-text="nber_rec nber business cycle reference dates business cycles recessions nber reference-dates us peak, trough, duration">
+<td><span class="key">nber_rec</span></td>
+<td class="title">NBER business cycle reference dates<div class="paper"></div></td>
+<td>Business cycles</td><td class="text-nowrap">irregular<br><span class="paper">1854 to 2020</span></td><td class="text-nowrap">35 &times; 3</td>
+<td><span class="tag">recessions</span><span class="tag">nber</span><span class="tag">reference-dates</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/nber_rec.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="r2016_monetary ramey (2016) monetary shocks panel monetary policy monetary-policy shocks romer-romer gertler-karadi high-frequency narrative local-projections us date, lip, unemp, lcpi, ffr, lpcom, lrcdur, lrcnd, lrcsv, rrshock, cumrrshock, cumrrshockorig, bcshock, cumbcshock, mp1_tc, ff4_tc, ed2_tc, ed3_tc, ed4_tc, gs1, ebp, szshock, rrshock83, cumrrshock83, rrshock83b, mp1_vr, ff1_vr, ff4_vr, ed2_vr, ff1_gkgreen, ff4_gkgreen, ed2_gkgreen, wu_xia, lm1, lm2, ltr, lnbr, factor1, factor2, factor3, factor4, factor5">
+<td><span class="key">r2016_monetary</span></td>
+<td class="title">Ramey (2016) monetary shocks panel<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Ramey (2016)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">monthly<br><span class="paper">1959 to 2015</span></td><td class="text-nowrap">684 &times; 42</td>
+<td><span class="tag">monetary-policy</span><span class="tag">shocks</span><span class="tag">romer-romer</span><span class="tag">gertler-karadi</span><span class="tag">high-frequency</span><span class="tag">narrative</span><span class="tag">local-projections</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/r2016_monetary.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Fiscal policy" data-text="r2016_govt ramey (2016) government spending panel fiscal policy fiscal-policy government-spending military-news multipliers nipa us date, ngdp, ncons, ncdur, ncnd, ncsv, ntotinv, nfxinv, nnri, nres, ngov, nfed, ndef, pgdp, pcons, pcdur, pcnd, pcsv, pcndsv, ptotinv, pfxinv, pnri, pres, pgov, pfed, pdef, nwbus, pbus, tothours, pop, tbill3, rypot, rameynews, nfedreceipts, top3xsret, mfev">
+<td><span class="key">r2016_govt</span></td>
+<td class="title">Ramey (2016) government spending panel<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Ramey (2016)</a></div></td>
+<td>Fiscal policy</td><td class="text-nowrap">quarterly<br><span class="paper">1947 to 2015</span></td><td class="text-nowrap">275 &times; 36</td>
+<td><span class="tag">fiscal-policy</span><span class="tag">government-spending</span><span class="tag">military-news</span><span class="tag">multipliers</span><span class="tag">nipa</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/r2016_govt.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Productivity" data-text="r2016_tech ramey (2016) technology shocks panel productivity technology-shocks tfp news-shocks fernald productivity us date, ngdp, rgdp, pgdp, ncons, ntotinv, rcons, rnri, tothours, ybus, xbus, nbus, ltfp, ltfp_i, ltfp_util, ltfp_i_util, relp, pop, civpop, baa, tbond10, tbill3, stockp_sh, stockp_ff, ford_tfp, bp_tfp_news_sr, bp_tfp_news_lr, bs_tfp_news, bzk_ist_news, bzk_ist, bzk_tfp, jpt_tfp, jpt_mei, jpt_ist, mn_tfp_p, mn_ist_p, mn_tfp_s, mn_ist_s, mn_tfp_p_n4, mn_tfp_p_n8, mn_ist_p_n4, mn_ist_p_n8, mn_tfp_s_n4, mn_tfp_s_n8, mn_ist_s_n4, mn_ist_s_n8">
+<td><span class="key">r2016_tech</span></td>
+<td class="title">Ramey (2016) technology shocks panel<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Ramey (2016)</a></div></td>
+<td>Productivity</td><td class="text-nowrap">quarterly<br><span class="paper">1947 to 2015</span></td><td class="text-nowrap">275 &times; 46</td>
+<td><span class="tag">technology-shocks</span><span class="tag">tfp</span><span class="tag">news-shocks</span><span class="tag">fernald</span><span class="tag">productivity</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/r2016_tech.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Fiscal policy" data-text="r2016_tax ramey (2016) tax shocks panel fiscal policy fiscal-policy tax narrative romer-romer mertens-ravn us date, ngdp, rgdp, rcons, rcndsv, rcdur, rinv, rnri, rres, tothours, ngov, nfed, rameynews, mfev, ntaxrev, nfedtaxrev, pgdp, ybus, xbus, nbus, pop, baa, tbond10, tbill3, ffr, aftr15, pubdebt, endognrratio, exogenrratio, rrtaxu, taxu, taxnews">
+<td><span class="key">r2016_tax</span></td>
+<td class="title">Ramey (2016) tax shocks panel<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Ramey (2016)</a></div></td>
+<td>Fiscal policy</td><td class="text-nowrap">quarterly<br><span class="paper">1945 to 2015</span></td><td class="text-nowrap">283 &times; 32</td>
+<td><span class="tag">fiscal-policy</span><span class="tag">tax</span><span class="tag">narrative</span><span class="tag">romer-romer</span><span class="tag">mertens-ravn</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/r2016_tax.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Fiscal policy" data-text="rz2018 ramey and zubairy (2018) us historical fiscal data fiscal policy fiscal-policy multipliers military-news local-projections state-dependence historical us date, ngov, ngdp, pgdp, pop, recession, unemp, news, rgdp, nfedcurrreceipts_nipa, ndeficit_nipa, tbill, zlb_dummy, rgdp_potcbo, rgdp_pott6, unemp_altcr, rgdp_altcr, pgdp_altcr, ngdp_altcr, ntotrev_nipa, pubfeddebt_treas, fedrevq_treas, fedexpq_treas, nfedexp_nipa, hpunemp_split, hpunemp_full, tbill_interp, nydiscrate">
+<td><span class="key">rz2018</span></td>
+<td class="title">Ramey and Zubairy (2018) US historical fiscal data<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Ramey and Zubairy (2018)</a></div></td>
+<td>Fiscal policy</td><td class="text-nowrap">quarterly<br><span class="paper">1875 to 2015</span></td><td class="text-nowrap">564 &times; 28</td>
+<td><span class="tag">fiscal-policy</span><span class="tag">multipliers</span><span class="tag">military-news</span><span class="tag">local-projections</span><span class="tag">state-dependence</span><span class="tag">historical</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/rz2018.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Financial conditions" data-text="gz2012 gilchrist and zakrajsek (2012) credit spread and excess bond premium financial conditions credit-spread excess-bond-premium financial recession-probability us date, gz_spread, ebp, est_prob">
+<td><span class="key">gz2012</span></td>
+<td class="title">Gilchrist and Zakrajsek (2012) credit spread and excess bond premium<div class="paper"><a href="https://www.federalreserve.gov/econres/notes/feds-notes/updating-the-recession-risk-and-the-excess-bond-premium-20161006.html" class="link-secondary">Gilchrist and Zakrajšek (2012)</a></div></td>
+<td>Financial conditions</td><td class="text-nowrap">monthly<br><span class="paper">1973 to 2026</span></td><td class="text-nowrap">643 &times; 4</td>
+<td><span class="tag">credit-spread</span><span class="tag">excess-bond-premium</span><span class="tag">financial</span><span class="tag">recession-probability</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/gz2012.csv" download>csv</a></td>
+</tr>
+</tbody></table></div>
+<p class="count">Column definitions for the wide panels are on the <a href="variables.html">variables</a> page. Dates are ISO <code>YYYY-MM-DD</code>; missing values are empty cells.</p>
+<h2 id="api">Static API</h2>
+<p class="lead">Everything on this page is a file you can fetch. There is no server and nothing to authenticate; pin a commit on GitHub if you need a frozen copy.</p>
+<table class="table table-sm" style="max-width:48rem"><tbody>
+<tr><td><a href="data/index.json"><code>data/index.json</code></a></td><td>this catalog as JSON, tags as arrays, with csv URLs</td></tr>
+<tr><td><a href="data/catalog.csv"><code>data/catalog.csv</code></a></td><td>the same table as CSV</td></tr>
+<tr><td><a href="data/variables.csv"><code>data/variables.csv</code></a></td><td>column definitions for the wide panels</td></tr>
+<tr><td><a href="data/papers.csv"><code>data/papers.csv</code></a></td><td>bibliography as a table</td></tr>
+<tr><td><a href="data/papers.bib"><code>data/papers.bib</code></a></td><td>bibliography as BibTeX</td></tr>
+<tr><td><a href="data/sources.csv"><code>data/sources.csv</code></a></td><td>external replication data sources</td></tr>
+<tr><td><code>data/&lt;key&gt;.csv</code></td><td>one file per dataset</td></tr>
+</tbody></table>
+<h2 id="replications">Replications</h2>
+<p>Notebooks that reproduce a figure from the paper with the bundled data.</p>
+<ul><li><a href="articles/replication-sw2001.html">Stock and Watson (2001)</a>, the three-variable VAR</li>
+<li><a href="articles/replication-bbe2005.html">Bernanke, Boivin and Eliasz (2005)</a>, the 120-series FAVAR panel</li></ul>
+<h2 id="papers">Papers</h2>
+<ol class="papers">
+<li id="p-bbe2005">B. S. Bernanke, J. Boivin, and P. Eliasz. "Measuring the Effects of Monetary Policy: A Factor-Augmented Vector Autoregressive (FAVAR) Approach". In: <em>The Quarterly Journal of Economics</em> 120.1 (Feb. 2005), pp. 387-422. DOI: 10.1162/0033553053327452. <a href="https://doi.org/10.1162%2F0033553053327452">https://doi.org/10.1162%2F0033553053327452</a><br><span class="count">key <span class="key">bbe2005</span></span></li>
+<li id="p-gk2015">M. Gertler and P. Karadi. "Monetary Policy Surprises, Credit Costs, and Economic Activity". In: <em>American Economic Journal: Macroeconomics</em> 7.1 (Jan. 2015), pp. 44-76. DOI: 10.1257/mac.20130329. <a href="https://doi.org/10.1257%2Fmac.20130329">https://doi.org/10.1257%2Fmac.20130329</a><br><span class="count">key <span class="key">gk2015</span></span></li>
+<li id="p-sw2001">J. H. Stock and M. W. Watson. "Vector Autoregressions". In: <em>Journal of Economic Perspectives</em> 15.4 (Nov. 2001), pp. 101-115. DOI: 10.1257/jep.15.4.101. <a href="https://doi.org/10.1257%2Fjep.15.4.101">https://doi.org/10.1257%2Fjep.15.4.101</a><br><span class="count">key <span class="key">sw2001</span></span></li>
+<li id="p-psy2015">P. C. Phillips, S. Shi, and J. Yu. "Testing for multiple bubbles: Historical episodes of exuberance and collapse in the S&amp;P 500". In: <em>International Economic Review</em> 56.4 (2015), pp. 1043-1078. DOI: 10.1111/iere.12132. <a href="https://doi.org/10.1111%2Fiere.12132">https://doi.org/10.1111%2Fiere.12132</a><br><span class="count">key <span class="key">psy2015</span></span></li>
+<li id="p-u2005">H. Uhlig. "What are the effects of monetary policy on output? Results from an agnostic identification procedure". In: <em>Journal of Monetary Economics</em> 52.2 (Mar. 2005), pp. 381-419. DOI: 10.1016/j.jmoneco.2004.05.007. <a href="https://doi.org/10.1016%2Fj.jmoneco.2004.05.007">https://doi.org/10.1016%2Fj.jmoneco.2004.05.007</a><br><span class="count">key <span class="key">u2005</span></span></li>
+<li id="p-bq1989">O. J. Blanchard and D. Quah. "The Dynamic Effects of Aggregate Demand and Supply Disturbances". In: <em>The American Economic Review</em> 79.4 (1989), pp. 655-673.<br><span class="count">key <span class="key">bq1989</span></span></li>
+<li id="p-kl2017">L. Kilian and H. Lütkepohl. <em>Structural Vector Autoregressive Analysis</em>. Themes in Modern Econometrics. Cambridge: Cambridge University Press, 2017. DOI: 10.1017/9781108164818. <a href="https://doi.org/10.1017/9781108164818">https://doi.org/10.1017/9781108164818</a>.<br><span class="count">key <span class="key">kl2017</span></span></li>
+<li id="p-r2016">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>.<br><span class="count">key <span class="key">r2016</span></span></li>
+<li id="p-rz2018">V. A. Ramey and S. Zubairy. "Government Spending Multipliers in Good Times and in Bad: Evidence from US Historical Data". In: <em>Journal of Political Economy</em> 126.2 (2018), pp. 850-901. DOI: 10.1086/696277. <a href="https://doi.org/10.1086/696277">https://doi.org/10.1086/696277</a>.<br><span class="count">key <span class="key">rz2018</span></span></li>
+<li id="p-gz2012">S. Gilchrist and E. Zakrajšek. "Credit Spreads and Business Cycle Fluctuations". In: <em>American Economic Review</em> 102.4 (2012), pp. 1692-1720. DOI: 10.1257/aer.102.4.1692. <a href="https://doi.org/10.1257/aer.102.4.1692">https://doi.org/10.1257/aer.102.4.1692</a>.<br><span class="count">key <span class="key">gz2012</span></span></li>
+</ol>
+<h2 id="sources">Find other replication data</h2>
+<p class="lead">Freely available datasets behind commonly replicated papers that are not bundled here: too large, updated regularly, or restrictively licensed. Author websites are the best source for shock series because authors keep extending them.</p>
+<div class="accordion" id="sources-acc">
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#src1">Macro shocks <span class="count ms-2">1</span></button></h3>
+<div id="src1" class="accordion-collapse collapse show" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-body-emphasis"><strong>Ramey (2016) Handbook of Macroeconomics data</strong></a> &mdash; Single zip with monetary, fiscal, technology and uncertainty shock series plus the Stata/Matlab code used in the Handbook chapter. Also hosts Ramey-Zubairy (2018) military news shocks.<br><small>Used in: Ramey (2016); Romer and Romer (2004); Christiano, Eichenbaum and Evans (1999); Coibion (2012); Ramey (2011). monthly/quarterly, 1889-2015.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src2">Monetary policy <span class="count ms-2">6</span></button></h3>
+<div id="src2" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.aeaweb.org/articles?id=10.1257/0002828042002651" class="link-body-emphasis"><strong>Romer and Romer (2004) monetary policy shocks</strong></a> &mdash; Narrative shocks from Greenbook forecasts. Updated series to 2007 (Coibion et al. 2017) and 2019 (Wieland and Yang) circulate; the Ramey zip bundles one.<br><small>Used in: Romer and Romer (2004); Coibion (2012); Ramey (2016). monthly, 1969-1996.</small></div>
+<div class="source"><a href="https://www.aeaweb.org/articles?id=10.1257/mac.20130329" class="link-body-emphasis"><strong>Gertler and Karadi (2015) high-frequency surprises</strong></a> &mdash; Replication package on the AEA site. Extended surprise series are maintained by Jarocinski and Karadi (2020) and by Bauer and Swanson (2023).<br><small>Used in: Gertler and Karadi (2015); Ramey (2016); Jarocinski and Karadi (2020). monthly, 1990-2012.</small></div>
+<div class="source"><a href="https://www.aeaweb.org/articles?id=10.1257/mac.20180090" class="link-body-emphasis"><strong>Jarocinski and Karadi (2020) monetary and information shocks</strong></a> &mdash; Poor man's sign restrictions split of high-frequency surprises. AEA replication package.<br><small>Used in: Jarocinski and Karadi (2020). monthly, 1990-2019.</small></div>
+<div class="source"><a href="https://www.michaeldbauer.com/research/" class="link-body-emphasis"><strong>Bauer and Swanson (2023) monetary policy surprises</strong></a> &mdash; Orthogonalised FOMC announcement surprises; updated on the author's site.<br><small>Used in: Bauer and Swanson (2023). monthly, 1988-2023.</small></div>
+<div class="source"><a href="http://silviamirandaagrippino.com/code-data" class="link-body-emphasis"><strong>Miranda-Agrippino and Ricco (2021) informationally-robust shocks</strong></a> &mdash; Monetary policy shock series purged of central bank information effects.<br><small>Used in: Miranda-Agrippino and Ricco (2021). monthly, 1991-2009.</small></div>
+<div class="source"><a href="https://sites.google.com/view/jingcynthiawu/shadow-rates" class="link-body-emphasis"><strong>Wu and Xia (2016) shadow federal funds rate</strong></a> &mdash; Drop-in policy rate for VARs spanning the zero lower bound.<br><small>Used in: Wu and Xia (2016). monthly, 1990-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src3">Oil and energy <span class="count ms-2">2</span></button></h3>
+<div id="src3" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.aeaweb.org/articles?id=10.1257/aer.99.3.1053" class="link-body-emphasis"><strong>Kilian (2009) oil market VAR data</strong></a> &mdash; World oil production, global real activity index, real oil price. The activity index is maintained by the Dallas Fed (IGREA).<br><small>Used in: Kilian (2009); Kilian and Murphy (2014); Baumeister and Hamilton (2019). monthly, 1973-2007.</small></div>
+<div class="source"><a href="https://www.dallasfed.org/research/igrea" class="link-body-emphasis"><strong>Kilian global real economic activity index</strong></a> &mdash; Corrected and updated by the Dallas Fed; download as xlsx.<br><small>Used in: Kilian (2009); Kilian and Zhou (2018). monthly, 1968-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src4">Macro panel <span class="count ms-2">1</span></button></h3>
+<div id="src4" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.stlouisfed.org/research/economists/mccracken/fred-databases" class="link-body-emphasis"><strong>FRED-MD / FRED-QD</strong></a> &mdash; Drop-in replacement for the Stock-Watson large panels (e.g. the 120 series in bbe2005). Monthly vintages are archived so results can be pinned to a date.<br><small>Used in: McCracken and Ng (2016); Stock and Watson (2016); Bernanke, Boivin and Eliasz (2005) updates. monthly/quarterly, 1959-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src5">Financial conditions <span class="count ms-2">1</span></button></h3>
+<div id="src5" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.federalreserve.gov/econres/notes/feds-notes/updating-the-recession-risk-and-the-excess-bond-premium-20161006.html" class="link-body-emphasis"><strong>Gilchrist and Zakrajsek (2012) excess bond premium</strong></a> &mdash; Updated monthly by the Fed Board (ebp_csv.csv). This is the `ebp` column in gk2015.<br><small>Used in: Gilchrist and Zakrajsek (2012); Gertler and Karadi (2015). monthly, 1973-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src6">Fiscal policy <span class="count ms-2">2</span></button></h3>
+<div id="src6" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://karelmertens.com/research/" class="link-body-emphasis"><strong>Mertens and Ravn (2013) narrative tax shocks</strong></a> &mdash; Personal and corporate income tax narrative measures used as external instruments.<br><small>Used in: Mertens and Ravn (2013); Mertens and Ravn (2014). quarterly, 1950-2006.</small></div>
+<div class="source"><a href="https://www.aeaweb.org/articles?id=10.1257/pol.4.2.1" class="link-body-emphasis"><strong>Auerbach and Gorodnichenko (2012) fiscal multipliers</strong></a> &mdash; AEA replication package with forecasts from SPF and Greenbook.<br><small>Used in: Auerbach and Gorodnichenko (2012). quarterly, 1947-2008.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src7">Productivity <span class="count ms-2">1</span></button></h3>
+<div id="src7" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.frbsf.org/research-and-insights/data-and-indicators/total-factor-productivity-tfp/" class="link-body-emphasis"><strong>Fernald utilization-adjusted TFP</strong></a> &mdash; Updated quarterly by the San Francisco Fed.<br><small>Used in: Fernald (2014); Basu, Fernald and Kimball (2006); Gali (1999) updates. quarterly, 1947-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src8">Uncertainty <span class="count ms-2">2</span></button></h3>
+<div id="src8" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.sydneyludvigson.com/macro-and-financial-uncertainty-indexes" class="link-body-emphasis"><strong>Jurado, Ludvigson and Ng (2015) uncertainty indexes</strong></a> &mdash; Macro, real and financial uncertainty at 1, 3 and 12 month horizons; updated regularly.<br><small>Used in: Jurado, Ludvigson and Ng (2015); Ludvigson, Ma and Ng (2021). monthly, 1960-present.</small></div>
+<div class="source"><a href="https://www.policyuncertainty.com/" class="link-body-emphasis"><strong>Economic Policy Uncertainty index</strong></a> &mdash; US and country-level indexes plus categorical sub-indexes.<br><small>Used in: Baker, Bloom and Davis (2016). monthly/daily, 1985-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src9">Asset prices <span class="count ms-2">1</span></button></h3>
+<div id="src9" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="http://www.econ.yale.edu/~shiller/data.htm" class="link-body-emphasis"><strong>Shiller online data (S&amp;P, CAPE, house prices)</strong></a> &mdash; The long S&amp;P price/dividend/earnings series behind psy2015 and most bubble tests.<br><small>Used in: Shiller (1981); Campbell and Shiller (1988); Phillips, Shi and Yu (2015); Case and Shiller (2003). monthly/annual, 1871-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src10">Macro-financial panel <span class="count ms-2">1</span></button></h3>
+<div id="src10" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.macrohistory.net/database/" class="link-body-emphasis"><strong>Jorda-Schularick-Taylor Macrohistory Database</strong></a> &mdash; 18 advanced economies, 1870 onwards. CC BY-NC-SA licence; download as xlsx or dta.<br><small>Used in: Schularick and Taylor (2012); Jorda, Schularick and Taylor (2017); Jorda et al. (2019). annual, 1870-present.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src11">Crises <span class="count ms-2">2</span></button></h3>
+<div id="src11" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.reinhartandrogoff.com/data/" class="link-body-emphasis"><strong>Reinhart and Rogoff crisis chronologies</strong></a> &mdash; Country-level crisis dates and debt series.<br><small>Used in: Reinhart and Rogoff (2009); Reinhart and Rogoff (2011). annual, 1800-present.</small></div>
+<div class="source"><a href="https://www.imf.org/en/Publications/WP/Issues/2018/09/14/Systemic-Banking-Crises-Revisited-46232" class="link-body-emphasis"><strong>Laeven and Valencia systemic banking crises database</strong></a> &mdash; IMF WP 18/206 with the database as an appendix xlsx.<br><small>Used in: Laeven and Valencia (2013); Laeven and Valencia (2020). annual, 1970-2017.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src12">Growth panel <span class="count ms-2">3</span></button></h3>
+<div id="src12" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.rug.nl/ggdc/productivity/pwt/" class="link-body-emphasis"><strong>Penn World Table</strong></a> &mdash; Also on CRAN as the `pwt10` package.<br><small>Used in: Mankiw, Romer and Weil (1992); Hall and Jones (1999); Feenstra, Inklaar and Timmer (2015). annual, 1950-present.</small></div>
+<div class="source"><a href="https://www.rug.nl/ggdc/historicaldevelopment/maddison/" class="link-body-emphasis"><strong>Maddison Project Database</strong></a> &mdash; Long-run GDP per capita. CRAN: `maddison` package.<br><small>Used in: Bolt and van Zanden (2020). annual, 1-2018.</small></div>
+<div class="source"><a href="http://www.barrolee.com/" class="link-body-emphasis"><strong>Barro-Lee educational attainment</strong></a> &mdash; Download as csv or dta from the project site.<br><small>Used in: Barro and Lee (2013). 5-yearly, 1950-2015.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src13">Institutions <span class="count ms-2">1</span></button></h3>
+<div id="src13" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://economics.mit.edu/people/faculty/daron-acemoglu/data-archive" class="link-body-emphasis"><strong>Acemoglu, Johnson and Robinson (2001) settler mortality</strong></a> &mdash; Data archive on Acemoglu's MIT page covers most of his published papers.<br><small>Used in: Acemoglu, Johnson and Robinson (2001); Albouy (2012). cross-section, 1995.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src14">Unit roots <span class="count ms-2">1</span></button></h3>
+<div id="src14" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://cran.r-project.org/package=tseries" class="link-body-emphasis"><strong>Nelson and Plosser (1982) US macro series</strong></a> &mdash; Bundled in R: `tseries::NelPlo`. Extended to 1988 by Schotman and van Dijk (1991).<br><small>Used in: Nelson and Plosser (1982); Perron (1989); Zivot and Andrews (1992). annual, 1860-1970.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src15">Textbook <span class="count ms-2">2</span></button></h3>
+<div id="src15" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://cran.r-project.org/package=vars" class="link-body-emphasis"><strong>Lutkepohl (2005) and JMulTi textbook datasets</strong></a> &mdash; Bundled in R: `vars::Canada`; e1-e6 datasets ship with JMulTi and `urca`.<br><small>Used in: Lutkepohl (2005); Pfaff (2008). quarterly, 1960-2000.</small></div>
+<div class="source"><a href="https://sites.google.com/site/lkilian2019/textbook" class="link-body-emphasis"><strong>Kilian and Lutkepohl (2017) textbook datasets</strong></a> &mdash; The `kl2017` and `oil` datasets in this package come from here; the site has the full chapter-by-chapter data and Matlab code.<br><small>Used in: Kilian and Lutkepohl (2017). quarterly, 1954-2013.</small></div>
+</div></div></div>
+<div class="accordion-item"><h3 class="accordion-header mt-0"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#src16">Repository <span class="count ms-2">4</span></button></h3>
+<div id="src16" class="accordion-collapse collapse" data-bs-parent="#sources-acc"><div class="accordion-body">
+<div class="source"><a href="https://www.openicpsr.org/openicpsr/aea" class="link-body-emphasis"><strong>AEA Data and Code Repository (openICPSR)</strong></a> &mdash; Mandatory replication packages for all AEA journals. Search by DOI.<br><small>Used in: Any AER, AEJ, JEP or JEL paper since 2019. various, various.</small></div>
+<div class="source"><a href="http://qed.econ.queensu.ca/jae/" class="link-body-emphasis"><strong>Journal of Applied Econometrics Data Archive</strong></a> &mdash; Long-running archive; most classic applied time-series papers (Hamilton, Perron, Pesaran...) have entries.<br><small>Used in: Any JAE paper since 1988. various, various.</small></div>
+<div class="source"><a href="https://dataverse.harvard.edu/" class="link-body-emphasis"><strong>Harvard Dataverse</strong></a> &mdash; Many top-5 journals deposit replication packages here; search by paper title.<br><small>Used in: QJE, ReStud, JPE, Econometrica replication packages. various, various.</small></div>
+<div class="source"><a href="https://fred.stlouisfed.org/" class="link-body-emphasis"><strong>Federal Reserve Economic Data (FRED)</strong></a> &mdash; R access via `fredr` or `quantmod::getSymbols(src = 'FRED')`. ALFRED holds real-time vintages.<br><small>Used in: Nearly every US macro paper. various, various.</small></div>
+</div></div></div>
+</div>
+<script>
+(function () {
+  var rows = Array.from(document.querySelectorAll("#catalog tbody tr"));
+  var q = document.getElementById("q"), n = document.getElementById("n"), cat = "";
+  function apply() {
+    var s = q.value.trim().toLowerCase(), k = 0;
+    rows.forEach(function (r) {
+      var ok = (!cat || r.dataset.cat === cat) && (!s || r.dataset.text.indexOf(s) >= 0);
+      r.hidden = !ok; if (ok) k++;
+    });
+    n.textContent = k === rows.length ? rows.length + " datasets" : k + " of " + rows.length;
+  }
+  q.addEventListener("input", apply);
+  document.querySelectorAll(".filters [data-cat]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".filters [data-cat]").forEach(function (x) { x.classList.remove("active"); });
+      b.classList.add("active"); cat = b.dataset.cat; apply();
+    });
+  });
+  apply();
+})();
+</script>
+</main>
+<footer><div class="container">
+econdata 0.2.0, MIT licence. Each dataset remains the property of its authors; cite the paper, not the package.
+ Missing something? <a href="https://github.com/kvasilopoulos/econdata/issues">Open an issue</a> or edit <code>data-raw/catalog.csv</code> / <code>data-raw/sources.csv</code> and send a pull request.
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>

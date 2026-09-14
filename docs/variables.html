@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>econdata: variable definitions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+:root { --ink: #1b2a49; --accent: #c0334d; --rule: #dfe3ea; --muted: #5d6b7e; --paper: #fbfbfa; }
+body { background: var(--paper); color: #1f2937; font-feature-settings: "kern", "liga"; }
+h1, h2, h3 { font-family: "Newsreader", Georgia, "Times New Roman", serif; color: var(--ink); font-weight: 500; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.05; }
+h2 { font-size: 1.75rem; margin-top: 3.5rem; margin-bottom: 1rem; }
+h3 { font-size: 1.2rem; margin-top: 2rem; }
+.navbar { background: var(--ink); }
+.navbar .navbar-brand { font-family: "Newsreader", Georgia, serif; font-size: 1.4rem; }
+.navbar .nav-link { color: rgba(255,255,255,.78); }
+.navbar .nav-link:hover, .navbar .nav-link:focus { color: #fff; }
+.lead { color: var(--muted); max-width: 40rem; }
+a { color: var(--accent); }
+code, .key { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .92em; }
+.key { color: var(--ink); font-weight: 600; }
+pre { background: #fff; border: 1px solid var(--rule); border-top: 0; border-radius: 0 0 .375rem .375rem; padding: 1rem; font-size: .85rem; margin: 0; white-space: pre-wrap; word-break: break-all; }
+.nav-tabs .nav-link { color: var(--muted); }
+.nav-tabs .nav-link.active { color: var(--ink); font-weight: 600; }
+.chart { display: block; width: 100%; height: auto; }
+.chart-caption { color: var(--muted); font-size: .85rem; }
+.filters .btn-outline-secondary { --bs-btn-color: var(--ink); --bs-btn-border-color: var(--rule); --bs-btn-hover-bg: var(--ink); --bs-btn-hover-border-color: var(--ink); --bs-btn-active-bg: var(--ink); --bs-btn-active-border-color: var(--ink); }
+.table { --bs-table-bg: transparent; border-color: var(--rule); }
+.table th { color: var(--muted); font-weight: 500; font-size: .85rem; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+.table td { vertical-align: top; }
+.table .title { max-width: 22rem; }
+.table .paper { font-size: .85rem; color: var(--muted); }
+.tag { display: inline-block; font-size: .72rem; padding: .1rem .45rem; margin: 0 .2rem .2rem 0; border: 1px solid var(--rule); border-radius: 1rem; color: var(--muted); background: #fff; white-space: nowrap; }
+.btn-csv { --bs-btn-color: var(--accent); --bs-btn-border-color: var(--accent); --bs-btn-hover-bg: var(--accent); --bs-btn-hover-border-color: var(--accent); --bs-btn-hover-color: #fff; --bs-btn-padding-y: .15rem; --bs-btn-padding-x: .6rem; --bs-btn-font-size: .8rem; }
+.count { color: var(--muted); font-size: .9rem; }
+.papers li { margin-bottom: .6rem; max-width: 60rem; }
+.accordion { --bs-accordion-border-color: var(--rule); --bs-accordion-active-bg: #fff; --bs-accordion-active-color: var(--ink); --bs-accordion-btn-focus-box-shadow: 0 0 0 .2rem rgba(27,42,73,.2); }
+.source { padding: .75rem 0; border-top: 1px solid var(--rule); }
+.source:first-child { border-top: 0; }
+.source small { color: var(--muted); }
+footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; margin-top: 4rem; padding: 2rem 0; }
+.side-nav { position: sticky; top: 1.5rem; font-size: .9rem; }
+.side-nav a { display: block; color: var(--muted); padding: .15rem 0; text-decoration: none; }
+.side-nav a:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark"><div class="container">
+<a class="navbar-brand" href="index.html">econdata</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="index.html#datasets">Datasets</a></li>
+<li class="nav-item"><a class="nav-link active" href="variables.html">Variables</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#papers">Papers</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#sources">Find data</a></li>
+<li class="nav-item"><a class="nav-link" href="https://github.com/kvasilopoulos/econdata">GitHub</a></li>
+</ul></div></div></nav>
+<main class="container">
+<div class="row mt-4"><div class="col-lg-2 d-none d-lg-block">
+<nav class="side-nav" aria-label="Datasets">
+<a href="#bbe2005"><span class="key">bbe2005</span></a>
+<a href="#r2016_monetary"><span class="key">r2016_monetary</span></a>
+<a href="#r2016_govt"><span class="key">r2016_govt</span></a>
+<a href="#r2016_tech"><span class="key">r2016_tech</span></a>
+<a href="#r2016_tax"><span class="key">r2016_tax</span></a>
+<a href="#rz2018"><span class="key">rz2018</span></a>
+</nav>
+</div><div class="col-lg-10">
+<h1>Variables</h1>
+<p class="lead mt-3">Column definitions for the wide panels, taken from the readme sheets that ship with the original data. Also as <a href="data/variables.csv"><code>data/variables.csv</code></a>.</p>
+<h2 id="bbe2005"><span class="key">bbe2005</span> <span class="count">120 variables</span></h2>
+<p class="count">B. S. Bernanke, J. Boivin, and P. Eliasz. "Measuring the Effects of Monetary Policy: A Factor-Augmented Vector Autoregressive (FAVAR) Approach". In: <em>The Quarterly Journal of Economics</em> 120.1 (Feb. 2005), pp. 387-422. DOI: 10.1162/0033553053327452. <a href="https://doi.org/10.1162%2F0033553053327452">https://doi.org/10.1162%2F0033553053327452</a> <a href="data/bbe2005.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
+<table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td class="text-nowrap"><span class="key">IPP</span></td><td>INDUSTRIAL PRODUCTION: PRODUCTS, TOTAL (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPF</span></td><td>INDUSTRIAL PRODUCTION: FINAL PRODUCTS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPC</span></td><td>INDUSTRIAL PRODUCTION: CONSUMER GOODS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPCD</span></td><td>INDUSTRIAL PRODUCTION: DURABLE CONS. GOODS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPCN</span></td><td>INDUSTRIAL PRODUCTION: NONDURABLE CONS. GOODS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPE</span></td><td>INDUSTRIAL PRODUCTION: BUSINESS EQUIPMENT (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPI</span></td><td>INDUSTRIAL PRODUCTION: INTERMEDIATE PRODUCTS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPM</span></td><td>INDUSTRIAL PRODUCTION: MATERIALS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPMD</span></td><td>INDUSTRIAL PRODUCTION: DURABLE GOODS MATERIALS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPMND</span></td><td>INDUSTRIAL PRODUCTION: NONDUR. GOODS MATERIALS (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPMFG</span></td><td>INDUSTRIAL PRODUCTION: MANUFACTURING (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPD</span></td><td>INDUSTRIAL PRODUCTION: DURABLE MANUFACTURING (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPN</span></td><td>INDUSTRIAL PRODUCTION: NONDUR. MANUFACTURING (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPMIN</span></td><td>INDUSTRIAL PRODUCTION: MINING (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPUT</span></td><td>INDUSTRIAL PRODUCTION: UTILITIES (1992-=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IP</span></td><td>INDUSTRIAL PRODUCTION: TOTAL INDEX (1992=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">IPXMCA</span></td><td>CAPACITY UTIL RATE: MANUFAC.,TOTAL(% OF CAPACITY,SA)(FRB)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PMI</span></td><td>PURCHASING MANAGERS' INDEX (SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PMP</span></td><td>NAPM PRODUCTION INDEX (PERCENT)</td></tr>
+<tr><td class="text-nowrap"><span class="key">GMPYQ</span></td><td>PERSONAL INCOME (CHAINED) (SERIES #52) (BIL 92$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">GMYXPQ</span></td><td>PERSONAL INC. LESS TRANS. PAYMENTS (CHAINED) (#51) (BIL 92$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHEL</span></td><td>INDEX OF HELP-WANTED ADVERTISING IN NEWSPAPERS (1967=100;SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHELX</span></td><td>EMPLOYMENT: RATIO; HELP-WANTED ADS:NO. UNEMPLOYED CLF</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHEM</span></td><td>CIVILIAN LABOR FORCE: EMPLOYED, TOTAL (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHNAG</span></td><td>CIVILIAN LABOR FORCE: EMPLOYED, NONAG.INDUSTRIES (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHUR</span></td><td>UNEMPLOYMENT RATE: ALL WORKERS, 16 YEARS &amp; OVER (%,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHU680</span></td><td>UNEMPLOY.BY DURATION: AVERAGE(MEAN)DURATION IN WEEKS (SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHU5</span></td><td>UNEMPLOY.BY DURATION: PERS UNEMPL.LESS THAN 5 WKS (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHU14</span></td><td>UNEMPLOY.BY DURATION: PERS UNEMPL.5 TO 14 WKS (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHU15</span></td><td>UNEMPLOY.BY DURATION: PERS UNEMPL.15 WKS + (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LHU26</span></td><td>UNEMPLOY.BY DURATION: PERS UNEMPL.15 TO 26 WKS (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPNAG</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: TOTAL (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LP</span></td><td>EMPLOYEES ON NONAG PAYROLLS: TOTAL, PRIVATE (THOUS,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPGD</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: GOODS-PRODUCING (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPMI</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: MINING (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPCC</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: CONTRACT CONSTRUC. (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPEM</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: MANUFACTURING (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPED</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: DURABLE GOODS (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPEN</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: NONDURABLE GOODS (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPSP</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: SERVICE-PRODUCING (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPTU</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: TRANS. &amp; PUBLIC UTIL. (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPT</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: WHOLESALE &amp; RETAIL (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPFR</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: FINANCE,INS.&amp;REAL EST (THOUS.,SA</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPS</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: SERVICES (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPGOV</span></td><td>EMPLOYEES ON NONAG. PAYROLLS: GOVERNMENT (THOUS.,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPHRM</span></td><td>AVG. WEEKLY HRS. OF PRODUCTION WKRS.: MANUFACTURING (SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LPMOSA</span></td><td>AVG. WEEKLY HRS. OF PROD. WKRS.: MFG.,OVERTIME HRS. (SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PMEMP</span></td><td>NAPM EMPLOYMENT INDEX (PERCENT)</td></tr>
+<tr><td class="text-nowrap"><span class="key">GMCQ</span></td><td>PERSONAL CONSUMPTION EXPEND (CHAINED) - TOTAL (BIL 92$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">GMCDQ</span></td><td>PERSONAL CONSUMPTION EXPEND (CHAINED) – TOT. DUR. (BIL 96$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">GMCNQ</span></td><td>PERSONAL CONSUMPTION EXPEND (CHAINED) – NONDUR. (BIL 92$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">GMCSQ</span></td><td>PERSONAL CONSUMPTION EXPEND (CHAINED) - SERVICES (BIL 92$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">GMCANQ</span></td><td>PERSONAL CONS EXPEND (CHAINED) - NEW CARS (BIL 96$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">HSFR</span></td><td>HOUSING STARTS:NONFARM(1947-58);TOT.(1959-)(THOUS.,SA</td></tr>
+<tr><td class="text-nowrap"><span class="key">HSNE</span></td><td>HOUSING STARTS:NORTHEAST (THOUS.U.)S.A.</td></tr>
+<tr><td class="text-nowrap"><span class="key">HSMW</span></td><td>HOUSING STARTS:MIDWEST(THOUS.U.)S.A.</td></tr>
+<tr><td class="text-nowrap"><span class="key">HSSOU</span></td><td>HOUSING STARTS:SOUTH (THOUS.U.)S.A.</td></tr>
+<tr><td class="text-nowrap"><span class="key">HSWST</span></td><td>HOUSING STARTS:WEST (THOUS.U.)S.A.</td></tr>
+<tr><td class="text-nowrap"><span class="key">HSBR</span></td><td>HOUSING AUTHORIZED: TOTAL NEW PRIV HOUSING (THOUS.,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">HMOB</span></td><td>MOBILE HOMES: MANUFACTURERS' SHIPMENTS (THOUS.OF UNITS,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PMNV</span></td><td>NAPM INVENTORIES INDEX (PERCENT)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PMNO</span></td><td>NAPM NEW ORDERS INDEX (PERCENT)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PMDEL</span></td><td>NAPM VENDOR DELIVERIES INDEX (PERCENT)</td></tr>
+<tr><td class="text-nowrap"><span class="key">MOCMQ</span></td><td>NEW ORDERS (NET) - CONSUMER GOODS &amp; MATERIALS, 1992 $ (BCI)</td></tr>
+<tr><td class="text-nowrap"><span class="key">MSONDQ</span></td><td>NEW ORDERS, NONDEFENSE CAPITAL GOODS, IN 1992 DOLLARS (BCI)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FSNCOM</span></td><td>NYSE COMMON STOCK PRICE INDEX: COMPOSITE (12/31/65=50)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FSPCOM</span></td><td>S&amp;P'S COMMON STOCK PRICE INDEX: COMPOSITE (1941-43=10)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FSPIN</span></td><td>S&amp;P'S COMMON STOCK PRICE INDEX: INDUSTRIALS (1941-43=10)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FSPCAP</span></td><td>S&amp;P'S COMMON STOCK PRICE INDEX: CAPITAL GOODS (1941-43=10)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FSPUT</span></td><td>S&amp;P'S COMMON STOCK PRICE INDEX: UTILITIES (1941-43=10)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FSDXP</span></td><td>S&amp;P'S COMPOSITE COMMON STOCK: DIVIDEND YIELD (% PER ANNUM)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FSPXE</span></td><td>S&amp;P'S COMPOSITE COMMON STOCK: PRICE-EARNINGS RATIO (%,NSA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">EXRSW</span></td><td>FOREIGN EXCHANGE RATE: SWITZERLAND (SWISS FRANC PER U.S.$)</td></tr>
+<tr><td class="text-nowrap"><span class="key">EXRJAN</span></td><td>FOREIGN EXCHANGE RATE: JAPAN (YEN PER U.S.$)</td></tr>
+<tr><td class="text-nowrap"><span class="key">EXRUK</span></td><td>FOREIGN EXCHANGE RATE: UNITED KINGDOM (CENTS PER POUND)</td></tr>
+<tr><td class="text-nowrap"><span class="key">EXRCAN</span></td><td>FOREIGN EXCHANGE RATE: CANADA (CANADIAN $ PER U.S.$)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYFF</span></td><td>INTEREST RATE: FEDERAL FUNDS (EFFECTIVE) (% PER ANNUM,NSA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYGM3</span></td><td>INTEREST RATE: U.S.TREASURY BILLS,SEC MKT,3-MO.(% PER ANN,NSA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYGM6</span></td><td>INTEREST RATE: U.S.TREASURY BILLS,SEC MKT,6-MO.(% PER ANN,NSA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYGT1</span></td><td>INTEREST RATE: U.S.TREASURY CONST MATUR. ,1-YR.(% PER ANN,NSA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYGT5</span></td><td>INTEREST RATE: U.S.TREASURY CONST MATUR., 5-YR.(% PER ANN,NSA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYGT10</span></td><td>INTEREST RATE: U.S.TREASURY CONST MATUR.,10-YR.(% PER ANN,NSA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYAAAC</span></td><td>BOND YIELD: MOODY'S AAA CORPORATE (% PER ANNUM)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FYBAAC</span></td><td>BOND YIELD: MOODY'S BAA CORPORATE (% PER ANNUM)</td></tr>
+<tr><td class="text-nowrap"><span class="key">SFYGM3</span></td><td>Spread FYGM3 - FYFF</td></tr>
+<tr><td class="text-nowrap"><span class="key">SFYGM6</span></td><td>Spread FYGM6 - FYFF</td></tr>
+<tr><td class="text-nowrap"><span class="key">SFYGT1</span></td><td>Spread FYGT1 - FYFF</td></tr>
+<tr><td class="text-nowrap"><span class="key">SFYGT5</span></td><td>Spread FYGT5 - FYFF</td></tr>
+<tr><td class="text-nowrap"><span class="key">SFYGT10</span></td><td>Spread FYGT10 - FYFF</td></tr>
+<tr><td class="text-nowrap"><span class="key">SFYAAAC</span></td><td>Spread FYAAAC - FYFF</td></tr>
+<tr><td class="text-nowrap"><span class="key">SFYBAAC</span></td><td>Spread FYBAAC - FYFF</td></tr>
+<tr><td class="text-nowrap"><span class="key">FM1</span></td><td>MONEY STOCK: M1 (BIL$,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FM2</span></td><td>MONEY STOCK:M2 (BIL$, SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FM3</span></td><td>MONEY STOCK: M3 (BIL$,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FM2DQ</span></td><td>MONEY SUPPLY - M2 IN 1992 DOLLARS (BCI)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FMFBA</span></td><td>MONETARY BASE, ADJ FOR RESERVE REQUIREMENT CHANGES(MIL$,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FMRRA</span></td><td>DEPOSITORY INST RESERVES:TOTAL,ADJ FOR RES. REQ CHGS(MIL$,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FMRNBA</span></td><td>DEPOSITORY INST RESERVES:NONBOR. ,ADJ RES REQ CHGS(MIL$,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">FCLNQ</span></td><td>OMMERCIAL &amp; INDUST. LOANS OUSTANDING IN 1992 DOLLARS (BCI</td></tr>
+<tr><td class="text-nowrap"><span class="key">FCLBMC</span></td><td>WKLY RP LG COM. BANKS: NET CHANGE COM &amp; IND. LOANS(BIL$,SAAR)</td></tr>
+<tr><td class="text-nowrap"><span class="key">CCINRV</span></td><td>CONSUMER CREDIT OUTSTANDING NONREVOLVING G19</td></tr>
+<tr><td class="text-nowrap"><span class="key">PMCP</span></td><td>NAPM COMMODITY PRICES INDEX (PERCENT)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PWFSA</span></td><td>PRODUCER PRICE INDEX: FINISHED GOODS (82=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PWFCSA</span></td><td>PRODUCER PRICE INDEX:FINISHED CONSUMER GOODS (82=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PWIMSA</span></td><td>PRODUCER PRICE INDEX:INTERMED MAT.SUP &amp; COMPONENTS(82=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PWCMSA</span></td><td>PRODUCER PRICE INDEX:CRUDE MATERIALS (82=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PSM99Q</span></td><td>INDEX OF SENSITIVE MATERIALS PRICES (1990=100)(BCI-99A)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PUNEW</span></td><td>CPI-U: ALL ITEMS (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PU83</span></td><td>CPI-U: APPAREL &amp; UPKEEP (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PU84</span></td><td>CPI-U: TRANSPORTATION (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PU85</span></td><td>CPI-U: MEDICAL CARE (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PUC</span></td><td>CPI-U: COMMODITIES (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PUCD</span></td><td>CPI-U: DURABLES (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PUS</span></td><td>CPI-U: SERVICES (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PUXF</span></td><td>CPI-U: ALL ITEMS LESS FOOD (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PUXHS</span></td><td>CPI-U: ALL ITEMS LESS SHELTER (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">PUXM</span></td><td>CPI-U: ALL ITEMS LESS MIDICAL CARE (82-84=100,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LEHCC</span></td><td>AVG HR EARNINGS OF CONSTR WKRS: CONSTRUCTION ($,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">LEHM</span></td><td>AVG HR EARNINGS OF PROD WKRS: MANUFACTURING ($,SA)</td></tr>
+<tr><td class="text-nowrap"><span class="key">HHSNTN</span></td><td>U. OF MICH. INDEX OF CONSUMER EXPECTATIONS(BCD-83)</td></tr>
+</tbody></table>
+<h2 id="r2016_monetary"><span class="key">r2016_monetary</span> <span class="count">30 variables</span></h2>
+<p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_monetary.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
+<table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td class="text-nowrap"><span class="key">lip</span></td><td>log of industrial production - October 16, 2010 data</td></tr>
+<tr><td class="text-nowrap"><span class="key">unemp</span></td><td>unemployment rate</td></tr>
+<tr><td class="text-nowrap"><span class="key">lcpi</span></td><td>log of CPI</td></tr>
+<tr><td class="text-nowrap"><span class="key">ffr</span></td><td>federal funds rate</td></tr>
+<tr><td class="text-nowrap"><span class="key">lpcom</span></td><td>log of commodity price index</td></tr>
+<tr><td class="text-nowrap"><span class="key">lrcdur</span></td><td>log of real consumer durables - October 30, 2015</td></tr>
+<tr><td class="text-nowrap"><span class="key">lrcnd</span></td><td>log of real consumer nondurables</td></tr>
+<tr><td class="text-nowrap"><span class="key">lrcsv</span></td><td>log of real consumer services</td></tr>
+<tr><td class="text-nowrap"><span class="key">rrshock</span></td><td>Romer-Romer shock - reestimated for sample through 2007:12 by Johannes Wieland</td></tr>
+<tr><td class="text-nowrap"><span class="key">cumrrshock</span></td><td>Cumulation of rrshock</td></tr>
+<tr><td class="text-nowrap"><span class="key">lm1</span></td><td>log of M1</td></tr>
+<tr><td class="text-nowrap"><span class="key">bcshock</span></td><td>Barakchian_Crowe shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">cumbcshock</span></td><td>Cumulation of BC shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mp1_tc</span></td><td>Gertler-Karadi monthly shocks, current futures</td></tr>
+<tr><td class="text-nowrap"><span class="key">ff4_tc</span></td><td>Gertler-Karadi monthly shocks, fed funds futures 3 months from now</td></tr>
+<tr><td class="text-nowrap"><span class="key">ed2_tc</span></td><td>Gertler-Karadi monthly shocks, Euro-dollar futures 6 months from now</td></tr>
+<tr><td class="text-nowrap"><span class="key">ed3_tc</span></td><td>Gertler-Karadi monthly shocks, Euro-dollar futures 9 months from now</td></tr>
+<tr><td class="text-nowrap"><span class="key">ed4_tc</span></td><td>Gertler-Karadi monthly shocks, Euro-dollar futures 12 months from now</td></tr>
+<tr><td class="text-nowrap"><span class="key">gs1</span></td><td>One-year government tbill rate</td></tr>
+<tr><td class="text-nowrap"><span class="key">ebp</span></td><td>Gilchrist-Zakrajsek spread</td></tr>
+<tr><td class="text-nowrap"><span class="key">szshock</span></td><td>Sims-Zha shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">rrshock83</span></td><td>Romer-Romer shock, estimated for sample 1983-2007</td></tr>
+<tr><td class="text-nowrap"><span class="key">cumrrshock83</span></td><td>Cumulation of rrshock83</td></tr>
+<tr><td class="text-nowrap"><span class="key">rrshock83b</span></td><td>Romer-Romer shock, estimated for sample 1983-2007 using long-horizon Greenbook forecasts</td></tr>
+<tr><td class="text-nowrap"><span class="key">ff1_vr</span></td><td>Gertler-Karadi current fed funds futures shock, my conversion from FOMC announcements, following Romer-Romer</td></tr>
+<tr><td class="text-nowrap"><span class="key">ff4_vr</span></td><td>Gertler-Karadi 3-months from now fed funds futures shock, my conversion from FOMC announcements, following Romer-Romer</td></tr>
+<tr><td class="text-nowrap"><span class="key">ed2_vr</span></td><td>Gertler-Karadi 6 months euro-dollar futures shock, my conversion from FOMC announcements, following Romer-Romer</td></tr>
+<tr><td class="text-nowrap"><span class="key">ff1_gkgreen</span></td><td>Residual after regressing on Romer-Romer Greenbook variables by FOMC date - sets between meeting announcements to 0</td></tr>
+<tr><td class="text-nowrap"><span class="key">ff4_gkgreen</span></td><td>Residual after regressing on Romer-Romer Greenbook variables by FOMC date - sets between meeting announcements to 0</td></tr>
+<tr><td class="text-nowrap"><span class="key">ed2_gkgreen</span></td><td>Residual after regressing on Romer-Romer Greenbook variables by FOMC date - sets between meeting announcements to 0</td></tr>
+</tbody></table>
+<h2 id="r2016_govt"><span class="key">r2016_govt</span> <span class="count">35 variables</span></h2>
+<p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_govt.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
+<table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td class="text-nowrap"><span class="key">ngdp</span></td><td>nominal GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">ncons</span></td><td>nominal total consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">ncdur</span></td><td>nominal durable consumption expenditures</td></tr>
+<tr><td class="text-nowrap"><span class="key">ncnd</span></td><td>nominal nondurable consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">ncsv</span></td><td>nominal services consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">ntotinv</span></td><td>nominal total investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">nfxinv</span></td><td>nominal fixed investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">nnri</span></td><td>nominal nonresidential investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">nres</span></td><td>nominal residential investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">ngov</span></td><td>nominal government purchases (federal + state + local)</td></tr>
+<tr><td class="text-nowrap"><span class="key">nfed</span></td><td>nominal federal government purchases</td></tr>
+<tr><td class="text-nowrap"><span class="key">ndef</span></td><td>nominal federal defense purchases</td></tr>
+<tr><td class="text-nowrap"><span class="key">pgdp</span></td><td>GDP deflator</td></tr>
+<tr><td class="text-nowrap"><span class="key">pcons</span></td><td>consumption deflator</td></tr>
+<tr><td class="text-nowrap"><span class="key">pcdur</span></td><td>deflator for durable consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">pcnd</span></td><td>deflator for nondurable consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">pcsv</span></td><td>deflator for services consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">pcndsv</span></td><td>deflator for consumption nondurables plus services</td></tr>
+<tr><td class="text-nowrap"><span class="key">ptotinv</span></td><td>deflator for total investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">pfxinv</span></td><td>deflator for fixed investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">pnri</span></td><td>deflator for nonresidential investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">pres</span></td><td>deflator for residential investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">pgov</span></td><td>deflator for government purchases</td></tr>
+<tr><td class="text-nowrap"><span class="key">pfed</span></td><td>deflator for federal government purchase</td></tr>
+<tr><td class="text-nowrap"><span class="key">pdef</span></td><td>deflator for federal defense purchases</td></tr>
+<tr><td class="text-nowrap"><span class="key">nwbus</span></td><td>nominal compensation in private business</td></tr>
+<tr><td class="text-nowrap"><span class="key">pbus</span></td><td>deflator for private business output</td></tr>
+<tr><td class="text-nowrap"><span class="key">tothours</span></td><td>total hours worked (includes military etc.)</td></tr>
+<tr><td class="text-nowrap"><span class="key">pop</span></td><td>total population</td></tr>
+<tr><td class="text-nowrap"><span class="key">tbill3</span></td><td>3-month Treasury bill</td></tr>
+<tr><td class="text-nowrap"><span class="key">rypot</span></td><td>real potential GDP CBO</td></tr>
+<tr><td class="text-nowrap"><span class="key">rameynews</span></td><td>military news from Ramey</td></tr>
+<tr><td class="text-nowrap"><span class="key">nfedreceipts</span></td><td>nominal federal receipts</td></tr>
+<tr><td class="text-nowrap"><span class="key">top3xsret</span></td><td>Fisher-Peters excess returns of defense contractors</td></tr>
+<tr><td class="text-nowrap"><span class="key">mfev</span></td><td>Ben Zeev - Pappa defense news</td></tr>
+</tbody></table>
+<h2 id="r2016_tech"><span class="key">r2016_tech</span> <span class="count">45 variables</span></h2>
+<p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_tech.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
+<table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td class="text-nowrap"><span class="key">ngdp</span></td><td>nominal GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">rgdp</span></td><td>real GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">pgdp</span></td><td>GDP deflator</td></tr>
+<tr><td class="text-nowrap"><span class="key">ncons</span></td><td>nominal consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">ntotinv</span></td><td>nominal total investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">rcons</span></td><td>real consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">rnri</span></td><td>real nonresidential investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">tothours</span></td><td>total hours</td></tr>
+<tr><td class="text-nowrap"><span class="key">ybus</span></td><td>output in private business</td></tr>
+<tr><td class="text-nowrap"><span class="key">xbus</span></td><td>output per hour in private business</td></tr>
+<tr><td class="text-nowrap"><span class="key">nbus</span></td><td>hours in private business</td></tr>
+<tr><td class="text-nowrap"><span class="key">ltfp</span></td><td>log TFP - Fernald series</td></tr>
+<tr><td class="text-nowrap"><span class="key">ltfp_i</span></td><td>log TFP in investment goods - Fernald series</td></tr>
+<tr><td class="text-nowrap"><span class="key">ltfp_util</span></td><td>log TFP - utilitzation adjusted, Fernald series</td></tr>
+<tr><td class="text-nowrap"><span class="key">ltfp_i_util</span></td><td>log TFP in investment goods - utilization adjusted, Fernald series</td></tr>
+<tr><td class="text-nowrap"><span class="key">relp</span></td><td>relative price of investment ogods</td></tr>
+<tr><td class="text-nowrap"><span class="key">pop</span></td><td>total population</td></tr>
+<tr><td class="text-nowrap"><span class="key">civpop</span></td><td>civilian noninstitutional pop 16+</td></tr>
+<tr><td class="text-nowrap"><span class="key">baa</span></td><td>BAA bond intereswt rate</td></tr>
+<tr><td class="text-nowrap"><span class="key">tbond10</span></td><td>10 year Treasury bond rate</td></tr>
+<tr><td class="text-nowrap"><span class="key">tbill3</span></td><td>3-month Treasury bill</td></tr>
+<tr><td class="text-nowrap"><span class="key">stockp_sh</span></td><td>stock prices, from Shiller</td></tr>
+<tr><td class="text-nowrap"><span class="key">stockp_ff</span></td><td>Stock prices, from Fama-French</td></tr>
+<tr><td class="text-nowrap"><span class="key">ford_tfp</span></td><td>Francis, Owyang, Roush, DeCicio shock - sent by Riccardo December 14, 2015</td></tr>
+<tr><td class="text-nowrap"><span class="key">bp_tfp_news_sr</span></td><td>Ramey update of Beaudry-Portier TFP news shock based on short-run restrictions</td></tr>
+<tr><td class="text-nowrap"><span class="key">bp_tfp_news_lr</span></td><td>Ramey update of Beaudry-Portier TFP news shock based on long-run restrictions</td></tr>
+<tr><td class="text-nowrap"><span class="key">bs_tfp_news</span></td><td>Barsky-Sims TFP news</td></tr>
+<tr><td class="text-nowrap"><span class="key">bzk_ist_news</span></td><td>Ben Zeev-Khan JMCB investment specific news shocks</td></tr>
+<tr><td class="text-nowrap"><span class="key">bzk_ist</span></td><td>Ben Zeev-Khan JMCB unanticipated investment specific shocks</td></tr>
+<tr><td class="text-nowrap"><span class="key">bzk_tfp</span></td><td>Ben Zeev-Khan JMCB TFP shocks</td></tr>
+<tr><td class="text-nowrap"><span class="key">jpt_tfp</span></td><td>Justiniano, Primaceri, and Tambolotti's RED 2011 TFP shocks</td></tr>
+<tr><td class="text-nowrap"><span class="key">jpt_mei</span></td><td>Justiniano, Primaceri, and Tambolotti's RED 2011 marginal efficiency of investment shocks</td></tr>
+<tr><td class="text-nowrap"><span class="key">jpt_ist</span></td><td>Justiniano, Primaceri, and Tambolotti's RED 2011 investment specific technology shocks</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_tfp_p</span></td><td>Miyamoto-Nguyen's permanent TFP shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_ist_p</span></td><td>Miyamoto-Nguyen's permanent IST shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_tfp_s</span></td><td>Miyamoto-Nguyen's stationary TFP shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_ist_s</span></td><td>Miyamoto-Nguyen's stationary IST shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_tfp_p_n4</span></td><td>Miyamoto-Nguyen's 4-quarter ahead news about permanent TFP shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_tfp_p_n8</span></td><td>Miyamoto-Nguyen's8-quarter ahead news about permanent TFP shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_ist_p_n4</span></td><td>Miyamoto-Nguyen's 4-quarter ahead news about permanent IST shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_ist_p_n8</span></td><td>Miyamoto-Nguyen's 8-quarter ahead news about permanent IST shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_tfp_s_n4</span></td><td>Miyamoto-Nguyen's 4-quarter ahead news about stationary TFP shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_tfp_s_n8</span></td><td>Miyamoto-Nguyen's8-quarter ahead news about stationary TFP shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_ist_s_n4</span></td><td>Miyamoto-Nguyen's 4-quarter ahead news about stationary IST shock</td></tr>
+<tr><td class="text-nowrap"><span class="key">mn_ist_s_n8</span></td><td>Miyamoto-Nguyen's 8-quarter ahead news about stationary IST shock</td></tr>
+</tbody></table>
+<h2 id="r2016_tax"><span class="key">r2016_tax</span> <span class="count">30 variables</span></h2>
+<p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_tax.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
+<table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td class="text-nowrap"><span class="key">ngdp</span></td><td>nominal GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">rgdp</span></td><td>real GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">rcons</span></td><td>real consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">rcndsv</span></td><td>real nondurables plus services consumption, aggregated using Whelan method</td></tr>
+<tr><td class="text-nowrap"><span class="key">rcdur</span></td><td>real durables consumption</td></tr>
+<tr><td class="text-nowrap"><span class="key">rinv</span></td><td>real investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">rnri</span></td><td>real nonresidential investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">rres</span></td><td>real residential investment</td></tr>
+<tr><td class="text-nowrap"><span class="key">tothours</span></td><td>total hours</td></tr>
+<tr><td class="text-nowrap"><span class="key">ngov</span></td><td>nominal government purchases</td></tr>
+<tr><td class="text-nowrap"><span class="key">nfed</span></td><td>nominal federal purchases</td></tr>
+<tr><td class="text-nowrap"><span class="key">rameynews</span></td><td>military news</td></tr>
+<tr><td class="text-nowrap"><span class="key">mfev</span></td><td>Ben Zeev - Pappa military news</td></tr>
+<tr><td class="text-nowrap"><span class="key">ntaxrev</span></td><td>nominal tax receipts</td></tr>
+<tr><td class="text-nowrap"><span class="key">nfedtaxrev</span></td><td>nominal federal tax receipts</td></tr>
+<tr><td class="text-nowrap"><span class="key">pgdp</span></td><td>GDP deflator</td></tr>
+<tr><td class="text-nowrap"><span class="key">ybus</span></td><td>real private business output</td></tr>
+<tr><td class="text-nowrap"><span class="key">xbus</span></td><td>real private business output per hour</td></tr>
+<tr><td class="text-nowrap"><span class="key">nbus</span></td><td>hours worked in private business</td></tr>
+<tr><td class="text-nowrap"><span class="key">pop</span></td><td>total population</td></tr>
+<tr><td class="text-nowrap"><span class="key">baa</span></td><td>interest rate on BAA bonds</td></tr>
+<tr><td class="text-nowrap"><span class="key">tbond10</span></td><td>interest rate on 10 year Treasury bonds</td></tr>
+<tr><td class="text-nowrap"><span class="key">tbill3</span></td><td>interest rate on 3-month Tbill</td></tr>
+<tr><td class="text-nowrap"><span class="key">ffr</span></td><td>federal funds rate</td></tr>
+<tr><td class="text-nowrap"><span class="key">aftr15</span></td><td>Leeper, Richter, Walker tax expectations, 1 - 5 years ahead</td></tr>
+<tr><td class="text-nowrap"><span class="key">endognrratio</span></td><td>Romer-Romer endogenous tax changes, ratio to GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">exogenrratio</span></td><td>Romer-Romer exogenous tax changes, ratio to GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">rrtaxu</span></td><td>Romer-Romer, unanticipated tax changes Mertens-Ravn, JME data</td></tr>
+<tr><td class="text-nowrap"><span class="key">taxu</span></td><td>Romer-Romer, unanticipated tax changes,  Mertens-Ravn RED data</td></tr>
+<tr><td class="text-nowrap"><span class="key">taxnews</span></td><td>Romer-Romer, anticipated tax changes, Mertens-Ravn RED data</td></tr>
+</tbody></table>
+<h2 id="rz2018"><span class="key">rz2018</span> <span class="count">27 variables</span></h2>
+<p class="count">V. A. Ramey and S. Zubairy. "Government Spending Multipliers in Good Times and in Bad: Evidence from US Historical Data". In: <em>Journal of Political Economy</em> 126.2 (2018), pp. 850-901. DOI: 10.1086/696277. <a href="https://doi.org/10.1086/696277">https://doi.org/10.1086/696277</a>. <a href="data/rz2018.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
+<table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td class="text-nowrap"><span class="key">ngov</span></td><td>nominal government purchases</td></tr>
+<tr><td class="text-nowrap"><span class="key">ngdp</span></td><td>nominal GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">pgdp</span></td><td>GDP implicit price deflator</td></tr>
+<tr><td class="text-nowrap"><span class="key">pop</span></td><td>total population, including armed forces overseas</td></tr>
+<tr><td class="text-nowrap"><span class="key">recession</span></td><td>recession indicator</td></tr>
+<tr><td class="text-nowrap"><span class="key">unemp</span></td><td>civilian unemployment rate</td></tr>
+<tr><td class="text-nowrap"><span class="key">news</span></td><td>military news</td></tr>
+<tr><td class="text-nowrap"><span class="key">rgdp</span></td><td>real GDP</td></tr>
+<tr><td class="text-nowrap"><span class="key">nfedcurrreceipts_nipa</span></td><td>nominal Federal current receipts, NIPA accrual basis</td></tr>
+<tr><td class="text-nowrap"><span class="key">ndeficit_nipa</span></td><td>nominal deficit, NIPA accrual basis, constructed as *total* federal expenditures - total federal receipts</td></tr>
+<tr><td class="text-nowrap"><span class="key">tbill</span></td><td>3-month treasury bill rate, secondary market</td></tr>
+<tr><td class="text-nowrap"><span class="key">zlb_dummy</span></td><td>dummy for zlb periods</td></tr>
+<tr><td class="text-nowrap"><span class="key">rgdp_potcbo</span></td><td>real potential GDP, based on cubic polynomial fit from 1889:1 - 1950:2( omitting Great Depression and WWII), overlapped with CBO from 1949:1 - on</td></tr>
+<tr><td class="text-nowrap"><span class="key">rgdp_pott6</span></td><td>real potential GDP, based on 6th degree polynomial fit from 1889:1 - 2015:4, ommiting Great Depression and WWII</td></tr>
+<tr><td class="text-nowrap"><span class="key">unemp_altcr</span></td><td>alternative unemployment Christina Romer</td></tr>
+<tr><td class="text-nowrap"><span class="key">rgdp_altcr</span></td><td>alternative real GDP, Christina Romer</td></tr>
+<tr><td class="text-nowrap"><span class="key">pgdp_altcr</span></td><td>alternative price deflator, Christina Romer</td></tr>
+<tr><td class="text-nowrap"><span class="key">ngdp_altcr</span></td><td>alternative nominal GDP, Christina Romer</td></tr>
+<tr><td class="text-nowrap"><span class="key">ntotrev_nipa</span></td><td>nominal total government revenue (federal + state and local), NIPA accrual basis.</td></tr>
+<tr><td class="text-nowrap"><span class="key">pubfeddebt_treas</span></td><td>nominal federal debt in the hands of the public, cash basis</td></tr>
+<tr><td class="text-nowrap"><span class="key">fedrevq_treas</span></td><td>nominal federal revenue, Treasury data, cash basis</td></tr>
+<tr><td class="text-nowrap"><span class="key">fedexpq_treas</span></td><td>nominal federal outlays, Treasury data, cash basis</td></tr>
+<tr><td class="text-nowrap"><span class="key">nfedexp_nipa</span></td><td>nominal federal expenditures, NIPA accrual basis</td></tr>
+<tr><td class="text-nowrap"><span class="key">hpunemp_split</span></td><td>HP unemployment, split sample</td></tr>
+<tr><td class="text-nowrap"><span class="key">hpunemp_full</span></td><td>HP unemployment, full sample</td></tr>
+<tr><td class="text-nowrap"><span class="key">tbill_interp</span></td><td>Tbill interpolated with NY discount rate for early years</td></tr>
+<tr><td class="text-nowrap"><span class="key">nydiscrate</span></td><td>NY discount rate</td></tr>
+</tbody></table>
+</div></div>
+</main>
+<footer><div class="container">
+econdata 0.2.0, MIT licence. Each dataset remains the property of its authors; cite the paper, not the package.
+ Missing something? <a href="https://github.com/kvasilopoulos/econdata/issues">Open an issue</a> or edit <code>data-raw/catalog.csv</code> / <code>data-raw/sources.csv</code> and send a pull request.
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>
