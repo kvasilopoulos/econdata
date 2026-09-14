@@ -11,8 +11,8 @@ A tibble with columns \code{dataset}, \code{variable}, \code{description}.
 variables
 }
 \description{
-Column descriptions for \code{bbe2005}, the four \verb{r2016_*} panels and
-\code{rz2018}, taken from the original data files' readme sheets.
+Column descriptions for \code{bbe2005}, the four \verb{r2016_*} panels, \code{rz2018}
+and \code{ci2022}, taken from the original data files' readme sheets.
 }
 \examples{
 subset(variables, dataset == "rz2018")

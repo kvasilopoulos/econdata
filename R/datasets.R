@@ -174,10 +174,102 @@
 
 #' Variable dictionary for the wide panels
 #'
-#' Column descriptions for `bbe2005`, the four `r2016_*` panels and
-#' `rz2018`, taken from the original data files' readme sheets.
+#' Column descriptions for `bbe2005`, the four `r2016_*` panels, `rz2018`
+#' and `ci2022`, taken from the original data files' readme sheets.
 #'
 #' @format A tibble with columns `dataset`, `variable`, `description`.
 #' @examples
 #' subset(variables, dataset == "rz2018")
 "variables"
+
+# Maintained series from author / Fed websites ---------------------------
+
+#' @template rox_papers
+#' @templateVar key "wx2016"
+#' @details Monthly effective federal funds rate (`ff`) and the Wu-Xia shadow
+#'   rate (`shadow`), both on the last business day of the month, 1960-2022.
+#'   The shadow rate is only defined at the zero lower bound (NA otherwise).
+#' @source <https://www.atlantafed.org/cqer/research/wu-xia-shadow-federal-funds-rate>
+"wx2016"
+
+#' @template rox_papers
+#' @templateVar key "f2014"
+#' @details Quarterly growth rates (400 x log change) of business-sector
+#'   output, hours, labour productivity, capital and TFP (`dtfp`), the
+#'   utilization adjustment (`dutil`) and utilization-adjusted TFP
+#'   (`dtfp_util`), plus the investment/consumption sector split. September
+#'   2026 vintage; the SF Fed revises the whole series each quarter.
+#' @source <https://www.frbsf.org/research-and-insights/data-and-indicators/total-factor-productivity-tfp/>
+"f2014"
+
+#' @template rox_papers
+#' @templateVar key "bbd2016"
+#' @details Monthly US economic policy uncertainty: the news-based index
+#'   from 1900 (`epu_news`) and, from 1985, the three-component index
+#'   (`epu_3comp`) with its news, government-forecaster disagreement, CPI
+#'   disagreement and tax-expiration parts.
+#' @source <https://www.policyuncertainty.com/>
+"bbd2016"
+
+#' @template rox_papers
+#' @templateVar key "k2009"
+#' @details Monthly index of global real economic activity in industrial
+#'   commodity markets (`igrea`), built from dry-bulk shipping rates, as
+#'   corrected and maintained by the Dallas Fed. The demand-side series in
+#'   the Kilian (2009) oil market VAR.
+#' @source <https://www.dallasfed.org/research/igrea>
+"k2009"
+
+#' @template rox_papers
+#' @templateVar key "jln2015"
+#' @details Monthly macro, financial and real uncertainty indexes at 1, 3
+#'   and 12 month horizons (`macro_h1`, ..., `real_h12`). August 2026 update.
+#' @source <https://www.sydneyludvigson.com/macro-and-financial-uncertainty-indexes>
+"jln2015"
+
+#' @template rox_papers
+#' @templateVar key "jk2020"
+#' @details Monthly sums of FOMC-announcement surprises 1990-2019: the
+#'   policy-indicator principal component (`pc1ff1_hf`) and the S&P 500
+#'   (`sp500_hf`), decomposed into monetary policy (`mp_`) and central bank
+#'   information (`cbi_`) shocks with poor man's (`_pm`) and median
+#'   (`_median`) sign restrictions.
+#' @source <https://marekjarocinski.github.io/jkshocks/jkshocks.html>
+"jk2020"
+
+#' @template rox_papers
+#' @templateVar key "mr2013"
+#' @details Quarterly 1950-2006: narrative personal (`T_PI`) and corporate
+#'   (`T_CI`) income tax liability changes, their unanticipated parts
+#'   (`m_PI`, `m_CI`), average tax rates, tax bases and the macro
+#'   aggregates of the SVAR. Column names as in the replication files.
+#' @source <https://karelmertens.com/research/>
+"mr2013"
+
+#' @template rox_papers
+#' @templateVar key "ci2022"
+#' @details Monthly geopolitical risk: the recent index from 1985 (`GPR`)
+#'   and historical index from 1900 (`GPRH`), each split into threats and
+#'   acts, article shares by category and 44 country-specific indexes
+#'   (`GPRC_*`). Column definitions:
+#'   `subset(variables, dataset == "ci2022")`. August 2026 vintage.
+#' @source <https://www.matteoiacoviello.com/gpr.htm>
+"ci2022"
+
+#' @template rox_papers
+#' @templateVar key "s2015"
+#' @details Monthly S&P Composite price, dividends, earnings, CPI and long
+#'   rate from 1871, the real series, CAPE, total-return CAPE, excess CAPE
+#'   yield and 10-year forward returns, as on Shiller's website.
+#' @source <http://www.econ.yale.edu/~shiller/data.htm>
+"s2015"
+
+#' @template rox_papers
+#' @templateVar key "r2011"
+#' @details Quarterly 1939-2008: present discounted value of defense news
+#'   (`pdvmil`, and `pdvmily` as a share of lagged GDP), real GDP and
+#'   components, government and defense spending, hours, population, real
+#'   manufacturing wage, CPI, BAA yield, T-bill and the average marginal
+#'   tax rate.
+#' @source <https://econweb.ucsd.edu/~vramey/research.html>
+"r2011"

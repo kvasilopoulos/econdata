@@ -51,7 +51,15 @@ variables <- bind_rows(
   readme_vars("r2016_govt", "data-raw/r2016/homgovdat.xlsx", "readme"),
   readme_vars("r2016_tech", "data-raw/r2016/Technology_data.xlsx", "readme"),
   readme_vars("r2016_tax", "data-raw/r2016/homtaxdat.xlsx", "Readme"),
-  readme_vars("rz2018", "data-raw/rz2018/RZDAT.xlsx", "readme")
+  readme_vars("rz2018", "data-raw/rz2018/RZDAT.xlsx", "readme"),
+  readxl::read_excel("data-raw/ci2022/data_gpr_export.xls", range = "DJ1:DK200") %>%
+    transmute(dataset = "ci2022", variable = var_name, description = var_label) %>%
+    filter(!is.na(variable))
 )
+# keep only columns that actually ship (ci2022 drops the *_NOEW/_AND/_BASIC and GPRHC_ variants)
+cols <- unlist(lapply(unique(variables$dataset), function(k) {
+  e <- new.env(); load(file.path("data", paste0(k, ".rda")), e); paste(k, names(e[[k]]))
+}))
+variables <- filter(variables, paste(dataset, variable) %in% cols)
 
 usethis::use_data(catalog, sources, variables, overwrite = TRUE)
