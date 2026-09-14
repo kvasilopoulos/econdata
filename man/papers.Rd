@@ -5,7 +5,7 @@
 \alias{papers}
 \title{List of the contained papers}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 7 rows and 17 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 10 rows and 19 columns.
 }
 \usage{
 papers
@@ -15,6 +15,6 @@ One row per bibliography entry in \code{data-raw/bib/papers.bib}. \code{BIBTEXKE
 matches the \code{paper} column of \link{catalog}.
 }
 \seealso{
-\link{catalog}, \link{sources}
+\link{catalog}, \link{sources}, \link{variables}
 }
 \keyword{datasets}

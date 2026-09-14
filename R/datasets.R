@@ -3,7 +3,7 @@
 #' One row per bibliography entry in `data-raw/bib/papers.bib`. `BIBTEXKEY`
 #' matches the `paper` column of [catalog].
 #'
-#' @seealso [catalog], [sources]
+#' @seealso [catalog], [sources], [variables]
 "papers"
 
 #' Catalog of the bundled datasets
@@ -107,3 +107,77 @@
 #' plot(sw2001$date, sw2001$un, type = "l", xlab = "", ylab = "Unemployment")
 #' rect(rec$Peak, -1e3, rec$Trough, 1e3, col = adjustcolor("grey", 0.4), border = NA)
 "nber_rec"
+
+# Ramey Handbook / JPE ----------------------------------------------------
+
+#' Ramey (2016) monetary shocks panel
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @details Monthly US panel behind Section 3 (monetary shocks) of the
+#'   Handbook chapter: macro aggregates plus Romer-Romer, Gertler-Karadi,
+#'   Barakchian-Crowe and Sims-Zha shock series, the excess bond premium,
+#'   the Wu-Xia shadow rate and five Stock-Watson factors. Column
+#'   definitions: `subset(variables, dataset == "ramey2016_monetary")`.
+#' @source <https://econweb.ucsd.edu/~vramey/research.html>
+"ramey2016_monetary"
+
+#' Ramey (2016) government spending panel
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @details Quarterly US panel behind Section 4 (government spending) of the
+#'   Handbook chapter: nominal NIPA components and deflators, hours,
+#'   population, Ramey military news and Ben Zeev-Pappa defense news.
+#'   Column definitions: `subset(variables, dataset == "ramey2016_govt")`.
+#' @source <https://econweb.ucsd.edu/~vramey/research.html>
+"ramey2016_govt"
+
+#' Ramey (2016) technology shocks panel
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @details Quarterly US panel behind Section 5 (technology shocks) of the
+#'   Handbook chapter: Fernald TFP series, business output and hours, and
+#'   identified technology/news shocks from several papers. Column
+#'   definitions: `subset(variables, dataset == "ramey2016_tech")`.
+#' @source <https://econweb.ucsd.edu/~vramey/research.html>
+"ramey2016_tech"
+
+#' Ramey (2016) tax shocks panel
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @details Quarterly US panel behind Section 4 (tax shocks) of the Handbook
+#'   chapter: real NIPA aggregates, tax receipts, Romer-Romer and
+#'   Mertens-Ravn narrative tax shocks. Column definitions:
+#'   `subset(variables, dataset == "ramey2016_tax")`.
+#' @source <https://econweb.ucsd.edu/~vramey/research.html>
+"ramey2016_tax"
+
+#' Ramey and Zubairy (2018) US historical fiscal data
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("rz2018")}
+#' @details Quarterly US data 1889-2015 (population from 1875) used for the
+#'   state-dependent government spending multipliers: purchases, GDP,
+#'   deflator, unemployment, military news, T-bill, ZLB dummy, potential GDP,
+#'   debt and receipts. Column definitions:
+#'   `subset(variables, dataset == "rz2018")`.
+#' @source <https://econweb.ucsd.edu/~vramey/research.html>
+"rz2018"
+
+#' Gilchrist and Zakrajsek (2012) excess bond premium
+#'
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("gz2012")}
+#' @details Monthly GZ credit spread (`gz_spread`), excess bond premium
+#'   (`ebp`) and the implied 12-month-ahead recession probability
+#'   (`est_prob`), as updated by the Federal Reserve Board. Snapshot of
+#'   September 2026.
+#' @source <https://www.federalreserve.gov/econres/notes/feds-notes/updating-the-recession-risk-and-the-excess-bond-premium-20161006.html>
+"gz2012"
+
+#' Variable dictionary for the wide panels
+#'
+#' Column descriptions for `bbe2005`, the four `ramey2016_*` panels and
+#' `rz2018`, taken from the original data files' readme sheets.
+#'
+#' @format A tibble with columns `dataset`, `variable`, `description`.
+#' @examples
+#' subset(variables, dataset == "rz2018")
+"variables"
