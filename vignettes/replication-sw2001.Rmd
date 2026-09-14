@@ -2,7 +2,7 @@
 title: "Stock and Watson (2001)"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{replication-sw2001}
+  %\VignetteIndexEntry{Stock and Watson (2001)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

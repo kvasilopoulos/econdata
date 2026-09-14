@@ -3,12 +3,22 @@
 \docType{data}
 \name{kl2017}
 \alias{kl2017}
-\title{Killian Lutkepohl 2017 Book}
-\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 213 rows and 4 columns.}
+\title{Kilian and Lütkepohl (2017) textbook monetary VAR}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 213 rows and 4 columns.
+}
 \usage{
 kl2017
 }
 \description{
-adsfsadf
+Quarterly US data used in Chapter 2 of \emph{Structural Vector Autoregressive
+Analysis}: real GDP growth (\code{drgdp}), federal funds rate (\code{ff}) and
+inflation (\code{infl}), 1954Q4-2007Q4.
+}
+\references{
+\Sexpr[stage=render,results=rd]{econdata:::bib_ref("kl2017")}
+}
+\seealso{
+\link{oil}
 }
 \keyword{datasets}

@@ -3,12 +3,22 @@
 \docType{data}
 \name{oil}
 \alias{oil}
-\title{Killian Lutkepohl 2017 Book - Oil VAR data}
-\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 162 rows and 4 columns.}
+\title{Kilian and Lütkepohl (2017) textbook oil VAR}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 162 rows and 4 columns.
+}
 \usage{
 oil
 }
 \description{
-fasdasd
+Quarterly US oil-market data used in Chapter 2 of \emph{Structural Vector
+Autoregressive Analysis}: real oil price growth (\code{drpoil}), inflation
+(\code{infl}) and real GDP growth (\code{drgdp}), 1973Q1-2013Q2.
+}
+\references{
+\Sexpr[stage=render,results=rd]{econdata:::bib_ref("kl2017")}
+}
+\seealso{
+\link{kl2017}
 }
 \keyword{datasets}

@@ -4,7 +4,9 @@
 \name{psy2015}
 \alias{psy2015}
 \title{\Sexpr[stage=render,results=rd]{econdata:::bib_authoryear("psy2015")}}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 547 rows and 5 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 547 rows and 5 columns.
+}
 \usage{
 psy2015
 }

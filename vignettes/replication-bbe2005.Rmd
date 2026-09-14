@@ -2,7 +2,7 @@
 title: "Bernanke, Boivin, and Eliasz (2005)"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{replication-bbe2005}
+  %\VignetteIndexEntry{Bernanke, Boivin, and Eliasz (2005)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

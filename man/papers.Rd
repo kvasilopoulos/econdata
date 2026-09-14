@@ -4,11 +4,17 @@
 \name{papers}
 \alias{papers}
 \title{List of the contained papers}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 6 rows and 16 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 7 rows and 17 columns.
+}
 \usage{
 papers
 }
 \description{
-The list contains all data sourced from the bibfile.
+One row per bibliography entry in \code{data-raw/bib/papers.bib}. \code{BIBTEXKEY}
+matches the \code{paper} column of \link{catalog}.
+}
+\seealso{
+\link{catalog}, \link{sources}
 }
 \keyword{datasets}

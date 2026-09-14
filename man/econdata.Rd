@@ -2,12 +2,11 @@
 % Please edit documentation in R/econdata-package.R
 \docType{package}
 \name{econdata}
-\alias{econdata}
 \alias{econdata-package}
+\alias{econdata}
 \title{econdata: Curated List of Economic Datasets}
 \description{
-The goal of {econodata} is to provide a curated
-    list of datasets that are used in the most influential economic papers.
+A curated collection of datasets used in influential empirical macroeconomics papers, with a catalog of categories and tags, pointers to external replication data, and CSV copies served from the package website.
 }
 \seealso{
 Useful links:
@@ -19,6 +18,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Kostas Vasilopoulos \email{k.vasilopoulo@gmail.com}
+
+Authors:
+\itemize{
+  \item Kostas Vasilopoulos \email{k.vasilopoulo@gmail.com}
+}
 
 }
 \keyword{internal}

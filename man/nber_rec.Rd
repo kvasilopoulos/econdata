@@ -3,12 +3,23 @@
 \docType{data}
 \name{nber_rec}
 \alias{nber_rec}
-\title{NBER recession peak, trhough and duration}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 34 rows and 3 columns.}
+\title{NBER business cycle reference dates}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 35 rows and 3 columns.
+}
+\source{
+\url{https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions}
+}
 \usage{
 nber_rec
 }
 \description{
-NBER recession peak, trhough and duration
+Peak and trough months of US business cycles as dated by the NBER Business
+Cycle Dating Committee, and the length of each contraction in months.
+}
+\examples{
+rec <- subset(nber_rec, Peak >= as.Date("1960-01-01"))
+plot(sw2001$date, sw2001$un, type = "l", xlab = "", ylab = "Unemployment")
+rect(rec$Peak, -1e3, rec$Trough, 1e3, col = adjustcolor("grey", 0.4), border = NA)
 }
 \keyword{datasets}

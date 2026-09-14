@@ -4,7 +4,9 @@
 \name{sw2001}
 \alias{sw2001}
 \title{\Sexpr[stage=render,results=rd]{econdata:::bib_authoryear("sw2001")}}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 164 rows and 4 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 164 rows and 4 columns.
+}
 \usage{
 sw2001
 }

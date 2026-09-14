@@ -4,7 +4,9 @@
 \name{gk2015}
 \alias{gk2015}
 \title{\Sexpr[stage=render,results=rd]{econdata:::bib_authoryear("gk2015")}}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 396 rows and 13 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 396 rows and 13 columns.
+}
 \usage{
 gk2015
 }
