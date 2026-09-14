@@ -149,13 +149,13 @@ rows <- with(catalog, sprintf(
   '<tr data-cat="%s" data-text="%s">
 <td><span class="key">%s</span></td>
 <td class="title">%s<div class="paper">%s</div></td>
-<td>%s</td><td class="text-nowrap">%s<br><span class="paper">%s to %s</span></td><td class="text-nowrap">%s &times; %s</td>
+<td>%s</td><td class="text-nowrap">%s<br><span class="paper">%s</span></td><td class="text-nowrap">%s &times; %s</td>
 <td>%s</td>
 <td><a class="btn btn-outline-secondary btn-csv" href="data/%s.csv" download>csv</a></td>
 </tr>',
   esc(category), tolower(esc(paste(key, title, category, gsub("|", " ", tags, fixed = TRUE), variables))),
   key, esc(title), ifelse(is.na(paper), "", a(esc(authoryear(paper)), source_url, "link-secondary")),
-  esc(category), frequency, format(start, "%Y"), format(end, "%Y"), nrow, ncol,
+  esc(category), frequency, ifelse(is.na(start), "", paste(format(start, "%Y"), "to", format(end, "%Y"))), nrow, ncol,
   tag_html(tags), key))
 
 cat_buttons <- c('<button type="button" class="btn btn-outline-secondary btn-sm active" data-cat="">All</button>',
