@@ -18,7 +18,7 @@ test_that("catalog matches the shipped data", {
     expect_equal(paste(names(x), collapse = ", "), catalog$variables[i])
   }
   expect_true(all(na.omit(catalog$paper) %in% papers$BIBTEXKEY))
-  expect_false(anyNA(catalog[c("category", "tags", "frequency", "start", "end")]))
+  expect_false(anyNA(catalog[c("category", "tags", "frequency")]))
   expect_false(anyNA(sources[c("name", "category", "tags", "url")]))
   expect_true(all(catalog$category %in% c(
     "Monetary policy", "Fiscal policy", "Business cycles", "Financial conditions", "Uncertainty",

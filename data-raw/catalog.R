@@ -15,8 +15,15 @@ describe <- function(key) {
   e <- new.env()
   load(file.path("data", paste0(key, ".rda")), envir = e)
   x <- e[[key]]
+  # sample range from Date columns, else from an integer year column, else NA
   dates <- Filter(function(v) inherits(v, "Date"), x)
-  rng <- range(unlist(lapply(dates, as.numeric)), na.rm = TRUE)
+  if (length(dates)) {
+    rng <- range(unlist(lapply(dates, as.numeric)), na.rm = TRUE)
+  } else if ("year" %in% names(x)) {
+    rng <- as.numeric(as.Date(paste0(range(x$year, na.rm = TRUE), "-01-01")))
+  } else {
+    rng <- c(NA_real_, NA_real_)
+  }
   tibble(
     key = key,
     nrow = nrow(x),
