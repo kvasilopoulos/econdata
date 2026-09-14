@@ -21,7 +21,7 @@ API under `docs/data/`, and the vignettes as self-contained HTML in
 - `R/datasets.R` roxygen for every object; `man-roxygen/rox_papers.R`
   template pulls title/reference from `papers` via `\Sexpr` at render time,
   so the package must be installed before `document()`. Datasets sharing a
-  paper (kl2017/oil, ramey2016_*) get explicit titles + `@references \Sexpr`
+  paper (kl2017/oil, r2016_*) get explicit titles + `@references \Sexpr`
   instead of the template so reference titles stay distinct
 
 ## Adding a dataset

@@ -78,7 +78,7 @@ for (ct in cat_order) {
            md_table(s[c("dataset", "csv", "title", "paper", "frequency", "sample", "dim", "tags")]), "")
 }
 out <- c(out,
-  "Column definitions for the wide panels (`bbe2005`, `ramey2016_*`, `rz2018`) are on the [variables](variables.html) page",
+  "Column definitions for the wide panels (`bbe2005`, `r2016_*`, `rz2018`) are on the [variables](variables.html) page",
   "and in [`data/variables.csv`](data/variables.csv).",
   "",
   "## Static API",

@@ -50,23 +50,23 @@ The `catalog` lists everything with categories, tags and sample ranges:
 ``` r
 catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
 #> # A tibble: 15 × 7
-#>    key                category       frequency start      end         nrow  ncol
-#>    <chr>              <chr>          <chr>     <date>     <date>     <int> <int>
-#>  1 bbe2005            Monetary poli… monthly   1959-01-01 2001-07-01   511   121
-#>  2 bq1989             Business cycl… quarterly 1948-04-01 1987-10-01   159     3
-#>  3 gk2015             Monetary poli… monthly   1979-07-01 2012-06-01   396    13
-#>  4 sw2001             Monetary poli… quarterly 1960-01-01 2000-10-01   164     4
-#>  5 u2005              Monetary poli… monthly   1965-01-01 2003-12-01   468     7
-#>  6 psy2015            Asset prices   monthly   1973-01-31 2018-07-31   547     5
-#>  7 kl2017             Monetary poli… quarterly 1954-10-01 2007-10-01   213     4
-#>  8 oil                Oil and energy quarterly 1973-01-01 2013-04-01   162     4
-#>  9 nber_rec           Business cycl… irregular 1854-12-01 2020-04-01    35     3
-#> 10 ramey2016_monetary Monetary poli… monthly   1959-01-01 2015-12-01   684    42
-#> 11 ramey2016_govt     Fiscal policy  quarterly 1947-01-01 2015-07-01   275    36
-#> 12 ramey2016_tech     Productivity   quarterly 1947-01-01 2015-07-01   275    46
-#> 13 ramey2016_tax      Fiscal policy  quarterly 1945-01-01 2015-07-01   283    32
-#> 14 rz2018             Fiscal policy  quarterly 1875-01-01 2015-10-01   564    28
-#> 15 gz2012             Financial con… monthly   1973-01-01 2026-07-01   643     4
+#>    key            category           frequency start      end         nrow  ncol
+#>    <chr>          <chr>              <chr>     <date>     <date>     <int> <int>
+#>  1 bbe2005        Monetary policy    monthly   1959-01-01 2001-07-01   511   121
+#>  2 bq1989         Business cycles    quarterly 1948-04-01 1987-10-01   159     3
+#>  3 gk2015         Monetary policy    monthly   1979-07-01 2012-06-01   396    13
+#>  4 sw2001         Monetary policy    quarterly 1960-01-01 2000-10-01   164     4
+#>  5 u2005          Monetary policy    monthly   1965-01-01 2003-12-01   468     7
+#>  6 psy2015        Asset prices       monthly   1973-01-31 2018-07-31   547     5
+#>  7 kl2017         Monetary policy    quarterly 1954-10-01 2007-10-01   213     4
+#>  8 oil            Oil and energy     quarterly 1973-01-01 2013-04-01   162     4
+#>  9 nber_rec       Business cycles    irregular 1854-12-01 2020-04-01    35     3
+#> 10 r2016_monetary Monetary policy    monthly   1959-01-01 2015-12-01   684    42
+#> 11 r2016_govt     Fiscal policy      quarterly 1947-01-01 2015-07-01   275    36
+#> 12 r2016_tech     Productivity       quarterly 1947-01-01 2015-07-01   275    46
+#> 13 r2016_tax      Fiscal policy      quarterly 1945-01-01 2015-07-01   283    32
+#> 14 rz2018         Fiscal policy      quarterly 1875-01-01 2015-10-01   564    28
+#> 15 gz2012         Financial conditi… monthly   1973-01-01 2026-07-01   643     4
 
 # Datasets tagged "var"
 catalog$key[sapply(strsplit(catalog$tags, "|", fixed = TRUE), function(t) "var" %in% t)]
@@ -112,8 +112,7 @@ sources[grepl("monetary-policy", sources$tags), c("name", "coverage")]
 #> 8 Kilian and Lutkepohl (2017) textbook datasets                    1954-2013
 ```
 
-Column definitions for the wide panels (`bbe2005`, `ramey2016_*`,
-`rz2018`):
+Column definitions for the wide panels (`bbe2005`, `r2016_*`, `rz2018`):
 
 ``` r
 subset(variables, dataset == "rz2018")[1:5, ]
@@ -140,10 +139,10 @@ subset(variables, dataset == "rz2018")[1:5, ]
 | kl2017 | Kilian and Lutkepohl (2017) textbook monetary VAR | Monetary policy | quarterly |
 | oil | Kilian and Lutkepohl (2017) textbook oil VAR | Oil and energy | quarterly |
 | nber_rec | NBER business cycle reference dates | Business cycles | irregular |
-| ramey2016_monetary | Ramey (2016) monetary shocks panel | Monetary policy | monthly |
-| ramey2016_govt | Ramey (2016) government spending panel | Fiscal policy | quarterly |
-| ramey2016_tech | Ramey (2016) technology shocks panel | Productivity | quarterly |
-| ramey2016_tax | Ramey (2016) tax shocks panel | Fiscal policy | quarterly |
+| r2016_monetary | Ramey (2016) monetary shocks panel | Monetary policy | monthly |
+| r2016_govt | Ramey (2016) government spending panel | Fiscal policy | quarterly |
+| r2016_tech | Ramey (2016) technology shocks panel | Productivity | quarterly |
+| r2016_tax | Ramey (2016) tax shocks panel | Fiscal policy | quarterly |
 | rz2018 | Ramey and Zubairy (2018) US historical fiscal data | Fiscal policy | quarterly |
 | gz2012 | Gilchrist and Zakrajsek (2012) credit spread and excess bond premium | Financial conditions | monthly |
 

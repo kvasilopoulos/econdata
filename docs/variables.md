@@ -129,7 +129,7 @@ B. S. Bernanke, J. Boivin, and P. Eliasz. "Measuring the Effects of Monetary Pol
 | LEHM | AVG HR EARNINGS OF PROD WKRS: MANUFACTURING ($,SA) |
 | HHSNTN | U. OF MICH. INDEX OF CONSUMER EXPECTATIONS(BCD-83) |
 
-## `ramey2016_monetary` (30 variables)
+## `r2016_monetary` (30 variables)
 
 V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macroeconomics_. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <https://doi.org/10.1016/bs.hesmac.2016.03.003>.
 
@@ -166,7 +166,7 @@ V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macr
 | ff4_gkgreen | Residual after regressing on Romer-Romer Greenbook variables by FOMC date - sets between meeting announcements to 0 |
 | ed2_gkgreen | Residual after regressing on Romer-Romer Greenbook variables by FOMC date - sets between meeting announcements to 0 |
 
-## `ramey2016_govt` (35 variables)
+## `r2016_govt` (35 variables)
 
 V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macroeconomics_. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <https://doi.org/10.1016/bs.hesmac.2016.03.003>.
 
@@ -208,7 +208,7 @@ V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macr
 | top3xsret | Fisher-Peters excess returns of defense contractors |
 | mfev | Ben Zeev - Pappa defense news |
 
-## `ramey2016_tech` (45 variables)
+## `r2016_tech` (45 variables)
 
 V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macroeconomics_. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <https://doi.org/10.1016/bs.hesmac.2016.03.003>.
 
@@ -260,7 +260,7 @@ V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macr
 | mn_ist_s_n4 | Miyamoto-Nguyen's 4-quarter ahead news about stationary IST shock |
 | mn_ist_s_n8 | Miyamoto-Nguyen's 8-quarter ahead news about stationary IST shock |
 
-## `ramey2016_tax` (30 variables)
+## `r2016_tax` (30 variables)
 
 V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macroeconomics_. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <https://doi.org/10.1016/bs.hesmac.2016.03.003>.
 

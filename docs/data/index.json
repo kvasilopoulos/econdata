@@ -153,9 +153,9 @@
     "csv": "https://kvasilopoulos.github.io/econdata/data/nber_rec.csv"
   },
   {
-    "key": "ramey2016_monetary",
+    "key": "r2016_monetary",
     "title": "Ramey (2016) monetary shocks panel",
-    "paper": "ramey2016",
+    "paper": "r2016",
     "category": "Monetary policy",
     "tags": ["monetary-policy", "shocks", "romer-romer", "gertler-karadi", "high-frequency", "narrative", "local-projections", "us"],
     "frequency": "monthly",
@@ -167,12 +167,12 @@
     "variables": "date, lip, unemp, lcpi, ffr, lpcom, lrcdur, lrcnd, lrcsv, rrshock, cumrrshock, cumrrshockorig, bcshock, cumbcshock, mp1_tc, ff4_tc, ed2_tc, ed3_tc, ed4_tc, gs1, ebp, szshock, rrshock83, cumrrshock83, rrshock83b, mp1_vr, ff1_vr, ff4_vr, ed2_vr, ff1_gkgreen, ff4_gkgreen, ed2_gkgreen, wu_xia, lm1, lm2, ltr, lnbr, factor1, factor2, factor3, factor4, factor5",
     "source_url": "https://econweb.ucsd.edu/~vramey/research.html",
     "notes": "Handbook Section 3 data: log IP, unemployment, CPI, fed funds, commodity prices, consumption; Romer-Romer shocks (Wieland update to 2007), Gertler-Karadi surprises, Barakchian-Crowe and Sims-Zha shocks, GZ excess bond premium, Wu-Xia shadow rate, five Stock-Watson factors.",
-    "csv": "https://kvasilopoulos.github.io/econdata/data/ramey2016_monetary.csv"
+    "csv": "https://kvasilopoulos.github.io/econdata/data/r2016_monetary.csv"
   },
   {
-    "key": "ramey2016_govt",
+    "key": "r2016_govt",
     "title": "Ramey (2016) government spending panel",
-    "paper": "ramey2016",
+    "paper": "r2016",
     "category": "Fiscal policy",
     "tags": ["fiscal-policy", "government-spending", "military-news", "multipliers", "nipa", "us"],
     "frequency": "quarterly",
@@ -184,12 +184,12 @@
     "variables": "date, ngdp, ncons, ncdur, ncnd, ncsv, ntotinv, nfxinv, nnri, nres, ngov, nfed, ndef, pgdp, pcons, pcdur, pcnd, pcsv, pcndsv, ptotinv, pfxinv, pnri, pres, pgov, pfed, pdef, nwbus, pbus, tothours, pop, tbill3, rypot, rameynews, nfedreceipts, top3xsret, mfev",
     "source_url": "https://econweb.ucsd.edu/~vramey/research.html",
     "notes": "Handbook Section 4 data: nominal NIPA components and deflators, hours, population, T-bill, CBO potential GDP, Ramey military news, Fisher-Peters excess returns, Ben Zeev-Pappa defense news.",
-    "csv": "https://kvasilopoulos.github.io/econdata/data/ramey2016_govt.csv"
+    "csv": "https://kvasilopoulos.github.io/econdata/data/r2016_govt.csv"
   },
   {
-    "key": "ramey2016_tech",
+    "key": "r2016_tech",
     "title": "Ramey (2016) technology shocks panel",
-    "paper": "ramey2016",
+    "paper": "r2016",
     "category": "Productivity",
     "tags": ["technology-shocks", "tfp", "news-shocks", "fernald", "productivity", "us"],
     "frequency": "quarterly",
@@ -201,12 +201,12 @@
     "variables": "date, ngdp, rgdp, pgdp, ncons, ntotinv, rcons, rnri, tothours, ybus, xbus, nbus, ltfp, ltfp_i, ltfp_util, ltfp_i_util, relp, pop, civpop, baa, tbond10, tbill3, stockp_sh, stockp_ff, ford_tfp, bp_tfp_news_sr, bp_tfp_news_lr, bs_tfp_news, bzk_ist_news, bzk_ist, bzk_tfp, jpt_tfp, jpt_mei, jpt_ist, mn_tfp_p, mn_ist_p, mn_tfp_s, mn_ist_s, mn_tfp_p_n4, mn_tfp_p_n8, mn_ist_p_n4, mn_ist_p_n8, mn_tfp_s_n4, mn_tfp_s_n8, mn_ist_s_n4, mn_ist_s_n8",
     "source_url": "https://econweb.ucsd.edu/~vramey/research.html",
     "notes": "Handbook Section 5 data: Fernald TFP (raw and utilization-adjusted), business output and hours, relative price of investment, plus identified technology and news shocks from Francis et al., Beaudry-Portier, Barsky-Sims, Ben Zeev-Khan, JPT and Miyamoto-Nguyen.",
-    "csv": "https://kvasilopoulos.github.io/econdata/data/ramey2016_tech.csv"
+    "csv": "https://kvasilopoulos.github.io/econdata/data/r2016_tech.csv"
   },
   {
-    "key": "ramey2016_tax",
+    "key": "r2016_tax",
     "title": "Ramey (2016) tax shocks panel",
-    "paper": "ramey2016",
+    "paper": "r2016",
     "category": "Fiscal policy",
     "tags": ["fiscal-policy", "tax", "narrative", "romer-romer", "mertens-ravn", "us"],
     "frequency": "quarterly",
@@ -218,7 +218,7 @@
     "variables": "date, ngdp, rgdp, rcons, rcndsv, rcdur, rinv, rnri, rres, tothours, ngov, nfed, rameynews, mfev, ntaxrev, nfedtaxrev, pgdp, ybus, xbus, nbus, pop, baa, tbond10, tbill3, ffr, aftr15, pubdebt, endognrratio, exogenrratio, rrtaxu, taxu, taxnews",
     "source_url": "https://econweb.ucsd.edu/~vramey/research.html",
     "notes": "Handbook Section 4 data: real NIPA aggregates, tax receipts, Romer-Romer exogenous/endogenous tax changes, Mertens-Ravn unanticipated and anticipated tax shocks, Leeper-Richter-Walker tax expectations.",
-    "csv": "https://kvasilopoulos.github.io/econdata/data/ramey2016_tax.csv"
+    "csv": "https://kvasilopoulos.github.io/econdata/data/r2016_tax.csv"
   },
   {
     "key": "rz2018",

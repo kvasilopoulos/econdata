@@ -111,19 +111,19 @@ frac_to_date <- function(x, per) {
 }
 
 ramey_sheet <- function(file, sheet, per) {
-  readxl::read_excel(file.path("data-raw/ramey2016", file), sheet = sheet) %>%
+  readxl::read_excel(file.path("data-raw/r2016", file), sheet = sheet) %>%
     rename_with(tolower) %>%
     rename(date = 1) %>%
     mutate(date = frac_to_date(date, per))
 }
 
-ramey2016_monetary <- ramey_sheet("Monetarydat.xlsx", "Monthly", 12)
-ramey2016_govt <- ramey_sheet("homgovdat.xlsx", "govdat", 4)
-ramey2016_tech <- ramey_sheet("Technology_data.xlsx", "techdat", 4)
-ramey2016_tax <- ramey_sheet("homtaxdat.xlsx", "homtaxdat", 4)
+r2016_monetary <- ramey_sheet("Monetarydat.xlsx", "Monthly", 12)
+r2016_govt <- ramey_sheet("homgovdat.xlsx", "govdat", 4)
+r2016_tech <- ramey_sheet("Technology_data.xlsx", "techdat", 4)
+r2016_tax <- ramey_sheet("homtaxdat.xlsx", "homtaxdat", 4)
 
-usethis::use_data(ramey2016_monetary, ramey2016_govt, ramey2016_tech,
-                  ramey2016_tax, overwrite = TRUE)
+usethis::use_data(r2016_monetary, r2016_govt, r2016_tech,
+                  r2016_tax, overwrite = TRUE)
 
 # Ramey and Zubairy (2018) ------------------------------------------------
 

@@ -74,7 +74,7 @@ uncertainty and shadow-rate series and more.
 sources[grepl("monetary-policy", sources$tags), c("name", "coverage")]
 ```
 
-Column definitions for the wide panels (`bbe2005`, `ramey2016_*`, `rz2018`):
+Column definitions for the wide panels (`bbe2005`, `r2016_*`, `rz2018`):
 
 ```{r}
 subset(variables, dataset == "rz2018")[1:5, ]

@@ -112,44 +112,44 @@
 
 #' Ramey (2016) monetary shocks panel
 #'
-#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("r2016")}
 #' @details Monthly US panel behind Section 3 (monetary shocks) of the
 #'   Handbook chapter: macro aggregates plus Romer-Romer, Gertler-Karadi,
 #'   Barakchian-Crowe and Sims-Zha shock series, the excess bond premium,
 #'   the Wu-Xia shadow rate and five Stock-Watson factors. Column
-#'   definitions: `subset(variables, dataset == "ramey2016_monetary")`.
+#'   definitions: `subset(variables, dataset == "r2016_monetary")`.
 #' @source <https://econweb.ucsd.edu/~vramey/research.html>
-"ramey2016_monetary"
+"r2016_monetary"
 
 #' Ramey (2016) government spending panel
 #'
-#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("r2016")}
 #' @details Quarterly US panel behind Section 4 (government spending) of the
 #'   Handbook chapter: nominal NIPA components and deflators, hours,
 #'   population, Ramey military news and Ben Zeev-Pappa defense news.
-#'   Column definitions: `subset(variables, dataset == "ramey2016_govt")`.
+#'   Column definitions: `subset(variables, dataset == "r2016_govt")`.
 #' @source <https://econweb.ucsd.edu/~vramey/research.html>
-"ramey2016_govt"
+"r2016_govt"
 
 #' Ramey (2016) technology shocks panel
 #'
-#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("r2016")}
 #' @details Quarterly US panel behind Section 5 (technology shocks) of the
 #'   Handbook chapter: Fernald TFP series, business output and hours, and
 #'   identified technology/news shocks from several papers. Column
-#'   definitions: `subset(variables, dataset == "ramey2016_tech")`.
+#'   definitions: `subset(variables, dataset == "r2016_tech")`.
 #' @source <https://econweb.ucsd.edu/~vramey/research.html>
-"ramey2016_tech"
+"r2016_tech"
 
 #' Ramey (2016) tax shocks panel
 #'
-#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("ramey2016")}
+#' @references \Sexpr[stage=render,results=rd]{econdata:::bib_ref("r2016")}
 #' @details Quarterly US panel behind Section 4 (tax shocks) of the Handbook
 #'   chapter: real NIPA aggregates, tax receipts, Romer-Romer and
 #'   Mertens-Ravn narrative tax shocks. Column definitions:
-#'   `subset(variables, dataset == "ramey2016_tax")`.
+#'   `subset(variables, dataset == "r2016_tax")`.
 #' @source <https://econweb.ucsd.edu/~vramey/research.html>
-"ramey2016_tax"
+"r2016_tax"
 
 #' Ramey and Zubairy (2018) US historical fiscal data
 #'
@@ -174,7 +174,7 @@
 
 #' Variable dictionary for the wide panels
 #'
-#' Column descriptions for `bbe2005`, the four `ramey2016_*` panels and
+#' Column descriptions for `bbe2005`, the four `r2016_*` panels and
 #' `rz2018`, taken from the original data files' readme sheets.
 #'
 #' @format A tibble with columns `dataset`, `variable`, `description`.

@@ -47,10 +47,10 @@ bbe <- readr::read_csv("data-raw/bbe2005/catalog.CSV", col_types = "c",
   transmute(dataset = "bbe2005", variable = Name, description = Comments)
 variables <- bind_rows(
   bbe,
-  readme_vars("ramey2016_monetary", "data-raw/ramey2016/Monetarydat.xlsx", "Readme"),
-  readme_vars("ramey2016_govt", "data-raw/ramey2016/homgovdat.xlsx", "readme"),
-  readme_vars("ramey2016_tech", "data-raw/ramey2016/Technology_data.xlsx", "readme"),
-  readme_vars("ramey2016_tax", "data-raw/ramey2016/homtaxdat.xlsx", "Readme"),
+  readme_vars("r2016_monetary", "data-raw/r2016/Monetarydat.xlsx", "Readme"),
+  readme_vars("r2016_govt", "data-raw/r2016/homgovdat.xlsx", "readme"),
+  readme_vars("r2016_tech", "data-raw/r2016/Technology_data.xlsx", "readme"),
+  readme_vars("r2016_tax", "data-raw/r2016/homtaxdat.xlsx", "Readme"),
   readme_vars("rz2018", "data-raw/rz2018/RZDAT.xlsx", "readme")
 )
 

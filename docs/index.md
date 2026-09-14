@@ -28,14 +28,14 @@ import delimited "https://kvasilopoulos.github.io/econdata/data/rz2018.csv", cle
 | `sw2001` | [csv](data/sw2001.csv) | Stock and Watson (2001) three-variable VAR | [Stock and Watson (2001)](https://www.aeaweb.org/articles?id=10.1257/jep.15.4.101) | quarterly | 1960-01 to 2000-10 | 164 x 4 | var textbook inflation unemployment fed-funds us |
 | `u2005` | [csv](data/u2005.csv) | Uhlig (2005) sign-restriction monetary VAR | [Uhlig (2005)](https://doi.org/10.1016/j.jmoneco.2004.05.007) | monthly | 1965-01 to 2003-12 | 468 x 7 | monetary-policy sign-restrictions svar reserves us |
 | `kl2017` | [csv](data/kl2017.csv) | Kilian and Lutkepohl (2017) textbook monetary VAR | [Kilian and Lütkepohl (2017)](https://sites.google.com/site/lkilian2019/textbook) | quarterly | 1954-10 to 2007-10 | 213 x 4 | var textbook inflation fed-funds gdp-growth us |
-| `ramey2016_monetary` | [csv](data/ramey2016_monetary.csv) | Ramey (2016) monetary shocks panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | monthly | 1959-01 to 2015-12 | 684 x 42 | monetary-policy shocks romer-romer gertler-karadi high-frequency narrative local-projections us |
+| `r2016_monetary` | [csv](data/r2016_monetary.csv) | Ramey (2016) monetary shocks panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | monthly | 1959-01 to 2015-12 | 684 x 42 | monetary-policy shocks romer-romer gertler-karadi high-frequency narrative local-projections us |
 
 ### Fiscal policy
 
 | dataset | csv | title | paper | frequency | sample | dim | tags |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `ramey2016_govt` | [csv](data/ramey2016_govt.csv) | Ramey (2016) government spending panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | quarterly | 1947-01 to 2015-07 | 275 x 36 | fiscal-policy government-spending military-news multipliers nipa us |
-| `ramey2016_tax` | [csv](data/ramey2016_tax.csv) | Ramey (2016) tax shocks panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | quarterly | 1945-01 to 2015-07 | 283 x 32 | fiscal-policy tax narrative romer-romer mertens-ravn us |
+| `r2016_govt` | [csv](data/r2016_govt.csv) | Ramey (2016) government spending panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | quarterly | 1947-01 to 2015-07 | 275 x 36 | fiscal-policy government-spending military-news multipliers nipa us |
+| `r2016_tax` | [csv](data/r2016_tax.csv) | Ramey (2016) tax shocks panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | quarterly | 1945-01 to 2015-07 | 283 x 32 | fiscal-policy tax narrative romer-romer mertens-ravn us |
 | `rz2018` | [csv](data/rz2018.csv) | Ramey and Zubairy (2018) US historical fiscal data | [Ramey and Zubairy (2018)](https://econweb.ucsd.edu/~vramey/research.html) | quarterly | 1875-01 to 2015-10 | 564 x 28 | fiscal-policy multipliers military-news local-projections state-dependence historical us |
 
 ### Business cycles
@@ -55,7 +55,7 @@ import delimited "https://kvasilopoulos.github.io/econdata/data/rz2018.csv", cle
 
 | dataset | csv | title | paper | frequency | sample | dim | tags |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `ramey2016_tech` | [csv](data/ramey2016_tech.csv) | Ramey (2016) technology shocks panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | quarterly | 1947-01 to 2015-07 | 275 x 46 | technology-shocks tfp news-shocks fernald productivity us |
+| `r2016_tech` | [csv](data/r2016_tech.csv) | Ramey (2016) technology shocks panel | [Ramey (2016)](https://econweb.ucsd.edu/~vramey/research.html) | quarterly | 1947-01 to 2015-07 | 275 x 46 | technology-shocks tfp news-shocks fernald productivity us |
 
 ### Asset prices
 
@@ -69,7 +69,7 @@ import delimited "https://kvasilopoulos.github.io/econdata/data/rz2018.csv", cle
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `oil` | [csv](data/oil.csv) | Kilian and Lutkepohl (2017) textbook oil VAR | [Kilian and Lütkepohl (2017)](https://sites.google.com/site/lkilian2019/textbook) | quarterly | 1973-01 to 2013-04 | 162 x 4 | var textbook oil inflation gdp-growth us |
 
-Column definitions for the wide panels (`bbe2005`, `ramey2016_*`, `rz2018`) are on the [variables](variables.html) page
+Column definitions for the wide panels (`bbe2005`, `r2016_*`, `rz2018`) are on the [variables](variables.html) page
 and in [`data/variables.csv`](data/variables.csv).
 
 ## Static API
@@ -97,7 +97,7 @@ and in [`data/variables.csv`](data/variables.csv).
 * `u2005` &mdash; H. Uhlig. "What are the effects of monetary policy on output? Results from an agnostic identification procedure". In: _Journal of Monetary Economics_ 52.2 (Mar. 2005), pp. 381-419. DOI: 10.1016/j.jmoneco.2004.05.007. <https://doi.org/10.1016%2Fj.jmoneco.2004.05.007>
 * `bq1989` &mdash; O. J. Blanchard and D. Quah. "The Dynamic Effects of Aggregate Demand and Supply Disturbances". In: _The American Economic Review_ 79.4 (1989), pp. 655-673.
 * `kl2017` &mdash; L. Kilian and H. Lütkepohl. _Structural Vector Autoregressive Analysis_. Themes in Modern Econometrics. Cambridge: Cambridge University Press, 2017. DOI: 10.1017/9781108164818. <https://doi.org/10.1017/9781108164818>.
-* `ramey2016` &mdash; V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macroeconomics_. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <https://doi.org/10.1016/bs.hesmac.2016.03.003>.
+* `r2016` &mdash; V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: _Handbook of Macroeconomics_. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <https://doi.org/10.1016/bs.hesmac.2016.03.003>.
 * `rz2018` &mdash; V. A. Ramey and S. Zubairy. "Government Spending Multipliers in Good Times and in Bad: Evidence from US Historical Data". In: _Journal of Political Economy_ 126.2 (2018), pp. 850-901. DOI: 10.1086/696277. <https://doi.org/10.1086/696277>.
 * `gz2012` &mdash; S. Gilchrist and E. Zakrajšek. "Credit Spreads and Business Cycle Fluctuations". In: _American Economic Review_ 102.4 (2012), pp. 1692-1720. DOI: 10.1257/aer.102.4.1692. <https://doi.org/10.1257/aer.102.4.1692>.
 
