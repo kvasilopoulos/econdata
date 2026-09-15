@@ -4,8 +4,7 @@ Papers whose data are (or might be) freely downloadable. Status: **bundled**
 (in `data/`), **todo** (fetchable, not yet processed), **blocked** (needs
 login / licence forbids redistribution / dead link), **pointer** (too large or
 updated too often to bundle; listed in `sources.csv` only). Update this file
-whenever a dataset is added or a lead is checked. Last sweep: 2026-09-15 (batch 4:
-monetary, finance, labour; development in progress; scout).
+whenever a dataset is added or a lead is checked. Last sweep: 2026-09-15 (batch 4: monetary, finance, labour, development, scout).
 
 ## Bundled
 
@@ -50,6 +49,11 @@ NBER WP 7444) but the chain of custody could not be established, so it was left 
 Re-add once cleanly re-downloaded and extracted with a real archive tool; the build code
 is still in git history (see the "applied-microeconomics datasets" commit).
 
+**Note for future Acemoglu-archive batches:** the AJR `maketable1.dta` files ship
+as 376-row files merged against a near-universal ISO country-code list (only
+186-203 rows carry real data, one with a literal `"."` code) - filter on
+non-missing content, not row count.
+
 | ns2018, ns2018_1995 | Nakamura, Steinsson 2018 QJE | eminakamura.com | baseline + extended-sample policy news shock |
 | s2021 | Swanson 2021 JME | sites.socsci.uci.edu/~swanson2 | FFR/forward-guidance/LSAP factors |
 | bs2023, bs2023_fomc | Bauer, Swanson 2023 NBER Macro Annual | frbsf.org data page | monthly + FOMC-level orthogonalised surprises |
@@ -77,6 +81,19 @@ is still in git history (see the "applied-microeconomics datasets" commit).
 | abbkk2002 | Angrist, Bettinger, Bloom, King, Kremer 2002 AER | Angrist data archive | Colombia voucher lottery (27-column subset) |
 | adh2013 | Autor, Dorn, Hanson 2013 AER | ddorn.net/data.htm | China-shock commuting-zone panel (31-column subset) |
 | duflo2001 | Duflo 2001 AER | github.com/droodman/Duflo-2001 | regency-level school-construction panel |
+
+| ajr2001 | Acemoglu, Johnson, Robinson 2001 AER | Acemoglu data archive | settler mortality, 186-country sample |
+| ajr2002 | Acemoglu, Johnson, Robinson 2002 QJE | Acemoglu data archive | reversal of fortune, 203-country sample |
+| ajry2008 | Acemoglu, Johnson, Robinson, Yared 2008 AER | Acemoglu data archive | income and democracy, 5-year panel |
+| aj2007 | Acemoglu, Johnson 2007 JPE | Acemoglu data archive | disease/life-expectancy/development panel |
+| hj1999 | Hall, Jones 1999 QJE | web.stanford.edu/~chadj | 152 countries, social infrastructure |
+| j2002 | Jones 2002 AER | web.stanford.edu/~chadj | US growth accounting 1950-1993 |
+| chks2014 | Chetty, Hendren, Kline, Saez 2014 QJE | opportunityinsights.org/data | 741 commuting zones |
+| cghhmn2017 | Chetty et al. 2017 Science | opportunityinsights.org/data | absolute mobility by birth cohort |
+| chetty2016, chetty2016_state | Chetty et al. 2016 JAMA | healthinequality.org/data | CC0; national + state life expectancy |
+| ps2003 | Piketty, Saez 2003 QJE (updated) | eml.berkeley.edu/~saez | top income shares, 1913-2024 |
+| psz2018 | Piketty, Saez, Zucman 2018 QJE | gabriel-zucman.eu/usdina | distributional national accounts |
+| sz2016 | Saez, Zucman 2016 QJE | gabriel-zucman.eu/uswealth | top wealth shares, 1913-2012 |
 
 ## Todo (fetchable, not processed)
 
@@ -130,11 +147,9 @@ is still in git history (see the "applied-microeconomics datasets" commit).
 
 | paper | url | what | why interesting |
 | --- | --- | --- | --- |
-| Chetty et al. 2016 JAMA | healthinequality.org/data | life expectancy by income percentile, sex, state/CZ/county 2001-14 | public tables |
-| Acemoglu, Johnson 2007 JPE | economics.mit.edu `Disease and development data and programs.zip` | life expectancy, predicted mortality, GDP 1940-80 | includes 2014 reply data |
-| Goodman-Bacon 2018 JPE | journal supplement / author site | state-year infant and child mortality 1950-79, Medicaid eligibility | check whether the panel is posted; JOLE 2021 follow-up is openICPSR |
-| Miguel, Kremer 2004 Econometrica | Harvard Dataverse (Miguel's site links the DOI) | deworming RCT | Dataverse = CC0; verify DOI |
-| Hall, Jones 2007 QJE | web.stanford.edu/~chadj `hxprograms500.zip` | health spending and value of life | check contents |
+| Goodman-Bacon 2018 JPE | journal supplement / author site | state-year infant and child mortality 1950-79, Medicaid eligibility | deferred (lowest priority, time-boxed out) in the 2026-09-15 development batch; still open |
+| Miguel, Kremer 2004 Econometrica | Harvard Dataverse (Miguel's site links the DOI) | deworming RCT | Dataverse = CC0; deferred (time-boxed out) in the 2026-09-15 development batch; verify DOI when picked up |
+| Hall, Jones 2007 QJE (hj2007) | web.stanford.edu/~chadj `hxprograms500.zip` | health spending and value of life | deferred (lowest priority, not pre-staged) in the 2026-09-15 development batch; still open |
 
 ### Education
 
@@ -150,30 +165,21 @@ is still in git history (see the "applied-microeconomics datasets" commit).
 
 | paper | url | what | why interesting |
 | --- | --- | --- | --- |
-| Acemoglu, Johnson, Robinson 2001 AER | Acemoglu archive (table data) | settler mortality, 64 countries | also `hdm::AJR`, QoG `ajr` |
-| Acemoglu, Johnson, Robinson 2002 QJE | Acemoglu archive | reversal of fortune | |
-| Acemoglu, Johnson, Robinson, Yared 2008 AER | Acemoglu archive `Income and Democracy Data AER adjustment.zip` | income and democracy panel | |
-| Acemoglu, Naidu, Restrepo, Robinson 2019 JPE | Acemoglu archive `replication_files_ddcg.rar` | democracy-growth panel | rar |
-| Hall, Jones 1999 QJE | web.stanford.edu/~chadj `HallJones400.asc` | 127 countries, social infrastructure | plain ascii; tiny |
-| Jones 2002 AER | chadj `Sources50.asc` | sources of US growth | |
-| Nunn 2008 QJE | nathannunn.arts.ubc.ca/data | slave exports by country | site refused connection 2026-09-14; QoG mirror `slavet` |
-| Nunn, Wantchekon 2011 AER | nathannunn.arts.ubc.ca/data | slave trade and trust (Afrobarometer) | retry with above |
+| Acemoglu, Naidu, Restrepo, Robinson 2019 JPE | Acemoglu archive `replication_files_ddcg.rar` | democracy-growth panel | confirmed blocked: this environment has neither `unrar` nor `7z` (checked 2026-09-15) |
+| Nunn 2008 QJE | scholar.harvard.edu/nunn/pages/data-0, nathannunn.arts.ubc.ca/data | slave exports by country | UBC page returns a "Browser Verification" bot-check page (HTTP 200 but not real data) on both 2026-09-14 and -15 retries; scout's HTTP 200 check on the same URL only saw the status code, not this. QoG mirror `slavet` (see below) not yet tried |
+| Nunn, Wantchekon 2011 AER | nathannunn.arts.ubc.ca/data | slave trade and trust (Afrobarometer) | same bot-check block as Nunn 2008 above |
 | Mankiw, Romer, Weil 1992 QJE | reconstruct from PWT 5.6 / Bernanke-Gürkaynak 2001 | Solow regressions | no author file; low priority |
 
 ### Inequality
 
 | paper | url | what | why interesting |
 | --- | --- | --- | --- |
-| Piketty, Saez 2003 QJE (updated) | eml.berkeley.edu/~saez `TabFig2018.xls` (look for newer vintage) | top income shares 1913- | |
-| Piketty, Saez, Zucman 2018 QJE | gabriel-zucman.eu/usdina | distributional national accounts | |
-| Saez, Zucman 2016 QJE | gabriel-zucman.eu/uswealth | wealth shares | |
-| Chetty, Hendren, Kline, Saez 2014 QJE | opportunityinsights.org/data | county / CZ mobility statistics | |
-| Chetty et al. 2017 Science | opportunityinsights.org/data | absolute mobility by birth cohort | tiny |
 
 ## Blocked
 
 | paper | why |
 | --- | --- |
+| Bailey, Goodman-Bacon 2015 AER (War on Poverty health centers) | openICPSR-gated (landing page 200, files 403); found by scout, not attempted |
 | Acosta, Brennan, Jacobson SOFR-futures update to Nakamura-Steinsson | CC BY-NC 4.0 on Harvard Dataverse; excluded under the no-NC-licence rule |
 | Romer, Romer 2004 AER original shocks | openICPSR-gated; covered indirectly via `r2016_monetary`'s Wieland-updated series |
 | Christiano, Eichenbaum, Evans 2005 JPE | faculty.wcas.northwestern.edu/~lchrist page 404s, no replication data found |
