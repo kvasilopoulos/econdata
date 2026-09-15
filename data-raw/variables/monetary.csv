@@ -1,0 +1,174 @@
+dataset,variable,description
+eampd,date,Date of the Governing Council monetary policy event
+eampd,ois_sw,1-week EONIA/€STR OIS rate change in the event window (basis points)
+eampd,ois_1m,1-month OIS rate change (basis points)
+eampd,ois_3m,3-month OIS rate change (basis points)
+eampd,ois_6m,6-month OIS rate change (basis points)
+eampd,ois_1y,1-year OIS rate change (basis points)
+eampd,ois_2y,2-year OIS rate change (basis points)
+eampd,ois_3y,3-year OIS rate change (basis points)
+eampd,ois_4y,4-year OIS rate change (basis points)
+eampd,ois_5y,5-year OIS rate change (basis points)
+eampd,ois_6y,6-year OIS rate change (basis points)
+eampd,ois_7y,7-year OIS rate change (basis points)
+eampd,ois_8y,8-year OIS rate change (basis points)
+eampd,ois_9y,9-year OIS rate change (basis points)
+eampd,ois_10y,10-year OIS rate change (basis points)
+eampd,ois_15y,15-year OIS rate change (basis points)
+eampd,ois_20y,20-year OIS rate change (basis points)
+eampd,de3m,3-month German government bond yield change (basis points)
+eampd,de6m,6-month German government bond yield change (basis points)
+eampd,de1y,1-year German government bond yield change (basis points)
+eampd,de2y,2-year German government bond yield change (basis points)
+eampd,de3y,3-year German government bond yield change (basis points)
+eampd,de4y,4-year German government bond yield change (basis points)
+eampd,de5y,5-year German government bond yield change (basis points)
+eampd,de6y,6-year German government bond yield change (basis points)
+eampd,de7y,7-year German government bond yield change (basis points)
+eampd,de8y,8-year German government bond yield change (basis points)
+eampd,de9y,9-year German government bond yield change (basis points)
+eampd,de10y,10-year German government bond yield change (basis points)
+eampd,de15y,15-year German government bond yield change (basis points)
+eampd,de20y,20-year German government bond yield change (basis points)
+eampd,de30y,30-year German government bond yield change (basis points)
+eampd,it2y,2-year Italian government bond yield change (basis points)
+eampd,fr2y,2-year French government bond yield change (basis points)
+eampd,es2y,2-year Spanish government bond yield change (basis points)
+eampd,it5y,5-year Italian government bond yield change (basis points)
+eampd,es5y,5-year Spanish government bond yield change (basis points)
+eampd,fr5y,5-year French government bond yield change (basis points)
+eampd,es10y,10-year Spanish government bond yield change (basis points)
+eampd,fr10y,10-year French government bond yield change (basis points)
+eampd,it10y,10-year Italian government bond yield change (basis points)
+eampd,stoxx50,EURO STOXX 50 index percent change
+eampd,sx7e,EURO STOXX Banks index percent change
+eampd,eurusd,EUR/USD exchange rate percent change
+eampd,eurgbp,EUR/GBP exchange rate percent change
+eampd,eurjpy,EUR/JPY exchange rate percent change
+eampd_pr,date,Date of the Governing Council monetary policy event
+eampd_pr,ois_sw,1-week EONIA/€STR OIS rate change in the event window (basis points)
+eampd_pr,ois_1m,1-month OIS rate change (basis points)
+eampd_pr,ois_3m,3-month OIS rate change (basis points)
+eampd_pr,ois_6m,6-month OIS rate change (basis points)
+eampd_pr,ois_1y,1-year OIS rate change (basis points)
+eampd_pr,ois_2y,2-year OIS rate change (basis points)
+eampd_pr,ois_3y,3-year OIS rate change (basis points)
+eampd_pr,ois_4y,4-year OIS rate change (basis points)
+eampd_pr,ois_5y,5-year OIS rate change (basis points)
+eampd_pr,ois_6y,6-year OIS rate change (basis points)
+eampd_pr,ois_7y,7-year OIS rate change (basis points)
+eampd_pr,ois_8y,8-year OIS rate change (basis points)
+eampd_pr,ois_9y,9-year OIS rate change (basis points)
+eampd_pr,ois_10y,10-year OIS rate change (basis points)
+eampd_pr,ois_15y,15-year OIS rate change (basis points)
+eampd_pr,ois_20y,20-year OIS rate change (basis points)
+eampd_pr,de3m,3-month German government bond yield change (basis points)
+eampd_pr,de6m,6-month German government bond yield change (basis points)
+eampd_pr,de1y,1-year German government bond yield change (basis points)
+eampd_pr,de2y,2-year German government bond yield change (basis points)
+eampd_pr,de3y,3-year German government bond yield change (basis points)
+eampd_pr,de4y,4-year German government bond yield change (basis points)
+eampd_pr,de5y,5-year German government bond yield change (basis points)
+eampd_pr,de6y,6-year German government bond yield change (basis points)
+eampd_pr,de7y,7-year German government bond yield change (basis points)
+eampd_pr,de8y,8-year German government bond yield change (basis points)
+eampd_pr,de9y,9-year German government bond yield change (basis points)
+eampd_pr,de10y,10-year German government bond yield change (basis points)
+eampd_pr,de15y,15-year German government bond yield change (basis points)
+eampd_pr,de20y,20-year German government bond yield change (basis points)
+eampd_pr,de30y,30-year German government bond yield change (basis points)
+eampd_pr,it2y,2-year Italian government bond yield change (basis points)
+eampd_pr,fr2y,2-year French government bond yield change (basis points)
+eampd_pr,es2y,2-year Spanish government bond yield change (basis points)
+eampd_pr,it5y,5-year Italian government bond yield change (basis points)
+eampd_pr,es5y,5-year Spanish government bond yield change (basis points)
+eampd_pr,fr5y,5-year French government bond yield change (basis points)
+eampd_pr,es10y,10-year Spanish government bond yield change (basis points)
+eampd_pr,fr10y,10-year French government bond yield change (basis points)
+eampd_pr,it10y,10-year Italian government bond yield change (basis points)
+eampd_pr,stoxx50,EURO STOXX 50 index percent change
+eampd_pr,sx7e,EURO STOXX Banks index percent change
+eampd_pr,eurusd,EUR/USD exchange rate percent change
+eampd_pr,eurgbp,EUR/GBP exchange rate percent change
+eampd_pr,eurjpy,EUR/JPY exchange rate percent change
+eampd_pc,date,Date of the Governing Council monetary policy event
+eampd_pc,ois_sw,1-week EONIA/€STR OIS rate change in the event window (basis points)
+eampd_pc,ois_1m,1-month OIS rate change (basis points)
+eampd_pc,ois_3m,3-month OIS rate change (basis points)
+eampd_pc,ois_6m,6-month OIS rate change (basis points)
+eampd_pc,ois_1y,1-year OIS rate change (basis points)
+eampd_pc,ois_2y,2-year OIS rate change (basis points)
+eampd_pc,ois_3y,3-year OIS rate change (basis points)
+eampd_pc,ois_4y,4-year OIS rate change (basis points)
+eampd_pc,ois_5y,5-year OIS rate change (basis points)
+eampd_pc,ois_6y,6-year OIS rate change (basis points)
+eampd_pc,ois_7y,7-year OIS rate change (basis points)
+eampd_pc,ois_8y,8-year OIS rate change (basis points)
+eampd_pc,ois_9y,9-year OIS rate change (basis points)
+eampd_pc,ois_10y,10-year OIS rate change (basis points)
+eampd_pc,ois_15y,15-year OIS rate change (basis points)
+eampd_pc,ois_20y,20-year OIS rate change (basis points)
+eampd_pc,de3m,3-month German government bond yield change (basis points)
+eampd_pc,de6m,6-month German government bond yield change (basis points)
+eampd_pc,de1y,1-year German government bond yield change (basis points)
+eampd_pc,de2y,2-year German government bond yield change (basis points)
+eampd_pc,de3y,3-year German government bond yield change (basis points)
+eampd_pc,de4y,4-year German government bond yield change (basis points)
+eampd_pc,de5y,5-year German government bond yield change (basis points)
+eampd_pc,de6y,6-year German government bond yield change (basis points)
+eampd_pc,de7y,7-year German government bond yield change (basis points)
+eampd_pc,de8y,8-year German government bond yield change (basis points)
+eampd_pc,de9y,9-year German government bond yield change (basis points)
+eampd_pc,de10y,10-year German government bond yield change (basis points)
+eampd_pc,de15y,15-year German government bond yield change (basis points)
+eampd_pc,de20y,20-year German government bond yield change (basis points)
+eampd_pc,de30y,30-year German government bond yield change (basis points)
+eampd_pc,it2y,2-year Italian government bond yield change (basis points)
+eampd_pc,fr2y,2-year French government bond yield change (basis points)
+eampd_pc,es2y,2-year Spanish government bond yield change (basis points)
+eampd_pc,it5y,5-year Italian government bond yield change (basis points)
+eampd_pc,es5y,5-year Spanish government bond yield change (basis points)
+eampd_pc,fr5y,5-year French government bond yield change (basis points)
+eampd_pc,es10y,10-year Spanish government bond yield change (basis points)
+eampd_pc,fr10y,10-year French government bond yield change (basis points)
+eampd_pc,it10y,10-year Italian government bond yield change (basis points)
+eampd_pc,stoxx50,EURO STOXX 50 index percent change
+eampd_pc,sx7e,EURO STOXX Banks index percent change
+eampd_pc,eurusd,EUR/USD exchange rate percent change
+eampd_pc,eurgbp,EUR/GBP exchange rate percent change
+eampd_pc,eurjpy,EUR/JPY exchange rate percent change
+bs2023_fomc,date,Date of the FOMC announcement
+bs2023_fomc,time,Local time of the announcement (Eastern time)
+bs2023_fomc,unscheduled,1 if an unscheduled/intermeeting FOMC action
+bs2023_fomc,ff1,Current-month fed funds futures rate change (30-minute window)
+bs2023_fomc,ff2,One-month-ahead fed funds futures rate change
+bs2023_fomc,ed1,Nearest Eurodollar futures rate change (quarterly contract 1)
+bs2023_fomc,ed2,"Eurodollar futures rate change, contract 2"
+bs2023_fomc,ed3,"Eurodollar futures rate change, contract 3"
+bs2023_fomc,ed4,"Eurodollar futures rate change, contract 4"
+bs2023_fomc,sp500,S&P 500 futures percent change
+bs2023_fomc,sp500_emini,S&P 500 e-mini futures percent change (available later sample)
+bs2023_fomc,tnote02,2-year Treasury note yield change
+bs2023_fomc,tnote05,5-year Treasury note yield change
+bs2023_fomc,tnote10,10-year Treasury note yield change
+bs2023_fomc,tbond,30-year Treasury bond yield change
+bs2023_fomc,mps,"Raw high-frequency monetary policy surprise (first principal component of ff1/ff2/ed1-ed4, sign-normalised)"
+bs2023_fomc,mps_orth,MPS orthogonalised against the pre-FOMC-window control surprises below
+bs2023_fomc,nfp_surp,Surprise in the most recent nonfarm payrolls release before the announcement
+bs2023_fomc,nfp_12m,Trailing 12-month payrolls growth before the announcement
+bs2023_fomc,sp500_3m,S&P 500 return over the 3 months before the announcement
+bs2023_fomc,slope_3m,Change in the 10-year minus 3-month Treasury slope over the prior 3 months
+bs2023_fomc,bcom_3m,Bloomberg Commodity index return over the prior 3 months
+bs2023_fomc,tr_skew,Implied skewness of Treasury yield options before the announcement
+hlw2017,g_us,"US trend GDP growth, annualised (HLW state-space estimate)"
+hlw2017,g_ca,"Canada trend GDP growth, annualised"
+hlw2017,g_ea,"Euro area trend GDP growth, annualised"
+hlw2017,z_us,"US ""other factor"" z (persistent demand-side determinant of r*)"
+hlw2017,z_ca,Canada other factor z
+hlw2017,z_ea,Euro area other factor z
+hlw2017,rstar_us,US natural rate of interest r*
+hlw2017,rstar_ca,Canada natural rate of interest r*
+hlw2017,rstar_ea,Euro area natural rate of interest r*
+hlw2017,gap_us,US output gap implied by the model
+hlw2017,gap_ca,Canada output gap implied by the model
+hlw2017,gap_ea,Euro area output gap implied by the model
