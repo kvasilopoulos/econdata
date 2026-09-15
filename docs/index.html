@@ -64,7 +64,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <section class="row align-items-end gy-4 mt-4">
 <div class="col-lg-6">
 <h1>The data behind the papers, ready to load.</h1>
-<p class="lead mt-3">32 datasets from influential empirical macro papers, curated as an R package and published as plain CSV so they work from any language. Each one keeps the sample and variables the authors used.</p>
+<p class="lead mt-3">67 datasets from influential empirical macro papers, curated as an R package and published as plain CSV so they work from any language. Each one keeps the sample and variables the authors used.</p>
 </div>
 <div class="col-lg-6">
 <ul class="nav nav-tabs" role="tablist">
@@ -358,7 +358,7 @@ sw2001       # Stock and Watson (2001)</code></pre></div>
 <tr data-cat="Fiscal policy" data-text="mmo2018 mertens and montiel olea (2018) marginal tax rates and income fiscal policy fiscal-policy tax marginal-tax-rates income-distribution narrative us year, amtr_all_br2011, amtr_all_ps2003, amtr_top_1, amtr_top_5, amtr_top_10, amtr_top_5_1, amtr_top_10_5, amtr_bottom_99, amtr_bottom_90, amiitr_all_br2011, amiitr_all_ps2003, amiitr_top_1, amiitr_top_5, amiitr_top_10, amiitr_top_5_1, amiitr_top_10_5, amiitr_bottom_99, amiitr_bottom_90, amptr_all_br2011, amptr_all_ps2003, amptr_top_1, amptr_top_5, amptr_top_10, amptr_top_5_1, amptr_top_10_5, amptr_bottom_99, amptr_bottom_90, shock_ii_liab_marg, shock_ii_liab_other, shock_pr_liab_marg, shock_pr_liab_other, shock_all, shock_top_1, shock_top_5, shock_top_10, shock_top_5_1, shock_top_10_5, shock_bottom_99, shock_bottom_90, shock_inc, linc_all, linc_top_1, linc_top_5, linc_top_10, linc_top_5_1, linc_top_10_5, linc_bottom_99, linc_bottom_90, ctrl_log_rgdp, ctrl_unrate, ctrl_inflation, ctrl_ffr, ctrl_log_gov, ctrl_log_rstprices, ctrl_dlog_rdebt, ctrl_log_avtax">
 <td><span class="key">mmo2018</span></td>
 <td class="title">Mertens and Montiel Olea (2018) marginal tax rates and income<div class="paper"><a href="https://karelmertens.com/research/" class="link-secondary">Mertens and Montiel Olea (2018)</a></div></td>
-<td>Fiscal policy</td><td class="text-nowrap">annual<br><span class="paper">Inf to -Inf</span></td><td class="text-nowrap">67 &times; 57</td>
+<td>Fiscal policy</td><td class="text-nowrap">annual<br><span class="paper">1946 to 2012</span></td><td class="text-nowrap">67 &times; 57</td>
 <td><span class="tag">fiscal-policy</span><span class="tag">tax</span><span class="tag">marginal-tax-rates</span><span class="tag">income-distribution</span><span class="tag">narrative</span><span class="tag">us</span></td>
 <td><a class="btn btn-outline-secondary btn-csv" href="data/mmo2018.csv" download>csv</a></td>
 </tr>
@@ -389,6 +389,251 @@ sw2001       # Stock and Watson (2001)</code></pre></div>
 <td>Monetary policy</td><td class="text-nowrap">quarterly<br><span class="paper">1959 to 2008</span></td><td class="text-nowrap">200 &times; 8</td>
 <td><span class="tag">var</span><span class="tag">bvar</span><span class="tag">priors</span><span class="tag">textbook</span><span class="tag">us</span></td>
 <td><a class="btn btn-outline-secondary btn-csv" href="data/glp2015.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Crises" data-text="rr2017 romer and romer (2017) financial distress measure crises financial-crises narrative distress-index oecd panel date, country, distress">
+<td><span class="key">rr2017</span></td>
+<td class="title">Romer and Romer (2017) financial distress measure<div class="paper"><a href="https://eml.berkeley.edu/~dromer/" class="link-secondary">Romer and Romer (2017)</a></div></td>
+<td>Crises</td><td class="text-nowrap">semiannual<br><span class="paper">1967 to 2017</span></td><td class="text-nowrap">3060 &times; 3</td>
+<td><span class="tag">financial-crises</span><span class="tag">narrative</span><span class="tag">distress-index</span><span class="tag">oecd</span><span class="tag">panel</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/rr2017.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Financial conditions" data-text="hkm2017_quarterly he, kelly and manela (2017) intermediary capital ratio and risk factor (quarterly) financial conditions intermediary-asset-pricing capital-ratio risk-factor leverage us date, intermediary_capital_ratio, intermediary_capital_risk_factor, intermediary_value_weighted_investment_return, intermediary_leverage_ratio_squared">
+<td><span class="key">hkm2017_quarterly</span></td>
+<td class="title">He, Kelly and Manela (2017) intermediary capital ratio and risk factor (quarterly)<div class="paper"><a href="https://zhiguohe.net/data-and-empirical-patterns/" class="link-secondary">He, Kelly, and Manela (2017)</a></div></td>
+<td>Financial conditions</td><td class="text-nowrap">quarterly<br><span class="paper">1970 to 2025</span></td><td class="text-nowrap">222 &times; 5</td>
+<td><span class="tag">intermediary-asset-pricing</span><span class="tag">capital-ratio</span><span class="tag">risk-factor</span><span class="tag">leverage</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/hkm2017_quarterly.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Financial conditions" data-text="hkm2017_monthly he, kelly and manela (2017) intermediary capital ratio and risk factor (monthly) financial conditions intermediary-asset-pricing capital-ratio risk-factor leverage us date, intermediary_capital_ratio, intermediary_capital_risk_factor, intermediary_value_weighted_investment_return, intermediary_leverage_ratio_squared">
+<td><span class="key">hkm2017_monthly</span></td>
+<td class="title">He, Kelly and Manela (2017) intermediary capital ratio and risk factor (monthly)<div class="paper"><a href="https://zhiguohe.net/data-and-empirical-patterns/" class="link-secondary">He, Kelly, and Manela (2017)</a></div></td>
+<td>Financial conditions</td><td class="text-nowrap">monthly<br><span class="paper">1970 to 2025</span></td><td class="text-nowrap">666 &times; 5</td>
+<td><span class="tag">intermediary-asset-pricing</span><span class="tag">capital-ratio</span><span class="tag">risk-factor</span><span class="tag">leverage</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/hkm2017_monthly.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Asset prices" data-text="bw2006 baker and wurgler (2006) investor sentiment index asset prices investor-sentiment behavioral-finance stock-returns us date, sent, sent_orth, pdnd, ripo, nipo, cefd, s, indpro, consdur, consnon, consserv, recess, employ, cpi">
+<td><span class="key">bw2006</span></td>
+<td class="title">Baker and Wurgler (2006) investor sentiment index<div class="paper"><a href="https://pages.stern.nyu.edu/~jwurgler/" class="link-secondary">Baker and Wurgler (2006)</a></div></td>
+<td>Asset prices</td><td class="text-nowrap">monthly<br><span class="paper">1958 to 2023</span></td><td class="text-nowrap">792 &times; 15</td>
+<td><span class="tag">investor-sentiment</span><span class="tag">behavioral-finance</span><span class="tag">stock-returns</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/bw2006.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Asset prices" data-text="gwz2024_monthly welch and goyal (2008) / goyal, welch and zafirov (2024) equity premium predictors (monthly) asset prices equity-premium return-predictability dividend-yield valuation-ratios us date, price, d12, e12, ret, retx, aaa, baa, lty, ltr, corpr, tbl, rfree, dp, dy, ep, de, bm, tms, dfy, dfr, infl, eqis, ntis, svar, cay, ik, csp, pce, vp, impvar, vrp, govik, lzrt, skew, crdstd, ogap, wtexas, accrul, cfacc, sntm, ndrbl, skvw, tail, fbm, dtoy, dtoat, ygap, rdsp, rsvix, gpce, gip, tchi, house, avgcor, shtint, disag">
+<td><span class="key">gwz2024_monthly</span></td>
+<td class="title">Welch and Goyal (2008) / Goyal, Welch and Zafirov (2024) equity premium predictors (monthly)<div class="paper"><a href="https://sites.google.com/view/agoyal145" class="link-secondary">Goyal, Welch, and Zafirov (2024)</a></div></td>
+<td>Asset prices</td><td class="text-nowrap">monthly<br><span class="paper">1871 to 2025</span></td><td class="text-nowrap">1860 &times; 57</td>
+<td><span class="tag">equity-premium</span><span class="tag">return-predictability</span><span class="tag">dividend-yield</span><span class="tag">valuation-ratios</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/gwz2024_monthly.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Asset prices" data-text="gwz2024_quarterly welch and goyal (2008) / goyal, welch and zafirov (2024) equity premium predictors (quarterly) asset prices equity-premium return-predictability dividend-yield valuation-ratios us date, price, d12, e12, ret, retx, aaa, baa, lty, ltr, corpr, tbl, rfree, dp, dy, ep, de, bm, tms, dfy, dfr, infl, eqis, ntis, svar, cay, ik, csp, pce, vp, impvar, vrp, govik, lzrt, skew, crdstd, ogap, wtexas, accrul, cfacc, sntm, ndrbl, skvw, tail, fbm, dtoy, dtoat, ygap, rdsp, rsvix, gpce, gip, tchi, house, avgcor, shtint, disag">
+<td><span class="key">gwz2024_quarterly</span></td>
+<td class="title">Welch and Goyal (2008) / Goyal, Welch and Zafirov (2024) equity premium predictors (quarterly)<div class="paper"><a href="https://sites.google.com/view/agoyal145" class="link-secondary">Goyal, Welch, and Zafirov (2024)</a></div></td>
+<td>Asset prices</td><td class="text-nowrap">quarterly<br><span class="paper">1871 to 2025</span></td><td class="text-nowrap">620 &times; 57</td>
+<td><span class="tag">equity-premium</span><span class="tag">return-predictability</span><span class="tag">dividend-yield</span><span class="tag">valuation-ratios</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/gwz2024_quarterly.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Asset prices" data-text="gwz2024_annual welch and goyal (2008) / goyal, welch and zafirov (2024) equity premium predictors (annual) asset prices equity-premium return-predictability dividend-yield valuation-ratios us date, price, d12, e12, ret, retx, aaa, baa, lty, ltr, corpr, tbl, rfree, dp, dy, ep, de, bm, tms, dfy, dfr, infl, eqis, ntis, svar, cay, ik, csp, pce, vp, impvar, vrp, govik, lzrt, skew, crdstd, ogap, wtexas, accrul, cfacc, sntm, ndrbl, skvw, tail, fbm, dtoy, dtoat, ygap, rdsp, rsvix, gpce, gip, tchi, house, avgcor, shtint, disag">
+<td><span class="key">gwz2024_annual</span></td>
+<td class="title">Welch and Goyal (2008) / Goyal, Welch and Zafirov (2024) equity premium predictors (annual)<div class="paper"><a href="https://sites.google.com/view/agoyal145" class="link-secondary">Goyal, Welch, and Zafirov (2024)</a></div></td>
+<td>Asset prices</td><td class="text-nowrap">annual<br><span class="paper">1871 to 2025</span></td><td class="text-nowrap">155 &times; 57</td>
+<td><span class="tag">equity-premium</span><span class="tag">return-predictability</span><span class="tag">dividend-yield</span><span class="tag">valuation-ratios</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/gwz2024_annual.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Crises" data-text="rr2009 reinhart and rogoff public debt and growth panel (herndon-ash-pollin 2014 replication columns) crises public-debt debt-gdp growth financial-crises country-panel country, year, debt_gdp, debt_cat, gdp_growth">
+<td><span class="key">rr2009</span></td>
+<td class="title">Reinhart and Rogoff public debt and growth panel (Herndon-Ash-Pollin 2014 replication columns)<div class="paper"><a href="https://peri.umass.edu/publication/item/526-does-high-public-debt-consistently-stifle-economic-growth-a-critique-of-reinhart-and-rogoff" class="link-secondary">Reinhart and Rogoff (2009)</a></div></td>
+<td>Crises</td><td class="text-nowrap">annual<br><span class="paper">1946 to 2009</span></td><td class="text-nowrap">1275 &times; 5</td>
+<td><span class="tag">public-debt</span><span class="tag">debt-gdp</span><span class="tag">growth</span><span class="tag">financial-crises</span><span class="tag">country-panel</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/rr2009.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Labour" data-text="rf2009 ramey and francis (2009) a century of work and leisure labour hours-of-work time-use leisure home-production long-run us year, activity, sex, age_group, hours">
+<td><span class="key">rf2009</span></td>
+<td class="title">Ramey and Francis (2009) a century of work and leisure<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Ramey and Francis (2009)</a></div></td>
+<td>Labour</td><td class="text-nowrap">annual<br><span class="paper">1900 to 2005</span></td><td class="text-nowrap">6360 &times; 5</td>
+<td><span class="tag">hours-of-work</span><span class="tag">time-use</span><span class="tag">leisure</span><span class="tag">home-production</span><span class="tag">long-run</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/rf2009.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Business cycles" data-text="fr2009 francis and ramey (2009) hours per capita and technology shocks business cycles technology-shocks hours-worked svar long-run-restrictions us date, tothrs, avgwkhrs, avgwkhrs_adj, effhrsvw, effhrstorn, civnipop16, nipop16, nipop16_17, nipop18_21, nipop22_24, nipop25_34, nipop35_44, nipop45_54, nipop55_64, nipop65, gengovhrs, nprofhrs, bushrs, effhrs70, effhrs80, effhrs7080, rgdp, xbus, hrsbusindex, fisherdlp, dlp, ffr">
+<td><span class="key">fr2009</span></td>
+<td class="title">Francis and Ramey (2009) hours per capita and technology shocks<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Francis and Ramey (2009)</a></div></td>
+<td>Business cycles</td><td class="text-nowrap">quarterly<br><span class="paper">1948 to 2007</span></td><td class="text-nowrap">240 &times; 28</td>
+<td><span class="tag">technology-shocks</span><span class="tag">hours-worked</span><span class="tag">svar</span><span class="tag">long-run-restrictions</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/fr2009.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Business cycles" data-text="nr2020 nekarda and ramey (2020) cyclical markups business cycles markups price-cost-margin labour-share new-keynesian us date, mu_bus, mu_bus_ws, mu_bus_ws_oh, mu_nfb, mu_nfcb, lmu_cd, lmu_cd_ws, lmu_cd_ws1, lmu_cd_ws_oh, lmu_cd_nfb, lmu_cd_nfcb, lmu_ces_yl, lmu_ces_yl_zsvar, lmu_ces_yk, lmu_ces_yk_ums, lmu_ces_yk_ujf, lmu_ces_oh_yl, lmu_ces_oh_yl_zsvar, lmu_ces_oh_yk, lmu_ces_oh_yk_ums, lmu_ces_oh_yk_ujf, lmu_cd_marg">
+<td><span class="key">nr2020</span></td>
+<td class="title">Nekarda and Ramey (2020) cyclical markups<div class="paper"><a href="https://econweb.ucsd.edu/~vramey/research.html" class="link-secondary">Nekarda and Ramey (2020)</a></div></td>
+<td>Business cycles</td><td class="text-nowrap">quarterly<br><span class="paper">1947 to 2017</span></td><td class="text-nowrap">284 &times; 23</td>
+<td><span class="tag">markups</span><span class="tag">price-cost-margin</span><span class="tag">labour-share</span><span class="tag">new-keynesian</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/nr2020.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Labour" data-text="ck1994 card and krueger (1994) new jersey-pennsylvania fast-food survey labour minimum-wage employment difference-in-differences fast-food survey us sheet, chain, co_owned, state, southj, centralj, northj, pa1, pa2, shore, ncalls, empft, emppt, nmgrs, wage_st, inctime, firstinc, bonus, pctaff, meals, open, hrsopen, psoda, pfry, pentree, nregs, nregs11, type2, status2, date2, ncalls2, empft2, emppt2, nmgrs2, wage_st2, inctime2, firstin2, special2, meals2, open2r, hrsopen2, psoda2, pfry2, pentree2, nregs2, nregs112">
+<td><span class="key">ck1994</span></td>
+<td class="title">Card and Krueger (1994) New Jersey-Pennsylvania fast-food survey<div class="paper"><a href="https://davidcard.berkeley.edu/data_sets.html" class="link-secondary">Card and Krueger (1994)</a></div></td>
+<td>Labour</td><td class="text-nowrap">panel (2 waves)<br><span class="paper">1991 to 1992</span></td><td class="text-nowrap">410 &times; 46</td>
+<td><span class="tag">minimum-wage</span><span class="tag">employment</span><span class="tag">difference-in-differences</span><span class="tag">fast-food</span><span class="tag">survey</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/ck1994.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Education" data-text="al1999 angrist and lavy (1999) israel class size (maimonides' rule) education class-size regression-discontinuity maimonides-rule test-scores education israel grade, schlcode, c_size, c_boys, c_girls, c_numcl, c_pik, c_status, c_leom, c_tip, c_numrd, c_type, flgrm, mrkgrm, ngrm, flmth, mrkmth, nmth, towncode, townname, popcode, tip_a, classid, classize, cohsize, mathsize, avgmath, passmath, verbsize, avgverb, passverb, studchk, misskov2, missagg, nmiss_k, nmiss_a, classct, math_n, flmath_n, nmath_n, verb_n, flverb_n, nverb_n, impute, nverb_m, nmath_m, tip_s, townid, tipuach">
+<td><span class="key">al1999</span></td>
+<td class="title">Angrist and Lavy (1999) Israel class size (Maimonides' rule)<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Angrist and Lavy (1999)</a></div></td>
+<td>Education</td><td class="text-nowrap">cross-section<br><span class="paper"></span></td><td class="text-nowrap">4088 &times; 49</td>
+<td><span class="tag">class-size</span><span class="tag">regression-discontinuity</span><span class="tag">maimonides-rule</span><span class="tag">test-scores</span><span class="tag">education</span><span class="tag">israel</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/al1999.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Labour" data-text="a1990_a angrist (1990) vietnam draft lottery, fica earnings cells 1964-1977 labour draft-lottery instrumental-variables veteran-status earnings social-security us byr, race, interval, year, vmn1, vsd1, vnu1, vnms1, vfin1, ltax, xltax, ctr1">
+<td><span class="key">a1990_a</span></td>
+<td class="title">Angrist (1990) Vietnam draft lottery, FICA earnings cells 1964-1977<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Angrist (1990)</a></div></td>
+<td>Labour</td><td class="text-nowrap">annual panel<br><span class="paper">1964 to 1977</span></td><td class="text-nowrap">20440 &times; 12</td>
+<td><span class="tag">draft-lottery</span><span class="tag">instrumental-variables</span><span class="tag">veteran-status</span><span class="tag">earnings</span><span class="tag">social-security</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/a1990_a.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Labour" data-text="a1990_b angrist (1990) vietnam draft lottery, fica and w-2 earnings cells 1978-1984 labour draft-lottery instrumental-variables veteran-status earnings social-security us byr, race, interval, year, type, vmn1, vsd1, vnu1, vnms1, vfin1, ctr1, ltax, xltax">
+<td><span class="key">a1990_b</span></td>
+<td class="title">Angrist (1990) Vietnam draft lottery, FICA and W-2 earnings cells 1978-1984<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Angrist (1990)</a></div></td>
+<td>Labour</td><td class="text-nowrap">annual panel<br><span class="paper">1978 to 1984</span></td><td class="text-nowrap">20440 &times; 13</td>
+<td><span class="tag">draft-lottery</span><span class="tag">instrumental-variables</span><span class="tag">veteran-status</span><span class="tag">earnings</span><span class="tag">social-security</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/a1990_b.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Labour" data-text="aai2002 abadie, angrist and imbens (2002) jtpa training experiment labour jtpa randomized-experiment quantile-treatment-effects training earnings us id, earnings, assignment, training, male, hsorged, black, hispanic, married, wkless13, afdc, class_tr, ojt_jsa, age2225, age2629, age3035, age3644, age4554, f2sms">
+<td><span class="key">aai2002</span></td>
+<td class="title">Abadie, Angrist and Imbens (2002) JTPA training experiment<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Abadie, Angrist, and Imbens (2002)</a></div></td>
+<td>Labour</td><td class="text-nowrap">cross-section<br><span class="paper"></span></td><td class="text-nowrap">11204 &times; 19</td>
+<td><span class="tag">jtpa</span><span class="tag">randomized-experiment</span><span class="tag">quantile-treatment-effects</span><span class="tag">training</span><span class="tag">earnings</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/aai2002.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Education" data-text="al2009 angrist and lavy (2009) high school achievement awards rct education randomized-experiment achievement-awards bagrut matriculation education israel year, school_id, student_id, treated, pair, m_ahim, boy, ole5, educav, educem, zakaibag, lagscore, semrel, semarab, att18, att20, att22, att24, awr18, awr20, awr22, awr24, achv_math, achv_eng, achv_hib">
+<td><span class="key">al2009</span></td>
+<td class="title">Angrist and Lavy (2009) high school achievement awards RCT<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Angrist and Lavy (2009)</a></div></td>
+<td>Education</td><td class="text-nowrap">annual panel<br><span class="paper">2000 to 2002</span></td><td class="text-nowrap">12188 &times; 25</td>
+<td><span class="tag">randomized-experiment</span><span class="tag">achievement-awards</span><span class="tag">bagrut</span><span class="tag">matriculation</span><span class="tag">education</span><span class="tag">israel</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/al2009.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Education" data-text="alo2009 angrist, lang and oreopoulos (2009) canadian star incentives rct education randomized-experiment financial-incentives academic-support gpa education canada gpa_year1, gpa_year2, age, chooseutm, compsurv, control, credits_earned1, credits_earned2, dad1, dad2, dad_edn, english, female, finish4, goodstanding_year1, goodstanding_year2, gpa0, graddeg, grade_20059_fall, hcom, hsgroup, lastmin, lm_never, lm_rarely, mathsci, mom1, mom2, mom_edn, mtongue, noshow, numcourses_nov1, prob_year1, prob_year2, sex, sfp, sfp_p, sfpany, sfpany_p, sfsp, sfsp_p, signup, ssp, ssp_p, totcredits_year1, used_adv, used_fsg, used_ssp, work1">
+<td><span class="key">alo2009</span></td>
+<td class="title">Angrist, Lang and Oreopoulos (2009) Canadian STAR incentives RCT<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Angrist, Lang, and Oreopoulos (2009)</a></div></td>
+<td>Education</td><td class="text-nowrap">cross-section<br><span class="paper"></span></td><td class="text-nowrap">1656 &times; 48</td>
+<td><span class="tag">randomized-experiment</span><span class="tag">financial-incentives</span><span class="tag">academic-support</span><span class="tag">gpa</span><span class="tag">education</span><span class="tag">canada</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/alo2009.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Education" data-text="abk2006 angrist, bettinger and kremer (2006) colombia voucher long-run follow-up education school-vouchers paces randomized-experiment icfes test-scores colombia vouch0, sex_name, match_i, match_ic, match_i7, age, phone, checkid, math, read, match_ic7, readcens1, readcens10, mathcens1, mathcens10">
+<td><span class="key">abk2006</span></td>
+<td class="title">Angrist, Bettinger and Kremer (2006) Colombia voucher long-run follow-up<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Angrist, Bettinger, and Kremer (2006)</a></div></td>
+<td>Education</td><td class="text-nowrap">cross-section<br><span class="paper"></span></td><td class="text-nowrap">4044 &times; 15</td>
+<td><span class="tag">school-vouchers</span><span class="tag">paces</span><span class="tag">randomized-experiment</span><span class="tag">icfes</span><span class="tag">test-scores</span><span class="tag">colombia</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/abk2006.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Education" data-text="abbkk2002 angrist, bettinger, bloom, king and kremer (2002) colombia paces voucher lottery education school-vouchers paces randomized-experiment education colombia id, dbogota, djamundi, d1993, d1995, d1997, vouch0, sex, age, mom_sch, mom_age, dad_sch, dad_age, stratams, rept6, totscyrs, finish6, finish7, finish8, usngsch, hoursum, working, married, haschild, test_tak, response, svy">
+<td><span class="key">abbkk2002</span></td>
+<td class="title">Angrist, Bettinger, Bloom, King and Kremer (2002) Colombia PACES voucher lottery<div class="paper"><a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive" class="link-secondary">Angrist, Bettinger, Bloom, King, and Kremer (2002)</a></div></td>
+<td>Education</td><td class="text-nowrap">cross-section<br><span class="paper"></span></td><td class="text-nowrap">1618 &times; 27</td>
+<td><span class="tag">school-vouchers</span><span class="tag">paces</span><span class="tag">randomized-experiment</span><span class="tag">education</span><span class="tag">colombia</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/abbkk2002.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Labour" data-text="adh2013 autor, dorn and hanson (2013) china trade shock, commuting zones labour china-shock import-competition trade manufacturing employment commuting-zones us czone, statefip, city, yr, t2, timepwt48, reg_midatl, reg_encen, reg_wncen, reg_satl, reg_escen, reg_wscen, reg_mount, reg_pacif, l_popcount, l_shind_manuf_cbp, l_sh_popedu_c, l_sh_popfborn, l_sh_empl_f, l_sh_routine33, l_task_outsource, d_sh_empl, d_sh_empl_mfg, d_sh_empl_nmfg, d_sh_unempl, d_sh_nilf, d_avg_lnwkwage, d_avg_lnwkwage_mfg, d_avg_lnwkwage_nmfg, d_tradeusch_pw, d_tradeotch_pw_lag">
+<td><span class="key">adh2013</span></td>
+<td class="title">Autor, Dorn and Hanson (2013) China trade shock, commuting zones<div class="paper"><a href="https://www.ddorn.net/data.htm" class="link-secondary">Autor, Dorn, and Hanson (2013)</a></div></td>
+<td>Labour</td><td class="text-nowrap">10-year panel<br><span class="paper"></span></td><td class="text-nowrap">1444 &times; 31</td>
+<td><span class="tag">china-shock</span><span class="tag">import-competition</span><span class="tag">trade</span><span class="tag">manufacturing</span><span class="tag">employment</span><span class="tag">commuting-zones</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/adh2013.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Education" data-text="duflo2001 duflo (2001) indonesia inpres school construction, regency-level variables education school-construction inpres instrumental-variables returns-to-schooling indonesia birthpl, nin, recp, ch71, en71, wsppc, dens71, moldyed, birthlat, birthlong, schools73new, schools74new, schools75new, schools76new, schools77new, schools78new, pop71new, ch71new, totinnew, ninnew, nch71new, atsc71new, en71newish, en71new, ldpop, recpnew, lch71, len71new, lch71new, ldens71, lninnew, java, nin_lch71new, nen71new, nen71newish, poor">
+<td><span class="key">duflo2001</span></td>
+<td class="title">Duflo (2001) Indonesia INPRES school construction, regency-level variables<div class="paper"><a href="https://github.com/droodman/Duflo-2001" class="link-secondary">Duflo (2001)</a></div></td>
+<td>Education</td><td class="text-nowrap">cross-section<br><span class="paper"></span></td><td class="text-nowrap">308 &times; 36</td>
+<td><span class="tag">school-construction</span><span class="tag">inpres</span><span class="tag">instrumental-variables</span><span class="tag">returns-to-schooling</span><span class="tag">indonesia</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/duflo2001.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="ns2018 nakamura and steinsson (2018) monetary policy news shock monetary policy monetary-policy high-frequency information-effect fomc us date, policy_news_shock, ffr_shock">
+<td><span class="key">ns2018</span></td>
+<td class="title">Nakamura and Steinsson (2018) monetary policy news shock<div class="paper"><a href="https://eminakamura.com/research.html" class="link-secondary">Nakamura and Steinsson (2018)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">2000 to 2014</span></td><td class="text-nowrap">106 &times; 3</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">information-effect</span><span class="tag">fomc</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/ns2018.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="ns2018_1995 nakamura and steinsson (2018) monetary policy news shock, extended sample monetary policy monetary-policy high-frequency information-effect fomc us date, unscheduled, policy_news_shock, ffr_shock">
+<td><span class="key">ns2018_1995</span></td>
+<td class="title">Nakamura and Steinsson (2018) monetary policy news shock, extended sample<div class="paper"><a href="https://eminakamura.com/research.html" class="link-secondary">Nakamura and Steinsson (2018)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">1995 to 2014</span></td><td class="text-nowrap">162 &times; 4</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">information-effect</span><span class="tag">fomc</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/ns2018_1995.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="s2021 swanson (2021) ffr, forward guidance and lsap factors monetary policy monetary-policy high-frequency forward-guidance lsap fomc us date, ff_factor, fg_factor, lsap_factor">
+<td><span class="key">s2021</span></td>
+<td class="title">Swanson (2021) FFR, forward guidance and LSAP factors<div class="paper"><a href="https://sites.socsci.uci.edu/~swanson2/research.html" class="link-secondary">Swanson (2021)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">1991 to 2019</span></td><td class="text-nowrap">241 &times; 4</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">forward-guidance</span><span class="tag">lsap</span><span class="tag">fomc</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/s2021.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="bs2023 bauer and swanson (2023) monetary policy surprises, monthly monetary policy monetary-policy high-frequency orthogonalised fomc us date, mps, mps_orth, nfp_surp, nfp_12m, sp500_3m, slope_3m, bcom_3m, tr_skew">
+<td><span class="key">bs2023</span></td>
+<td class="title">Bauer and Swanson (2023) monetary policy surprises, monthly<div class="paper"><a href="https://www.frbsf.org/research-and-insights/data-and-indicators/monetary-policy-surprises/" class="link-secondary">Bauer and Swanson (2023)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">monthly<br><span class="paper">1988 to 2023</span></td><td class="text-nowrap">431 &times; 9</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">orthogonalised</span><span class="tag">fomc</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/bs2023.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="bs2023_fomc bauer and swanson (2023) monetary policy surprises, fomc-announcement level monetary policy monetary-policy high-frequency orthogonalised fed-funds-futures eurodollar fomc us date, time, unscheduled, ff1, ff2, ed1, ed2, ed3, ed4, sp500, sp500_emini, tnote02, tnote05, tnote10, tbond, mps, mps_orth, nfp_surp, nfp_12m, sp500_3m, slope_3m, bcom_3m, tr_skew">
+<td><span class="key">bs2023_fomc</span></td>
+<td class="title">Bauer and Swanson (2023) monetary policy surprises, FOMC-announcement level<div class="paper"><a href="https://www.frbsf.org/research-and-insights/data-and-indicators/monetary-policy-surprises/" class="link-secondary">Bauer and Swanson (2023)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">1988 to 2023</span></td><td class="text-nowrap">361 &times; 23</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">orthogonalised</span><span class="tag">fed-funds-futures</span><span class="tag">eurodollar</span><span class="tag">fomc</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/bs2023_fomc.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="mar2021 miranda-agrippino and ricco (2021) informationally-robust monetary policy instrument monetary policy monetary-policy high-frequency information-effect instrument fomc us date, fomc_date, gb_date, is_fomc, is_unscheduled, iv1, iv5">
+<td><span class="key">mar2021</span></td>
+<td class="title">Miranda-Agrippino and Ricco (2021) informationally-robust monetary policy instrument<div class="paper"><a href="http://silviamirandaagrippino.com/code-data" class="link-secondary">Miranda-Agrippino and Ricco (2021)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">1990 to 2009</span></td><td class="text-nowrap">186 &times; 7</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">information-effect</span><span class="tag">instrument</span><span class="tag">fomc</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/mar2021.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="eampd altavilla et al. (2019) euro area monetary policy event-study database, monetary event window monetary policy monetary-policy high-frequency euro-area ecb event-study ois yields date, ois_sw, ois_1m, ois_3m, ois_6m, ois_1y, ois_2y, ois_3y, ois_4y, ois_5y, ois_6y, ois_7y, ois_8y, ois_9y, ois_10y, ois_15y, ois_20y, de3m, de6m, de1y, de2y, de3y, de4y, de5y, de6y, de7y, de8y, de9y, de10y, de15y, de20y, de30y, it2y, fr2y, es2y, it5y, es5y, fr5y, es10y, fr10y, it10y, stoxx50, sx7e, eurusd, eurgbp, eurjpy">
+<td><span class="key">eampd</span></td>
+<td class="title">Altavilla et al. (2019) Euro Area Monetary Policy Event-Study Database, monetary event window<div class="paper"><a href="https://www.ecb.europa.eu/pub/pdf/annex/Dataset_EA-MPD.xlsx" class="link-secondary">Altavilla, Brugnolini, Gürkaynak, Motto, and Ragusa (2019)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">1999 to 2025</span></td><td class="text-nowrap">315 &times; 46</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">euro-area</span><span class="tag">ecb</span><span class="tag">event-study</span><span class="tag">ois</span><span class="tag">yields</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/eampd.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="eampd_pr altavilla et al. (2019) ea-mpd, press release window monetary policy monetary-policy high-frequency euro-area ecb event-study ois yields date, ois_sw, ois_1m, ois_3m, ois_6m, ois_1y, ois_2y, ois_3y, ois_4y, ois_5y, ois_6y, ois_7y, ois_8y, ois_9y, ois_10y, ois_15y, ois_20y, de3m, de6m, de1y, de2y, de3y, de4y, de5y, de6y, de7y, de8y, de9y, de10y, de15y, de20y, de30y, it2y, fr2y, es2y, it5y, es5y, fr5y, es10y, fr10y, it10y, stoxx50, sx7e, eurusd, eurgbp, eurjpy">
+<td><span class="key">eampd_pr</span></td>
+<td class="title">Altavilla et al. (2019) EA-MPD, press release window<div class="paper"><a href="https://www.ecb.europa.eu/pub/pdf/annex/Dataset_EA-MPD.xlsx" class="link-secondary">Altavilla, Brugnolini, Gürkaynak, Motto, and Ragusa (2019)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">1999 to 2025</span></td><td class="text-nowrap">315 &times; 46</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">euro-area</span><span class="tag">ecb</span><span class="tag">event-study</span><span class="tag">ois</span><span class="tag">yields</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/eampd_pr.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="eampd_pc altavilla et al. (2019) ea-mpd, press conference window monetary policy monetary-policy high-frequency euro-area ecb event-study ois yields date, ois_sw, ois_1m, ois_3m, ois_6m, ois_1y, ois_2y, ois_3y, ois_4y, ois_5y, ois_6y, ois_7y, ois_8y, ois_9y, ois_10y, ois_15y, ois_20y, de3m, de6m, de1y, de2y, de3y, de4y, de5y, de6y, de7y, de8y, de9y, de10y, de15y, de20y, de30y, it2y, fr2y, es2y, it5y, es5y, fr5y, es10y, fr10y, it10y, stoxx50, sx7e, eurusd, eurgbp, eurjpy">
+<td><span class="key">eampd_pc</span></td>
+<td class="title">Altavilla et al. (2019) EA-MPD, press conference window<div class="paper"><a href="https://www.ecb.europa.eu/pub/pdf/annex/Dataset_EA-MPD.xlsx" class="link-secondary">Altavilla, Brugnolini, Gürkaynak, Motto, and Ragusa (2019)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">irregular<br><span class="paper">1999 to 2025</span></td><td class="text-nowrap">315 &times; 46</td>
+<td><span class="tag">monetary-policy</span><span class="tag">high-frequency</span><span class="tag">euro-area</span><span class="tag">ecb</span><span class="tag">event-study</span><span class="tag">ois</span><span class="tag">yields</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/eampd_pc.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Monetary policy" data-text="hlw2017 holston, laubach and williams (2017) r* estimates monetary policy r-star natural-rate trend-growth output-gap us canada euro-area date, g_us, g_ca, g_ea, z_us, z_ca, z_ea, rstar_us, rstar_ca, rstar_ea, gap_us, gap_ca, gap_ea">
+<td><span class="key">hlw2017</span></td>
+<td class="title">Holston, Laubach and Williams (2017) r* estimates<div class="paper"><a href="https://www.newyorkfed.org/research/policy/rstar" class="link-secondary">Holston, Laubach, and Williams (2017)</a></div></td>
+<td>Monetary policy</td><td class="text-nowrap">quarterly<br><span class="paper">1961 to 2026</span></td><td class="text-nowrap">262 &times; 13</td>
+<td><span class="tag">r-star</span><span class="tag">natural-rate</span><span class="tag">trend-growth</span><span class="tag">output-gap</span><span class="tag">us</span><span class="tag">canada</span><span class="tag">euro-area</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/hlw2017.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Oil and energy" data-text="k2021 kanzig (2021) oil supply news shocks oil and energy oil supply-shock news-shock opec var world date, oil_supply_surprise, oil_supply_news_shock">
+<td><span class="key">k2021</span></td>
+<td class="title">Kanzig (2021) oil supply news shocks<div class="paper"><a href="https://github.com/dkaenzig/oilsupplynews" class="link-secondary">Känzig (2021)</a></div></td>
+<td>Oil and energy</td><td class="text-nowrap">monthly<br><span class="paper">1975 to 2025</span></td><td class="text-nowrap">612 &times; 3</td>
+<td><span class="tag">oil</span><span class="tag">supply-shock</span><span class="tag">news-shock</span><span class="tag">opec</span><span class="tag">var</span><span class="tag">world</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/k2021.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Oil and energy" data-text="bh2019 baumeister and hamilton (2019) structural oil supply and demand shocks oil and energy oil svar supply-shock demand-shock bayesian world date, supply_shock, activity_shock, consumption_demand_shock, inventory_demand_shock">
+<td><span class="key">bh2019</span></td>
+<td class="title">Baumeister and Hamilton (2019) structural oil supply and demand shocks<div class="paper"><a href="https://sites.google.com/site/cjsbaumeister/datasets" class="link-secondary">Baumeister and Hamilton (2019)</a></div></td>
+<td>Oil and energy</td><td class="text-nowrap">monthly<br><span class="paper">1975 to 2026</span></td><td class="text-nowrap">614 &times; 5</td>
+<td><span class="tag">oil</span><span class="tag">svar</span><span class="tag">supply-shock</span><span class="tag">demand-shock</span><span class="tag">bayesian</span><span class="tag">world</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/bh2019.csv" download>csv</a></td>
+</tr>
+<tr data-cat="Asset prices" data-text="ll2001 lettau and ludvigson (2001) consumption-wealth ratio (cay) asset prices consumption-wealth-ratio cay predictability stock-returns us date, c, w, y, cay">
+<td><span class="key">ll2001</span></td>
+<td class="title">Lettau and Ludvigson (2001) consumption-wealth ratio (cay)<div class="paper"><a href="https://sites.google.com/view/martinlettau/data" class="link-secondary">Lettau and Ludvigson (2001)</a></div></td>
+<td>Asset prices</td><td class="text-nowrap">quarterly<br><span class="paper">1952 to 2019</span></td><td class="text-nowrap">271 &times; 5</td>
+<td><span class="tag">consumption-wealth-ratio</span><span class="tag">cay</span><span class="tag">predictability</span><span class="tag">stock-returns</span><span class="tag">us</span></td>
+<td><a class="btn btn-outline-secondary btn-csv" href="data/ll2001.csv" download>csv</a></td>
 </tr>
 </tbody></table></div>
 <p class="count">Column definitions for the wide panels are on the <a href="variables.html">variables</a> page. Dates are ISO <code>YYYY-MM-DD</code>; missing values are empty cells.</p>
@@ -434,6 +679,33 @@ sw2001       # Stock and Watson (2001)</code></pre></div>
 <li id="p-gss2005">R. S. Gürkaynak, B. Sack, and E. T. Swanson. "Do Actions Speak Louder Than Words? The Response of Asset Prices to Monetary Policy Actions and Statements". In: <em>International Journal of Central Banking</em> 1.1 (2005), pp. 55-93. <a href="https://www.ijcb.org/journal/ijcb05q2a2.htm">https://www.ijcb.org/journal/ijcb05q2a2.htm</a>.<br><span class="count">key <span class="key">gss2005</span></span></li>
 <li id="p-bw2016">A. S. Blinder and M. W. Watson. "Presidents and the US Economy: An Econometric Exploration". In: <em>American Economic Review</em> 106.4 (2016), pp. 1015-1045. DOI: 10.1257/aer.20140913. <a href="https://doi.org/10.1257/aer.20140913">https://doi.org/10.1257/aer.20140913</a>.<br><span class="count">key <span class="key">bw2016</span></span></li>
 <li id="p-glp2015">D. Giannone, M. Lenza, and G. E. Primiceri. "Prior Selection for Vector Autoregressions". In: <em>The Review of Economics and Statistics</em> 97.2 (2015), pp. 436-451. DOI: 10.1162/REST<em>a</em>00483. <a href="https://doi.org/10.1162/REST<em>a</em>00483">https://doi.org/10.1162/REST<em>a</em>00483</a>.<br><span class="count">key <span class="key">glp2015</span></span></li>
+<li id="p-rr2017">C. D. Romer and D. H. Romer. "New Evidence on the Aftermath of Financial Crises in Advanced Countries". In: <em>American Economic Review</em> 107.10 (2017), pp. 3072-3118. DOI: 10.1257/aer.20150320. <a href="https://doi.org/10.1257/aer.20150320">https://doi.org/10.1257/aer.20150320</a>.<br><span class="count">key <span class="key">rr2017</span></span></li>
+<li id="p-hkm2017">Z. He, B. Kelly, and A. Manela. "Intermediary Asset Pricing: New Evidence from Many Asset Classes". In: <em>Journal of Financial Economics</em> 126.1 (2017), pp. 1-35. DOI: 10.1016/j.jfineco.2017.08.002. <a href="https://doi.org/10.1016/j.jfineco.2017.08.002">https://doi.org/10.1016/j.jfineco.2017.08.002</a>.<br><span class="count">key <span class="key">hkm2017</span></span></li>
+<li id="p-bw2006">M. Baker and J. Wurgler. "Investor Sentiment and the Cross-Section of Stock Returns". In: <em>The Journal of Finance</em> 61.4 (2006), pp. 1645-1680. DOI: 10.1111/j.1540-6261.2006.00885.x. <a href="https://doi.org/10.1111/j.1540-6261.2006.00885.x">https://doi.org/10.1111/j.1540-6261.2006.00885.x</a>.<br><span class="count">key <span class="key">bw2006</span></span></li>
+<li id="p-gwz2024">A. Goyal, I. Welch, and A. Zafirov. "A Comprehensive 2022 Look at the Empirical Performance of Equity Premium Prediction". In: <em>The Review of Financial Studies</em> 37.11 (2024), pp. 3490-3557. DOI: 10.1093/rfs/hhae044. <a href="https://doi.org/10.1093/rfs/hhae044">https://doi.org/10.1093/rfs/hhae044</a>.<br><span class="count">key <span class="key">gwz2024</span></span></li>
+<li id="p-rr2009">C. M. Reinhart and K. S. Rogoff. <em>This Time Is Different: Eight Centuries of Financial Folly</em>. Princeton: Princeton University Press, 2009. <a href="https://press.princeton.edu/books/hardcover/9780691142166/this-time-is-different">https://press.princeton.edu/books/hardcover/9780691142166/this-time-is-different</a>.<br><span class="count">key <span class="key">rr2009</span></span></li>
+<li id="p-rf2009">V. A. Ramey and N. Francis. "A Century of Work and Leisure". In: <em>American Economic Journal: Macroeconomics</em> 1.2 (2009), pp. 189-224. DOI: 10.1257/mac.1.2.189. <a href="https://doi.org/10.1257/mac.1.2.189">https://doi.org/10.1257/mac.1.2.189</a>.<br><span class="count">key <span class="key">rf2009</span></span></li>
+<li id="p-fr2009">N. Francis and V. A. Ramey. "Measures of per Capita Hours and Their Implications for the Technology-Hours Debate". In: <em>Journal of Money, Credit and Banking</em> 41.6 (2009), pp. 1071-1097. DOI: 10.1111/j.1538-4616.2009.00247.x. <a href="https://doi.org/10.1111/j.1538-4616.2009.00247.x">https://doi.org/10.1111/j.1538-4616.2009.00247.x</a>.<br><span class="count">key <span class="key">fr2009</span></span></li>
+<li id="p-nr2020">C. J. Nekarda and V. A. Ramey. "The Cyclical Behavior of the Price-Cost Markup". In: <em>Journal of Money, Credit and Banking</em> 52.S2 (2020), pp. 319-353. DOI: 10.1111/jmcb.12755. <a href="https://doi.org/10.1111/jmcb.12755">https://doi.org/10.1111/jmcb.12755</a>.<br><span class="count">key <span class="key">nr2020</span></span></li>
+<li id="p-ck1994">D. Card and A. B. Krueger. "Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania". In: <em>American Economic Review</em> 84.4 (1994), pp. 772-793. DOI: 10.2307/2118030. <a href="https://www.jstor.org/stable/2118030">https://www.jstor.org/stable/2118030</a>.<br><span class="count">key <span class="key">ck1994</span></span></li>
+<li id="p-al1999">J. D. Angrist and V. Lavy. "Using Maimonides' Rule to Estimate the Effect of Class Size on Scholastic Achievement". In: <em>Quarterly Journal of Economics</em> 114.2 (1999), pp. 533-575. DOI: 10.1162/003355399556061. <a href="https://doi.org/10.1162/003355399556061">https://doi.org/10.1162/003355399556061</a>.<br><span class="count">key <span class="key">al1999</span></span></li>
+<li id="p-a1990">J. D. Angrist. "Lifetime Earnings and the Vietnam Era Draft Lottery: Evidence from Social Security Administrative Records". In: <em>American Economic Review</em> 80.3 (1990), pp. 313-336. <a href="https://economics.mit.edu/sites/default/files/publications/Angrist%201990%20-%20Lifetime%20Earnings%20and%20the%20Vietname%20.pdf">https://economics.mit.edu/sites/default/files/publications/Angrist%201990%20-%20Lifetime%20Earnings%20and%20the%20Vietname%20.pdf</a><br><span class="count">key <span class="key">a1990</span></span></li>
+<li id="p-aai2002">A. Abadie, J. Angrist, and G. Imbens. "Instrumental Variables Estimates of the Effect of Subsidized Training on the Quantiles of Trainee Earnings". In: <em>Econometrica</em> 70.1 (2002), pp. 91-117. DOI: 10.1111/1468-0262.00270. <a href="https://doi.org/10.1111/1468-0262.00270">https://doi.org/10.1111/1468-0262.00270</a>.<br><span class="count">key <span class="key">aai2002</span></span></li>
+<li id="p-al2009">J. Angrist and V. Lavy. "The Effects of High Stakes High School Achievement Awards: Evidence from a Randomized Trial". In: <em>American Economic Review</em> 99.4 (2009), pp. 1384-1414. DOI: 10.1257/aer.99.4.1384. <a href="https://doi.org/10.1257/aer.99.4.1384">https://doi.org/10.1257/aer.99.4.1384</a>.<br><span class="count">key <span class="key">al2009</span></span></li>
+<li id="p-alo2009">J. Angrist, D. Lang, and P. Oreopoulos. "Incentives and Services for College Achievement: Evidence from a Randomized Trial". In: <em>American Economic Journal: Applied Economics</em> 1.1 (2009), pp. 136-163. DOI: 10.1257/app.1.1.136. <a href="https://doi.org/10.1257/app.1.1.136">https://doi.org/10.1257/app.1.1.136</a>.<br><span class="count">key <span class="key">alo2009</span></span></li>
+<li id="p-abbkk2002">J. Angrist, E. Bettinger, E. Bloom, et al. "Vouchers for Private Schooling in Colombia: Evidence from a Randomized Natural Experiment". In: <em>American Economic Review</em> 92.5 (2002), pp. 1535-1558. DOI: 10.1257/000282802762024629. <a href="https://doi.org/10.1257/000282802762024629">https://doi.org/10.1257/000282802762024629</a>.<br><span class="count">key <span class="key">abbkk2002</span></span></li>
+<li id="p-abk2006">J. Angrist, E. Bettinger, and M. Kremer. "Long-Term Educational Consequences of Secondary School Vouchers: Evidence from Administrative Records in Colombia". In: <em>American Economic Review</em> 96.3 (2006), pp. 847-862. DOI: 10.1257/aer.96.3.847. <a href="https://doi.org/10.1257/aer.96.3.847">https://doi.org/10.1257/aer.96.3.847</a>.<br><span class="count">key <span class="key">abk2006</span></span></li>
+<li id="p-adh2013">D. H. Autor, D. Dorn, and G. H. Hanson. "The China Syndrome: Local Labor Market Effects of Import Competition in the United States". In: <em>American Economic Review</em> 103.6 (2013), pp. 2121-2168. DOI: 10.1257/aer.103.6.2121. <a href="https://doi.org/10.1257/aer.103.6.2121">https://doi.org/10.1257/aer.103.6.2121</a>.<br><span class="count">key <span class="key">adh2013</span></span></li>
+<li id="p-duflo2001">E. Duflo. "Schooling and Labor Market Consequences of School Construction in Indonesia: Evidence from an Unusual Policy Experiment". In: <em>American Economic Review</em> 91.4 (2001), pp. 795-813. DOI: 10.1257/aer.91.4.795. <a href="https://doi.org/10.1257/aer.91.4.795">https://doi.org/10.1257/aer.91.4.795</a>.<br><span class="count">key <span class="key">duflo2001</span></span></li>
+<li id="p-ns2018">E. Nakamura and J. Steinsson. "High-Frequency Identification of Monetary Non-Neutrality: The Information Effect". In: <em>The Quarterly Journal of Economics</em> 133.3 (2018), pp. 1283-1330. DOI: 10.1093/qje/qjy004. <a href="https://doi.org/10.1093/qje/qjy004">https://doi.org/10.1093/qje/qjy004</a>.<br><span class="count">key <span class="key">ns2018</span></span></li>
+<li id="p-s2021">E. T. Swanson. "Measuring the Effects of Federal Reserve Forward Guidance and Asset Purchases on Financial Markets". In: <em>Journal of Monetary Economics</em> 118 (2021), pp. 32-53. DOI: 10.1016/j.jmoneco.2020.09.003. <a href="https://doi.org/10.1016/j.jmoneco.2020.09.003">https://doi.org/10.1016/j.jmoneco.2020.09.003</a>.<br><span class="count">key <span class="key">s2021</span></span></li>
+<li id="p-bs2023">M. D. Bauer and E. T. Swanson. "A Reassessment of Monetary Policy Surprises and High-Frequency Identification". In: <em>NBER Macroeconomics Annual</em> 37.1 (2023), pp. 87-155. DOI: 10.1086/723574. <a href="https://doi.org/10.1086/723574">https://doi.org/10.1086/723574</a>.<br><span class="count">key <span class="key">bs2023</span></span></li>
+<li id="p-mar2021">S. Miranda-Agrippino and G. Ricco. "The Transmission of Monetary Policy Shocks". In: <em>American Economic Journal: Macroeconomics</em> 13.3 (2021), pp. 74-107. DOI: 10.1257/mac.20180124. <a href="https://doi.org/10.1257/mac.20180124">https://doi.org/10.1257/mac.20180124</a>.<br><span class="count">key <span class="key">mar2021</span></span></li>
+<li id="p-eampd">C. Altavilla, L. Brugnolini, R. S. Gürkaynak, et al. "Measuring Euro Area Monetary Policy". In: <em>Journal of Monetary Economics</em> 108 (2019), pp. 162-179. DOI: 10.1016/j.jmoneco.2019.08.016. <a href="https://doi.org/10.1016/j.jmoneco.2019.08.016">https://doi.org/10.1016/j.jmoneco.2019.08.016</a>.<br><span class="count">key <span class="key">eampd</span></span></li>
+<li id="p-hlw2017">K. Holston, T. Laubach, and J. C. Williams. "Measuring the Natural Rate of Interest: International Trends and Determinants". In: <em>Journal of International Economics</em> 108.S1 (2017), pp. S59-S75. DOI: 10.1016/j.jinteco.2017.01.004. <a href="https://doi.org/10.1016/j.jinteco.2017.01.004">https://doi.org/10.1016/j.jinteco.2017.01.004</a>.<br><span class="count">key <span class="key">hlw2017</span></span></li>
+<li id="p-k2021">D. R. Känzig. "The Macroeconomic Effects of Oil Supply News: Evidence from OPEC Announcements". In: <em>American Economic Review</em> 111.4 (2021), pp. 1092-1125. DOI: 10.1257/aer.20190964. <a href="https://doi.org/10.1257/aer.20190964">https://doi.org/10.1257/aer.20190964</a>.<br><span class="count">key <span class="key">k2021</span></span></li>
+<li id="p-bh2019">C. Baumeister and J. D. Hamilton. "Structural Interpretation of Vector Autoregressions with Incomplete Identification: Revisiting the Role of Oil Supply and Demand Shocks". In: <em>American Economic Review</em> 109.5 (2019), pp. 1873-1910. DOI: 10.1257/aer.20151569. <a href="https://doi.org/10.1257/aer.20151569">https://doi.org/10.1257/aer.20151569</a>.<br><span class="count">key <span class="key">bh2019</span></span></li>
+<li id="p-ll2001">M. Lettau and S. Ludvigson. "Consumption, Aggregate Wealth, and Expected Stock Returns". In: <em>The Journal of Finance</em> 56.3 (2001), pp. 815-849. DOI: 10.1111/0022-1082.00347. <a href="https://doi.org/10.1111/0022-1082.00347">https://doi.org/10.1111/0022-1082.00347</a>.<br><span class="count">key <span class="key">ll2001</span></span></li>
 </ol>
 <h2 id="sources">Find other replication data</h2>
 <p class="lead">Freely available datasets behind commonly replicated papers that are not bundled here: too large, updated regularly, or restrictively licensed. Author websites are the best source for shock series because authors keep extending them.</p>

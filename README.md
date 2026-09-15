@@ -49,7 +49,7 @@ The `catalog` lists everything with categories, tags and sample ranges:
 
 ``` r
 catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
-#> # A tibble: 32 × 7
+#> # A tibble: 67 × 7
 #>    key            category        frequency start      end         nrow  ncol
 #>    <chr>          <chr>           <chr>     <date>     <date>     <int> <int>
 #>  1 bbe2005        Monetary policy monthly   1959-01-01 2001-07-01   511   121
@@ -62,11 +62,11 @@ catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
 #>  8 oil            Oil and energy  quarterly 1973-01-01 2013-04-01   162     4
 #>  9 nber_rec       Business cycles irregular 1854-12-01 2020-04-01    35     3
 #> 10 r2016_monetary Monetary policy monthly   1959-01-01 2015-12-01   684    42
-#> # ℹ 22 more rows
+#> # ℹ 57 more rows
 
 # Datasets tagged "var"
 catalog$key[sapply(strsplit(catalog$tags, "|", fixed = TRUE), function(t) "var" %in% t)]
-#> [1] "bbe2005" "sw2001"  "kl2017"  "oil"     "glp2015"
+#> [1] "bbe2005" "sw2001"  "kl2017"  "oil"     "glp2015" "k2021"
 ```
 
 ## Static CSV API
@@ -158,6 +158,41 @@ subset(variables, dataset == "rz2018")[1:5, ]
 | gss2005_surprises | Gurkaynak, Sack and Swanson (2005) raw FOMC-day asset price surprises | Monetary policy | irregular |
 | bw2016 | Blinder and Watson (2016) presidents and the US economy | Business cycles | quarterly |
 | glp2015 | Giannone, Lenza and Primiceri (2015) seven-variable US VAR data | Monetary policy | quarterly |
+| rr2017 | Romer and Romer (2017) financial distress measure | Crises | semiannual |
+| hkm2017_quarterly | He, Kelly and Manela (2017) intermediary capital ratio and risk factor (quarterly) | Financial conditions | quarterly |
+| hkm2017_monthly | He, Kelly and Manela (2017) intermediary capital ratio and risk factor (monthly) | Financial conditions | monthly |
+| bw2006 | Baker and Wurgler (2006) investor sentiment index | Asset prices | monthly |
+| gwz2024_monthly | Welch and Goyal (2008) / Goyal, Welch and Zafirov (2024) equity premium predictors (monthly) | Asset prices | monthly |
+| gwz2024_quarterly | Welch and Goyal (2008) / Goyal, Welch and Zafirov (2024) equity premium predictors (quarterly) | Asset prices | quarterly |
+| gwz2024_annual | Welch and Goyal (2008) / Goyal, Welch and Zafirov (2024) equity premium predictors (annual) | Asset prices | annual |
+| rr2009 | Reinhart and Rogoff public debt and growth panel (Herndon-Ash-Pollin 2014 replication columns) | Crises | annual |
+| rf2009 | Ramey and Francis (2009) a century of work and leisure | Labour | annual |
+| fr2009 | Francis and Ramey (2009) hours per capita and technology shocks | Business cycles | quarterly |
+| nr2020 | Nekarda and Ramey (2020) cyclical markups | Business cycles | quarterly |
+| ck1994 | Card and Krueger (1994) New Jersey-Pennsylvania fast-food survey | Labour | panel (2 waves) |
+| al1999 | Angrist and Lavy (1999) Israel class size (Maimonides’ rule) | Education | cross-section |
+| a1990_a | Angrist (1990) Vietnam draft lottery, FICA earnings cells 1964-1977 | Labour | annual panel |
+| a1990_b | Angrist (1990) Vietnam draft lottery, FICA and W-2 earnings cells 1978-1984 | Labour | annual panel |
+| aai2002 | Abadie, Angrist and Imbens (2002) JTPA training experiment | Labour | cross-section |
+| al2009 | Angrist and Lavy (2009) high school achievement awards RCT | Education | annual panel |
+| alo2009 | Angrist, Lang and Oreopoulos (2009) Canadian STAR incentives RCT | Education | cross-section |
+| abk2006 | Angrist, Bettinger and Kremer (2006) Colombia voucher long-run follow-up | Education | cross-section |
+| abbkk2002 | Angrist, Bettinger, Bloom, King and Kremer (2002) Colombia PACES voucher lottery | Education | cross-section |
+| adh2013 | Autor, Dorn and Hanson (2013) China trade shock, commuting zones | Labour | 10-year panel |
+| duflo2001 | Duflo (2001) Indonesia INPRES school construction, regency-level variables | Education | cross-section |
+| ns2018 | Nakamura and Steinsson (2018) monetary policy news shock | Monetary policy | irregular |
+| ns2018_1995 | Nakamura and Steinsson (2018) monetary policy news shock, extended sample | Monetary policy | irregular |
+| s2021 | Swanson (2021) FFR, forward guidance and LSAP factors | Monetary policy | irregular |
+| bs2023 | Bauer and Swanson (2023) monetary policy surprises, monthly | Monetary policy | monthly |
+| bs2023_fomc | Bauer and Swanson (2023) monetary policy surprises, FOMC-announcement level | Monetary policy | irregular |
+| mar2021 | Miranda-Agrippino and Ricco (2021) informationally-robust monetary policy instrument | Monetary policy | irregular |
+| eampd | Altavilla et al. (2019) Euro Area Monetary Policy Event-Study Database, monetary event window | Monetary policy | irregular |
+| eampd_pr | Altavilla et al. (2019) EA-MPD, press release window | Monetary policy | irregular |
+| eampd_pc | Altavilla et al. (2019) EA-MPD, press conference window | Monetary policy | irregular |
+| hlw2017 | Holston, Laubach and Williams (2017) r\* estimates | Monetary policy | quarterly |
+| k2021 | Kanzig (2021) oil supply news shocks | Oil and energy | monthly |
+| bh2019 | Baumeister and Hamilton (2019) structural oil supply and demand shocks | Oil and energy | monthly |
+| ll2001 | Lettau and Ludvigson (2001) consumption-wealth ratio (cay) | Asset prices | quarterly |
 
 Replication notebooks: [Stock and Watson
 (2001)](https://kvasilopoulos.github.io/econdata/articles/replication-sw2001.html),
