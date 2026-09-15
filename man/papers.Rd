@@ -5,7 +5,7 @@
 \alias{papers}
 \title{List of the contained papers}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 52 rows and 22 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 64 rows and 22 columns.
 }
 \usage{
 papers

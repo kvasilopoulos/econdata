@@ -49,7 +49,7 @@ The `catalog` lists everything with categories, tags and sample ranges:
 
 ``` r
 catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
-#> # A tibble: 67 × 7
+#> # A tibble: 80 × 7
 #>    key            category        frequency start      end         nrow  ncol
 #>    <chr>          <chr>           <chr>     <date>     <date>     <int> <int>
 #>  1 bbe2005        Monetary policy monthly   1959-01-01 2001-07-01   511   121
@@ -62,7 +62,7 @@ catalog[, c("key", "category", "frequency", "start", "end", "nrow", "ncol")]
 #>  8 oil            Oil and energy  quarterly 1973-01-01 2013-04-01   162     4
 #>  9 nber_rec       Business cycles irregular 1854-12-01 2020-04-01    35     3
 #> 10 r2016_monetary Monetary policy monthly   1959-01-01 2015-12-01   684    42
-#> # ℹ 57 more rows
+#> # ℹ 70 more rows
 
 # Datasets tagged "var"
 catalog$key[sapply(strsplit(catalog$tags, "|", fixed = TRUE), function(t) "var" %in% t)]
@@ -158,6 +158,19 @@ subset(variables, dataset == "rz2018")[1:5, ]
 | gss2005_surprises | Gurkaynak, Sack and Swanson (2005) raw FOMC-day asset price surprises | Monetary policy | irregular |
 | bw2016 | Blinder and Watson (2016) presidents and the US economy | Business cycles | quarterly |
 | glp2015 | Giannone, Lenza and Primiceri (2015) seven-variable US VAR data | Monetary policy | quarterly |
+| ajr2001 | Acemoglu, Johnson and Robinson (2001) settler mortality and institutions | Development and growth | cross-section |
+| ajr2002 | Acemoglu, Johnson and Robinson (2002) reversal of fortune | Development and growth | cross-section |
+| ajry2008 | Acemoglu, Johnson, Robinson and Yared (2008) income and democracy panel | Development and growth | 5-year panel |
+| aj2007 | Acemoglu and Johnson (2007) disease, life expectancy and development | Health | 10-year panel |
+| hj1999 | Hall and Jones (1999) output per worker and social infrastructure | Development and growth | cross-section |
+| j2002 | Jones (2002) sources of US economic growth | Development and growth | annual |
+| chks2014 | Chetty, Hendren, Kline and Saez (2014) intergenerational mobility by commuting zone | Inequality | cross-section |
+| cghhmn2017 | Chetty et al. (2017) absolute income mobility by birth cohort | Inequality | annual |
+| chetty2016 | Chetty et al. (2016) life expectancy by household income percentile | Health | cross-section |
+| chetty2016_state | Chetty et al. (2016) life expectancy by income quartile and state | Health | cross-section |
+| ps2003 | Piketty and Saez (2003) top income shares, updated to 2024 | Inequality | annual |
+| psz2018 | Piketty, Saez and Zucman (2018) distributional national accounts income shares | Inequality | annual |
+| sz2016 | Saez and Zucman (2016) top wealth shares | Inequality | annual |
 | rr2017 | Romer and Romer (2017) financial distress measure | Crises | semiannual |
 | hkm2017_quarterly | He, Kelly and Manela (2017) intermediary capital ratio and risk factor (quarterly) | Financial conditions | quarterly |
 | hkm2017_monthly | He, Kelly and Manela (2017) intermediary capital ratio and risk factor (monthly) | Financial conditions | monthly |
