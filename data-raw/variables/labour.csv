@@ -1,0 +1,287 @@
+dataset,variable,description
+ck1994,sheet,Sheet number (unique store id)
+ck1994,chain,"Chain: 1=Burger King, 2=KFC, 3=Roy Rogers, 4=Wendy's"
+ck1994,co_owned,1 if company owned
+ck1994,state,"1 if New Jersey, 0 if Pennsylvania"
+ck1994,southj,1 if in southern NJ
+ck1994,centralj,1 if in central NJ
+ck1994,northj,1 if in northern NJ
+ck1994,pa1,"1 if in PA, northeast suburbs of Philadelphia"
+ck1994,pa2,"1 if in PA, Easton etc."
+ck1994,shore,1 if on the NJ shore
+ck1994,ncalls,Wave 1: number of call-backs (0 if reached on first call)
+ck1994,empft,Wave 1: number of full-time employees
+ck1994,emppt,Wave 1: number of part-time employees
+ck1994,nmgrs,Wave 1: number of managers/assistant managers
+ck1994,wage_st,Wave 1: starting wage ($/hour)
+ck1994,inctime,Wave 1: months to usual first raise
+ck1994,firstinc,Wave 1: usual amount of first raise ($/hour)
+ck1994,bonus,Wave 1: 1 if cash bounty offered for new workers
+ck1994,pctaff,Wave 1: percent of employees affected by the new minimum wage
+ck1994,meals,"Wave 1: free/reduced-price meal code (0 none, 1 free, 2 reduced, 3 both)"
+ck1994,open,Wave 1: hour of opening
+ck1994,hrsopen,Wave 1: number of hours open per day
+ck1994,psoda,"Wave 1: price of medium soda, including tax"
+ck1994,pfry,"Wave 1: price of small fries, including tax"
+ck1994,pentree,"Wave 1: price of an entree, including tax"
+ck1994,nregs,Wave 1: number of cash registers in the store
+ck1994,nregs11,Wave 1: number of registers open at 11:00 am
+ck1994,type2,"Wave 2 interview type: 1=phone, 2=personal"
+ck1994,status2,"Wave 2 interview status (0 refused ... 5 closed, mall fire)"
+ck1994,date2,Date of the wave 2 interview
+ck1994,ncalls2,Wave 2: number of call-backs
+ck1994,empft2,Wave 2: number of full-time employees
+ck1994,emppt2,Wave 2: number of part-time employees
+ck1994,nmgrs2,Wave 2: number of managers/assistant managers
+ck1994,wage_st2,Wave 2: starting wage ($/hour)
+ck1994,inctime2,Wave 2: months to usual first raise
+ck1994,firstin2,Wave 2: usual amount of first raise ($/hour)
+ck1994,special2,Wave 2: 1 if a special program for new workers
+ck1994,meals2,Wave 2: free/reduced-price meal code
+ck1994,open2r,Wave 2: hour of opening
+ck1994,hrsopen2,Wave 2: number of hours open per day
+ck1994,psoda2,"Wave 2: price of medium soda, including tax"
+ck1994,pfry2,"Wave 2: price of small fries, including tax"
+ck1994,pentree2,"Wave 2: price of an entree, including tax"
+ck1994,nregs2,Wave 2: number of cash registers in the store
+ck1994,nregs112,Wave 2: number of registers open at 11:00 am
+al1999,grade,Grade level: 4 or 5 (final4.dta / final5.dta)
+al1999,schlcode,School identifier
+al1999,c_size,Enrollment (cohort size) in the grade
+al1999,c_boys,Number of boys in the grade
+al1999,c_girls,Number of girls in the grade
+al1999,c_numcl,Number of classes in the grade
+al1999,c_leom,Religious/ethnic school-type code
+al1999,towncode,Town identifier
+al1999,townname,"Town name (Hebrew, may not render correctly)"
+al1999,classid,Class identifier within school
+al1999,classize,Class size (the Maimonides-rule regressor)
+al1999,cohsize,Cohort size used to construct predicted class size
+al1999,mathsize,Number of students with a valid math score
+al1999,avgmath,Average math test score
+al1999,passmath,Percent of students passing the math test
+al1999,verbsize,Number of students with a valid verbal score
+al1999,avgverb,Average verbal (reading) test score
+al1999,passverb,Percent of students passing the verbal test
+al1999,c_numrd,Number of reading-test takers (final4/5's c_num4rd/c_num5rd)
+al1999,flgrm,Flag for reading-grade record
+al1999,mrkgrm,Mean reading grade
+al1999,ngrm,Number of reading-grade observations
+al1999,flmth,Flag for math-grade record
+al1999,mrkmth,Mean math grade
+al1999,nmth,Number of math-grade observations
+al1999,tipuach,"School's socio-economic disadvantage index (""Tipuach"")"
+al1999,tip_a,"Disadvantage index, alternate coding"
+al1999,tip_s,"Disadvantage index, school-level"
+al1999,townid,Town identifier (recoded)
+al1999,popcode,Town population-size code
+al1999,c_pik,Supervision/inspectorate code
+al1999,c_status,School status code
+al1999,c_type,School type code
+a1990_a,byr,"Year of birth (cohort), 1944-1953"
+a1990_a,race,"1 = white, 2 = nonwhite"
+a1990_a,interval,Lottery-number interval: 1 of 73 bins of 5 consecutive numbers
+a1990_a,year,"Calendar year of the earnings observation, 1964-1977"
+a1990_a,vmn1,Mean FICA-taxable earnings in the cell
+a1990_a,vsd1,Standard deviation of earnings in the cell
+a1990_a,vnu1,Number of individuals in the cell
+a1990_a,vnms1,Number of individuals with zero/missing earnings in the cell
+a1990_a,vfin1,Fraction of the cell with zero earnings
+a1990_a,ltax,"Cell mean, as coded in the CWHS source file"
+a1990_a,xltax,"Cell statistic, as coded in the CWHS source file"
+a1990_a,ctr1,"Grouping code, as coded in the CWHS source file"
+a1990_b,type,"Earnings measure: TAXAB = FICA taxable earnings, TOTAL = total W-2 compensation"
+aai2002,id,Participant identifier
+aai2002,earnings,"Total earnings in the 30 months after random assignment (outcome, y)"
+aai2002,assignment,"1 if offered JTPA services (instrument, z)"
+aai2002,training,"1 if enrolled in JTPA services (treatment, d)"
+aai2002,male,"1 = male, 0 = female"
+aai2002,hsorged,"High-school graduate or GED (imputed covariate, may be fractional)"
+aai2002,black,1 if Black
+aai2002,hispanic,1 if Hispanic
+aai2002,married,"Married (imputed covariate, may be fractional)"
+aai2002,wkless13,"Worked less than 13 weeks in the past year (imputed covariate, may be fractional)"
+aai2002,afdc,1 if receiving AFDC (women only)
+aai2002,class_tr,1 if recommended service strategy is classroom training
+aai2002,ojt_jsa,1 if recommended service strategy is OJT/JSA/other
+aai2002,age2225,1 if age 22-25
+aai2002,age2629,1 if age 26-29
+aai2002,age3035,1 if age 30-35
+aai2002,age3644,1 if age 36-44
+aai2002,age4554,1 if age 45-54
+aai2002,f2sms,1 if earnings are from the second follow-up survey
+al2009,year,"Cohort year: 2000, 2001 or 2002"
+al2009,school_id,Fictitious school identifier
+al2009,student_id,Fictitious student identifier (not consistent across data formats)
+al2009,treated,1 if in the treatment (award) group
+al2009,pair,"Treatment-pair number (1-19, no 6; 7 is a triple)"
+al2009,m_ahim,Number of siblings
+al2009,boy,1 if male
+al2009,ole5,1 if immigrant within 5 years
+al2009,educav,Father's education (years)
+al2009,educem,Mother's education (years)
+al2009,zakaibag,1 if eligible for Bagrut (matriculation) status
+al2009,lagscore,Lagged Bagrut score
+al2009,semrel,1 if a religious school
+al2009,semarab,1 if an Arab-sector school
+al2009,att18,1 if attempted 18 Bagrut credit units
+al2009,att20,1 if attempted 20 Bagrut credit units
+al2009,att22,1 if attempted 22 Bagrut credit units
+al2009,att24,1 if attempted 24 Bagrut credit units
+al2009,awr18,1 if awarded 18 Bagrut credit units
+al2009,awr20,1 if awarded 20 Bagrut credit units
+al2009,awr22,1 if awarded 22 Bagrut credit units
+al2009,awr24,1 if awarded 24 Bagrut credit units
+al2009,achv_math,1 if satisfied the Bagrut math requirement
+al2009,achv_eng,1 if satisfied the Bagrut English requirement
+al2009,achv_hib,1 if satisfied the Bagrut Hebrew requirement
+alo2009,GPA_year1,First-year GPA (0-4)
+alo2009,GPA_year2,Second-year GPA (0-4)
+alo2009,age,Age
+alo2009,chooseUTM,1 if attending first-choice school
+alo2009,compsurv,1 if completed the follow-up survey
+alo2009,control,1 if in the control group
+alo2009,credits_earned1,Credits earned in year 1
+alo2009,credits_earned2,Credits earned in year 2
+alo2009,dad1,1 if father is a high-school graduate
+alo2009,dad2,1 if father is a college graduate
+alo2009,dad_edn,Father's education (1-9 scale)
+alo2009,english,1 if mother tongue is English
+alo2009,female,1 if female
+alo2009,finish4,1 if intends to finish in 4 years
+alo2009,goodstanding_year1,1 if in good standing in year 1
+alo2009,goodstanding_year2,1 if in good standing in year 2
+alo2009,gpa0,High-school GPA (68-87.3 scale)
+alo2009,graddeg,1 if wants more than a bachelor's degree
+alo2009,grade_20059_fall,Fall 2005 grade average
+alo2009,hcom,1 if lives at home
+alo2009,hsgroup,High-school group (1-3)
+alo2009,lastmin,How often studying for tests is left until the last minute (1-5)
+alo2009,lm_never,1 if never puts off studying for tests
+alo2009,lm_rarely,1 if rarely puts off studying for tests
+alo2009,mathsci,Number of math and science credits attempted
+alo2009,mom1,1 if mother is a high-school graduate
+alo2009,mom2,1 if mother is a college graduate
+alo2009,mom_edn,Mother's education (1-9 scale)
+alo2009,mtongue,"Mother tongue: English, French, or other"
+alo2009,noshow,1 if a no-show
+alo2009,numcourses_nov1,Courses enrolled as of fall 2005
+alo2009,prob_year1,1 if on academic probation in year 1
+alo2009,prob_year2,1 if on academic probation in year 2
+alo2009,sex,M or F
+alo2009,sfp,1 if offered the Student Financial Program (SFP)
+alo2009,sfp_p,1 if signed up for SFP
+alo2009,sfpany,1 if offered SFP or SFSP
+alo2009,sfpany_p,1 if signed up for SFP or SFSP
+alo2009,sfsp,1 if offered the Summer Financial Support Program (SFSP)
+alo2009,sfsp_p,1 if signed up for SFSP
+alo2009,signup,1 if signed up for STAR
+alo2009,ssp,1 if offered the Student Support Program (SSP)
+alo2009,ssp_p,1 if signed up for SSP
+alo2009,totcredits_year1,"Total credits attempted, year 1"
+alo2009,used_adv,1 if met with or emailed an advisor
+alo2009,used_fsg,1 if attended focused study groups (FSGs)
+alo2009,used_ssp,1 if received SSP services
+alo2009,work1,1 if plans to work while in school
+abk2006,vouch0,1 if won the original PACES voucher lottery
+abk2006,sex_name,1 if a male first name was recorded
+abk2006,match_i,1 if matched to the ICFES exam-taker file by ID
+abk2006,match_ic,1 if matched by ID and city
+abk2006,match_i7,1 if matched by ID and first 7 letters of name
+abk2006,age,Age
+abk2006,phone,1 if has a phone
+abk2006,checkid,1 if has a valid national ID
+abk2006,math,Math score on the ICFES exam
+abk2006,read,Language score on the ICFES exam
+abk2006,match_ic7,"1 if matched by ID, city and first 7 letters of name"
+abk2006,readcens1,"Reading score, censored at the 1st percentile"
+abk2006,readcens10,"Reading score, censored at the 10th percentile"
+abk2006,mathcens1,"Math score, censored at the 1st percentile"
+abk2006,mathcens10,"Math score, censored at the 10th percentile"
+abbkk2002,id,Applicant identifier
+abbkk2002,dbogota,1 if the Bogota lottery
+abbkk2002,djamundi,1 if the Jamundi lottery
+abbkk2002,d1993,1 if the 1993 lottery (Jamundi)
+abbkk2002,d1995,1 if the 1995 lottery (Bogota)
+abbkk2002,d1997,1 if the 1997 lottery (Bogota)
+abbkk2002,vouch0,1 if won the voucher lottery
+abbkk2002,sex,1 if male
+abbkk2002,age,Age at application
+abbkk2002,mom_sch,Mother's years of schooling
+abbkk2002,mom_age,Mother's age
+abbkk2002,dad_sch,Father's years of schooling
+abbkk2002,dad_age,Father's age
+abbkk2002,stratams,Sampling stratum indicator
+abbkk2002,rept6,1 if repeated 6th grade
+abbkk2002,totscyrs,Total years of schooling completed
+abbkk2002,finish6,1 if finished 6th grade
+abbkk2002,finish7,1 if finished 7th grade
+abbkk2002,finish8,1 if finished 8th grade
+abbkk2002,usngsch,1 if currently using the voucher/scholarship
+abbkk2002,hoursum,Hours worked per week
+abbkk2002,working,1 if currently working
+abbkk2002,married,1 if married
+abbkk2002,haschild,1 if has a child
+abbkk2002,test_tak,1 if took the follow-up achievement test
+abbkk2002,response,1 if responded to the follow-up survey
+abbkk2002,svy,1 if surveyed using the new (post-1997) questionnaire
+adh2013,czone,Commuting zone identifier
+adh2013,statefip,State FIPS code
+adh2013,city,"City name if the CZ is centered on one, else ""undefined"""
+adh2013,yr,End year of the 10-year period: 2000 (1990-2000) or 2007 (2000-2007)
+adh2013,t2,1 if the 2000-2007 period
+adh2013,timepwt48,"Commuting-zone population share, used as regression weight"
+adh2013,reg_midatl,1 if Mid-Atlantic census division
+adh2013,reg_encen,1 if East North Central census division
+adh2013,reg_wncen,1 if West North Central census division
+adh2013,reg_satl,1 if South Atlantic census division
+adh2013,reg_escen,1 if East South Central census division
+adh2013,reg_wscen,1 if West South Central census division
+adh2013,reg_mount,1 if Mountain census division
+adh2013,reg_pacif,1 if Pacific census division
+adh2013,l_popcount,Start-of-period working-age population
+adh2013,l_shind_manuf_cbp,Start-of-period manufacturing share of employment
+adh2013,l_sh_popedu_c,Start-of-period share of population with a college degree
+adh2013,l_sh_popfborn,Start-of-period share of population foreign born
+adh2013,l_sh_empl_f,Start-of-period female share of employment
+adh2013,l_sh_routine33,Start-of-period share of employment in routine occupations
+adh2013,l_task_outsource,Start-of-period task-offshorability index
+adh2013,d_sh_empl,10-year change in the employment-to-population ratio
+adh2013,d_sh_empl_mfg,10-year change in the manufacturing employment share
+adh2013,d_sh_empl_nmfg,10-year change in the non-manufacturing employment share
+adh2013,d_sh_unempl,10-year change in the unemployment share
+adh2013,d_sh_nilf,10-year change in the not-in-labour-force share
+adh2013,d_avg_lnwkwage,10-year change in average log weekly wage
+adh2013,d_avg_lnwkwage_mfg,"10-year change in average log weekly wage, manufacturing"
+adh2013,d_avg_lnwkwage_nmfg,"10-year change in average log weekly wage, non-manufacturing"
+adh2013,d_tradeusch_pw,10-year change in Chinese import exposure per worker (main regressor)
+adh2013,d_tradeotch_pw_lag,Instrument: change in other countries' Chinese import exposure per worker
+duflo2001,birthpl,"Birth province and regency code, 1995"
+duflo2001,nin,New INPRES schools per child aged 5-14 (program intensity)
+duflo2001,recp,High-treatment (high program intensity) dummy
+duflo2001,ch71,"Number of children aged 5-14, 1971"
+duflo2001,en71,"Population school-enrollment rate, 1971"
+duflo2001,wsppc,Water and sanitation spending per capita
+duflo2001,dens71,"Population density, 1971"
+duflo2001,moldyed,Average years of schooling among the old cohort
+duflo2001,birthlat,Birth regency centroid latitude
+duflo2001,birthlong,Birth regency centroid longitude
+duflo2001,schools73new,"Number of new INPRES schools built, 1973/74"
+duflo2001,schools74new,"Number of new INPRES schools built, 1974/75"
+duflo2001,schools75new,"Number of new INPRES schools built, 1975/76"
+duflo2001,schools76new,"Number of new INPRES schools built, 1976/77"
+duflo2001,schools77new,"Number of new INPRES schools built, 1977/78"
+duflo2001,schools78new,"Number of new INPRES schools built, 1978/79"
+duflo2001,totinnew,Total new INPRES schools built
+duflo2001,ninnew,New schools per 5-14 population (recomputed)
+duflo2001,ch71new,"Population aged 5-14, 1971 (recomputed)"
+duflo2001,nch71new,"Population aged 5+, 1971, used for the attendance rate"
+duflo2001,atsc71new,"Population aged 5+ attending school, 1971"
+duflo2001,en71newish,"Enrollment rate, 1971 (ch71new denominator)"
+duflo2001,en71new,"Enrollment rate, 1971 (nch71new denominator)"
+duflo2001,recpnew,High-treatment dummy (recomputed)
+duflo2001,java,1 if the regency is on Java
+duflo2001,nin_lch71new,Component of the treatment variable explained by log population
+duflo2001,nen71new,"Non-enrollment rate, 1971 (nch71new denominator)"
+duflo2001,nen71newish,"Non-enrollment rate, 1971 (ch71new denominator)"
+duflo2001,poor,"1 if a poor regency, as defined in Duflo (2001, Table 6, note b)"
