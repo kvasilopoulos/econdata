@@ -9,7 +9,10 @@ dir.create("docs/articles")
 file.create("docs/.nojekyll")
 
 base <- "https://kvasilopoulos.github.io/econdata/"
-for (f in list.files("data", full.names = TRUE)) load(f)
+# Loaded from the installed package (run devtools::install() first), not via
+# load() into .GlobalEnv: that used to leak a "masked by .GlobalEnv" message
+# into the vignettes re-rendered further down by this same script.
+library(econdata)
 
 # CSV API ------------------------------------------------------------------
 
@@ -80,6 +83,21 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 .side-nav { position: sticky; top: 1.5rem; font-size: .9rem; }
 .side-nav a { display: block; color: var(--muted); padding: .15rem 0; text-decoration: none; }
 .side-nav a:hover { color: var(--ink); }
+.side-nav .dom-dot { margin-right: .4rem; }
+.dom-dot { display: inline-block; width: .55rem; height: .55rem; border-radius: 50%; background: var(--dom, var(--muted)); flex: 0 0 auto; }
+.domain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .75rem; margin-bottom: 1.25rem; }
+.domain-card { text-align: left; border: 1px solid var(--rule); border-radius: .5rem; background: #fff; padding: .85rem 1rem .9rem; cursor: pointer; border-top: 3px solid var(--dom); transition: box-shadow .15s, border-color .15s; }
+.domain-card:hover { box-shadow: 0 2px 10px rgba(27,42,73,.08); }
+.domain-card.active { border-color: var(--dom); background: color-mix(in oklch, var(--dom) 7%, #fff 93%); }
+.domain-card strong { display: block; font-size: .95rem; color: var(--ink); }
+.domain-card .count { display: block; margin: .1rem 0 .35rem; }
+.domain-card p { margin: 0; font-size: .82rem; color: var(--muted); line-height: 1.35; }
+.cat-chip { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 500; padding: .3rem .7rem; border-radius: 2rem; border: 1px solid var(--rule); background: #fff; color: var(--ink); cursor: pointer; }
+.cat-chip[style*="--dom"] { border-color: color-mix(in oklch, var(--dom) 35%, #fff 65%); }
+.cat-chip.active { background: color-mix(in oklch, var(--dom, var(--ink)) 14%, #fff 86%); border-color: var(--dom, var(--ink)); font-weight: 600; }
+.cat-chip .n { color: var(--muted); font-weight: 400; }
+.cat-badge { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; font-weight: 600; padding: .15rem .55rem; border-radius: .35rem; white-space: nowrap; color: color-mix(in oklch, var(--dom) 70%, black 20%); background: color-mix(in oklch, var(--dom) 12%, #fff 88%); border: 1px solid color-mix(in oklch, var(--dom) 35%, #fff 65%); }
+#catalog tbody tr td:first-child { box-shadow: inset 3px 0 0 var(--dom, transparent); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 '
 
@@ -138,29 +156,65 @@ hero_chart <- function() {
 
 # index.html --------------------------------------------------------------
 
-cat_order <- c("Monetary policy", "Fiscal policy", "Business cycles", "Financial conditions",
-               "Uncertainty", "Productivity", "Asset prices", "Oil and energy", "Crises", "Trade",
-               "Labour", "Education", "Health", "Development and growth", "Inequality")
-stopifnot(all(catalog$category %in% cat_order))
+# Categories cluster into 4 domains so 14+ categories stay colorblind-distinguishable:
+# a colorblind-safe categorical palette tops out around 8 hues, and only the first
+# 3-4 survive being all visible at once (a filter row, a table column) rather than
+# just adjacent - see the dataviz skill. Each domain gets one validated hue; the
+# specific category is still always shown as text, never color alone.
+domain_of <- c(
+  "Monetary policy" = "Money & markets", "Financial conditions" = "Money & markets",
+  "Asset prices" = "Money & markets", "Crises" = "Money & markets",
+  "Fiscal policy" = "Fiscal & cycles", "Business cycles" = "Fiscal & cycles", "Uncertainty" = "Fiscal & cycles",
+  "Productivity" = "Real economy", "Labour" = "Real economy", "Trade" = "Real economy", "Oil and energy" = "Real economy",
+  "Education" = "People & development", "Health" = "People & development",
+  "Development and growth" = "People & development", "Inequality" = "People & development"
+)
+domain_color <- c("Money & markets" = "#2a78d6", "Fiscal & cycles" = "#eb6834",
+                   "Real economy" = "#1baf7a", "People & development" = "#4a3aa7")
+domain_desc <- c(
+  "Money & markets" = "Monetary policy, credit and financial conditions, asset prices, financial crises.",
+  "Fiscal & cycles" = "Government spending and taxes, the business cycle, macro uncertainty.",
+  "Real economy" = "Labour, productivity, trade and energy.",
+  "People & development" = "Education, health, growth and inequality."
+)
+stopifnot(all(catalog$category %in% names(domain_of)))
+catalog$domain <- domain_of[catalog$category]
+catalog$dom_color <- domain_color[catalog$domain]
+
+# order categories by (domain total desc, category count desc) so same-colored
+# chips cluster together and the biggest domain/category leads
+cat_tbl <- as.data.frame(table(category = catalog$category), stringsAsFactors = FALSE)
+cat_tbl$domain <- domain_of[cat_tbl$category]
+dom_tot <- tapply(cat_tbl$Freq, cat_tbl$domain, sum)
+cat_tbl$dom_tot <- dom_tot[cat_tbl$domain]
+cat_tbl <- cat_tbl[order(-cat_tbl$dom_tot, -cat_tbl$Freq), ]
+cat_order <- cat_tbl$category
+dom_order <- names(sort(dom_tot, decreasing = TRUE))
 
 tag_html <- function(tags) vapply(strsplit(tags, "|", fixed = TRUE),
                                   function(t) paste(sprintf('<span class="tag">%s</span>', t), collapse = ""), "")
 rows <- with(catalog, sprintf(
-  '<tr data-cat="%s" data-text="%s">
+  '<tr data-cat="%s" data-domain="%s" data-text="%s" style="--dom:%s">
 <td><span class="key">%s</span></td>
 <td class="title">%s<div class="paper">%s</div></td>
-<td>%s</td><td class="text-nowrap">%s<br><span class="paper">%s</span></td><td class="text-nowrap">%s &times; %s</td>
+<td><span class="cat-badge">%s</span></td><td class="text-nowrap">%s<br><span class="paper">%s</span></td><td class="text-nowrap">%s &times; %s</td>
 <td>%s</td>
 <td><a class="btn btn-outline-secondary btn-csv" href="data/%s.csv" download>csv</a></td>
 </tr>',
-  esc(category), tolower(esc(paste(key, title, category, gsub("|", " ", tags, fixed = TRUE), variables))),
+  esc(category), esc(domain), tolower(esc(paste(key, title, category, gsub("|", " ", tags, fixed = TRUE), variables))), dom_color,
   key, esc(title), ifelse(is.na(paper), "", a(esc(authoryear(paper)), source_url, "link-secondary")),
   esc(category), frequency, ifelse(is.na(start), "", paste(format(start, "%Y"), "to", format(end, "%Y"))), nrow, ncol,
   tag_html(tags), key))
 
-cat_buttons <- c('<button type="button" class="btn btn-outline-secondary btn-sm active" data-cat="">All</button>',
-                 sprintf('<button type="button" class="btn btn-outline-secondary btn-sm" data-cat="%s">%s</button>',
-                         esc(cat_order), esc(cat_order)))
+domain_cards <- sprintf(
+  '<button type="button" class="domain-card" data-domain="%s" style="--dom:%s">
+<strong>%s</strong><span class="count">%d datasets</span><p>%s</p>
+</button>',
+  esc(dom_order), domain_color[dom_order], esc(dom_order), dom_tot[dom_order], esc(domain_desc[dom_order]))
+
+cat_buttons <- c('<button type="button" class="btn cat-chip active" data-cat="">All</button>',
+                 sprintf('<button type="button" class="btn cat-chip" data-cat="%s" style="--dom:%s"><span class="dom-dot"></span>%s <span class="n">%d</span></button>',
+                         esc(cat_order), domain_color[domain_of[cat_order]], esc(cat_order), cat_tbl$Freq[match(cat_order, cat_tbl$category)]))
 
 snippet <- function(id, lang, code, active = FALSE)
   sprintf('<div class="tab-pane%s" id="%s" role="tabpanel"><pre><code class="language-%s">%s</code></pre></div>',
@@ -209,9 +263,11 @@ body <- c(
   '</section>',
 
   '<h2 id="datasets">Datasets</h2>',
+  '<p class="lead">Grouped into four subfields; click a group to filter broadly, or a category chip to filter narrowly.</p>',
+  '<div class="domain-grid" role="group" aria-label="Filter by subfield">', domain_cards, '</div>',
   '<div class="filters d-flex flex-wrap gap-2 align-items-center mb-3">',
   '<input id="q" type="search" class="form-control form-control-sm" style="max-width:18rem" placeholder="Search key, title, tag or variable" aria-label="Search datasets">',
-  '<div class="btn-group flex-wrap" role="group" aria-label="Filter by category">', cat_buttons, '</div>',
+  '<div class="d-flex flex-wrap gap-2" role="group" aria-label="Filter by category">', cat_buttons, '</div>',
   '<span id="n" class="count ms-auto"></span>',
   '</div>',
   '<div class="table-responsive"><table class="table table-sm" id="catalog">',
@@ -241,20 +297,32 @@ body <- c(
   '<script>
 (function () {
   var rows = Array.from(document.querySelectorAll("#catalog tbody tr"));
-  var q = document.getElementById("q"), n = document.getElementById("n"), cat = "";
+  var q = document.getElementById("q"), n = document.getElementById("n"), cat = "", dom = "";
   function apply() {
     var s = q.value.trim().toLowerCase(), k = 0;
     rows.forEach(function (r) {
-      var ok = (!cat || r.dataset.cat === cat) && (!s || r.dataset.text.indexOf(s) >= 0);
+      var ok = (!cat || r.dataset.cat === cat) && (!dom || r.dataset.domain === dom) && (!s || r.dataset.text.indexOf(s) >= 0);
       r.hidden = !ok; if (ok) k++;
     });
     n.textContent = k === rows.length ? rows.length + " datasets" : k + " of " + rows.length;
   }
   q.addEventListener("input", apply);
-  document.querySelectorAll(".filters [data-cat]").forEach(function (b) {
+  document.querySelectorAll(".cat-chip").forEach(function (b) {
     b.addEventListener("click", function () {
-      document.querySelectorAll(".filters [data-cat]").forEach(function (x) { x.classList.remove("active"); });
-      b.classList.add("active"); cat = b.dataset.cat; apply();
+      cat = b.dataset.cat; dom = "";
+      document.querySelectorAll(".cat-chip").forEach(function (x) { x.classList.toggle("active", x === b); });
+      document.querySelectorAll(".domain-card").forEach(function (x) { x.classList.remove("active"); });
+      apply();
+    });
+  });
+  document.querySelectorAll(".domain-card").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var was = b.classList.contains("active");
+      document.querySelectorAll(".domain-card").forEach(function (x) { x.classList.remove("active"); });
+      dom = was ? "" : b.dataset.domain; cat = "";
+      if (!was) b.classList.add("active");
+      document.querySelectorAll(".cat-chip").forEach(function (x) { x.classList.toggle("active", x.dataset.cat === ""); });
+      apply();
     });
   });
   apply();
@@ -266,11 +334,14 @@ writeLines(page("econdata: macro datasets from the papers", body, "datasets"), "
 # variables.html ----------------------------------------------------------
 
 keys <- unique(variables$dataset)
+key_dom_color <- setNames(catalog$dom_color[match(keys, catalog$key)], keys)
 side <- c('<nav class="side-nav" aria-label="Datasets">',
-          sprintf('<a href="#%s"><span class="key">%s</span></a>', keys, keys), '</nav>')
+          sprintf('<a href="#%s"><span class="dom-dot" style="--dom:%s"></span><span class="key">%s</span></a>',
+                  keys, key_dom_color[keys], keys), '</nav>')
 tables <- unlist(lapply(keys, function(key) {
   v <- variables[variables$dataset == key, ]
-  c(sprintf('<h2 id="%s"><span class="key">%s</span> <span class="count">%d variables</span></h2>', key, key, nrow(v)),
+  c(sprintf('<h2 id="%s"><span class="dom-dot" style="--dom:%s"></span><span class="key">%s</span> <span class="count">%d variables</span></h2>',
+            key, key_dom_color[key], key, nrow(v)),
     sprintf('<p class="count">%s <a href="data/%s.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>',
             ref_html(ref(catalog$paper[catalog$key == key])), key),
     '<table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>',

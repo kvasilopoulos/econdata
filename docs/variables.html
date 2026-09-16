@@ -45,6 +45,21 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 .side-nav { position: sticky; top: 1.5rem; font-size: .9rem; }
 .side-nav a { display: block; color: var(--muted); padding: .15rem 0; text-decoration: none; }
 .side-nav a:hover { color: var(--ink); }
+.side-nav .dom-dot { margin-right: .4rem; }
+.dom-dot { display: inline-block; width: .55rem; height: .55rem; border-radius: 50%; background: var(--dom, var(--muted)); flex: 0 0 auto; }
+.domain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .75rem; margin-bottom: 1.25rem; }
+.domain-card { text-align: left; border: 1px solid var(--rule); border-radius: .5rem; background: #fff; padding: .85rem 1rem .9rem; cursor: pointer; border-top: 3px solid var(--dom); transition: box-shadow .15s, border-color .15s; }
+.domain-card:hover { box-shadow: 0 2px 10px rgba(27,42,73,.08); }
+.domain-card.active { border-color: var(--dom); background: color-mix(in oklch, var(--dom) 7%, #fff 93%); }
+.domain-card strong { display: block; font-size: .95rem; color: var(--ink); }
+.domain-card .count { display: block; margin: .1rem 0 .35rem; }
+.domain-card p { margin: 0; font-size: .82rem; color: var(--muted); line-height: 1.35; }
+.cat-chip { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 500; padding: .3rem .7rem; border-radius: 2rem; border: 1px solid var(--rule); background: #fff; color: var(--ink); cursor: pointer; }
+.cat-chip[style*="--dom"] { border-color: color-mix(in oklch, var(--dom) 35%, #fff 65%); }
+.cat-chip.active { background: color-mix(in oklch, var(--dom, var(--ink)) 14%, #fff 86%); border-color: var(--dom, var(--ink)); font-weight: 600; }
+.cat-chip .n { color: var(--muted); font-weight: 400; }
+.cat-badge { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; font-weight: 600; padding: .15rem .55rem; border-radius: .35rem; white-space: nowrap; color: color-mix(in oklch, var(--dom) 70%, black 20%); background: color-mix(in oklch, var(--dom) 12%, #fff 88%); border: 1px solid color-mix(in oklch, var(--dom) 35%, #fff 65%); }
+#catalog tbody tr td:first-child { box-shadow: inset 3px 0 0 var(--dom, transparent); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 </style>
@@ -63,43 +78,43 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <main class="container">
 <div class="row mt-4"><div class="col-lg-2 d-none d-lg-block">
 <nav class="side-nav" aria-label="Datasets">
-<a href="#bbe2005"><span class="key">bbe2005</span></a>
-<a href="#r2016_monetary"><span class="key">r2016_monetary</span></a>
-<a href="#r2016_govt"><span class="key">r2016_govt</span></a>
-<a href="#r2016_tech"><span class="key">r2016_tech</span></a>
-<a href="#r2016_tax"><span class="key">r2016_tax</span></a>
-<a href="#rz2018"><span class="key">rz2018</span></a>
-<a href="#ci2022"><span class="key">ci2022</span></a>
-<a href="#bw2016"><span class="key">bw2016</span></a>
-<a href="#ajry2008"><span class="key">ajry2008</span></a>
-<a href="#aj2007"><span class="key">aj2007</span></a>
-<a href="#hj1999"><span class="key">hj1999</span></a>
-<a href="#chks2014"><span class="key">chks2014</span></a>
-<a href="#ps2003"><span class="key">ps2003</span></a>
-<a href="#bw2006"><span class="key">bw2006</span></a>
-<a href="#fr2009"><span class="key">fr2009</span></a>
-<a href="#gwz2024_monthly"><span class="key">gwz2024_monthly</span></a>
-<a href="#ck1994"><span class="key">ck1994</span></a>
-<a href="#al1999"><span class="key">al1999</span></a>
-<a href="#a1990_a"><span class="key">a1990_a</span></a>
-<a href="#a1990_b"><span class="key">a1990_b</span></a>
-<a href="#aai2002"><span class="key">aai2002</span></a>
-<a href="#al2009"><span class="key">al2009</span></a>
-<a href="#alo2009"><span class="key">alo2009</span></a>
-<a href="#abk2006"><span class="key">abk2006</span></a>
-<a href="#abbkk2002"><span class="key">abbkk2002</span></a>
-<a href="#adh2013"><span class="key">adh2013</span></a>
-<a href="#duflo2001"><span class="key">duflo2001</span></a>
-<a href="#eampd"><span class="key">eampd</span></a>
-<a href="#eampd_pr"><span class="key">eampd_pr</span></a>
-<a href="#eampd_pc"><span class="key">eampd_pc</span></a>
-<a href="#bs2023_fomc"><span class="key">bs2023_fomc</span></a>
-<a href="#hlw2017"><span class="key">hlw2017</span></a>
+<a href="#bbe2005"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">bbe2005</span></a>
+<a href="#r2016_monetary"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">r2016_monetary</span></a>
+<a href="#r2016_govt"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">r2016_govt</span></a>
+<a href="#r2016_tech"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">r2016_tech</span></a>
+<a href="#r2016_tax"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">r2016_tax</span></a>
+<a href="#rz2018"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">rz2018</span></a>
+<a href="#ci2022"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">ci2022</span></a>
+<a href="#bw2016"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">bw2016</span></a>
+<a href="#ajry2008"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">ajry2008</span></a>
+<a href="#aj2007"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">aj2007</span></a>
+<a href="#hj1999"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">hj1999</span></a>
+<a href="#chks2014"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">chks2014</span></a>
+<a href="#ps2003"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">ps2003</span></a>
+<a href="#bw2006"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">bw2006</span></a>
+<a href="#fr2009"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">fr2009</span></a>
+<a href="#gwz2024_monthly"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">gwz2024_monthly</span></a>
+<a href="#ck1994"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">ck1994</span></a>
+<a href="#al1999"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">al1999</span></a>
+<a href="#a1990_a"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">a1990_a</span></a>
+<a href="#a1990_b"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">a1990_b</span></a>
+<a href="#aai2002"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">aai2002</span></a>
+<a href="#al2009"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">al2009</span></a>
+<a href="#alo2009"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">alo2009</span></a>
+<a href="#abk2006"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">abk2006</span></a>
+<a href="#abbkk2002"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">abbkk2002</span></a>
+<a href="#adh2013"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">adh2013</span></a>
+<a href="#duflo2001"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">duflo2001</span></a>
+<a href="#eampd"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">eampd</span></a>
+<a href="#eampd_pr"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">eampd_pr</span></a>
+<a href="#eampd_pc"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">eampd_pc</span></a>
+<a href="#bs2023_fomc"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">bs2023_fomc</span></a>
+<a href="#hlw2017"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">hlw2017</span></a>
 </nav>
 </div><div class="col-lg-10">
 <h1>Variables</h1>
 <p class="lead mt-3">Column definitions for the wide panels, taken from the readme sheets that ship with the original data. Also as <a href="data/variables.csv"><code>data/variables.csv</code></a>.</p>
-<h2 id="bbe2005"><span class="key">bbe2005</span> <span class="count">120 variables</span></h2>
+<h2 id="bbe2005"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">bbe2005</span> <span class="count">120 variables</span></h2>
 <p class="count">B. S. Bernanke, J. Boivin, and P. Eliasz. "Measuring the Effects of Monetary Policy: A Factor-Augmented Vector Autoregressive (FAVAR) Approach". In: <em>The Quarterly Journal of Economics</em> 120.1 (Feb. 2005), pp. 387-422. DOI: 10.1162/0033553053327452. <a href="https://doi.org/10.1162%2F0033553053327452">https://doi.org/10.1162%2F0033553053327452</a> <a href="data/bbe2005.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">IPP</span></td><td>INDUSTRIAL PRODUCTION: PRODUCTS, TOTAL (1992=100,SA)</td></tr>
@@ -223,7 +238,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">LEHM</span></td><td>AVG HR EARNINGS OF PROD WKRS: MANUFACTURING ($,SA)</td></tr>
 <tr><td class="text-nowrap"><span class="key">HHSNTN</span></td><td>U. OF MICH. INDEX OF CONSUMER EXPECTATIONS(BCD-83)</td></tr>
 </tbody></table>
-<h2 id="r2016_monetary"><span class="key">r2016_monetary</span> <span class="count">30 variables</span></h2>
+<h2 id="r2016_monetary"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">r2016_monetary</span> <span class="count">30 variables</span></h2>
 <p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_monetary.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">lip</span></td><td>log of industrial production - October 16, 2010 data</td></tr>
@@ -257,7 +272,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">ff4_gkgreen</span></td><td>Residual after regressing on Romer-Romer Greenbook variables by FOMC date - sets between meeting announcements to 0</td></tr>
 <tr><td class="text-nowrap"><span class="key">ed2_gkgreen</span></td><td>Residual after regressing on Romer-Romer Greenbook variables by FOMC date - sets between meeting announcements to 0</td></tr>
 </tbody></table>
-<h2 id="r2016_govt"><span class="key">r2016_govt</span> <span class="count">35 variables</span></h2>
+<h2 id="r2016_govt"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">r2016_govt</span> <span class="count">35 variables</span></h2>
 <p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_govt.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">ngdp</span></td><td>nominal GDP</td></tr>
@@ -296,7 +311,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">top3xsret</span></td><td>Fisher-Peters excess returns of defense contractors</td></tr>
 <tr><td class="text-nowrap"><span class="key">mfev</span></td><td>Ben Zeev - Pappa defense news</td></tr>
 </tbody></table>
-<h2 id="r2016_tech"><span class="key">r2016_tech</span> <span class="count">45 variables</span></h2>
+<h2 id="r2016_tech"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">r2016_tech</span> <span class="count">45 variables</span></h2>
 <p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_tech.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">ngdp</span></td><td>nominal GDP</td></tr>
@@ -345,7 +360,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">mn_ist_s_n4</span></td><td>Miyamoto-Nguyen's 4-quarter ahead news about stationary IST shock</td></tr>
 <tr><td class="text-nowrap"><span class="key">mn_ist_s_n8</span></td><td>Miyamoto-Nguyen's 8-quarter ahead news about stationary IST shock</td></tr>
 </tbody></table>
-<h2 id="r2016_tax"><span class="key">r2016_tax</span> <span class="count">30 variables</span></h2>
+<h2 id="r2016_tax"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">r2016_tax</span> <span class="count">30 variables</span></h2>
 <p class="count">V. A. Ramey. "Macroeconomic Shocks and Their Propagation". In: <em>Handbook of Macroeconomics</em>. Ed. by J. B. Taylor and H. Uhlig. Vol. 2. Elsevier, 2016, pp. 71-162. DOI: 10.1016/bs.hesmac.2016.03.003. <a href="https://doi.org/10.1016/bs.hesmac.2016.03.003">https://doi.org/10.1016/bs.hesmac.2016.03.003</a>. <a href="data/r2016_tax.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">ngdp</span></td><td>nominal GDP</td></tr>
@@ -379,7 +394,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">taxu</span></td><td>Romer-Romer, unanticipated tax changes,  Mertens-Ravn RED data</td></tr>
 <tr><td class="text-nowrap"><span class="key">taxnews</span></td><td>Romer-Romer, anticipated tax changes, Mertens-Ravn RED data</td></tr>
 </tbody></table>
-<h2 id="rz2018"><span class="key">rz2018</span> <span class="count">27 variables</span></h2>
+<h2 id="rz2018"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">rz2018</span> <span class="count">27 variables</span></h2>
 <p class="count">V. A. Ramey and S. Zubairy. "Government Spending Multipliers in Good Times and in Bad: Evidence from US Historical Data". In: <em>Journal of Political Economy</em> 126.2 (2018), pp. 850-901. DOI: 10.1086/696277. <a href="https://doi.org/10.1086/696277">https://doi.org/10.1086/696277</a>. <a href="data/rz2018.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">ngov</span></td><td>nominal government purchases</td></tr>
@@ -410,7 +425,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">tbill_interp</span></td><td>Tbill interpolated with NY discount rate for early years</td></tr>
 <tr><td class="text-nowrap"><span class="key">nydiscrate</span></td><td>NY discount rate</td></tr>
 </tbody></table>
-<h2 id="ci2022"><span class="key">ci2022</span> <span class="count">62 variables</span></h2>
+<h2 id="ci2022"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">ci2022</span> <span class="count">62 variables</span></h2>
 <p class="count">D. Caldara and M. Iacoviello. "Measuring Geopolitical Risk". In: <em>American Economic Review</em> 112.4 (2022), pp. 1194-1225. DOI: 10.1257/aer.20191823. <a href="https://doi.org/10.1257/aer.20191823">https://doi.org/10.1257/aer.20191823</a>. <a href="data/ci2022.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">GPR</span></td><td>Recent GPR (Index: 1985:2019=100)</td></tr>
@@ -476,7 +491,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">GPRC_VNM</span></td><td>Country GPR: Percent of articles (Vietnam)</td></tr>
 <tr><td class="text-nowrap"><span class="key">GPRC_ZAF</span></td><td>Country GPR: Percent of articles (South Africa)</td></tr>
 </tbody></table>
-<h2 id="bw2016"><span class="key">bw2016</span> <span class="count">35 variables</span></h2>
+<h2 id="bw2016"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">bw2016</span> <span class="count">35 variables</span></h2>
 <p class="count">A. S. Blinder and M. W. Watson. "Presidents and the US Economy: An Econometric Exploration". In: <em>American Economic Review</em> 106.4 (2016), pp. 1015-1045. DOI: 10.1257/aer.20140913. <a href="https://doi.org/10.1257/aer.20140913">https://doi.org/10.1257/aer.20140913</a>. <a href="data/bw2016.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">GDPC96</span></td><td>Real Gross Domestic Product, 3 Decimal</td></tr>
@@ -515,7 +530,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">oecd_gdp</span></td><td>Growth Rate of Real GDP OECD</td></tr>
 <tr><td class="text-nowrap"><span class="key">oecd_gdp_e</span></td><td>Growth Rate of Real GDP Europe</td></tr>
 </tbody></table>
-<h2 id="ajry2008"><span class="key">ajry2008</span> <span class="count">22 variables</span></h2>
+<h2 id="ajry2008"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">ajry2008</span> <span class="count">22 variables</span></h2>
 <p class="count">D. Acemoglu, S. Johnson, J. A. Robinson, et al. "Income and Democracy". In: <em>American Economic Review</em> 98.3 (2008), pp. 808-842. DOI: 10.1257/aer.98.3.808. <a href="https://doi.org/10.1257/aer.98.3.808">https://doi.org/10.1257/aer.98.3.808</a>. <a href="data/ajry2008.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">code</span></td><td>3-letter country code</td></tr>
@@ -541,7 +556,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">samplebalancefe</span></td><td>Dummy for the balanced panel used in fixed-effects regressions</td></tr>
 <tr><td class="text-nowrap"><span class="key">samplebalancegmm</span></td><td>Dummy for the balanced panel used in GMM regressions</td></tr>
 </tbody></table>
-<h2 id="aj2007"><span class="key">aj2007</span> <span class="count">18 variables</span></h2>
+<h2 id="aj2007"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">aj2007</span> <span class="count">18 variables</span></h2>
 <p class="count">D. Acemoglu and S. Johnson. "Disease and Development: The Effect of Life Expectancy on Economic Growth". In: <em>Journal of Political Economy</em> 115.6 (2007), pp. 925-985. DOI: 10.1086/529000. <a href="https://doi.org/10.1086/529000">https://doi.org/10.1086/529000</a>. <a href="data/aj2007.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">country</span></td><td>Country name</td></tr>
@@ -563,7 +578,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">startpoor</span></td><td>Dummy: country in the poorest tercile of GDP per capita in the initial year</td></tr>
 <tr><td class="text-nowrap"><span class="key">above_medmort</span></td><td>Dummy: predicted mortality (globmort1000) above the sample median</td></tr>
 </tbody></table>
-<h2 id="hj1999"><span class="key">hj1999</span> <span class="count">20 variables</span></h2>
+<h2 id="hj1999"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">hj1999</span> <span class="count">20 variables</span></h2>
 <p class="count">R. E. Hall and C. I. Jones. "Why Do Some Countries Produce So Much More Output per Worker than Others?" In: <em>The Quarterly Journal of Economics</em> 114.1 (1999), pp. 83-116. DOI: 10.1162/003355399555954. <a href="https://doi.org/10.1162/003355399555954">https://doi.org/10.1162/003355399555954</a>. <a href="data/hj1999.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">code</span></td><td>3-letter country code</td></tr>
@@ -587,7 +602,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">log_frankrom</span></td><td>Log of the Frankel-Romer gravity-model predicted trade share</td></tr>
 <tr><td class="text-nowrap"><span class="key">latitude</span></td><td>Degrees of latitude (signed)</td></tr>
 </tbody></table>
-<h2 id="chks2014"><span class="key">chks2014</span> <span class="count">35 variables</span></h2>
+<h2 id="chks2014"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">chks2014</span> <span class="count">35 variables</span></h2>
 <p class="count">R. Chetty, N. Hendren, P. Kline, et al. "Where Is the Land of Opportunity? The Geography of Intergenerational Mobility in the United States". In: <em>The Quarterly Journal of Economics</em> 129.4 (2014), pp. 1553-1623. DOI: 10.1093/qje/qju022. <a href="https://doi.org/10.1093/qje/qju022">https://doi.org/10.1093/qje/qju022</a>. <a href="data/chks2014.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">cz</span></td><td>Commuting zone ID</td></tr>
@@ -626,7 +641,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">am_college_quality</span></td><td>Predicted college-quality rank for a child with parent at the 25th percentile</td></tr>
 <tr><td class="text-nowrap"><span class="key">rm_college_quality</span></td><td>Difference in predicted college-quality rank between children with parents at the 75th and 25th percentiles</td></tr>
 </tbody></table>
-<h2 id="ps2003"><span class="key">ps2003</span> <span class="count">11 variables</span></h2>
+<h2 id="ps2003"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">ps2003</span> <span class="count">11 variables</span></h2>
 <p class="count">T. Piketty and E. Saez. "Income Inequality in the United States, 1913-1998". In: <em>The Quarterly Journal of Economics</em> 118.1 (2003), pp. 1-41. DOI: 10.1162/00335530360535135. <a href="https://doi.org/10.1162/00335530360535135">https://doi.org/10.1162/00335530360535135</a>. <a href="data/ps2003.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">p90_100</span></td><td>Share of income held by the top 10% (P90-100)</td></tr>
@@ -641,7 +656,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">p99_5_99_9</span></td><td>Share of income held by P99.5-99.9</td></tr>
 <tr><td class="text-nowrap"><span class="key">p99_9_99_99</span></td><td>Share of income held by P99.9-99.99</td></tr>
 </tbody></table>
-<h2 id="bw2006"><span class="key">bw2006</span> <span class="count">14 variables</span></h2>
+<h2 id="bw2006"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">bw2006</span> <span class="count">14 variables</span></h2>
 <p class="count">M. Baker and J. Wurgler. "Investor Sentiment and the Cross-Section of Stock Returns". In: <em>The Journal of Finance</em> 61.4 (2006), pp. 1645-1680. DOI: 10.1111/j.1540-6261.2006.00885.x. <a href="https://doi.org/10.1111/j.1540-6261.2006.00885.x">https://doi.org/10.1111/j.1540-6261.2006.00885.x</a>. <a href="data/bw2006.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">SENT</span></td><td>Sentiment index; updated version of Eq. (2) in Baker-Wurgler (2006); first principal component of five standardized sentiment proxies</td></tr>
@@ -659,7 +674,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">employ</span></td><td>Employment</td></tr>
 <tr><td class="text-nowrap"><span class="key">cpi</span></td><td>Consumer price index</td></tr>
 </tbody></table>
-<h2 id="fr2009"><span class="key">fr2009</span> <span class="count">27 variables</span></h2>
+<h2 id="fr2009"><span class="dom-dot" style="--dom:#eb6834"></span><span class="key">fr2009</span> <span class="count">27 variables</span></h2>
 <p class="count">N. Francis and V. A. Ramey. "Measures of per Capita Hours and Their Implications for the Technology-Hours Debate". In: <em>Journal of Money, Credit and Banking</em> 41.6 (2009), pp. 1071-1097. DOI: 10.1111/j.1538-4616.2009.00247.x. <a href="https://doi.org/10.1111/j.1538-4616.2009.00247.x">https://doi.org/10.1111/j.1538-4616.2009.00247.x</a>. <a href="data/fr2009.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">tothrs</span></td><td>Sprague-method total hours worked, billions</td></tr>
@@ -690,7 +705,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">dlp</span></td><td>Log change in labour productivity; missing before 2006</td></tr>
 <tr><td class="text-nowrap"><span class="key">ffr</span></td><td>Federal funds rate; missing before 2006</td></tr>
 </tbody></table>
-<h2 id="gwz2024_monthly"><span class="key">gwz2024_monthly</span> <span class="count">56 variables</span></h2>
+<h2 id="gwz2024_monthly"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">gwz2024_monthly</span> <span class="count">56 variables</span></h2>
 <p class="count">A. Goyal, I. Welch, and A. Zafirov. "A Comprehensive 2022 Look at the Empirical Performance of Equity Premium Prediction". In: <em>The Review of Financial Studies</em> 37.11 (2024), pp. 3490-3557. DOI: 10.1093/rfs/hhae044. <a href="https://doi.org/10.1093/rfs/hhae044">https://doi.org/10.1093/rfs/hhae044</a>. <a href="data/gwz2024_monthly.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">price</span></td><td>S&amp;P 500 price index level</td></tr>
@@ -750,7 +765,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">shtint</span></td><td>Short interest</td></tr>
 <tr><td class="text-nowrap"><span class="key">disag</span></td><td>Analyst forecast disagreement</td></tr>
 </tbody></table>
-<h2 id="ck1994"><span class="key">ck1994</span> <span class="count">46 variables</span></h2>
+<h2 id="ck1994"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">ck1994</span> <span class="count">46 variables</span></h2>
 <p class="count">D. Card and A. B. Krueger. "Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania". In: <em>American Economic Review</em> 84.4 (1994), pp. 772-793. DOI: 10.2307/2118030. <a href="https://www.jstor.org/stable/2118030">https://www.jstor.org/stable/2118030</a>. <a href="data/ck1994.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">sheet</span></td><td>Sheet number (unique store id)</td></tr>
@@ -800,7 +815,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">nregs2</span></td><td>Wave 2: number of cash registers in the store</td></tr>
 <tr><td class="text-nowrap"><span class="key">nregs112</span></td><td>Wave 2: number of registers open at 11:00 am</td></tr>
 </tbody></table>
-<h2 id="al1999"><span class="key">al1999</span> <span class="count">33 variables</span></h2>
+<h2 id="al1999"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">al1999</span> <span class="count">33 variables</span></h2>
 <p class="count">J. D. Angrist and V. Lavy. "Using Maimonides' Rule to Estimate the Effect of Class Size on Scholastic Achievement". In: <em>Quarterly Journal of Economics</em> 114.2 (1999), pp. 533-575. DOI: 10.1162/003355399556061. <a href="https://doi.org/10.1162/003355399556061">https://doi.org/10.1162/003355399556061</a>. <a href="data/al1999.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">grade</span></td><td>Grade level: 4 or 5 (final4.dta / final5.dta)</td></tr>
@@ -837,7 +852,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">c_status</span></td><td>School status code</td></tr>
 <tr><td class="text-nowrap"><span class="key">c_type</span></td><td>School type code</td></tr>
 </tbody></table>
-<h2 id="a1990_a"><span class="key">a1990_a</span> <span class="count">12 variables</span></h2>
+<h2 id="a1990_a"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">a1990_a</span> <span class="count">12 variables</span></h2>
 <p class="count">J. D. Angrist. "Lifetime Earnings and the Vietnam Era Draft Lottery: Evidence from Social Security Administrative Records". In: <em>American Economic Review</em> 80.3 (1990), pp. 313-336. <a href="https://economics.mit.edu/sites/default/files/publications/Angrist%201990%20-%20Lifetime%20Earnings%20and%20the%20Vietname%20.pdf">https://economics.mit.edu/sites/default/files/publications/Angrist%201990%20-%20Lifetime%20Earnings%20and%20the%20Vietname%20.pdf</a> <a href="data/a1990_a.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">byr</span></td><td>Year of birth (cohort), 1944-1953</td></tr>
@@ -853,12 +868,12 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">xltax</span></td><td>Cell statistic, as coded in the CWHS source file</td></tr>
 <tr><td class="text-nowrap"><span class="key">ctr1</span></td><td>Grouping code, as coded in the CWHS source file</td></tr>
 </tbody></table>
-<h2 id="a1990_b"><span class="key">a1990_b</span> <span class="count">1 variables</span></h2>
+<h2 id="a1990_b"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">a1990_b</span> <span class="count">1 variables</span></h2>
 <p class="count">J. D. Angrist. "Lifetime Earnings and the Vietnam Era Draft Lottery: Evidence from Social Security Administrative Records". In: <em>American Economic Review</em> 80.3 (1990), pp. 313-336. <a href="https://economics.mit.edu/sites/default/files/publications/Angrist%201990%20-%20Lifetime%20Earnings%20and%20the%20Vietname%20.pdf">https://economics.mit.edu/sites/default/files/publications/Angrist%201990%20-%20Lifetime%20Earnings%20and%20the%20Vietname%20.pdf</a> <a href="data/a1990_b.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">type</span></td><td>Earnings measure: TAXAB = FICA taxable earnings, TOTAL = total W-2 compensation</td></tr>
 </tbody></table>
-<h2 id="aai2002"><span class="key">aai2002</span> <span class="count">19 variables</span></h2>
+<h2 id="aai2002"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">aai2002</span> <span class="count">19 variables</span></h2>
 <p class="count">A. Abadie, J. Angrist, and G. Imbens. "Instrumental Variables Estimates of the Effect of Subsidized Training on the Quantiles of Trainee Earnings". In: <em>Econometrica</em> 70.1 (2002), pp. 91-117. DOI: 10.1111/1468-0262.00270. <a href="https://doi.org/10.1111/1468-0262.00270">https://doi.org/10.1111/1468-0262.00270</a>. <a href="data/aai2002.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">id</span></td><td>Participant identifier</td></tr>
@@ -881,7 +896,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">age4554</span></td><td>1 if age 45-54</td></tr>
 <tr><td class="text-nowrap"><span class="key">f2sms</span></td><td>1 if earnings are from the second follow-up survey</td></tr>
 </tbody></table>
-<h2 id="al2009"><span class="key">al2009</span> <span class="count">25 variables</span></h2>
+<h2 id="al2009"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">al2009</span> <span class="count">25 variables</span></h2>
 <p class="count">J. Angrist and V. Lavy. "The Effects of High Stakes High School Achievement Awards: Evidence from a Randomized Trial". In: <em>American Economic Review</em> 99.4 (2009), pp. 1384-1414. DOI: 10.1257/aer.99.4.1384. <a href="https://doi.org/10.1257/aer.99.4.1384">https://doi.org/10.1257/aer.99.4.1384</a>. <a href="data/al2009.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">year</span></td><td>Cohort year: 2000, 2001 or 2002</td></tr>
@@ -910,7 +925,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">achv_eng</span></td><td>1 if satisfied the Bagrut English requirement</td></tr>
 <tr><td class="text-nowrap"><span class="key">achv_hib</span></td><td>1 if satisfied the Bagrut Hebrew requirement</td></tr>
 </tbody></table>
-<h2 id="alo2009"><span class="key">alo2009</span> <span class="count">48 variables</span></h2>
+<h2 id="alo2009"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">alo2009</span> <span class="count">48 variables</span></h2>
 <p class="count">J. Angrist, D. Lang, and P. Oreopoulos. "Incentives and Services for College Achievement: Evidence from a Randomized Trial". In: <em>American Economic Journal: Applied Economics</em> 1.1 (2009), pp. 136-163. DOI: 10.1257/app.1.1.136. <a href="https://doi.org/10.1257/app.1.1.136">https://doi.org/10.1257/app.1.1.136</a>. <a href="data/alo2009.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">GPA_year1</span></td><td>First-year GPA (0-4)</td></tr>
@@ -962,7 +977,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">used_ssp</span></td><td>1 if received SSP services</td></tr>
 <tr><td class="text-nowrap"><span class="key">work1</span></td><td>1 if plans to work while in school</td></tr>
 </tbody></table>
-<h2 id="abk2006"><span class="key">abk2006</span> <span class="count">15 variables</span></h2>
+<h2 id="abk2006"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">abk2006</span> <span class="count">15 variables</span></h2>
 <p class="count">J. Angrist, E. Bettinger, and M. Kremer. "Long-Term Educational Consequences of Secondary School Vouchers: Evidence from Administrative Records in Colombia". In: <em>American Economic Review</em> 96.3 (2006), pp. 847-862. DOI: 10.1257/aer.96.3.847. <a href="https://doi.org/10.1257/aer.96.3.847">https://doi.org/10.1257/aer.96.3.847</a>. <a href="data/abk2006.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">vouch0</span></td><td>1 if won the original PACES voucher lottery</td></tr>
@@ -981,7 +996,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">mathcens1</span></td><td>Math score, censored at the 1st percentile</td></tr>
 <tr><td class="text-nowrap"><span class="key">mathcens10</span></td><td>Math score, censored at the 10th percentile</td></tr>
 </tbody></table>
-<h2 id="abbkk2002"><span class="key">abbkk2002</span> <span class="count">27 variables</span></h2>
+<h2 id="abbkk2002"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">abbkk2002</span> <span class="count">27 variables</span></h2>
 <p class="count">J. Angrist, E. Bettinger, E. Bloom, et al. "Vouchers for Private Schooling in Colombia: Evidence from a Randomized Natural Experiment". In: <em>American Economic Review</em> 92.5 (2002), pp. 1535-1558. DOI: 10.1257/000282802762024629. <a href="https://doi.org/10.1257/000282802762024629">https://doi.org/10.1257/000282802762024629</a>. <a href="data/abbkk2002.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">id</span></td><td>Applicant identifier</td></tr>
@@ -1012,7 +1027,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">response</span></td><td>1 if responded to the follow-up survey</td></tr>
 <tr><td class="text-nowrap"><span class="key">svy</span></td><td>1 if surveyed using the new (post-1997) questionnaire</td></tr>
 </tbody></table>
-<h2 id="adh2013"><span class="key">adh2013</span> <span class="count">31 variables</span></h2>
+<h2 id="adh2013"><span class="dom-dot" style="--dom:#1baf7a"></span><span class="key">adh2013</span> <span class="count">31 variables</span></h2>
 <p class="count">D. H. Autor, D. Dorn, and G. H. Hanson. "The China Syndrome: Local Labor Market Effects of Import Competition in the United States". In: <em>American Economic Review</em> 103.6 (2013), pp. 2121-2168. DOI: 10.1257/aer.103.6.2121. <a href="https://doi.org/10.1257/aer.103.6.2121">https://doi.org/10.1257/aer.103.6.2121</a>. <a href="data/adh2013.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">czone</span></td><td>Commuting zone identifier</td></tr>
@@ -1047,7 +1062,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">d_tradeusch_pw</span></td><td>10-year change in Chinese import exposure per worker (main regressor)</td></tr>
 <tr><td class="text-nowrap"><span class="key">d_tradeotch_pw_lag</span></td><td>Instrument: change in other countries' Chinese import exposure per worker</td></tr>
 </tbody></table>
-<h2 id="duflo2001"><span class="key">duflo2001</span> <span class="count">29 variables</span></h2>
+<h2 id="duflo2001"><span class="dom-dot" style="--dom:#4a3aa7"></span><span class="key">duflo2001</span> <span class="count">29 variables</span></h2>
 <p class="count">E. Duflo. "Schooling and Labor Market Consequences of School Construction in Indonesia: Evidence from an Unusual Policy Experiment". In: <em>American Economic Review</em> 91.4 (2001), pp. 795-813. DOI: 10.1257/aer.91.4.795. <a href="https://doi.org/10.1257/aer.91.4.795">https://doi.org/10.1257/aer.91.4.795</a>. <a href="data/duflo2001.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">birthpl</span></td><td>Birth province and regency code, 1995</td></tr>
@@ -1080,7 +1095,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">nen71newish</span></td><td>Non-enrollment rate, 1971 (ch71new denominator)</td></tr>
 <tr><td class="text-nowrap"><span class="key">poor</span></td><td>1 if a poor regency, as defined in Duflo (2001, Table 6, note b)</td></tr>
 </tbody></table>
-<h2 id="eampd"><span class="key">eampd</span> <span class="count">46 variables</span></h2>
+<h2 id="eampd"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">eampd</span> <span class="count">46 variables</span></h2>
 <p class="count">C. Altavilla, L. Brugnolini, R. S. Gürkaynak, et al. "Measuring Euro Area Monetary Policy". In: <em>Journal of Monetary Economics</em> 108 (2019), pp. 162-179. DOI: 10.1016/j.jmoneco.2019.08.016. <a href="https://doi.org/10.1016/j.jmoneco.2019.08.016">https://doi.org/10.1016/j.jmoneco.2019.08.016</a>. <a href="data/eampd.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">date</span></td><td>Date of the Governing Council monetary policy event</td></tr>
@@ -1130,7 +1145,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">eurgbp</span></td><td>EUR/GBP exchange rate percent change</td></tr>
 <tr><td class="text-nowrap"><span class="key">eurjpy</span></td><td>EUR/JPY exchange rate percent change</td></tr>
 </tbody></table>
-<h2 id="eampd_pr"><span class="key">eampd_pr</span> <span class="count">46 variables</span></h2>
+<h2 id="eampd_pr"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">eampd_pr</span> <span class="count">46 variables</span></h2>
 <p class="count">C. Altavilla, L. Brugnolini, R. S. Gürkaynak, et al. "Measuring Euro Area Monetary Policy". In: <em>Journal of Monetary Economics</em> 108 (2019), pp. 162-179. DOI: 10.1016/j.jmoneco.2019.08.016. <a href="https://doi.org/10.1016/j.jmoneco.2019.08.016">https://doi.org/10.1016/j.jmoneco.2019.08.016</a>. <a href="data/eampd_pr.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">date</span></td><td>Date of the Governing Council monetary policy event</td></tr>
@@ -1180,7 +1195,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">eurgbp</span></td><td>EUR/GBP exchange rate percent change</td></tr>
 <tr><td class="text-nowrap"><span class="key">eurjpy</span></td><td>EUR/JPY exchange rate percent change</td></tr>
 </tbody></table>
-<h2 id="eampd_pc"><span class="key">eampd_pc</span> <span class="count">46 variables</span></h2>
+<h2 id="eampd_pc"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">eampd_pc</span> <span class="count">46 variables</span></h2>
 <p class="count">C. Altavilla, L. Brugnolini, R. S. Gürkaynak, et al. "Measuring Euro Area Monetary Policy". In: <em>Journal of Monetary Economics</em> 108 (2019), pp. 162-179. DOI: 10.1016/j.jmoneco.2019.08.016. <a href="https://doi.org/10.1016/j.jmoneco.2019.08.016">https://doi.org/10.1016/j.jmoneco.2019.08.016</a>. <a href="data/eampd_pc.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">date</span></td><td>Date of the Governing Council monetary policy event</td></tr>
@@ -1230,7 +1245,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">eurgbp</span></td><td>EUR/GBP exchange rate percent change</td></tr>
 <tr><td class="text-nowrap"><span class="key">eurjpy</span></td><td>EUR/JPY exchange rate percent change</td></tr>
 </tbody></table>
-<h2 id="bs2023_fomc"><span class="key">bs2023_fomc</span> <span class="count">23 variables</span></h2>
+<h2 id="bs2023_fomc"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">bs2023_fomc</span> <span class="count">23 variables</span></h2>
 <p class="count">M. D. Bauer and E. T. Swanson. "A Reassessment of Monetary Policy Surprises and High-Frequency Identification". In: <em>NBER Macroeconomics Annual</em> 37.1 (2023), pp. 87-155. DOI: 10.1086/723574. <a href="https://doi.org/10.1086/723574">https://doi.org/10.1086/723574</a>. <a href="data/bs2023_fomc.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">date</span></td><td>Date of the FOMC announcement</td></tr>
@@ -1257,7 +1272,7 @@ footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9re
 <tr><td class="text-nowrap"><span class="key">bcom_3m</span></td><td>Bloomberg Commodity index return over the prior 3 months</td></tr>
 <tr><td class="text-nowrap"><span class="key">tr_skew</span></td><td>Implied skewness of Treasury yield options before the announcement</td></tr>
 </tbody></table>
-<h2 id="hlw2017"><span class="key">hlw2017</span> <span class="count">12 variables</span></h2>
+<h2 id="hlw2017"><span class="dom-dot" style="--dom:#2a78d6"></span><span class="key">hlw2017</span> <span class="count">12 variables</span></h2>
 <p class="count">K. Holston, T. Laubach, and J. C. Williams. "Measuring the Natural Rate of Interest: International Trends and Determinants". In: <em>Journal of International Economics</em> 108.S1 (2017), pp. S59-S75. DOI: 10.1016/j.jinteco.2017.01.004. <a href="https://doi.org/10.1016/j.jinteco.2017.01.004">https://doi.org/10.1016/j.jinteco.2017.01.004</a>. <a href="data/hlw2017.csv" class="btn btn-outline-secondary btn-csv ms-2" download>csv</a></p>
 <table class="table table-sm"><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
 <tr><td class="text-nowrap"><span class="key">g_us</span></td><td>US trend GDP growth, annualised (HLW state-space estimate)</td></tr>
