@@ -119,7 +119,11 @@ usethis::use_data(al2009, overwrite = TRUE)
 # Angrist data archive -> STARdatapost.zip: STAR_public_use.dta
 
 alo2009 <- haven::read_dta("data-raw/alo2009/STAR_public_use.dta") %>%
-  as_tibble()
+  as_tibble() %>%
+  # dad_edn/mom_edn/lastmin carry Stata value labels (e.g. 6 = "completed a
+  # bachelor's degree"); resolve to the label text instead of shipping an
+  # opaque haven_labelled numeric code
+  mutate(across(where(haven::is.labelled), ~ as.character(haven::as_factor(.x))))
 
 usethis::use_data(alo2009, overwrite = TRUE)
 
